@@ -11,8 +11,10 @@
 @interface SpriteBox : IGSprite
 {
     GameBoxType bType;
+    BOOL isTarget;
 }
 @property(nonatomic)GameBoxType bType;
+@property(nonatomic)BOOL isTarget;
 +(id)spriteBoxWithType:(GameBoxType)type;
 +(id)spriteBoxWithRandomType;
 @end

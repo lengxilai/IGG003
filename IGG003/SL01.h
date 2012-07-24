@@ -24,4 +24,5 @@
 // 消除目标点箱子的两个方法，第一个方法会调用第二个方法
 -(void)removeBoxForMxPoint:(MxPoint)mp;
 -(void)removeTargetBoxForMxPoint:(MxPoint)mp;
+-(void)removeBoxForTools01:(MxPoint)mp;
 @end

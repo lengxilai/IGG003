@@ -129,4 +129,111 @@
     CCSequence *mb = [CCSequence actions:mb1,mb2,mb3,mb4,mb5,particleCallback,delCallback, nil];
     [box runAction:mb];
 }
+
+// 显示消除箱子时的动画效果
++(void)showTools01BoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender forParticleManager:(IGParticleManager*)particleManager
+{
+    CGPoint position = box.position;
+    GameBoxType bType = box.bType;
+    if (box.isTarget) {
+        // 粒子效果
+        CCParticleSystemQuad *popParticle = [particleManager particleOfType:@"tools01"];
+        popParticle.position = position;
+        // 根据箱子类型修改粒子效果
+        //[IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
+        [popParticle resetSystem];
+        return;
+    }
+    
+    // 粒子效果
+    CCParticleSystemQuad *popParticle = [particleManager particleOfType:@"pop"];
+    popParticle.position = position;
+    // 根据箱子类型修改粒子效果
+    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
+    [popParticle resetSystem];
+    
+    // 创建分裂之后的箱子
+    IGSprite *lS = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%dl.png",bType]];
+    IGSprite *rS = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%dr.png",bType]];
+    lS.position = ccp(position.x,position.y);
+    rS.position = ccp(position.x,position.y);
+    
+    // 跳跃时间和高度
+    float jumpTime = 0.3*fTimeRate;
+    float jumpHeight = kBoxSize;
+    // 旋转时间和角度
+    float roTime = 0.3*fTimeRate;
+    float roAngle = 60;
+    // 渐隐时间
+    float fadeTime = 0.5*fTimeRate;
+    // 缩放时间和比率
+    float scaleTime = 0.1*fTimeRate;
+    float scaleRate = 1.0;
+    
+    // 跳跃动作
+    CCJumpTo* mL = [CCJumpTo actionWithDuration:jumpTime position:ccp(position.x - kBoxSize,position.y - kBoxSize/2) height:jumpHeight jumps:1]; 
+    CCJumpTo* mR = [CCJumpTo actionWithDuration:jumpTime position:ccp(position.x + kBoxSize,position.y - kBoxSize/2) height:jumpHeight jumps:1];
+    
+    // 旋转
+    CCRotateTo* roL = [CCRotateTo  actionWithDuration:roTime angle:360-roAngle];
+    CCRotateTo* roR = [CCRotateTo actionWithDuration:roTime angle:roAngle];
+    
+    // 渐隐
+    CCFadeOut* foL = [CCFadeOut actionWithDuration:fadeTime];
+    CCFadeOut* foR = [CCFadeOut actionWithDuration:fadeTime];
+    
+    // 缩放
+    CCScaleTo* scaleL = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];
+    CCScaleTo* scaleR = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];
+    
+    // 同步执行所有动画
+    CCSpawn *sL = [CCSpawn actions:mL,foL,roL,scaleL, nil];
+    CCSpawn *sR = [CCSpawn actions:mR,foR,roR,scaleR, nil];
+    
+    // 通过回调函数删除用于显示动画效果的Sprite
+    id callbackL = [CCCallFuncN actionWithTarget:sender selector:@selector(actionEndCallback:)];
+    id callbackR = [CCCallFuncN actionWithTarget:sender selector:@selector(actionEndCallback:)];
+    
+    CCSequence *seqL = [CCSequence actions:sL,callbackL, nil];
+    CCSequence *seqR = [CCSequence actions:sR,callbackR, nil];
+    
+    [sender addChild:rS];
+    [sender addChild:lS];
+    [lS runAction:seqL];
+    [rS runAction:seqR];
+}
+
+// 准备消除时的晃动效果
++(void)showReadyTools01BoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender
+{
+    // 放大
+    float scaleTime = 0.15*fTimeRate;
+    float scaleRate = 1.8;
+    CCScaleTo *st = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];
+    
+    // 晃动的动画
+    float mobeStepTime = 0.03*fTimeRate;
+    id mb1 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(5,0)];
+    id mb2 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(-10,0)];
+    id mb3 = [mb2 reverse];
+    id mb4 = [mb3 reverse];
+    id mb5 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(5,0)];
+    
+    // 通过回调函数删除用于显示动画效果的Sprite
+    id delCallback = [CCCallFuncN actionWithTarget:sender selector:@selector(actionEndCallback:)];
+    // 通过回调函数显示粒子效果
+    id particleCallback = [CCCallFuncN actionWithTarget:sender selector:@selector(showPopParticleForTools01:)];
+    
+    if (!box.isTarget) {
+        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime scale:1.0],delCallback,particleCallback, nil];
+        [box runAction:se];
+        return;
+    }
+    
+    // 显示动画、晃动->粒子效果->删除元素
+    CCSequence *mb = [CCSequence actions:mb1,mb2,mb3,mb4,mb5, nil];
+    CCSpawn *sp = [CCSpawn actions:mb,st, nil];
+    CCSequence *se = [CCSequence actions:sp,delCallback,particleCallback, nil];
+    [box runAction:se];
+}
 @end

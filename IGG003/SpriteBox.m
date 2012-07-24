@@ -10,6 +10,7 @@
 
 @implementation SpriteBox
 @synthesize bType;
+@synthesize isTarget;
 +(id)spriteBoxWithType:(GameBoxType)type
 {
     SpriteBox* box = [SpriteBox spriteWithSpriteFrameName:[NSString stringWithFormat:@"%d.png",type]];

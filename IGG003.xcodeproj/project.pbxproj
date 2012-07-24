@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18DE7A9115BE6D8100F9D2D8 /* popb.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A8F15BE6D8100F9D2D8 /* popb.png */; };
 		18DE7A9515BE6E7700F9D2D8 /* tools01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A9415BE6E7700F9D2D8 /* tools01.plist */; };
+		18DE7A9715BE84B300F9D2D8 /* igt003_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */; };
 		D7030A8115B6B2D000BA5EF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7030A8015B6B2D000BA5EF4 /* QuartzCore.framework */; };
 		D7030A8315B6B2D000BA5EF4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7030A8215B6B2D000BA5EF4 /* OpenGLES.framework */; };
 		D7030A8515B6B2D000BA5EF4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7030A8415B6B2D000BA5EF4 /* OpenAL.framework */; };
@@ -145,6 +146,7 @@
 /* Begin PBXFileReference section */
 		18DE7A8F15BE6D8100F9D2D8 /* popb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popb.png; sourceTree = "<group>"; };
 		18DE7A9415BE6E7700F9D2D8 /* tools01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tools01.plist; sourceTree = "<group>"; };
+		18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "igt003_default-hd.png"; path = "images/igt003_default-hd.png"; sourceTree = "<group>"; };
 		D7030A7C15B6B2D000BA5EF4 /* IGG003.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IGG003.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7030A8015B6B2D000BA5EF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D7030A8215B6B2D000BA5EF4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -871,6 +873,7 @@
 		D7030BFA15B6B35A00BA5EF4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */,
 				18DE7A9415BE6E7700F9D2D8 /* tools01.plist */,
 				18DE7A8F15BE6D8100F9D2D8 /* popb.png */,
 				D7030BFF15B6B3C900BA5EF4 /* igt003_default.plist */,
@@ -948,6 +951,7 @@
 				D7030C0415B6B3C900BA5EF4 /* selectedbar.png in Resources */,
 				18DE7A9115BE6D8100F9D2D8 /* popb.png in Resources */,
 				18DE7A9515BE6E7700F9D2D8 /* tools01.plist in Resources */,
+				18DE7A9715BE84B300F9D2D8 /* igt003_default-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

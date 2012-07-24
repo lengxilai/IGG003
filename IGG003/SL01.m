@@ -1,6 +1,6 @@
 //
 //  SL01.m
-//  IGT003
+//  IGT003 Liuming
 //
 //  Created by Ming Liu on 12-6-27.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.

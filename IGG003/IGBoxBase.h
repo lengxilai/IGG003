@@ -21,6 +21,9 @@
 // 初始化
 -(id)initForLayer:(CCNode*)sender forParticle:(IGParticleManager*)pm;
 
+// 普通消除
+-(void)run:(MxPoint)mp;
+
 // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
 -(NSArray*)getNewBox;
 
@@ -29,4 +32,7 @@
 
 // 重新刷新箱子矩阵
 -(void)reload:(NSArray*)newBoxs;
+
+// 普通消除的十字消除
+-(void)removeBoxChildForMxPoint:(SpriteBox*)box;
 @end

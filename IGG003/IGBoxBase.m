@@ -12,6 +12,13 @@
 @synthesize node;
 @synthesize particleManager;
 
+- (void) dealloc
+{
+	[super dealloc];
+    [self.node release];
+    [self.particleManager release];
+}
+
 -(id)initForLayer:(CCNode*)sender forParticle:(IGParticleManager*)pm
 {
     self = [super init];
@@ -20,6 +27,53 @@
         self.particleManager = pm;
     }
     return self;
+}
+
+// 运行普通消除
+-(void)run:(MxPoint)mp
+{
+    // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
+    NSArray *t01Boxs = [self delAllBox:mp];
+    // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
+    NSArray *newBoxs = [self getNewBox];
+
+    // 循环删除箱子并且显示动画效果
+    for (SpriteBox *box in t01Boxs) {
+        [self removeBoxChildForMxPoint:box];
+    }
+    
+    // 延时重新刷新箱子矩阵
+    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];
+}
+
+// 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
+-(NSArray*)delAllBox:(MxPoint)mp
+{
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
+    int r = mp.R;
+    int c = mp.C;
+    
+    // 取得目标箱子
+    int targetBoxTag = r*kBoxTagR+c;
+    SpriteBox *b = (SpriteBox *)[node getChildByTag:targetBoxTag];
+    
+    assert([b isKindOfClass:[SpriteBox class]]);
+    
+    for (int i = 0; i < kGameSizeRows; i++) {
+        for (int j = 0; j < kGameSizeCols; j++) {
+            int boxTag = i*kBoxTagR+j;
+            // 取得相应位置的箱子
+            SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
+            // 如果没有被删除并且类型一致
+            if (!box.isDel && box.bType == b.bType && 
+                    (box.tag/kBoxTagR == r || box.tag%kBoxTagR == c)) {
+                box.isDel = YES;
+                [result addObject:box];
+            }
+        }
+    }
+    
+    return result;
 }
 
 // 重新刷新箱子矩阵
@@ -78,7 +132,6 @@
     }
     return result;
 }
-
 
 // 取得一个箱子周围的8个箱子（不包括自己）
 -(NSArray*)getLRUDBox:(SpriteBox*)box
@@ -166,4 +219,23 @@
     }
     return result;
 }
+
+
+
+// 显示消除箱子时的动画效果，在IGAnimeUtil showReadyRemoveBoxAnime中使用回调调用
+-(void)showPopParticle:(SpriteBox*)box
+{   
+    // 显示消除箱子时的动画效果
+    [IGAnimeUtil showRemoveBoxAnime:box forBoxBase:self];
+}
+
+// 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
+-(void)removeBoxChildForMxPoint:(SpriteBox*)box
+{
+    // 先把box的tag设定为0,这句很重要，表明已经从矩阵中删除了箱子
+    box.tag = 999;
+    // // 准备消除时的晃动效果
+    [IGAnimeUtil showReadyRemoveBoxAnime:box forBoxBase:self];
+}
+
 @end

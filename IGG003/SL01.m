@@ -30,7 +30,7 @@
         // 粒子效果缓存
         particleManager = [[IGParticleManager alloc] initWithScene:self];
         [particleManager add:16 particleOfType:@"pop" atZ:1];
-        [particleManager add:3 particleOfType:@"tools01" atZ:2];
+        [particleManager add:9 particleOfType:@"tools01" atZ:2];
         
         // 显示所有箱子
         [self showBoxs];
@@ -55,7 +55,6 @@
 // 显示所有箱子
 -(void)showBoxs
 {
-    NSLog(@"%@ start",NSStringFromSelector(_cmd));
     // 取得游戏状态中的矩阵
     IGGameState *gs = [IGGameState gameState];
     NSArray *m = gs.m;
@@ -77,7 +76,6 @@
 {
     // 取消定时运行本方法
     [self unschedule:_cmd];
-    NSLog(@"%@ start",NSStringFromSelector(_cmd));
     for (int i = 0; i < kGameSizeRows; i++) {
         for (int j = 0; j < kGameSizeCols; j++) {
             int boxTag = i*kBoxTagR+j;
@@ -112,7 +110,7 @@
 -(void)removeBoxChildForMxPoint:(SpriteBox*)box
 {
     // 先把box的tag设定为0,这句很重要，表明已经从矩阵中删除了箱子
-    box.tag = 0;
+    box.tag = 999;
     // // 准备消除时的晃动效果
     [IGAnimeUtil showReadyRemoveBoxAnime:box forLayer:self];
 }
@@ -122,7 +120,6 @@
 {
     int r = mp.R;
     int c = mp.C;
-    NSLog(@"%@ start",NSStringFromSelector(_cmd));
     
     // 取得目标箱子
     int targetBoxTag = r*kBoxTagR+c;
@@ -203,19 +200,79 @@
 
 #pragma mark -
 #pragma mark 道具01－炸弹
-// 用炸弹消除某一个箱子
--(void)removeBoxForTools01:(MxPoint)mp
+-(void)runTools01:(MxPoint)mp
 {
+    NSArray *t01Boxs = [self delAllTools01Box:mp];
+    NSArray *newBoxs = [self getNewBoxForTools01];
+    int i = 0;
+    float time = 0.2;
+    for (SpriteBox *box in t01Boxs) {
+        [self performSelector:@selector(removeBoxForTools01:) withObject:box afterDelay:i*time*fTimeRate];
+        //[self removeBoxForTools01:box];
+        i++;
+    }
+    
+    [self performSelector:@selector(reloadT01:) withObject:newBoxs afterDelay:i*time*fTimeRate];
+}
+
+-(void)reloadT01:(NSArray*)newBoxs
+{
+    for (SpriteBox *newBox in newBoxs) {
+        if (newBox.isBefore) {
+            newBox.tag = newBox.beforeTag;
+            newBox.isBefore = NO;
+        }else {
+            [self addChild:newBox];
+        }
+    }
+    [self reloadBoxs];
+    // 延时刷新矩阵
+    [self schedule:@selector(reloadBoxs) interval:0.1];
+}
+
+-(void)delTool01Box:(SpriteBox*)box
+{
+    box.isDel = YES;
+    box.isTarget = YES;
+    NSArray *LRUDBox = [self getLRUDBox:box];
+    for (SpriteBox* b in LRUDBox) {
+        b.isDel = YES;
+    }
+}
+
+-(NSArray*)delAllTools01Box:(MxPoint)mp
+{
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
     int r = mp.R;
     int c = mp.C;
-    NSLog(@"%@ start",NSStringFromSelector(_cmd));
     
     // 取得目标箱子
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
+    [self delTool01Box:b];
+    [result addObject:b];
     
     assert([b isKindOfClass:[SpriteBox class]]);
     
+    for (int i = 0; i < kGameSizeRows; i++) {
+        for (int j = 0; j < kGameSizeCols; j++) {
+            int boxTag = i*kBoxTagR+j;
+            // 取得相应位置的箱子
+            SpriteBox *box = (SpriteBox *)[self getChildByTag:boxTag];
+            if (!box.isDel && box.bType == b.bType) {
+                [self delTool01Box:box];
+                [result addObject:box];
+            }
+        }
+    }
+    
+    return result;
+}
+
+// 添加新的
+-(NSArray*)getNewBoxForTools01
+{
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:10];
     // 所有列
     for (int j = 0; j < kGameSizeCols; j++) {
         
@@ -229,19 +286,16 @@
             // 取得相应位置的箱子
             SpriteBox *box = (SpriteBox *)[self getChildByTag:boxTag];
             // 如果在目标箱子周围1的范围内
-            if ((r - i)*(r - i) <= 1 && (c - j)*(c - j) <= 1) {
-                if (r == i && c == j) {
-                    [self removeBoxChildForTools01:box isTarget:YES];
-                }else {
-                    [self removeBoxChildForTools01:box isTarget:NO];
-                }
+            if (box.isDel) {
                 // 相减行数加一
                 subRCount++;
                 // 继续下一次循环
                 continue;
             }
             // 根据相减行数重新计算箱子位置（tag就代表位置）
-            box.tag = box.tag - kBoxTagR*subRCount;
+            box.beforeTag = box.tag - kBoxTagR*subRCount;
+            box.isBefore = YES;
+            [result addObject:box];
         }
         // 根据相减行数，在最上面追加新的箱子
         for (int i = 0; i < subRCount; i++) {
@@ -252,12 +306,109 @@
             s.tag = (kGameSizeRows-subRCount+i)*kBoxTagR+j;
             // 添加之后先不显示
             s.visible = NO;
-            [self addChild:s];
+            [result addObject:s];
         }
     }
+    return result;
+}
+
+// 用炸弹消除某一个箱子
+-(void)removeBoxForTools01:(SpriteBox*)box
+{
+    NSArray *LRUDBox = [self getLRUDBox:box];
+    for (SpriteBox* b in LRUDBox) {
+        [self removeBoxChildForTools01:b];
+    }
+    box.isDel = YES;
+    box.isTarget = YES;
+    [self removeBoxChildForTools01:box];
+}
+
+-(NSArray*)getLRUDBox:(SpriteBox*)box
+{
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:8];
     
-    // 延时刷新矩阵
-    [self schedule:@selector(reloadBoxs) interval:0.3*fTimeRate];
+    { 
+        // 左上
+        int tag = box.tag-1+kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 上
+        int tag = box.tag+kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 右上
+        int tag = box.tag+1+kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 左
+        int tag = box.tag-1;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 右
+        int tag = box.tag+1;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 左下
+        int tag = box.tag-1-kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 下
+        int tag = box.tag-kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 右下
+        int tag = box.tag+1-kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[self getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
+    return result;
 }
 
 // 显示Tools01时的动画效果，在IGAnimeUtil showReadyRemoveBoxAnime中使用回调调用
@@ -268,11 +419,10 @@
 }
 
 // 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
--(void)removeBoxChildForTools01:(SpriteBox*)box isTarget:(BOOL)isTarget
+-(void)removeBoxChildForTools01:(SpriteBox*)box
 {
-    // 先把box的tag设定为0,这句很重要，表明已经从矩阵中删除了箱子
-    box.tag = 0;
-    box.isTarget = isTarget;
+    // 先把box的tag设定为999,这句很重要，表明已经从矩阵中删除了箱子
+    box.tag = 999;
     // // 准备消除时的晃动效果
     [IGAnimeUtil showReadyTools01BoxAnime:box forLayer:self];
 }

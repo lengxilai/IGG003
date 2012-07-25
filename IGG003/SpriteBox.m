@@ -11,15 +11,28 @@
 @implementation SpriteBox
 @synthesize bType;
 @synthesize isTarget;
+@synthesize isDel;
+@synthesize isBefore;
+@synthesize beforeTag;
 +(id)spriteBoxWithType:(GameBoxType)type
 {
     SpriteBox* box = [SpriteBox spriteWithSpriteFrameName:[NSString stringWithFormat:@"%d.png",type]];
     box.bType = type;
+    box.isDel = NO;
+    box.isTarget = NO;
+    box.isBefore = NO;
     return box;
 }
 +(id)spriteBoxWithRandomType
 {
     GameBoxType type = CCRANDOM_0_1()*7 + 1;
     return [SpriteBox spriteBoxWithType:type];
+}
+
+-(MxPoint)getMxPointByTag
+{
+    int r = self.tag / kBoxTagR;
+    int c = self.tag % kBoxTagR;
+    return MxPointMake(r, c);
 }
 @end

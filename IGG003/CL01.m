@@ -89,7 +89,7 @@
             wBar.hidden = YES;
             hBar.hidden = YES;
             // 调用游戏层进行消除
-            [self.sl01 removeBoxForTools01:mp];
+            [self.sl01 runTools01:mp];
             cType = eCNothing;
         }else {
             // 否则不进行消除，重新设定透明指示条位置（选中点发生了变化）

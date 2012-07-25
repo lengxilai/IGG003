@@ -12,9 +12,17 @@
 {
     GameBoxType bType;
     BOOL isTarget;
+    BOOL isDel;
+    int beforeTag;
+    BOOL isBefore;
 }
 @property(nonatomic)GameBoxType bType;
 @property(nonatomic)BOOL isTarget;
+@property(nonatomic)BOOL isDel;
+@property(nonatomic)int beforeTag;
+@property(nonatomic)BOOL isBefore;
 +(id)spriteBoxWithType:(GameBoxType)type;
 +(id)spriteBoxWithRandomType;
+
+-(MxPoint)getMxPointByTag;
 @end

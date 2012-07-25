@@ -131,13 +131,13 @@
 }
 
 // 显示消除箱子时的动画效果
-+(void)showTools01BoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender forParticleManager:(IGParticleManager*)particleManager
++(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase
 {
     CGPoint position = box.position;
     GameBoxType bType = box.bType;
     if (box.isTarget) {
         // 粒子效果
-        CCParticleSystemQuad *popParticle = [particleManager particleOfType:@"tools01"];
+        CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"tools01"];
         popParticle.position = position;
         // 根据箱子类型修改粒子效果
         //[IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
@@ -146,7 +146,7 @@
     }
     
     // 粒子效果
-    CCParticleSystemQuad *popParticle = [particleManager particleOfType:@"pop"];
+    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
     popParticle.position = position;
     // 根据箱子类型修改粒子效果
     [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
@@ -191,20 +191,20 @@
     CCSpawn *sR = [CCSpawn actions:mR,foR,roR,scaleR, nil];
     
     // 通过回调函数删除用于显示动画效果的Sprite
-    id callbackL = [CCCallFuncN actionWithTarget:sender selector:@selector(actionEndCallback:)];
-    id callbackR = [CCCallFuncN actionWithTarget:sender selector:@selector(actionEndCallback:)];
+    id callbackL = [CCCallFuncN actionWithTarget:boxBase.node selector:@selector(actionEndCallback:)];
+    id callbackR = [CCCallFuncN actionWithTarget:boxBase.node selector:@selector(actionEndCallback:)];
     
     CCSequence *seqL = [CCSequence actions:sL,callbackL, nil];
     CCSequence *seqR = [CCSequence actions:sR,callbackR, nil];
     
-    [sender addChild:rS];
-    [sender addChild:lS];
+    [boxBase.node addChild:rS];
+    [boxBase.node addChild:lS];
     [lS runAction:seqL];
     [rS runAction:seqR];
 }
 
 // 准备消除时的晃动效果
-+(void)showReadyTools01BoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender
++(void)showReadyTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase
 {
     // 放大
     float scaleTime = 0.15*fTimeRate;
@@ -220,9 +220,9 @@
     id mb5 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(5,0)];
     
     // 通过回调函数删除用于显示动画效果的Sprite
-    id delCallback = [CCCallFuncN actionWithTarget:sender selector:@selector(actionEndCallback:)];
+    id delCallback = [CCCallFuncN actionWithTarget:boxBase.node selector:@selector(actionEndCallback:)];
     // 通过回调函数显示粒子效果
-    id particleCallback = [CCCallFuncN actionWithTarget:sender selector:@selector(showPopParticleForTools01:)];
+    id particleCallback = [CCCallFuncN actionWithTarget:boxBase selector:@selector(showPopParticleForTools01:)];
     
     if (!box.isTarget) {
         CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime scale:1.0],delCallback,particleCallback, nil];

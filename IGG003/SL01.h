@@ -11,6 +11,7 @@
 #import "SpriteBox.h"
 #import "IGParticleManager.h"
 #import "IGAnimeUtil.h"
+#import "IGBoxTools01.h"
 
 @interface SL01 : IGLayer
 {

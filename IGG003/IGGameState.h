@@ -13,6 +13,11 @@ typedef enum{
     eGbt0 = 0,eGbt1 = 1,eGbt2 = 2,eGbt3 = 3,eGbt4 = 4,eGbt5 = 5,eGbt6 = 6,eGbt7 = 7,eGbt8 = 8,
 } GameBoxType;
 
+// 道具类型 冰冻  闪电   炸弹  增加时间  十字斩   欢乐时光  地雷
+typedef enum{
+    toolsNO = 0,tools01 = 1,tools02 = 2,tools03 = 3,tools04 = 4,tools05 = 5,tools06 = 6,tools07 = 7,
+} GameToolType;
+
 // 矩阵的状态
 typedef enum{
     eGMoving,egNothing,

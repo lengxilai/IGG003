@@ -14,6 +14,9 @@
 @synthesize isDel;
 @synthesize isBefore;
 @synthesize beforeTag;
+@synthesize isTool;
+@synthesize tType;
+
 +(id)spriteBoxWithType:(GameBoxType)type
 {
     SpriteBox* box = [SpriteBox spriteWithSpriteFrameName:[NSString stringWithFormat:@"%d.png",type]];
@@ -21,6 +24,8 @@
     box.isDel = NO;
     box.isTarget = NO;
     box.isBefore = NO;
+    box.isTool = NO;
+    box.tType = toolsNO;
     return box;
 }
 +(id)spriteBoxWithRandomType

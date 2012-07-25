@@ -131,7 +131,7 @@
 }
 
 // 显示消除箱子时的动画效果
-+(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase
++(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase
 {
     CGPoint position = box.position;
     GameBoxType bType = box.bType;
@@ -204,7 +204,7 @@
 }
 
 // 准备消除时的晃动效果
-+(void)showReadyTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase
++(void)showReadyTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase
 {
     // 放大
     float scaleTime = 0.15*fTimeRate;

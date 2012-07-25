@@ -8,7 +8,8 @@
 
 #import "IGParticleManager.h"
 #import "SpriteBox.h"
-#import "IGAnimeUtil.h"
+
+@class IGAnimeUtil;
 @interface IGBoxBase : NSObject
 {
     CCNode *node;

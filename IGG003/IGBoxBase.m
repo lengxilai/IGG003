@@ -11,6 +11,7 @@
 @implementation IGBoxBase
 @synthesize node;
 @synthesize particleManager;
+
 -(id)initForLayer:(CCNode*)sender forParticle:(IGParticleManager*)pm
 {
     self = [super init];

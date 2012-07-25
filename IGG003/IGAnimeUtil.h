@@ -6,12 +6,12 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "SpriteBox.h"
-#import "IGParticleManager.h"
-#import "IGBoxBase.h"
+#import "IGBoxTools01.h"
 
 @class SpriteBox;
 @class IGParticleManager;
+@class IGBoxBase;
+@class IGBoxTools01;
 @interface IGAnimeUtil : NSObject
 
 
@@ -22,4 +22,6 @@
 +(void)showRemoveBoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender forParticleManager:(IGParticleManager*)particleManager;
 // 准备消除时的晃动效果
 +(void)showReadyRemoveBoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender;
++(void)showReadyTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
++(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 @end

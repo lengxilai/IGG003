@@ -11,8 +11,40 @@
 @implementation IGBoxToolUtil
 
 // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
-+(NSArray*)getNewBox:(CCNode*) node : (SpriteBox*)box
++(NSArray*)getNewBoxBringTool:(CCNode*) node clickPoint:(MxPoint)mp
 {
+    // 取得目标箱子   TODO 这个东西是不是能写个珙桐方法，或者直接传箱子，不传MxPoint
+    int r = mp.R;
+    int c = mp.C;
+    int targetBoxTag = r*kBoxTagR+c;
+    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+    
+    NSMutableArray *result = [self getNewBoxNoTool:node clickPoint:mp];
+    // 如果当前点击的是道具，则不产生新道具
+    if(box.isTool){
+        return result;
+    }
+    // 生成随机道具
+    GameToolType tooltype = CCRANDOM_0_1()*6 + 1;
+    
+    SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*[result count]];
+    // 将道具添加到随机新箱子上
+    tempBox.isTool = YES;
+    tempBox.tType = tooltype;
+    
+    NSLog(@" 这个位置 : %d 是道具: %d  这个位置是个: %d",tempBox.tag,tempBox.tType,tempBox.bType);
+    return result;
+}
+
+// 取新箱子的算法，从IGboxbase移动过来 
++(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp;
+{
+    // 取得目标箱子   TODO 这个东西是不是能写个珙桐方法，或者直接传箱子，不传MxPoint
+    int r = mp.R;
+    int c = mp.C;
+    int targetBoxTag = r*kBoxTagR+c;
+    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:10];
     // 所有列
     for (int j = 0; j < kGameSizeCols; j++) {

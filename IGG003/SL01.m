@@ -49,9 +49,16 @@
 // 运行T01道具
 -(void)runTools01:(MxPoint)mp
 {
-    IGBoxTools01 *t01 = [[IGBoxTools01 alloc] initForLayer:self forParticle:particleManager];
-    [t01 run:mp];
-    [t01 release];
+    IGBoxTools01 *t = [[IGBoxTools01 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+// 运行T02道具
+-(void)runTools02:(MxPoint)mp
+{
+    IGBoxTools02 *t = [[IGBoxTools02 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
 }
 
 #pragma mark -

@@ -12,6 +12,7 @@
 #import "IGParticleManager.h"
 #import "IGAnimeUtil.h"
 #import "IGBoxTools01.h"
+#import "IGBoxTools02.h"
 
 @interface SL01 : IGLayer
 {
@@ -23,4 +24,5 @@
 -(void)reloadBoxs;
 -(void)runMoveBox:(MxPoint)mp;
 -(void)runTools01:(MxPoint)mp;
+-(void)runTools02:(MxPoint)mp;
 @end

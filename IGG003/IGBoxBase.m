@@ -33,12 +33,12 @@
 -(void)run:(MxPoint)mp
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
-    NSArray *t01Boxs = [self delAllBox:mp];
+    NSArray *delBoxs = [self delAllBox:mp];
     // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
     NSArray *newBoxs = [self getNewBox];
 
     // 循环删除箱子并且显示动画效果
-    for (SpriteBox *box in t01Boxs) {
+    for (SpriteBox *box in delBoxs) {
         [self removeBoxChildForMxPoint:box];
     }
     
@@ -84,8 +84,10 @@
         if (newBox.isBefore) {
             newBox.tag = newBox.beforeTag;
             newBox.isBefore = NO;
+            NSLog(@"change before box : %d",newBox.tag);
         }else {
             [node addChild:newBox];
+            NSLog(@"add new box : %d",newBox.tag);
         }
     }
     // 延时刷新矩阵
@@ -105,18 +107,20 @@
             int boxTag = i*kBoxTagR+j;
             // 取得相应位置的箱子
             SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
-            // 如果在目标箱子周围1的范围内
+            // 如果目标标记了删除
             if (box.isDel) {
                 // 相减行数加一
                 subRCount++;
                 // 继续下一次循环
                 continue;
             }
-            // 根据相减行数重新计算箱子位置（tag就代表位置）
-            // 这里不能直接改tag，需要先用beforeTag和isBefore备份一下
-            box.beforeTag = box.tag - kBoxTagR*subRCount;
-            box.isBefore = YES;
-            [result addObject:box];
+            if (subRCount > 0) {
+                // 根据相减行数重新计算箱子位置（tag就代表位置）
+                // 这里不能直接改tag，需要先用beforeTag和isBefore备份一下
+                box.beforeTag = box.tag - kBoxTagR*subRCount;
+                box.isBefore = YES;
+                [result addObject:box];
+            }
         }
         // 根据相减行数，在最上面追加新的箱子
         for (int i = 0; i < subRCount; i++) {

@@ -146,14 +146,11 @@
 		D7030C2115B6B43400BA5EF4 /* CL01.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C1E15B6B43400BA5EF4 /* CL01.m */; };
 		D7030C2215B6B43400BA5EF4 /* SL01.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2015B6B43400BA5EF4 /* SL01.m */; };
 		D7030C2515B6B44400BA5EF4 /* SpriteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2415B6B44400BA5EF4 /* SpriteBox.m */; };
-<<<<<<< HEAD
 		D743962F15C0B5BD00467020 /* IGBoxToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */; };
-=======
 		E21A2C3D15C126B900E52519 /* bitmapFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3715C126B900E52519 /* bitmapFont.fnt */; };
 		E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3815C126B900E52519 /* bitmapFont.png */; };
 		E21A2C3F15C126B900E52519 /* CL02.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3A15C126B900E52519 /* CL02.m */; };
 		E21A2C4015C126B900E52519 /* CL03.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3C15C126B900E52519 /* CL03.m */; };
->>>>>>> cff440a802e7b806a2b5f9401daad3088258cf27
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -432,17 +429,14 @@
 		D7030C2015B6B43400BA5EF4 /* SL01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SL01.m; sourceTree = "<group>"; };
 		D7030C2315B6B44400BA5EF4 /* SpriteBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteBox.h; sourceTree = "<group>"; };
 		D7030C2415B6B44400BA5EF4 /* SpriteBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteBox.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		D743962D15C0B5BD00467020 /* IGBoxToolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxToolUtil.h; sourceTree = "<group>"; };
 		D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxToolUtil.m; sourceTree = "<group>"; };
-=======
 		E21A2C3715C126B900E52519 /* bitmapFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont.fnt; sourceTree = "<group>"; };
 		E21A2C3815C126B900E52519 /* bitmapFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont.png; sourceTree = "<group>"; };
 		E21A2C3915C126B900E52519 /* CL02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL02.h; sourceTree = "<group>"; };
 		E21A2C3A15C126B900E52519 /* CL02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL02.m; sourceTree = "<group>"; };
 		E21A2C3B15C126B900E52519 /* CL03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL03.h; sourceTree = "<group>"; };
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
->>>>>>> cff440a802e7b806a2b5f9401daad3088258cf27
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -896,17 +890,14 @@
 				18DE7A9D15BFBFCE00F9D2D8 /* IGBoxTools01.m */,
 				18DE7AA015BFC4CB00F9D2D8 /* IGBoxBase.h */,
 				18DE7AA115BFC4CB00F9D2D8 /* IGBoxBase.m */,
-<<<<<<< HEAD
 				D743962D15C0B5BD00467020 /* IGBoxToolUtil.h */,
 				D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */,
-=======
 				1878E0E615C11806008342A7 /* IGBoxTools02.h */,
 				1878E0E715C11806008342A7 /* IGBoxTools02.m */,
 				1878E0EA15C1242C008342A7 /* IGBoxTools03.h */,
 				1878E0EB15C1242C008342A7 /* IGBoxTools03.m */,
 				1878E0ED15C125F9008342A7 /* IGBoxTools06.h */,
 				1878E0EE15C125F9008342A7 /* IGBoxTools06.m */,
->>>>>>> cff440a802e7b806a2b5f9401daad3088258cf27
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1138,15 +1129,12 @@
 				D7030C2515B6B44400BA5EF4 /* SpriteBox.m in Sources */,
 				18DE7A9E15BFBFCE00F9D2D8 /* IGBoxTools01.m in Sources */,
 				18DE7AA215BFC4CB00F9D2D8 /* IGBoxBase.m in Sources */,
-<<<<<<< HEAD
 				D743962F15C0B5BD00467020 /* IGBoxToolUtil.m in Sources */,
-=======
 				1878E0E815C11806008342A7 /* IGBoxTools02.m in Sources */,
 				1878E0EC15C1242C008342A7 /* IGBoxTools03.m in Sources */,
 				1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */,
 				E21A2C3F15C126B900E52519 /* CL02.m in Sources */,
 				E21A2C4015C126B900E52519 /* CL03.m in Sources */,
->>>>>>> cff440a802e7b806a2b5f9401daad3088258cf27
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

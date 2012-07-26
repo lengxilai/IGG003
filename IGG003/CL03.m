@@ -35,8 +35,16 @@ static int perFruitPoint = 5;
 	return self;
 }
 //初始化  加分前的分数   combo数
--(id)initWithTotalPoint:(int)perTotalPoint withSeries:(int)series{
-    //
+-(id)initWithTotalPoint:(int)perTotalPoint withSeries:(int)comboNumber withFruitNum:(int)fruitNumber{
+    //加分前的分数
+    totalPoints = perTotalPoint;
+    //连击数
+    comboNum = comboNumber;
+    //得分计算
+    addedPoint = fruitNumber * comboNum;
+    addedTotalPoint = totalPoints + addedPoint;
+    [self schedule:@selector(getTotalPoint:) interval:(0.01)];
+    
 }
 -(void)getTotalPoint:(ccTime)dt{
     //水果消除后的得分

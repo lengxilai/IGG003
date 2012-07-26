@@ -19,9 +19,11 @@
 +(ccColor4F)editParticleColorForType:(GameBoxType)bType forParticle:(CCParticleSystemQuad*)popParticle;
 
 // 显示消除箱子时的动画效果
-+(void)showRemoveBoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender forParticleManager:(IGParticleManager*)particleManager;
++(void)showRemoveBoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase;
 // 准备消除时的晃动效果
-+(void)showReadyRemoveBoxAnime:(SpriteBox*)box forLayer:(CCNode*)sender;
++(void)showReadyRemoveBoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase;
+
+
 +(void)showReadyTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 +(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 @end

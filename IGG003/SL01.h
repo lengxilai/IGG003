@@ -12,18 +12,21 @@
 #import "IGParticleManager.h"
 #import "IGAnimeUtil.h"
 #import "IGBoxTools01.h"
+#import "IGBoxTools02.h"
+#import "IGBoxTools03.h"
+#import "IGBoxTools06.h"
 
 @interface SL01 : IGLayer
 {
     GameMatrixType matrixType;
-//    CCParticleSystem* popParticle;
     IGParticleManager *particleManager;
 }
 
 -(void)showBoxs;
 -(void)reloadBoxs;
-// 消除目标点箱子的两个方法，第一个方法会调用第二个方法
--(void)removeBoxForMxPoint:(MxPoint)mp;
--(void)removeTargetBoxForMxPoint:(MxPoint)mp;
--(void)removeBoxForTools01:(SpriteBox*)box;
+-(void)runMoveBox:(MxPoint)mp;
+-(void)runTools01:(MxPoint)mp;
+-(void)runTools02:(MxPoint)mp;
+-(void)runTools03:(MxPoint)mp;
+-(void)runTools06:(MxPoint)mp;
 @end

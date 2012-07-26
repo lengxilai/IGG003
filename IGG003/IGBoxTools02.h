@@ -1,13 +1,13 @@
 //
-//  IGBoxTools01.h
-//  IGG003 地雷
+//  IGBoxTools02.h
+//  IGG003 欢乐时光
 //
-//  Created by Ming Liu on 12-7-25.
+//  Created by Ming Liu on 12-7-26.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import "IGBoxBase.h"
 
-@interface IGBoxTools01 : IGBoxBase
+@interface IGBoxTools02 : IGBoxBase
 -(void)run:(MxPoint)mp;
 @end

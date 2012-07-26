@@ -39,14 +39,40 @@
 }
 
 // 根据坐标删除一个箱子，在CL01中调用
--(void)removeBoxForMxPoint:(MxPoint)mp
+-(void)runMoveBox:(MxPoint)mp
 {
-    
-    // 计算十字线上相同的箱子一起消除
-    [self removeTargetBoxForMxPoint:mp];
-    
-    // 延时刷新矩阵
-    [self schedule:@selector(reloadBoxs) interval:0.3*fTimeRate];
+    IGBoxBase *t = [[IGBoxBase alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+
+// 运行T01道具
+-(void)runTools01:(MxPoint)mp
+{
+    IGBoxTools01 *t = [[IGBoxTools01 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+// 运行T02道具
+-(void)runTools02:(MxPoint)mp
+{
+    IGBoxTools02 *t = [[IGBoxTools02 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+// 运行T03道具
+-(void)runTools03:(MxPoint)mp
+{
+    IGBoxTools03 *t = [[IGBoxTools03 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+// 运行T06道具
+-(void)runTools06:(MxPoint)mp
+{
+    IGBoxTools06 *t = [[IGBoxTools06 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
 }
 
 #pragma mark -
@@ -94,118 +120,6 @@
             }
         }
     }
-}
-
-#pragma mark -
-#pragma mark 关于箱子的处理
-
-// 显示消除箱子时的动画效果，在IGAnimeUtil showReadyRemoveBoxAnime中使用回调调用
--(void)showPopParticle:(SpriteBox*)box
-{   
-    // 显示消除箱子时的动画效果
-    [IGAnimeUtil showRemoveBoxAnime:box forLayer:self forParticleManager:particleManager];
-}
-
-// 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
--(void)removeBoxChildForMxPoint:(SpriteBox*)box
-{
-    // 先把box的tag设定为0,这句很重要，表明已经从矩阵中删除了箱子
-    box.tag = 999;
-    // // 准备消除时的晃动效果
-    [IGAnimeUtil showReadyRemoveBoxAnime:box forLayer:self];
-}
-
-// 计算十字线上相同的箱子一起消除
--(void)removeTargetBoxForMxPoint:(MxPoint)mp
-{
-    int r = mp.R;
-    int c = mp.C;
-    
-    // 取得目标箱子
-    int targetBoxTag = r*kBoxTagR+c;
-    SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
-    
-    // 目标箱子的类型
-    GameBoxType targetBoxType = b.bType;
-    
-    assert([b isKindOfClass:[SpriteBox class]]);
-    
-    // 先计算该列的所有行
-    // 需要相减的行数
-    int subRCount = 0;
-    // 所有行的c列
-    for (int i = 0; i < kGameSizeRows; i++) {
-        // C列固定
-        int boxTag = i*kBoxTagR+c;
-        // 取得相应位置的箱子
-        SpriteBox *box = (SpriteBox *)[self getChildByTag:boxTag];
-        // 取得箱子类型
-        GameBoxType boxType = box.bType;
-        // 与目标箱子的类型相同
-        if (boxType == targetBoxType) {
-            [self removeBoxChildForMxPoint:box];
-            // 相减行数加一
-            subRCount++;
-            // 继续下一次循环
-            continue;
-        }
-        // 根据相减行数重新计算箱子位置（tag就代表位置）
-        box.tag = box.tag - kBoxTagR*subRCount;
-    }
-    // 根据相减行数，在最上面追加新的箱子
-    for (int i = 0; i < subRCount; i++) {
-        SpriteBox *s = [SpriteBox spriteBoxWithRandomType];
-        // 添加到区域外
-        s.position = ccp(kSL01StartX + c*kSL01OffsetX,kSL01StartY + (kGameSizeRows + i)*kSL01OffsetY);
-        // 设定tag：总行数－消去行数＋i
-        s.tag = (kGameSizeRows-subRCount+i)*kBoxTagR+c;
-        // 添加之后先不显示
-        s.visible = NO;
-        [self addChild:s];
-    }
-    
-    // 计算所有列
-    for (int j = 0; j < kGameSizeCols; j++) {
-        if (j == c) {
-            continue;
-        }
-        // R行固定
-        int boxTag = r*kBoxTagR+j;
-        // 取得相应位置的箱子
-        SpriteBox *box = (SpriteBox *)[self getChildByTag:boxTag];
-        // 取得箱子类型
-        GameBoxType boxType = box.bType;
-        // 与目标箱子的类型相同
-        if (boxType == targetBoxType) {
-            [self removeBoxChildForMxPoint:box];
-            // 循环r行以上的行
-            for (int i = r + 1; i < kGameSizeRows; i++) {
-                int afterTag = i*kBoxTagR + j;
-                // 取得相应位置的箱子
-                SpriteBox *afterBox = (SpriteBox *)[self getChildByTag:afterTag];
-                // 把相应箱子的tag值减一行
-                afterBox.tag = afterTag - kBoxTagR;
-            }
-            // 在最上面的区域外添加一个新的箱子
-            SpriteBox *s = [SpriteBox spriteBoxWithRandomType];
-            // 添加到区域外
-            s.position = ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + kGameSizeRows*kSL01OffsetY);
-            s.tag = (kGameSizeRows-1)*kBoxTagR+j;
-            // 添加之后先不显示
-            s.visible = NO;
-            [self addChild:s];
-        }
-    }
-}
-
-#pragma mark -
-#pragma mark 道具01－炸弹
-// 运行T01道具
--(void)runTools01:(MxPoint)mp
-{
-    IGBoxTools01 *t01 = [[IGBoxTools01 alloc] initForLayer:self forParticle:particleManager];
-    [t01 run:mp];
-    [t01 release];
 }
 
 #pragma mark -

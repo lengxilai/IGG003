@@ -1,6 +1,6 @@
 //
 //  IGBoxBase.h
-//  IGG003
+//  IGG003 普通消除
 //
 //  Created by Ming Liu on 12-7-25.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.

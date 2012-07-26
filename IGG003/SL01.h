@@ -13,6 +13,8 @@
 #import "IGAnimeUtil.h"
 #import "IGBoxTools01.h"
 #import "IGBoxTools02.h"
+#import "IGBoxTools03.h"
+#import "IGBoxTools06.h"
 
 @interface SL01 : IGLayer
 {
@@ -25,4 +27,6 @@
 -(void)runMoveBox:(MxPoint)mp;
 -(void)runTools01:(MxPoint)mp;
 -(void)runTools02:(MxPoint)mp;
+-(void)runTools03:(MxPoint)mp;
+-(void)runTools06:(MxPoint)mp;
 @end

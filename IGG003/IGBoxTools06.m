@@ -1,14 +1,14 @@
 //
-//  IGBoxTools02.m
+//  IGBoxTools06.m
 //  IGG003
 //
 //  Created by Ming Liu on 12-7-26.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "IGBoxTools02.h"
+#import "IGBoxTools06.h"
 
-@implementation IGBoxTools02
+@implementation IGBoxTools06
 
 #pragma mark -
 #pragma mark 外部接口
@@ -41,23 +41,14 @@
     
     // 取得目标箱子
     int targetBoxTag = r*kBoxTagR+c;
-    SpriteBox *b = (SpriteBox *)[node getChildByTag:targetBoxTag];
-    
-    assert([b isKindOfClass:[SpriteBox class]]);
-    
-    for (int i = 0; i < kGameSizeRows; i++) {
-        for (int j = 0; j < kGameSizeCols; j++) {
-            int boxTag = i*kBoxTagR+j;
-            // 取得相应位置的箱子
-            SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
-            // 如果类型一致
-            if (box.bType == b.bType) {
-                box.isDel = YES;
-                [result addObject:box];
-            }
-        }
+    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+    box.isDel = YES;
+    [result addObject:box];
+    NSArray *LRUDBox = [self getLRUDBox:box];
+    for (SpriteBox* b in LRUDBox) {
+        b.isDel = YES;
+        [result addObject:b];
     }
-    
     return result;
 }
 

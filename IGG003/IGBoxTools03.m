@@ -1,14 +1,14 @@
 //
-//  IGBoxTools02.m
+//  IGBoxTools03.m
 //  IGG003
 //
 //  Created by Ming Liu on 12-7-26.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "IGBoxTools02.h"
+#import "IGBoxTools03.h"
 
-@implementation IGBoxTools02
+@implementation IGBoxTools03
 
 #pragma mark -
 #pragma mark 外部接口
@@ -51,7 +51,7 @@
             // 取得相应位置的箱子
             SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
             // 如果类型一致
-            if (box.bType == b.bType) {
+            if (i == r || j == c) {
                 box.isDel = YES;
                 [result addObject:box];
             }

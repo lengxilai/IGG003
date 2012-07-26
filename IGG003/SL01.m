@@ -60,6 +60,20 @@
     [t run:mp];
     [t release];
 }
+// 运行T03道具
+-(void)runTools03:(MxPoint)mp
+{
+    IGBoxTools03 *t = [[IGBoxTools03 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+// 运行T06道具
+-(void)runTools06:(MxPoint)mp
+{
+    IGBoxTools06 *t = [[IGBoxTools06 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
 
 #pragma mark -
 #pragma mark 关于矩阵的处理

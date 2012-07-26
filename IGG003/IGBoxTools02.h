@@ -1,6 +1,6 @@
 //
 //  IGBoxTools02.h
-//  IGG003
+//  IGG003 欢乐时光
 //
 //  Created by Ming Liu on 12-7-26.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.

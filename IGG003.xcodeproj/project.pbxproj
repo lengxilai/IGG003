@@ -1124,14 +1124,11 @@
 				D7030C2515B6B44400BA5EF4 /* SpriteBox.m in Sources */,
 				18DE7A9E15BFBFCE00F9D2D8 /* IGBoxTools01.m in Sources */,
 				18DE7AA215BFC4CB00F9D2D8 /* IGBoxBase.m in Sources */,
-<<<<<<< HEAD
 				1878E0E815C11806008342A7 /* IGBoxTools02.m in Sources */,
 				1878E0EC15C1242C008342A7 /* IGBoxTools03.m in Sources */,
 				1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */,
-=======
 				E21A2C3F15C126B900E52519 /* CL02.m in Sources */,
 				E21A2C4015C126B900E52519 /* CL03.m in Sources */,
->>>>>>> e80d4e0d0c90645bdbc72b1394762e51cf05aa69
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

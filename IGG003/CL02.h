@@ -9,5 +9,9 @@
 #import "IGLayer.h"
 
 @interface CL02 : IGLayer
-
+{
+    NSDate *time;
+    //剩余时间
+    int times;
+}
 @end

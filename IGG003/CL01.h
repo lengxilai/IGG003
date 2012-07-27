@@ -8,6 +8,7 @@
 
 #import "IGLayer.h"
 #import "IGSprite.h"
+#import "SpriteBox.h"
 
 @class SL01;
 @interface CL01 : IGLayer

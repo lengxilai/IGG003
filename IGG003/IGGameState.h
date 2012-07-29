@@ -13,7 +13,7 @@ typedef enum{
     eGbt0 = 0,eGbt1 = 1,eGbt2 = 2,eGbt3 = 3,eGbt4 = 4,eGbt5 = 5,eGbt6 = 6,eGbt7 = 7,eGbt8 = 8,
 } GameBoxType;
 
-// 道具类型 冰冻  闪电   炸弹  增加时间  十字斩   欢乐时光  地雷
+// 道具类型 地雷  欢乐时光  十字斩 增加时间 炸弹  闪电  冰冻         
 typedef enum{
     toolsNO = 0,tools01 = 1,tools02 = 2,tools03 = 3,tools04 = 4,tools05 = 5,tools06 = 6,tools07 = 7,
 } GameToolType;
@@ -43,8 +43,18 @@ MxPointMake(int r, int c)
 @interface IGGameState : NSObject
 {
     NSArray *m;
+    // 当前分数
+    int				m_score;
+    // 当前游戏时间
+    int             m_time;
+    // 当前连击数
+    int             m_combo;
 }
 @property(nonatomic,retain) NSArray *m;
+@property(nonatomic,assign) int m_score;
+@property(nonatomic,assign) int m_time;
+@property(nonatomic,assign) int m_combo;
+
 +(IGGameState*)gameState;
 -(id)init;
 @end

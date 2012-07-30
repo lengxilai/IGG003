@@ -20,6 +20,11 @@
     // 控制层
     CL02 *cl01 = [CL01 node];
     [scene addChild:cl01];
+    
+    // 分数
+    CL03 *cl03 = [CL03 node];
+    [scene addChild:cl03];
+    
     // 给控制层设定游戏层
     [cl01 setSl01:sl01];
 	

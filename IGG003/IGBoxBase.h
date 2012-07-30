@@ -8,6 +8,7 @@
 
 #import "IGParticleManager.h"
 #import "SpriteBox.h"
+#import "IGBoxToolUtil.h"
 
 @class IGAnimeUtil;
 @interface IGBoxBase : NSObject
@@ -21,11 +22,11 @@
 // 初始化
 -(id)initForLayer:(CCNode*)sender forParticle:(IGParticleManager*)pm;
 
+// 消除时的共通处理，同时返回新的箱子
+-(NSArray*)processRun:(MxPoint)mp;
+
 // 普通消除
 -(void)run:(MxPoint)mp;
-
-// 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
--(NSArray*)getNewBox;
 
 // 取得一个箱子周围的8个箱子（不包括自己）
 -(NSArray*)getLRUDBox:(SpriteBox*)box;

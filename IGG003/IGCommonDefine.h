@@ -25,6 +25,8 @@
 
 #define fTimeRate 1.0
 
+#define kComboBoxLimit 6
+
 @interface IGCommonDefine : NSObject
 
 @end

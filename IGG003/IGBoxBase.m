@@ -29,13 +29,41 @@
     return self;
 }
 
+// 消除时的共通处理，同时返回新的箱子
+-(NSArray*)processRun:(MxPoint)mp
+{
+    // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
+    NSArray *newBoxs = [IGBoxToolUtil getNewBoxBringTool:node clickPoint:mp];
+    
+    
+    int deleteNo = 0;
+    // 取得元素
+    CCArray* array = [node children];
+    // 取得消除元素个数
+    for( CCNode *child in array ) {
+        // 如果不是箱子则跳过
+        if (![child isKindOfClass:[SpriteBox class]]){
+            continue;
+        }
+        if(((SpriteBox*)child).isDel){
+            deleteNo ++;
+        }
+    }
+    IGGameState *gameState = [IGGameState gameState];
+    // 如果消除个数大于界限值
+    if (deleteNo > kComboBoxLimit) {
+        gameState.m_combo = gameState.m_combo + 1;
+    }
+    
+    return newBoxs;
+}
+
 // 运行普通消除
 -(void)run:(MxPoint)mp
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *delBoxs = [self delAllBox:mp];
-    // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
-    NSArray *newBoxs = [self getNewBox];
+    NSArray *newBoxs = [self processRun:mp];
 
     // 循环删除箱子并且显示动画效果
     for (SpriteBox *box in delBoxs) {
@@ -92,49 +120,6 @@
     }
     // 延时刷新矩阵
     [node schedule:@selector(reloadBoxs) interval:0.1];
-}
-
-// 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
--(NSArray*)getNewBox
-{
-    NSMutableArray *result = [NSMutableArray arrayWithCapacity:10];
-    // 所有列
-    for (int j = 0; j < kGameSizeCols; j++) {
-        // 需要相减的行数
-        int subRCount = 0;
-        // 所有行
-        for (int i = 0; i < kGameSizeRows; i++) {
-            int boxTag = i*kBoxTagR+j;
-            // 取得相应位置的箱子
-            SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
-            // 如果目标标记了删除
-            if (box.isDel) {
-                // 相减行数加一
-                subRCount++;
-                // 继续下一次循环
-                continue;
-            }
-            if (subRCount > 0) {
-                // 根据相减行数重新计算箱子位置（tag就代表位置）
-                // 这里不能直接改tag，需要先用beforeTag和isBefore备份一下
-                box.beforeTag = box.tag - kBoxTagR*subRCount;
-                box.isBefore = YES;
-                [result addObject:box];
-            }
-        }
-        // 根据相减行数，在最上面追加新的箱子
-        for (int i = 0; i < subRCount; i++) {
-            SpriteBox *s = [SpriteBox spriteBoxWithRandomType];
-            // 添加到区域外
-            s.position = ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + (kGameSizeRows + i)*kSL01OffsetY);
-            // 设定tag：总行数－消去行数＋i
-            s.tag = (kGameSizeRows-subRCount+i)*kBoxTagR+j;
-            // 添加之后先不显示
-            s.visible = NO;
-            [result addObject:s];
-        }
-    }
-    return result;
 }
 
 // 取得一个箱子周围的8个箱子（不包括自己）

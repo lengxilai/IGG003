@@ -20,10 +20,6 @@ static int addTime = 5;
         pointsSprit.tag = 100001;
        
         [self addChild:pointsSprit z:1 tag:3];
-<<<<<<< HEAD
-//        time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
-//        [self schedule:@selector(updateTimeDisplay) interval:1];
-=======
         time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
         [self schedule:@selector(updateTimeDisplay) interval:1];
         CCMenuItem  *button = [CCMenuItemImage
@@ -33,7 +29,6 @@ static int addTime = 5;
         CCMenu *starMenu = [CCMenu menuWithItems:button, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
->>>>>>> b5dd48ddbf908c4082a03eaa47d31f18c9dff48e
     }
     return self;
 }

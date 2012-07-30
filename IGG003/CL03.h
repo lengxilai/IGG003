@@ -17,10 +17,11 @@
     int addedPoint;
     int addedTotalPoint;
     CCLabelBMFont *pointsSprit;
+    CCLabelBMFont *comboSprit;
 }
 +(CL03*)getCL03;
 -(void)getTotalPoint:(ccTime)dt;
 -(id)addPointForBoxNum:(int)boxNum;
 -(void)changePointWithPoint;
--(void)setPointPlace:(int)totalPoint;
+-(void)setPointPlace:(int)totalPoint comboNum: (int) comNum;
 @end

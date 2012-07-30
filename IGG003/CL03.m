@@ -17,8 +17,9 @@ static CL03 *staticCL03;
 	if( (self=[super init])) {
         // 初始化分数
         totalPoints = 0;
+        comboNum = 0;
         // 设置分数显示位置
-        [self setPointPlace:totalPoints];
+        [self setPointPlace:totalPoints comboNum:comboNum];
 	}
     staticCL03 = self;
 	return self;
@@ -65,19 +66,31 @@ static CL03 *staticCL03;
 -(void)changePointWithPoint{
     //计算位数
     NSString *pointStr = [NSString stringWithFormat:@"%d",totalPoints];
+    NSString *comboStr = [NSString stringWithFormat:@"%d",comboNum];
     pointsSprit = (CCLabelBMFont *)[self getChildByTag:200001];
+    comboSprit = (CCLabelBMFont *)[self getChildByTag:200002];
     
     [pointsSprit setString:pointStr];
+    [comboSprit setString:comboStr];
     pointsSprit.position = ccp(310 - pointStr.length * 10,450);
+    comboSprit.position = ccp(310 - comboStr.length * 10, 430);
 }
 
 // 设置分数显示位置
--(void)setPointPlace:(int) totalPoint {
+-(void)setPointPlace:(int) totalPoint comboNum:(int) comNum {
     NSString *numStr = [[NSString alloc] initWithFormat:@"%d", totalPoint];
+    NSString *comStr = [[NSString alloc] initWithFormat:@"%d", comNum];
     pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"bitmapFont.fnt"];
+    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"bitmapFont.fnt"];
+    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"bitmapFont.fnt"];
     pointsSprit.position = ccp(300,450);
+    comboName.position = ccp(260, 430);
+    comboSprit.position = ccp(300,430);
     pointsSprit.tag = 200001;
+    comboSprit.tag = 200002;
     [self addChild:pointsSprit];
+    [self addChild:comboName];
+    [self addChild:comboSprit];
 }
 
 @end

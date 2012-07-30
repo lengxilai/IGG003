@@ -27,6 +27,8 @@
 
 #define kComboBoxLimit 6
 
+#define kToolSpriteTag 998
+
 @interface IGCommonDefine : NSObject
 
 @end

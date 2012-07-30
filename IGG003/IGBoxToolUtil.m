@@ -72,11 +72,17 @@
         }
     }
     // 闪电
-    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+//    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+//        if([self probability:60]){
+//            tooltype = tools06;
+//        }
+//    }
+    if(tooltype== toolsNO &&(deleteNo >=3)){
         if([self probability:60]){
             tooltype = tools06;
         }
     }
+
     // 冰冻
     if(tooltype== toolsNO &&deleteNo >=6){
         if([self probability:50]){
@@ -88,6 +94,7 @@
         // 将道具添加到随机新箱子上
         tempBox.isTool = YES;
         tempBox.tType = tooltype;
+        [tempBox setToolByType:tooltype];
         NSLog(@" 这个位置 : %d 是道具: %d  这个位置是个: %d",tempBox.tag,tempBox.tType,tempBox.bType);
     }
     return result;

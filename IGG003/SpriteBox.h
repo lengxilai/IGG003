@@ -33,4 +33,5 @@
 +(id)spriteBoxWithRandomType;
 
 -(MxPoint)getMxPointByTag;
+-(MxPoint)setToolByType:(GameToolType)type;
 @end

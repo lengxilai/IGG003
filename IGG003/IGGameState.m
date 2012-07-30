@@ -11,6 +11,9 @@
 @implementation IGGameState
 static IGGameState *staticGameState;
 @synthesize m;
+@synthesize m_score;
+@synthesize m_time;
+@synthesize m_combo;
 
 +(IGGameState*)gameState
 {
@@ -37,6 +40,13 @@ static IGGameState *staticGameState;
         }
         m = (NSArray*)mr;
     }
+    
+    // 时间初始化
+    m_time = 60;
+    // 分数初始化
+    m_score = 0;
+    // 连击数初始化
+    m_combo = 0;
     return self;
 }
 

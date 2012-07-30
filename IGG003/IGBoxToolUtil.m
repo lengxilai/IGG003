@@ -25,14 +25,71 @@
         return result;
     }
     // 生成随机道具
-    GameToolType tooltype = CCRANDOM_0_1()*6 + 1;
+    GameToolType tooltype = toolsNO;
     
-    SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*[result count]];
-    // 将道具添加到随机新箱子上
-    tempBox.isTool = YES;
-    tempBox.tType = tooltype;
-    
-    NSLog(@" 这个位置 : %d 是道具: %d  这个位置是个: %d",tempBox.tag,tempBox.tType,tempBox.bType);
+    int deleteNo = 0;
+    // 取得元素
+    CCArray* array = [node children];
+    // 取得消除元素个数
+    for( CCNode *child in array ) {
+        // 如果不是箱子则跳过
+        if (![child isKindOfClass:[SpriteBox class]]){
+            continue;
+        }
+        if(((SpriteBox*)child).isDel){
+            deleteNo ++;
+        }
+    }
+    IGGameState *gameState = [IGGameState gameState];
+    // 地雷
+    if(deleteNo >=12 || gameState.m_combo >= 5){
+        if([self probability:49]){
+            tooltype = tools01;
+        }
+    }
+    // 欢乐时光
+    if(tooltype== toolsNO &&(deleteNo >=12 || gameState.m_combo >= 5)){
+        if([self probability:49]){
+            tooltype = tools02;
+        }
+    }
+    // 十字斩
+    if(tooltype== toolsNO &&(deleteNo >=10 || gameState.m_combo >= 4)){
+        if([self probability:90]){
+            tooltype = tools03;
+        }
+    }
+    // 增加时间
+    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 3)){
+        if([self probability:70]){
+            tooltype = tools04;
+        }
+    }
+    // 炸弹
+    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+        if([self probability:40]){
+            tooltype = tools05;
+        }
+    }
+    // 闪电
+    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+        if([self probability:60]){
+            tooltype = tools06;
+        }
+    }
+    // 冰冻
+    if(tooltype== toolsNO &&deleteNo >=6){
+        if([self probability:50]){
+            tooltype = tools07;
+        }
+    }
+    if(tooltype != toolsNO){
+        SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*[result count]];
+        // 将道具添加到随机新箱子上
+        tempBox.isTool = YES;
+        tempBox.tType = tooltype;
+        NSLog(@" 这个位置 : %d 是道具: %d  这个位置是个: %d",tempBox.tag,tempBox.tType,tempBox.bType);
+    }
     return result;
 }
 
@@ -81,5 +138,13 @@
         }
     }
     return result;
+}
+
++(BOOL)probability:(int)num{
+    int r = CCRANDOM_0_1()*100 + 1;
+    if(r<num){
+        return YES;
+    }
+    return NO;
 }
 @end

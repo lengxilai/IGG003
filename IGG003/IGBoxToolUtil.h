@@ -18,4 +18,6 @@
 +(NSArray*)getNewBoxBringTool:(CCNode*) node clickPoint:(MxPoint)mp;
 // 生成不带道具的新箱子
 +(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp;
+// 概率出现
++(BOOL)probability:(int)num;
 @end

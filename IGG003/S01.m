@@ -18,8 +18,11 @@
 	[scene addChild: sl01];
     
     // 控制层
-    CL02 *cl01 = [CL01 node];
+    CL01 *cl01 = [CL01 node];
     [scene addChild:cl01];
+    
+    CL02 *cl02 = [CL02 node];
+    [scene addChild:cl02];
     // 给控制层设定游戏层
     [cl01 setSl01:sl01];
 	

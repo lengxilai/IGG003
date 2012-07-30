@@ -10,13 +10,17 @@
 
 @interface CL03 : IGLayer
 {
+    // 连击数
     int comboNum;
+    // 总分数
     int totalPoints;
-    NSArray *numArr;
     int addedPoint;
     int addedTotalPoint;
+    CCLabelBMFont *pointsSprit;
 }
 +(CL03*)getCL03;
 -(void)getTotalPoint:(ccTime)dt;
 -(id)addPointForBoxNum:(int)boxNum;
+-(void)changePointWithPoint;
+-(void)setPointPlace:(int)totalPoint;
 @end

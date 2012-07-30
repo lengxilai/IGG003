@@ -15,23 +15,10 @@ static CL03 *staticCL03;
 -(id) init
 {
 	if( (self=[super init])) {
-        //初始化分数
+        // 初始化分数
         totalPoints = 0;
-        numArr = [[NSArray alloc] init];
-        NSString *numStr = [[NSString alloc] initWithFormat:@"%d",totalPoints]; 
-		CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"bitmapFont.fnt"];
-		pointsSprit.position = ccp(300,450);
-        pointsSprit.tag = 100001;
-        [pointsSprit setString:@"0"];
-        
-		[self addChild:pointsSprit];
-        addedPoint = 0;
-        
-        addedTotalPoint = totalPoints + addedPoint;
-        comboNum = 0;
-        [self schedule:@selector(getTotalPoint:) interval:(0.01)];
-        //[self getTotalPoint];
-
+        // 设置分数显示位置
+        [self setPointPlace:totalPoints];
 	}
     staticCL03 = self;
 	return self;
@@ -51,21 +38,25 @@ static CL03 *staticCL03;
 -(id)addPointForBoxNum:(int)boxNum{
     
     IGGameState *gameState = [IGGameState gameState];
-    
-    //加分前的分数
+
+    // 加分前的分数
     totalPoints = gameState.m_score;
-    //连击数
+    // 连击数
     comboNum = gameState.m_combo;
-    //得分计算
-    addedPoint = boxNum * comboNum;
+    // 得分计算
+    addedPoint = boxNum * (comboNum==0?1:comboNum);
+    // 合计总分
     addedTotalPoint = totalPoints + addedPoint;
+    // 更新GameState最新分数
+    gameState.m_score = addedTotalPoint;
     [self schedule:@selector(getTotalPoint:) interval:(0.01)];
     
 }
--(void)getTotalPoint:(ccTime)dt{
-    //水果消除后的得分
-    totalPoints = totalPoints + comboNum;
 
+-(void)getTotalPoint:(ccTime)dt{
+    // 上一次分数基础上分步增加分数
+    totalPoints = totalPoints + (comboNum == 0?1:comboNum);
+    
     [self changePointWithPoint];
     if(addedTotalPoint == totalPoints){
         [self unschedule:@selector(getTotalPoint:)];
@@ -73,14 +64,20 @@ static CL03 *staticCL03;
 }
 -(void)changePointWithPoint{
     //计算位数
-    NSString *pointStr = [NSString stringWithFormat:@"%d",totalPoints] ;
-    CCLabelBMFont *pointsSprit = (CCLabelBMFont *)[self getChildByTag:100001];
+    NSString *pointStr = [NSString stringWithFormat:@"%d",totalPoints];
+    pointsSprit = (CCLabelBMFont *)[self getChildByTag:200001];
     
     [pointsSprit setString:pointStr];
     pointsSprit.position = ccp(310 - pointStr.length * 10,450);
-//    id a1 = [CCScaleTo  actionWithDuration:0.01f scaleX:1.5f scaleY:0.8f];
-//    id a2 = [CCScaleTo actionWithDuration:0.01f scaleX:1.0f scaleY:1.0f];
-//    id a3 = [CCSequence actions:a1,a2,nil];
-//    [pointsSprit runAction:a3];
 }
+
+// 设置分数显示位置
+-(void)setPointPlace:(int) totalPoint {
+    NSString *numStr = [[NSString alloc] initWithFormat:@"%d", totalPoint];
+    pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"bitmapFont.fnt"];
+    pointsSprit.position = ccp(300,450);
+    pointsSprit.tag = 200001;
+    [self addChild:pointsSprit];
+}
+
 @end

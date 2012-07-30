@@ -10,6 +10,7 @@
 #import "SL01.h"
 #import "CL03.h"
 #import "CL02.h"
+#import "CL01.h"
 
 @interface S01 : IGScene
 +(IGScene *) scene;

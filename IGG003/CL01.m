@@ -100,7 +100,7 @@
             switch (b.tType) {
                 case toolsNO:
                     // 进行普通消除
-                    [self.sl01 runTools06:mp];
+                    [self.sl01 runMoveBox:mp];
                     break;
                 case tools01:
                     // 进行道具01的消除

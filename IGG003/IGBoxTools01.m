@@ -18,8 +18,7 @@
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *t01Boxs = [self delAllTools01Box:mp];
-    // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
-    NSArray *newBoxs = [self getNewBox];
+    NSArray *newBoxs = [super processRun:mp];
     int i = 0;
     float time = 0.2;
     // 循环爆炸点、删除爆炸点和周围的箱子并且显示动画效果

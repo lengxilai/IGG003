@@ -24,10 +24,10 @@ static int perFruitPoint = 5;
         [pointsSprit setString:@"0"];
         
 		[self addChild:pointsSprit];
-        addedPoint = 64*1024;
+        addedPoint = 0;
         
         addedTotalPoint = totalPoints + addedPoint;
-        comboNum = 1024;
+        comboNum = 0;
         [self schedule:@selector(getTotalPoint:) interval:(0.01)];
         //[self getTotalPoint];
 
@@ -35,13 +35,16 @@ static int perFruitPoint = 5;
 	return self;
 }
 //初始化  加分前的分数   combo数
--(id)initWithTotalPoint:(int)perTotalPoint withSeries:(int)comboNumber withFruitNum:(int)fruitNumber{
+-(id)addPointForBoxNum:(int)boxNum{
+    
+    IGGameState *gameState = [IGGameState gameState];
+    
     //加分前的分数
-    totalPoints = perTotalPoint;
+    totalPoints = gameState.m_score;
     //连击数
-    comboNum = comboNumber;
+    comboNum = gameState.m_combo;
     //得分计算
-    addedPoint = fruitNumber * comboNum;
+    addedPoint = boxNum * comboNum;
     addedTotalPoint = totalPoints + addedPoint;
     [self schedule:@selector(getTotalPoint:) interval:(0.01)];
     

@@ -17,4 +17,5 @@
     int addedTotalPoint;
 }
 -(void)getTotalPoint:(ccTime)dt;
+-(id)addPointForBoxNum:(int)boxNum;
 @end

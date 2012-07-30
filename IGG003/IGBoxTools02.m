@@ -25,7 +25,7 @@
     }
     
     // 延时重新刷新箱子矩阵
-    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];
+    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.8*fTimeRate];
 }
 
 #pragma mark -

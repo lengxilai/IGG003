@@ -29,6 +29,8 @@
 
 #define kToolSpriteTag 998
 
+#define kInitBoxTypeCount 5
+
 @interface IGCommonDefine : NSObject
 
 @end

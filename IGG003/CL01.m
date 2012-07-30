@@ -89,35 +89,7 @@
             wBar.hidden = YES;
             hBar.hidden = YES;
             
-            int r = mp.R;
-            int c = mp.C;
-            
-            // 取得目标箱子
-            int targetBoxTag = r*kBoxTagR+c;
-            SpriteBox *b = (SpriteBox *)[self.sl01 getChildByTag:targetBoxTag];
-        
-            // 调用游戏层进行消除
-            switch (b.tType) {
-                case toolsNO:
-                    // 进行普通消除
-                    [self.sl01 runMoveBox:mp];
-                    break;
-                case tools01:
-                    // 进行道具01的消除
-                    [self.sl01 runTools01:mp];
-                case tools02:
-                    // 进行道具02的消除
-                    [self.sl01 runTools02:mp];
-                case tools03:
-                    // 进行道具03的消除
-                    [self.sl01 runTools03:mp];
-                case tools06:
-                    // 进行道具04的消除
-                    [self.sl01 runTools06:mp];
-                default:
-                    // 进行普通消除
-                    break;
-            }
+            [self.sl01 runMoveBox:mp];
             cType = eCNothing;
         }else {
             // 否则不进行消除，重新设定透明指示条位置（选中点发生了变化）

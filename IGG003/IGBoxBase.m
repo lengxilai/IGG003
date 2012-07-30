@@ -15,8 +15,8 @@
 - (void) dealloc
 {
 	[super dealloc];
-    [self.node release];
-    [self.particleManager release];
+    [node release];
+    [particleManager release];
 }
 
 -(id)initForLayer:(CCNode*)sender forParticle:(IGParticleManager*)pm
@@ -53,6 +53,8 @@
     // 如果消除个数大于界限值
     if (deleteNo > kComboBoxLimit) {
         gameState.m_combo = gameState.m_combo + 1;
+    }else {
+        gameState.m_combo = 0;
     }
     
     CL03 *cl03 = [CL03 getCL03];

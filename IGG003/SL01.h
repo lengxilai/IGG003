@@ -20,6 +20,7 @@
 {
     GameMatrixType matrixType;
     IGParticleManager *particleManager;
+    BOOL isMoving;
 }
 
 -(void)showBoxs;

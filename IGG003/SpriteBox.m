@@ -30,7 +30,7 @@
 }
 +(id)spriteBoxWithRandomType
 {
-    GameBoxType type = CCRANDOM_0_1()*7 + 1;
+    GameBoxType type = CCRANDOM_0_1()*kInitBoxTypeCount + 1;
     return [SpriteBox spriteBoxWithType:type];
 }
 

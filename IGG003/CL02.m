@@ -21,12 +21,16 @@ static int addTime = 5;
        
         [self addChild:pointsSprit z:1 tag:3];
         time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
-        [self schedule:@selector(updateTimeDisplay) interval:1];
+        [self schedule:@selector(updateTimeDisplay) interval:0.2];
         CCMenuItem  *button = [CCMenuItemImage
                               itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
                               target:self selector:@selector(clickAddTimeTool)];
-        button.position =  ccp(60, 60);
-        CCMenu *starMenu = [CCMenu menuWithItems:button, nil];
+        button.position =  ccp(40, 380);
+        CCMenuItem  *button2 = [CCMenuItemImage
+                               itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
+                               target:self selector:@selector(clickIceTool)];
+        button2.position =  ccp(80, 380);
+        CCMenu *starMenu = [CCMenu menuWithItems:button,button2, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
     }
@@ -85,7 +89,7 @@ static int addTime = 5;
     times = times + 1;
     time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
     [self unschedule:@selector(pauseSchedule)];
-    [self schedule:@selector(updateTimeDisplay) interval:1];
+    [self schedule:@selector(updateTimeDisplay) interval:0.2];
     
 }
 //使用加时道具

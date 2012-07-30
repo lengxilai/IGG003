@@ -16,6 +16,7 @@
     int addedPoint;
     int addedTotalPoint;
 }
++(CL03*)getCL03;
 -(void)getTotalPoint:(ccTime)dt;
 -(id)addPointForBoxNum:(int)boxNum;
 @end

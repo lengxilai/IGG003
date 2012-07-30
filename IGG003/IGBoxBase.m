@@ -55,6 +55,9 @@
         gameState.m_combo = gameState.m_combo + 1;
     }
     
+    CL03 *cl03 = [CL03 getCL03];
+    [cl03 addPointForBoxNum:deleteNo];
+    
     return newBoxs;
 }
 

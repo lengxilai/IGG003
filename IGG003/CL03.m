@@ -10,6 +10,7 @@
 
 @implementation CL03
 static int perFruitPoint = 5;
+static CL03 *staticCL03;
 
 -(id) init
 {
@@ -32,8 +33,20 @@ static int perFruitPoint = 5;
         //[self getTotalPoint];
 
 	}
+    staticCL03 = self;
 	return self;
 }
+
++(CL03*)getCL03
+{
+    if (staticCL03 == nil) {
+        staticCL03 = [CL03 node];
+        return staticCL03;
+    }else {
+        return staticCL03;
+    }
+}
+
 //初始化  加分前的分数   combo数
 -(id)addPointForBoxNum:(int)boxNum{
     

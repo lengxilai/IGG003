@@ -9,6 +9,7 @@
 #import "IGParticleManager.h"
 #import "SpriteBox.h"
 #import "IGBoxToolUtil.h"
+#import "CL03.h"
 
 @class IGAnimeUtil;
 @interface IGBoxBase : NSObject

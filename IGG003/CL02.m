@@ -17,8 +17,8 @@
         pointsSprit.tag = 100001;
        
         [self addChild:pointsSprit z:1 tag:3];
-        time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
-        [self schedule:@selector(updateTimeDisplay) interval:1];
+//        time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
+//        [self schedule:@selector(updateTimeDisplay) interval:1];
     }
     return self;
 }

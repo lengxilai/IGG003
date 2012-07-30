@@ -23,9 +23,16 @@
 	if( (self=[super init])) {
         
         // 添加图片缓存
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"igt003_default.plist"];
-        CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"igt003_default.png"];
-        [self addChild:batch];
+        {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"igt003_default.plist"];
+            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"igt003_default.png"];
+            [self addChild:batch];
+        }
+        {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"anime_default.plist"];
+            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"anime_default.png"];
+            [self addChild:batch];
+        }
         
         // 粒子效果缓存
         particleManager = [[IGParticleManager alloc] initWithScene:self];

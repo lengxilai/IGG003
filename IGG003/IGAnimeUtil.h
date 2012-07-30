@@ -26,4 +26,7 @@
 
 +(void)showReadyTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 +(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
+
++(void)showTools06BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
++(void)showReadyTools06BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 @end

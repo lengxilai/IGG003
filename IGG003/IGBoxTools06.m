@@ -43,6 +43,7 @@
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
     box.isDel = YES;
+    box.isTarget = YES;
     [result addObject:box];
     NSArray *LRUDBox = [self getLRUDBox:box];
     for (SpriteBox* b in LRUDBox) {
@@ -50,6 +51,43 @@
         [result addObject:b];
     }
     return result;
+}
+
+
+// 显示消除箱子时的动画效果，在IGAnimeUtil showReadyRemoveBoxAnime中使用回调调用
+-(void)showPopParticle:(SpriteBox*)box
+{   
+    // 显示消除箱子时的动画效果
+    [IGAnimeUtil showTools06BoxAnime:box forBoxBase:self];
+}
+
+// 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
+-(void)removeBoxChildForMxPoint:(SpriteBox*)box
+{
+    // 先把box的tag设定为0,这句很重要，表明已经从矩阵中删除了箱子
+    box.tag = 999;
+    // // 准备消除时的晃动效果
+    [IGAnimeUtil showReadyTools06BoxAnime:box forBoxBase:self];
+    
+    if (box.isTarget) {
+        CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+        NSMutableArray *frames = [[NSMutableArray array] retain];
+        // 构造每一个帧的实际图像数据
+        for (int i = 1; i <= 8; i++) {
+            CCSpriteFrame *frame = [cache spriteFrameByName:[NSString stringWithFormat:@"sd%d.png", i]];
+            [frames addObject:frame];
+        }
+        {
+            // 使用CCAnimation和CCRepeatForever构造一个一直重复的动画
+            CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"sd1.png"];
+            CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.05*fTimeRate]];
+            // 通过回调函数删除用于显示动画效果的Sprite
+            id delCallback = [CCCallFuncN actionWithTarget:node selector:@selector(actionEndCallback:)];
+            sprite.position = ccp(box.position.x+kBoxSize/2, box.position.y);
+            [node addChild:sprite];
+            [sprite runAction:[CCSequence actions:animation,delCallback, nil]];
+        }
+    }
 }
 
 @end

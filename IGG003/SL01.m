@@ -22,6 +22,9 @@
 {
 	if( (self=[super init])) {
         
+        // 背景音乐
+        [IGMusicUtil showBackgroundMusic];
+        
         // 添加图片缓存
         {
             [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"igt003_default.plist"];

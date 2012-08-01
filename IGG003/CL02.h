@@ -11,6 +11,7 @@
 @interface CL02 : IGLayer
 {
     NSDate *time;
+    NSDate *iceNSDateTime;
     //剩余时间
     int times;
 }

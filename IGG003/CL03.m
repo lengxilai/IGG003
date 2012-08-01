@@ -95,7 +95,7 @@ static CL03 *staticCL03;
     [pointsSprit setString:pointStr];
     [comboSprit setString:comboStr];
     pointsSprit.position = ccp(310 - pointStr.length * 10,450);
-    comboSprit.position = ccp(310 - comboStr.length * 10, 430);
+    comboSprit.position = ccp(310 - comboStr.length * 10, 410);
 }
 
 // 设置分数显示位置
@@ -105,15 +105,15 @@ static CL03 *staticCL03;
     // combo数
     NSString *comStr = [[NSString alloc] initWithFormat:@"%d", comNum];
     // 分数字体
-    pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"bitmapFont.fnt"];
+    pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"bitmapFont2.fnt"];
     // combo字体
-    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"bitmapFont.fnt"];
-    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"bitmapFont.fnt"];
+    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"bitmapFont2.fnt"];
+    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"bitmapFont2.fnt"];
     // 分数显示坐标
     pointsSprit.position = ccp(300,450);
     // combo显示坐标
-    comboName.position = ccp(260, 430);
-    comboSprit.position = ccp(300,430);
+    comboName.position = ccp(230, 410);
+    comboSprit.position = ccp(300,410);
     // 分数tag
     pointsSprit.tag = 200001;
     // combo tag
@@ -134,22 +134,22 @@ static CL03 *staticCL03;
     // 增加的combo
     NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
     // 增加分数显示的字体
-    addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"bitmapFont.fnt"];
+    addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"bitmapFont2.fnt"];
     addPointSprite.scale = 2;
     // 增加combo显示的字体
-    addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont.fnt"];
+    addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont2.fnt"];
     addComboSprite.scale = 2.5;
     // 增加分数的起始位置
-    addPointSprite.position = ccp(position_x, position_y+5);
+    addPointSprite.position = ccp(position_x, position_y+23);
     // 增加combo的起始位置
-    addComboSprite.position = ccp(position_x, position_y);
+//    addComboSprite.position = ccp(position_x, position_y);
 //    // 增加分数的起始位置
 //    addPointSprite.position = ccp(10, 350);
 //    // 增加combo的起始位置
-//    addComboSprite.position = ccp(10, 330);
+    addComboSprite.position = ccp(300, 410);
     
     // 增加分数的动态效果
-    CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.5 position:ccp(300,450)];
+    CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.5 position:ccp(position_x,position_y+46)];
     CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];
     CCScaleTo *scalePointTo = [CCScaleTo actionWithDuration:0.5 scale:1];
     CCSpawn *sP = [CCSpawn actions:moTP, scalePointTo, nil];
@@ -158,10 +158,10 @@ static CL03 *staticCL03;
     
 
     // 增加combo的动态效果
-    CCMoveTo *moTC = [CCMoveTo actionWithDuration:0.5 position:ccp(300,420)];
-    CCFadeOut* foLC = [CCFadeOut actionWithDuration:1.7];
+//    CCMoveTo *moTC = [CCMoveTo actionWithDuration:0.5 position:ccp(300,420)];
+//    CCFadeOut* foLC = [CCFadeOut actionWithDuration:1.7];
     CCScaleTo *scaleComboTo = [CCScaleTo actionWithDuration:0.5 scale:1];
-    CCSpawn *sC = [CCSpawn actions:moTC, scaleComboTo, nil];
+    CCSpawn *sC = [CCSpawn actions:scaleComboTo, nil];
     id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
     CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
     

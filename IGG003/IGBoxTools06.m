@@ -67,26 +67,6 @@
     box.tag = 999;
     // // 准备消除时的晃动效果
     [IGAnimeUtil showReadyTools06BoxAnime:box forBoxBase:self];
-    
-    if (box.isTarget) {
-        CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
-        NSMutableArray *frames = [[NSMutableArray array] retain];
-        // 构造每一个帧的实际图像数据
-        for (int i = 1; i <= 8; i++) {
-            CCSpriteFrame *frame = [cache spriteFrameByName:[NSString stringWithFormat:@"sd%d.png", i]];
-            [frames addObject:frame];
-        }
-        {
-            // 使用CCAnimation和CCRepeatForever构造一个一直重复的动画
-            CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"sd1.png"];
-            CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.05*fTimeRate]];
-            // 通过回调函数删除用于显示动画效果的Sprite
-            id delCallback = [CCCallFuncN actionWithTarget:node selector:@selector(actionEndCallback:)];
-            sprite.position = ccp(box.position.x+kBoxSize/2, box.position.y);
-            [node addChild:sprite];
-            [sprite runAction:[CCSequence actions:animation,delCallback, nil]];
-        }
-    }
 }
 
 @end

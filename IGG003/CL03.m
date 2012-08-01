@@ -37,7 +37,7 @@ static CL03 *staticCL03;
 
 //初始化  加分前的分数   combo数
 
--(id)addPointForBoxNum:(int)boxNum forPosition:(CGPoint) position {
+-(id)addPointForBoxNum:(int)boxNum forPoint:(CGPoint) position {
     
     IGGameState *gameState = [IGGameState gameState];
 

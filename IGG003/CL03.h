@@ -25,7 +25,7 @@
 }
 +(CL03*)getCL03;
 -(void)getTotalPoint:(ccTime)dt;
--(id)addPointForBoxNum:(int)boxNum forPosition:(CGPoint) position;
+-(id)addPointForBoxNum:(int)boxNum forPoint:(CGPoint) position;
 -(void)changePointWithPoint;
 -(void)setPointPlace:(int)totalPoint comboNum: (int) comNum;
 -(void)showPointAndCombo:(CGPoint) position;

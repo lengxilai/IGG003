@@ -16,6 +16,8 @@
     int totalPoints;
     int addedPoint;
     int addedTotalPoint;
+    BOOL addPointFlag;
+    BOOL addPointFlag2;
     CCLabelBMFont *pointsSprit;
     CCLabelBMFont *comboSprit;
     CCLabelBMFont *addPointSprite;

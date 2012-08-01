@@ -11,6 +11,7 @@
 @implementation CL03
 static CL03 *staticCL03;
 
+
 -(id) init
 {
 	if( (self=[super init])) {
@@ -43,10 +44,15 @@ static CL03 *staticCL03;
     totalPoints = gameState.m_score;
     // 连击数
     comboNum = gameState.m_combo;
-    // 得分计算
-    addedPoint = boxNum * (comboNum==0?1:comboNum);
+    // 得分计算,消除小于3个减分
+    if (boxNum<3) {
+        addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, comboNum));
+    } else {
+        addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, comboNum));
+    }
+
     // 合计总分
-    addedTotalPoint = totalPoints + addedPoint;
+    addedTotalPoint = (totalPoints + addedPoint)<0?0:(totalPoints + addedPoint);
     
     CGPoint *p;
     [self showPointAndCombo:*p];
@@ -56,15 +62,29 @@ static CL03 *staticCL03;
     
 }
 
+// 计算每次加分效果所加的分数
 -(void)getTotalPoint:(ccTime)dt{
-    // 上一次分数基础上分步增加分数
-    totalPoints = totalPoints + (comboNum == 0?1:comboNum);
+    // 如果加分后总和大于0,显示加分效果
+    // 如果加分后总和小于0,但当前分数不为0,显示加分效果，直到分数为0
+    if ((totalPoints + addedPoint)>=0 || addPointFlag==TRUE) {
+        addPointFlag = TRUE;
+        // 上一次分数基础上分步增加分数
+        totalPoints = totalPoints + addedPoint/10;
+    } else if ((totalPoints>0 && (totalPoints + addedPoint)<0) || addPointFlag2==TRUE) {
+        addPointFlag2 = TRUE;
+        // 上一次分数基础上分步增加分数
+        totalPoints = totalPoints + addedPoint/10;
+    }
     
     [self changePointWithPoint];
     if(addedTotalPoint == totalPoints){
+        addPointFlag = false;
+        addPointFlag2 = false;
         [self unschedule:@selector(getTotalPoint:)];
     }
 }
+
+// 显示加分效果
 -(void)changePointWithPoint{
     //计算位数
     NSString *pointStr = [NSString stringWithFormat:@"%d",totalPoints];
@@ -99,8 +119,6 @@ static CL03 *staticCL03;
     // combo tag
     comboSprit.tag = 200002;
     
-    
-    
     [self addChild:pointsSprit];
     [self addChild:comboName];
     [self addChild:comboSprit];
@@ -117,34 +135,40 @@ static CL03 *staticCL03;
     NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
     // 增加分数显示的字体
     addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"bitmapFont.fnt"];
+    addPointSprite.scale = 2;
     // 增加combo显示的字体
     addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont.fnt"];
+    addComboSprite.scale = 2.5;
     // 增加分数的起始位置
-    addPointSprite.position = ccp(0, 0);
+//    addPointSprite.position = ccp(position_x, position_y+5);
     // 增加combo的起始位置
-    addComboSprite.position = ccp(0, 0);
+//    addComboSprite.position = ccp(position_x, position_y);
+    // 增加分数的起始位置
+    addPointSprite.position = ccp(10, 350);
+    // 增加combo的起始位置
+    addComboSprite.position = ccp(10, 330);
     
     // 增加分数的动态效果
-    CCMoveTo *moTP = [CCMoveTo actionWithDuration:1 position:ccp(300,450)];
+    CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.5 position:ccp(300,450)];
     CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];
-    CCSpawn *sP = [CCSpawn actions:moTP, nil];
+    CCScaleTo *scalePointTo = [CCScaleTo actionWithDuration:0.5 scale:1];
+    CCSpawn *sP = [CCSpawn actions:moTP, scalePointTo, nil];
     id callbackP = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallback:)];
     CCSequence *seqP = [CCSequence actions:sP,callbackP, nil];
+    
 
     // 增加combo的动态效果
-    CCMoveTo *moTC = [CCMoveTo actionWithDuration:1 position:ccp(300,420)];
+    CCMoveTo *moTC = [CCMoveTo actionWithDuration:0.5 position:ccp(300,420)];
     CCFadeOut* foLC = [CCFadeOut actionWithDuration:1.7];
-    CCSpawn *sC = [CCSpawn actions:moTC, nil];
+    CCScaleTo *scaleComboTo = [CCScaleTo actionWithDuration:0.5 scale:1];
+    CCSpawn *sC = [CCSpawn actions:moTC, scaleComboTo, nil];
     id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
     CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
     
     [self addChild:addPointSprite];
     [self addChild:addComboSprite];
     [addPointSprite runAction:seqP];
-    if (comboNum != 0) {
-        [addComboSprite runAction:seqC];
-    }
-
+    [addComboSprite runAction:seqC];
 
 }
 

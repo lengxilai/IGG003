@@ -31,6 +31,9 @@
 
 #define kInitBoxTypeCount 5
 
+// 消除一个水果的分数
+#define pointPerBox 10
+
 @interface IGCommonDefine : NSObject
 
 @end

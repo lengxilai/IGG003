@@ -36,7 +36,7 @@ static CL03 *staticCL03;
 }
 
 //初始化  加分前的分数   combo数
--(id)addPointForBoxNum:(int)boxNum{
+-(id)addPointForBoxNum:(int)boxNum forPosition:(CGPoint) position {
     
     IGGameState *gameState = [IGGameState gameState];
 
@@ -54,8 +54,7 @@ static CL03 *staticCL03;
     // 合计总分
     addedTotalPoint = (totalPoints + addedPoint)<0?0:(totalPoints + addedPoint);
     
-    CGPoint *p;
-    [self showPointAndCombo:*p];
+    [self showPointAndCombo:position];
     // 更新GameState最新分数
     gameState.m_score = addedTotalPoint;
     [self schedule:@selector(getTotalPoint:) interval:(0.01)];
@@ -125,7 +124,7 @@ static CL03 *staticCL03;
 }
 
 // 被消除的水果的上边显示分数和combo
--(void)showPointAndCombo:(CGPoint) position{
+-(void)showPointAndCombo:(CGPoint) position {
     CGFloat position_x = position.x;
     CGFloat position_y = position.y;
     

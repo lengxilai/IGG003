@@ -66,7 +66,7 @@
         }
     }
     // 炸弹
-    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+    if(tooltype== toolsNO &&(deleteNo >=3 || gameState.m_combo >= 2)){
         if([self probability:40]){
             tooltype = tools05;
         }

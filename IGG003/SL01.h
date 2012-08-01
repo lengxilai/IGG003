@@ -14,6 +14,7 @@
 #import "IGBoxTools01.h"
 #import "IGBoxTools02.h"
 #import "IGBoxTools03.h"
+#import "IGBoxTools05.h"
 #import "IGBoxTools06.h"
 
 @interface SL01 : IGLayer

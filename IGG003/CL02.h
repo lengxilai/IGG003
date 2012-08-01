@@ -14,5 +14,7 @@
     NSDate *iceNSDateTime;
     //剩余时间
     int times;
+    //倒计时前一秒
+    int persecond;
 }
 @end

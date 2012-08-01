@@ -131,44 +131,37 @@ static CL03 *staticCL03;
     
     // 增加的分数
     NSString *addPointStr = [[NSString alloc] initWithFormat:@"%d", addedPoint];
-    // 增加的combo
-    NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
     // 增加分数显示的字体
     addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"bitmapFont2.fnt"];
     addPointSprite.scale = 2;
-    // 增加combo显示的字体
-    addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont2.fnt"];
-    addComboSprite.scale = 2.5;
     // 增加分数的起始位置
-    addPointSprite.position = ccp(position_x, position_y+23);
-    // 增加combo的起始位置
-//    addComboSprite.position = ccp(position_x, position_y);
-//    // 增加分数的起始位置
-//    addPointSprite.position = ccp(10, 350);
-//    // 增加combo的起始位置
-    addComboSprite.position = ccp(300, 410);
-    
+    addPointSprite.position = ccp(position_x, position_y+23);    
     // 增加分数的动态效果
     CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.5 position:ccp(position_x,position_y+46)];
     CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];
-    CCScaleTo *scalePointTo = [CCScaleTo actionWithDuration:0.5 scale:1];
+    CCScaleTo *scalePointTo = [CCScaleTo actionWithDuration:0.8 scale:1];
     CCSpawn *sP = [CCSpawn actions:moTP, scalePointTo, nil];
     id callbackP = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallback:)];
     CCSequence *seqP = [CCSequence actions:sP,callbackP, nil];
-    
-
-    // 增加combo的动态效果
-//    CCMoveTo *moTC = [CCMoveTo actionWithDuration:0.5 position:ccp(300,420)];
-//    CCFadeOut* foLC = [CCFadeOut actionWithDuration:1.7];
-    CCScaleTo *scaleComboTo = [CCScaleTo actionWithDuration:0.5 scale:1];
-    CCSpawn *sC = [CCSpawn actions:scaleComboTo, nil];
-    id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
-    CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
-    
     [self addChild:addPointSprite];
-    [self addChild:addComboSprite];
     [addPointSprite runAction:seqP];
-    [addComboSprite runAction:seqC];
+    
+    // 增加的combo
+    if (comboNum > 0) {
+        NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
+        // 增加combo显示的字体
+        addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont2.fnt"];
+        addComboSprite.scale = 2.5;
+        // 增加combo的起始位置
+        addComboSprite.position = ccp(300, 410);
+        // 增加combo的动态效果
+        CCScaleTo *scaleComboTo = [CCScaleTo actionWithDuration:0.5 scale:1];
+        CCSpawn *sC = [CCSpawn actions:scaleComboTo, nil];
+        id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
+        CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
+        [self addChild:addComboSprite];
+        [addComboSprite runAction:seqC];
+    }
 
 }
 

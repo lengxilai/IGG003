@@ -15,6 +15,7 @@
 #import "IGBoxTools02.h"
 #import "IGBoxTools03.h"
 #import "IGBoxTools06.h"
+#import "IGMusicUtil.h"
 
 @interface SL01 : IGLayer
 {

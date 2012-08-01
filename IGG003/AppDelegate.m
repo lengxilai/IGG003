@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "S01.h"
 #import "RootViewController.h"
+#import "IGMusicUtil.h"
 
 @implementation AppDelegate
 
@@ -42,6 +43,9 @@
 {
 	// Init the window
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // 加载音乐缓存
+    [IGMusicUtil loadMusic];
 	
 	// Try to use CADisplayLink director
 	// if it fails (SDK < 3.1) use the default director

@@ -65,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "100"
          endingLineNumber = "100"
-         landmarkName = "-getNewBox"
+         landmarkName = "-delAllBox:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -108,7 +108,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "IGG003/IGBoxTools06.m"
@@ -118,6 +118,19 @@
          startingLineNumber = "21"
          endingLineNumber = "21"
          landmarkName = "-run:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "IGG003/IGBoxToolUtil.m"
+         timestampString = "365526897.443105"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
+         landmarkName = "+getNewBoxBringTool:clickPoint:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

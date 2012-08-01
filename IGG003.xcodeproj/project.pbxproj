@@ -161,7 +161,6 @@
 		E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3815C126B900E52519 /* bitmapFont.png */; };
 		E21A2C3F15C126B900E52519 /* CL02.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3A15C126B900E52519 /* CL02.m */; };
 		E21A2C4015C126B900E52519 /* CL03.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3C15C126B900E52519 /* CL03.m */; };
-		E276CF5F15C91AAD00D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF5E15C91AAD00D521FE /* CL04.m */; };
 		E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */; };
 		E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */; };
 /* End PBXBuildFile section */
@@ -463,8 +462,6 @@
 		E21A2C3A15C126B900E52519 /* CL02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL02.m; sourceTree = "<group>"; };
 		E21A2C3B15C126B900E52519 /* CL03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL03.h; sourceTree = "<group>"; };
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
-		E276CF5D15C91AAD00D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL04.h; sourceTree = "<group>"; };
-		E276CF5E15C91AAD00D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
 		E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -896,8 +893,6 @@
 				D7030C1E15B6B43400BA5EF4 /* CL01.m */,
 				D7030C1F15B6B43400BA5EF4 /* SL01.h */,
 				D7030C2015B6B43400BA5EF4 /* SL01.m */,
-				E276CF5D15C91AAD00D521FE /* CL04.h */,
-				E276CF5E15C91AAD00D521FE /* CL04.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1202,7 +1197,6 @@
 				18DE73C315C912EF00EE9C25 /* IGBoxTools05.m in Sources */,
 				DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */,
 				DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */,
-				E276CF5F15C91AAD00D521FE /* CL04.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

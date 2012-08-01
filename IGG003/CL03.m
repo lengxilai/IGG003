@@ -36,7 +36,7 @@ static CL03 *staticCL03;
 }
 
 //初始化  加分前的分数   combo数
--(id)addPointForBoxNum:(int)boxNum{
+-(id)addPointForBoxNum:(int)boxNum forPoint:(CGPoint) position{
     
     IGGameState *gameState = [IGGameState gameState];
 
@@ -54,8 +54,7 @@ static CL03 *staticCL03;
     // 合计总分
     addedTotalPoint = (totalPoints + addedPoint)<0?0:(totalPoints + addedPoint);
     
-    CGPoint *p;
-    [self showPointAndCombo:*p];
+    [self showPointAndCombo:position];
     // 更新GameState最新分数
     gameState.m_score = addedTotalPoint;
     [self schedule:@selector(getTotalPoint:) interval:(0.01)];
@@ -140,13 +139,13 @@ static CL03 *staticCL03;
     addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont.fnt"];
     addComboSprite.scale = 2.5;
     // 增加分数的起始位置
-//    addPointSprite.position = ccp(position_x, position_y+5);
+    addPointSprite.position = ccp(position_x, position_y+5);
     // 增加combo的起始位置
-//    addComboSprite.position = ccp(position_x, position_y);
-    // 增加分数的起始位置
-    addPointSprite.position = ccp(10, 350);
-    // 增加combo的起始位置
-    addComboSprite.position = ccp(10, 330);
+    addComboSprite.position = ccp(position_x, position_y);
+//    // 增加分数的起始位置
+//    addPointSprite.position = ccp(10, 350);
+//    // 增加combo的起始位置
+//    addComboSprite.position = ccp(10, 330);
     
     // 增加分数的动态效果
     CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.5 position:ccp(300,450)];

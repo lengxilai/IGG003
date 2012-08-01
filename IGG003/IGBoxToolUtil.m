@@ -77,11 +77,6 @@
             tooltype = tools06;
         }
     }
-//    if(tooltype== toolsNO &&(deleteNo >=3)){
-//        if([self probability:60]){
-//            tooltype = tools06;
-//        }
-//    }
 
     // 冰冻
     if(tooltype== toolsNO &&deleteNo >=5){
@@ -90,12 +85,11 @@
         }
     }
     if(tooltype != toolsNO){
-        SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*[result count]];
+        SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*deleteNo+[result count]-deleteNo];
         // 将道具添加到随机新箱子上
         tempBox.isTool = YES;
         tempBox.tType = tooltype;
         [tempBox setToolByType:tooltype];
-        NSLog(@" 这个位置 : %d 是道具: %d  这个位置是个: %d",tempBox.tag,tempBox.tType,tempBox.bType);
     }
     return result;
 }
@@ -110,6 +104,7 @@
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
 
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:10];
+    NSMutableArray *newBoxs = [NSMutableArray arrayWithCapacity:10];
     // 所有列
     for (int j = 0; j < kGameSizeCols; j++) {
         // 需要相减的行数
@@ -141,9 +136,11 @@
             s.tag = (kGameSizeRows-subRCount+i)*kBoxTagR+j;
             // 添加之后先不显示
             s.visible = NO;
-            [result addObject:s];
+            [newBoxs addObject:s];
         }
     }
+    // 新追加的箱子放在最后
+    [result addObjectsFromArray:newBoxs];
     return result;
 }
 

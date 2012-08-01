@@ -58,7 +58,7 @@
     }
     
     CL03 *cl03 = [CL03 getCL03];
-    [cl03 addPointForBoxNum:deleteNo forPoint:ccp(kSL01StartX + mp.R*kSL01OffsetX,kSL01StartY + mp.C*kSL01OffsetY)];
+    [cl03 addPointForBoxNum:deleteNo forPoint:ccp(kSL01StartX + mp.C*kSL01OffsetX,kSL01StartY + mp.R*kSL01OffsetY)];
     
     return newBoxs;
 }

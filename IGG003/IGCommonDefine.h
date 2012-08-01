@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define kWindowW 320
+#define kWindowH 480
 #define kGameSizeRows 8
 #define kGameSizeCols 8
 
-#define kSL01StartX 20
-#define kSL01StartY 30
+#define kSL01StartX 30
+#define kSL01StartY 80
 #define kSL01OffsetX 38
 #define kSL01OffsetY 40
 #define kBoxSize 37

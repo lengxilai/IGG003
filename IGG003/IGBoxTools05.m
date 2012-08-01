@@ -88,14 +88,14 @@
         if (!box.isTarget) {
             NSMutableArray *frames = [NSMutableArray arrayWithCapacity:10];
             // 构造每一个帧的实际图像数据
-            for (int i = 1; i <= 10; i++) {
-                CCSpriteFrame *frame = [cache spriteFrameByName:[NSString stringWithFormat:@"dd%d.png", i]];
+            for (int i = 1; i <= 5; i++) {
+                CCSpriteFrame *frame = [cache spriteFrameByName:[NSString stringWithFormat:@"t5-%d.png", i]];
                 
                 [frames addObject:frame];
             }
             {
                 // 使用CCAnimation和CCRepeatForever构造一个一直重复的动画
-                CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"dd1.png"];
+                CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"t5-1.png"];
                 
                 double len_y = box.position.y - targetBox.position.y;
                 double len_x = box.position.x - targetBox.position.x;

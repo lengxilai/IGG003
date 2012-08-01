@@ -17,6 +17,7 @@ static int addTime = 5;
 static int fontSizeTo = 1.1;
 //倒计时tag
 static int timeTag = 100001;
+static CL02 *staticCL02;
 
 - (void) dealloc
 {
@@ -33,28 +34,30 @@ static int timeTag = 100001;
         time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
         persecond = 60;
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
-        CCMenuItem  *button = [CCMenuItemImage
-                              itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
-                              target:self selector:@selector(clickAddTimeTool)];
-        button.position =  ccp(40, 380);
-        CCMenuItem  *button2 = [CCMenuItemImage
-                               itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
-                               target:self selector:@selector(clickIceTool)];
-        button2.position =  ccp(80, 380);
         
         CCMenuItem  *button3 = [CCMenuItemImage
                                 itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
                                 target:self selector:@selector(pauseGame)];
-        button3.position =  ccp(120, 380);
+        button3.position =  ccp(120, 420);
         CCMenuItem  *button4 = [CCMenuItemImage
                                 itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
                                 target:self selector:@selector(endPause)];
-        button4.position =  ccp(160, 380);
-        CCMenu *starMenu = [CCMenu menuWithItems:button,button2,button3,button4, nil];
+        button4.position =  ccp(160, 420);
+        CCMenu *starMenu = [CCMenu menuWithItems:button3,button4, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
     }
+    staticCL02 = self;
     return self;
+}
++(CL02*)getCL02
+{
+    if (staticCL02 == nil) {
+        staticCL02 = [CL02 node];
+        return staticCL02;
+    }else {
+        return staticCL02;
+    }
 }
 - (void) updateTimeDisplay{
     
@@ -124,7 +127,7 @@ static int timeTag = 100001;
     CCSprite *bg = (CCSprite *)[self getChildByTag:100010];
     if(!bg){
         bg = [CCSprite spriteWithFile:@"pop.png"];
-        bg.position = ccp(100,340); //位置
+        bg.position = ccp(100,400); //位置
         bg.tag = 100010;
     }
     iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(pauseTime)] retain];

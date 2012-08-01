@@ -84,7 +84,7 @@
 //    }
 
     // 冰冻
-    if(tooltype== toolsNO &&deleteNo >=6){
+    if(tooltype== toolsNO &&deleteNo >=5){
         if([self probability:50]){
             tooltype = tools07;
         }

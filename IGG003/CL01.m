@@ -46,7 +46,7 @@
         CCMenu* menu=[CCMenu menuWithItems:startSprite,nil]; //添加一个按钮，触发游戏暂停；
         menu.position=CGPointZero;
         [self addChild:menu];
-        menu.position=ccp(380,260);
+        menu.position=ccp(380,430);
 
         cType = eCNothing;
 	}

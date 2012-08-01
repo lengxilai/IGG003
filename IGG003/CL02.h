@@ -17,4 +17,6 @@
     //倒计时前一秒
     int persecond;
 }
+
++(CL02*)getCL02;
 @end

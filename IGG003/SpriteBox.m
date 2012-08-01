@@ -43,7 +43,7 @@
 
 -(MxPoint)setToolByType:(GameToolType)type
 {
-    IGSprite *toolSprite = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"t%d.png",type]];
+    IGSprite *toolSprite = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"t%d-1.png",type]];
     toolSprite.tag = kToolSpriteTag;
     toolSprite.position = ccp(kBoxSize/2,kBoxSize/2);
     [self addChild:toolSprite];

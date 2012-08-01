@@ -67,6 +67,7 @@
     box.tag = 999;
     // // 准备消除时的晃动效果
     [IGAnimeUtil showReadyTools06BoxAnime:box forBoxBase:self];
+
 }
 
 @end

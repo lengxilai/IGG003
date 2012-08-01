@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181646BB15C972090014D54A /* IGBoxTools04.m in Sources */ = {isa = PBXBuildFile; fileRef = 181646BA15C972090014D54A /* IGBoxTools04.m */; };
+		181646BF15C973930014D54A /* IGBoxTools07.m in Sources */ = {isa = PBXBuildFile; fileRef = 181646BE15C973930014D54A /* IGBoxTools07.m */; };
 		1878E0E815C11806008342A7 /* IGBoxTools02.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0E715C11806008342A7 /* IGBoxTools02.m */; };
 		1878E0EC15C1242C008342A7 /* IGBoxTools03.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EB15C1242C008342A7 /* IGBoxTools03.m */; };
 		1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EE15C125F9008342A7 /* IGBoxTools06.m */; };
-		1878E0FA15C27419008342A7 /* anime_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1878E0F815C27419008342A7 /* anime_default.plist */; };
-		1878E0FE15C27CBE008342A7 /* anime_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1878E0FD15C27CBE008342A7 /* anime_default-hd.png */; };
-		18DE73BE15C911C500EE9C25 /* toolanime_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73BC15C911C500EE9C25 /* toolanime_default.plist */; };
 		18DE73C315C912EF00EE9C25 /* IGBoxTools05.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE73C215C912EF00EE9C25 /* IGBoxTools05.m */; };
-		18DE73C615C91C6D00EE9C25 /* toolanime_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73C415C91C6D00EE9C25 /* toolanime_default-hd.png */; };
-		18DE73C715C91C6D00EE9C25 /* toolanime_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73C515C91C6D00EE9C25 /* toolanime_default.png */; };
+		18DE73D415C958D600EE9C25 /* images_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73D215C958D600EE9C25 /* images_default.plist */; };
+		18DE73D515C958D600EE9C25 /* images_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73D315C958D600EE9C25 /* images_default.png */; };
+		18DE73D915C9591D00EE9C25 /* sl01.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73D815C9591D00EE9C25 /* sl01.png */; };
+		18DE73DB15C9595900EE9C25 /* images_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73DA15C9595900EE9C25 /* images_default-hd.png */; };
 		18DE7A9115BE6D8100F9D2D8 /* popb.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A8F15BE6D8100F9D2D8 /* popb.png */; };
 		18DE7A9515BE6E7700F9D2D8 /* tools01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A9415BE6E7700F9D2D8 /* tools01.plist */; };
-		18DE7A9715BE84B300F9D2D8 /* igt003_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */; };
 		18DE7A9E15BFBFCE00F9D2D8 /* IGBoxTools01.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE7A9D15BFBFCE00F9D2D8 /* IGBoxTools01.m */; };
 		18DE7AA215BFC4CB00F9D2D8 /* IGBoxBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE7AA115BFC4CB00F9D2D8 /* IGBoxBase.m */; };
 		D7030A8115B6B2D000BA5EF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7030A8015B6B2D000BA5EF4 /* QuartzCore.framework */; };
@@ -138,8 +138,6 @@
 		D7030BEA15B6B2D300BA5EF4 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030BE915B6B2D300BA5EF4 /* HelloWorldLayer.m */; };
 		D7030BFD15B6B3BB00BA5EF4 /* pop.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7030BFB15B6B3BB00BA5EF4 /* pop.plist */; };
 		D7030BFE15B6B3BB00BA5EF4 /* pop.png in Resources */ = {isa = PBXBuildFile; fileRef = D7030BFC15B6B3BB00BA5EF4 /* pop.png */; };
-		D7030C0215B6B3C900BA5EF4 /* igt003_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7030BFF15B6B3C900BA5EF4 /* igt003_default.plist */; };
-		D7030C0315B6B3C900BA5EF4 /* igt003_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D7030C0015B6B3C900BA5EF4 /* igt003_default.png */; };
 		D7030C0415B6B3C900BA5EF4 /* selectedbar.png in Resources */ = {isa = PBXBuildFile; fileRef = D7030C0115B6B3C900BA5EF4 /* selectedbar.png */; };
 		D7030C0B15B6B3E100BA5EF4 /* IGLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C0615B6B3E100BA5EF4 /* IGLayer.m */; };
 		D7030C0C15B6B3E100BA5EF4 /* IGScene.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C0815B6B3E100BA5EF4 /* IGScene.m */; };
@@ -167,22 +165,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181646B915C972090014D54A /* IGBoxTools04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools04.h; sourceTree = "<group>"; };
+		181646BA15C972090014D54A /* IGBoxTools04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools04.m; sourceTree = "<group>"; };
+		181646BD15C973930014D54A /* IGBoxTools07.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools07.h; sourceTree = "<group>"; };
+		181646BE15C973930014D54A /* IGBoxTools07.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools07.m; sourceTree = "<group>"; };
 		1878E0E615C11806008342A7 /* IGBoxTools02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools02.h; sourceTree = "<group>"; };
 		1878E0E715C11806008342A7 /* IGBoxTools02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools02.m; sourceTree = "<group>"; };
 		1878E0EA15C1242C008342A7 /* IGBoxTools03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools03.h; sourceTree = "<group>"; };
 		1878E0EB15C1242C008342A7 /* IGBoxTools03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools03.m; sourceTree = "<group>"; };
 		1878E0ED15C125F9008342A7 /* IGBoxTools06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools06.h; sourceTree = "<group>"; };
 		1878E0EE15C125F9008342A7 /* IGBoxTools06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools06.m; sourceTree = "<group>"; };
-		1878E0F815C27419008342A7 /* anime_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = anime_default.plist; path = images/anime_default.plist; sourceTree = "<group>"; };
-		1878E0FD15C27CBE008342A7 /* anime_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anime_default-hd.png"; path = "images/anime_default-hd.png"; sourceTree = "<group>"; };
-		18DE73BC15C911C500EE9C25 /* toolanime_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = toolanime_default.plist; path = images/toolanime_default.plist; sourceTree = "<group>"; };
 		18DE73C115C912EF00EE9C25 /* IGBoxTools05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools05.h; sourceTree = "<group>"; };
 		18DE73C215C912EF00EE9C25 /* IGBoxTools05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools05.m; sourceTree = "<group>"; };
-		18DE73C415C91C6D00EE9C25 /* toolanime_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolanime_default-hd.png"; path = "images/toolanime_default-hd.png"; sourceTree = "<group>"; };
-		18DE73C515C91C6D00EE9C25 /* toolanime_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toolanime_default.png; path = images/toolanime_default.png; sourceTree = "<group>"; };
+		18DE73D215C958D600EE9C25 /* images_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = images_default.plist; path = images/images_default.plist; sourceTree = "<group>"; };
+		18DE73D315C958D600EE9C25 /* images_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = images_default.png; path = images/images_default.png; sourceTree = "<group>"; };
+		18DE73D815C9591D00EE9C25 /* sl01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sl01.png; path = images/sl01.png; sourceTree = "<group>"; };
+		18DE73DA15C9595900EE9C25 /* images_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "images_default-hd.png"; path = "images/images_default-hd.png"; sourceTree = "<group>"; };
 		18DE7A8F15BE6D8100F9D2D8 /* popb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popb.png; sourceTree = "<group>"; };
 		18DE7A9415BE6E7700F9D2D8 /* tools01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tools01.plist; sourceTree = "<group>"; };
-		18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "igt003_default-hd.png"; path = "images/igt003_default-hd.png"; sourceTree = "<group>"; };
 		18DE7A9C15BFBFCE00F9D2D8 /* IGBoxTools01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools01.h; sourceTree = "<group>"; };
 		18DE7A9D15BFBFCE00F9D2D8 /* IGBoxTools01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools01.m; sourceTree = "<group>"; };
 		18DE7AA015BFC4CB00F9D2D8 /* IGBoxBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxBase.h; sourceTree = "<group>"; };
@@ -424,8 +424,6 @@
 		D7030BEB15B6B2D300BA5EF4 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		D7030BFB15B6B3BB00BA5EF4 /* pop.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pop.plist; sourceTree = "<group>"; };
 		D7030BFC15B6B3BB00BA5EF4 /* pop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pop.png; sourceTree = "<group>"; };
-		D7030BFF15B6B3C900BA5EF4 /* igt003_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = igt003_default.plist; path = images/igt003_default.plist; sourceTree = "<group>"; };
-		D7030C0015B6B3C900BA5EF4 /* igt003_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = igt003_default.png; path = images/igt003_default.png; sourceTree = "<group>"; };
 		D7030C0115B6B3C900BA5EF4 /* selectedbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectedbar.png; path = images/selectedbar.png; sourceTree = "<group>"; };
 		D7030C0515B6B3E100BA5EF4 /* IGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGLayer.h; sourceTree = "<group>"; };
 		D7030C0615B6B3E100BA5EF4 /* IGLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGLayer.m; sourceTree = "<group>"; };
@@ -525,8 +523,6 @@
 		D7030A9015B6B2D000BA5EF4 /* IGG003 */ = {
 			isa = PBXGroup;
 			children = (
-				DC93533D15C93C2A000AB032 /* IGToolUtils.m */,
-				DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */,
 				DC93533F15C93C2B000AB032 /* IGToolUtils.h */,
 				DC93533615C937F4000AB032 /* music */,
 				E21A2C4215C126D000E52519 /* Font */,
@@ -936,8 +932,12 @@
 				1878E0EB15C1242C008342A7 /* IGBoxTools03.m */,
 				1878E0ED15C125F9008342A7 /* IGBoxTools06.h */,
 				1878E0EE15C125F9008342A7 /* IGBoxTools06.m */,
+				181646B915C972090014D54A /* IGBoxTools04.h */,
+				181646BA15C972090014D54A /* IGBoxTools04.m */,
 				18DE73C115C912EF00EE9C25 /* IGBoxTools05.h */,
 				18DE73C215C912EF00EE9C25 /* IGBoxTools05.m */,
+				181646BD15C973930014D54A /* IGBoxTools07.h */,
+				181646BE15C973930014D54A /* IGBoxTools07.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -958,16 +958,12 @@
 		D7030BFA15B6B35A00BA5EF4 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				18DE73C415C91C6D00EE9C25 /* toolanime_default-hd.png */,
-				18DE73C515C91C6D00EE9C25 /* toolanime_default.png */,
-				18DE73BC15C911C500EE9C25 /* toolanime_default.plist */,
-				1878E0FD15C27CBE008342A7 /* anime_default-hd.png */,
-				1878E0F815C27419008342A7 /* anime_default.plist */,
-				18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */,
+				18DE73DA15C9595900EE9C25 /* images_default-hd.png */,
+				18DE73D815C9591D00EE9C25 /* sl01.png */,
+				18DE73D215C958D600EE9C25 /* images_default.plist */,
+				18DE73D315C958D600EE9C25 /* images_default.png */,
 				18DE7A9415BE6E7700F9D2D8 /* tools01.plist */,
 				18DE7A8F15BE6D8100F9D2D8 /* popb.png */,
-				D7030BFF15B6B3C900BA5EF4 /* igt003_default.plist */,
-				D7030C0015B6B3C900BA5EF4 /* igt003_default.png */,
 				D7030C0115B6B3C900BA5EF4 /* selectedbar.png */,
 				D7030BFB15B6B3BB00BA5EF4 /* pop.plist */,
 				D7030BFC15B6B3BB00BA5EF4 /* pop.png */,
@@ -986,6 +982,8 @@
 		E21A2C4215C126D000E52519 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DC93533D15C93C2A000AB032 /* IGToolUtils.m */,
+				DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */,
 				E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */,
 				E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */,
 				E21A2C3715C126B900E52519 /* bitmapFont.fnt */,
@@ -1055,23 +1053,19 @@
 				D7030AA415B6B2D000BA5EF4 /* iTunesArtwork in Resources */,
 				D7030BFD15B6B3BB00BA5EF4 /* pop.plist in Resources */,
 				D7030BFE15B6B3BB00BA5EF4 /* pop.png in Resources */,
-				D7030C0215B6B3C900BA5EF4 /* igt003_default.plist in Resources */,
-				D7030C0315B6B3C900BA5EF4 /* igt003_default.png in Resources */,
 				D7030C0415B6B3C900BA5EF4 /* selectedbar.png in Resources */,
 				18DE7A9115BE6D8100F9D2D8 /* popb.png in Resources */,
 				18DE7A9515BE6E7700F9D2D8 /* tools01.plist in Resources */,
-				18DE7A9715BE84B300F9D2D8 /* igt003_default-hd.png in Resources */,
 				E21A2C3D15C126B900E52519 /* bitmapFont.fnt in Resources */,
 				E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */,
-				1878E0FA15C27419008342A7 /* anime_default.plist in Resources */,
-				1878E0FE15C27CBE008342A7 /* anime_default-hd.png in Resources */,
-				18DE73BE15C911C500EE9C25 /* toolanime_default.plist in Resources */,
-				18DE73C615C91C6D00EE9C25 /* toolanime_default-hd.png in Resources */,
-				18DE73C715C91C6D00EE9C25 /* toolanime_default.png in Resources */,
 				DC93533915C93814000AB032 /* bg_music3.caf in Resources */,
 				DC93534115C93C2B000AB032 /* bitmapFont2.fnt in Resources */,
 				E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */,
 				E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */,
+				18DE73D415C958D600EE9C25 /* images_default.plist in Resources */,
+				18DE73D515C958D600EE9C25 /* images_default.png in Resources */,
+				18DE73D915C9591D00EE9C25 /* sl01.png in Resources */,
+				18DE73DB15C9595900EE9C25 /* images_default-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,6 +1197,8 @@
 				DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */,
 				DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */,
 				E276CF6B15C9481800D521FE /* CL04.m in Sources */,
+				181646BB15C972090014D54A /* IGBoxTools04.m in Sources */,
+				181646BF15C973930014D54A /* IGBoxTools07.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

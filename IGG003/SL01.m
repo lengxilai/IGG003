@@ -27,18 +27,8 @@
         
         // 添加图片缓存
         {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"igt003_default.plist"];
-            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"igt003_default.png"];
-            [self addChild:batch];
-        }
-        {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"anime_default.plist"];
-            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"anime_default.png"];
-            [self addChild:batch];
-        }
-        {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"toolanime_default.plist"];
-            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"toolanime_default.png"];
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"images_default.plist"];
+            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"images_default.png"];
             [self addChild:batch];
         }
         
@@ -46,6 +36,10 @@
         particleManager = [[IGParticleManager alloc] initWithScene:self];
         [particleManager add:16 particleOfType:@"pop" atZ:1];
         [particleManager add:9 particleOfType:@"tools01" atZ:2];
+        
+        IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
+        bak.position = ccp(kWindowW/2,kWindowH/2);
+        [self addChild:bak];
         
         // 显示所有箱子
         [self showBoxs];
@@ -92,15 +86,15 @@
             break;
         case tools04:
             // 进行道具04的消除
-            [self runNoTool:mp];
+            [self runTools04:mp];
             break;
         case tools06:
             // 进行道具04的消除
             [self runTools06:mp];
             break;
         case tools07:
-            // 进行道具04的消除
-            [self runNoTool:mp];
+            // 进行道具07的消除
+            [self runTools07:mp];
             break;
         default:
             // 进行普通消除
@@ -137,6 +131,13 @@
     [t run:mp];
     [t release];
 }
+// 运行T04道具
+-(void)runTools04:(MxPoint)mp
+{
+    IGBoxTools04 *t = [[IGBoxTools04 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
 // 运行T05道具
 -(void)runTools05:(MxPoint)mp
 {
@@ -148,6 +149,13 @@
 -(void)runTools06:(MxPoint)mp
 {
     IGBoxTools06 *t = [[IGBoxTools06 alloc] initForLayer:self forParticle:particleManager];
+    [t run:mp];
+    [t release];
+}
+// 运行T07道具
+-(void)runTools07:(MxPoint)mp
+{
+    IGBoxTools07 *t = [[IGBoxTools07 alloc] initForLayer:self forParticle:particleManager];
     [t run:mp];
     [t release];
 }

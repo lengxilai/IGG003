@@ -318,16 +318,8 @@
 {
     // 放大
     float scaleTime = 0.15*fTimeRate;
-    float scaleRate = 1.2;
+    float scaleRate = 1.5;
     CCScaleTo *st = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];
-    
-    // 晃动的动画
-    float mobeStepTime = 0.03*fTimeRate;
-    id mb1 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(5,0)];
-    id mb2 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(-10,0)];
-    id mb3 = [mb2 reverse];
-    id mb4 = [mb3 reverse];
-    id mb5 = [CCMoveBy actionWithDuration:mobeStepTime position:ccp(5,0)];
     
     // 通过回调函数删除用于显示动画效果的Sprite
     id delCallback = [CCCallFuncN actionWithTarget:boxBase.node selector:@selector(actionEndCallback:)];
@@ -335,13 +327,21 @@
     id particleCallback = [CCCallFuncN actionWithTarget:boxBase selector:@selector(showPopParticle:)];
     
     if (!box.isTarget) {
-        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime scale:1.0],delCallback,particleCallback, nil];
+            
+        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime*3 scale:1.0],[CCScaleTo actionWithDuration:scaleTime scale:0.2],delCallback,particleCallback, nil];
         [box runAction:se];
         return;
     }
     
-    // 显示动画、晃动->粒子效果->删除元素
-    CCSequence *mb = [CCSequence actions:mb1,mb2,mb3,mb4,mb5, nil];
+    // 蜘蛛网
+    IGSprite *zzw = [IGSprite spriteWithSpriteFrameName:@"t6-w.png"];
+    [zzw setScale:0.3];
+    zzw.position = box.position;
+    
+    [boxBase.node addChild:zzw];
+    [zzw runAction:[CCSequence actions:[CCScaleTo actionWithDuration:scaleTime scale:1.2],[CCScaleTo actionWithDuration:scaleTime scale:0.8],delCallback,nil]];
+    
+    // 显示动画->删除元素
     CCSpawn *sp = [CCSpawn actions:st, nil];
     CCSequence *se = [CCSequence actions:sp,delCallback,particleCallback, nil];
     [box runAction:se];

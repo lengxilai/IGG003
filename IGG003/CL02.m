@@ -13,6 +13,11 @@
 static int pauseTime = 5;
 //加时间
 static int addTime = 5;
+//字体变化到倍数
+static int fontSizeTo = 1.1;
+//倒计时tag
+static int timeTag = 100001;
+
 - (void) dealloc
 {
 	[super dealloc];
@@ -22,11 +27,12 @@ static int addTime = 5;
     if( (self=[super init])) {
         CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:@"01:00" fntFile:@"bitmapFont2.fnt"];
 		pointsSprit.position = ccp(40,450);
-        pointsSprit.tag = 100001;
+        pointsSprit.tag = timeTag;
        
         [self addChild:pointsSprit z:1];
         time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
-        [self schedule:@selector(updateTimeDisplay) interval:0.2];
+        persecond = 60;
+        [self schedule:@selector(updateTimeDisplay) interval:0.1];
         CCMenuItem  *button = [CCMenuItemImage
                               itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
                               target:self selector:@selector(clickAddTimeTool)];
@@ -53,16 +59,27 @@ static int addTime = 5;
 - (void) updateTimeDisplay{
     
     times = (int)[time timeIntervalSinceNow];
-    CCLabelBMFont *clockLabel = (CCLabelBMFont *)[self getChildByTag:100001];
-
+    CCLabelBMFont *clockLabel = (CCLabelBMFont *)[self getChildByTag:timeTag];
+    //改变引用的字体文件
     if(times ==10){
-        [self removeChildByTag:100001 cleanup:true];
+        [self removeChildByTag:timeTag cleanup:true];
         clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont.fnt"];
-        clockLabel.tag = 100001;
+        clockLabel.tag = timeTag;
         clockLabel.position = ccp(40,450);
         [self addChild:clockLabel];
     }
     [clockLabel setString:[self stringForObjectValue:[NSNumber numberWithInt: times]]];
+    
+    //倒计时动画
+    if(times <= 55){
+        if(times != persecond){
+            persecond = times;
+            id action0 = [CCScaleTo actionWithDuration:0.2 scale:fontSizeTo];
+            id action1 = [CCScaleTo actionWithDuration:0.3 scale:1];
+            [clockLabel runAction:[CCSequence actions:action0, action1, nil]]; 
+        }
+        
+    }
     
     if(times <= 0){
         
@@ -129,8 +146,8 @@ static int addTime = 5;
         times = times + 1;
         time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
         [self removeChildByTag:100010 cleanup:true];
-        [self unschedule:@selector(pauseSchedule)];
-        [self schedule:@selector(updateTimeDisplay) interval:0.2];
+        [self unschedule:@selector(pauseScheduleByIce)];
+        [self schedule:@selector(updateTimeDisplay) interval:0.1];
     }
 }
 //使用加时道具

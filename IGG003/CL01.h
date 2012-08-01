@@ -9,8 +9,10 @@
 #import "IGLayer.h"
 #import "IGSprite.h"
 #import "SpriteBox.h"
+#import "CL04.h"
 
 @class SL01;
+
 @interface CL01 : IGLayer
 {
     // 横向与纵向的透明指示条

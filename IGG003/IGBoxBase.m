@@ -117,10 +117,8 @@
         if (newBox.isBefore) {
             newBox.tag = newBox.beforeTag;
             newBox.isBefore = NO;
-            NSLog(@"change before box : %d",newBox.tag);
         }else {
             [node addChild:newBox];
-            NSLog(@"add new box : %d",newBox.tag);
         }
     }
     // 延时刷新矩阵

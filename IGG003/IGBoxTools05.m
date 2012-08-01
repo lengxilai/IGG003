@@ -126,12 +126,12 @@
                 sprite.position = targetBox.position;
                 [node addChild:sprite];
                 
-                float moveTime = sqrt((boxMP.R-targetBoxMP.R)*(boxMP.R-targetBoxMP.R)+(boxMP.C-targetBoxMP.C)*(boxMP.C-targetBoxMP.C))*0.08*fTimeRate;
+                float moveTime = sqrt((boxMP.R-targetBoxMP.R)*(boxMP.R-targetBoxMP.R)+(boxMP.C-targetBoxMP.C)*(boxMP.C-targetBoxMP.C))*0.1*fTimeRate;
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }
                 
-                CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.02*fTimeRate]];
+                CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.05*fTimeRate]];
                 [sprite runAction:[CCRepeatForever actionWithAction:animation]];
                 CCMoveTo *mt = [CCMoveTo actionWithDuration:moveTime position:box.position];
                 

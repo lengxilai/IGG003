@@ -36,7 +36,8 @@ static CL03 *staticCL03;
 }
 
 //初始化  加分前的分数   combo数
--(id)addPointForBoxNum:(int)boxNum forPoint:(CGPoint) position{
+
+-(id)addPointForBoxNum:(int)boxNum forPoint:(CGPoint) position {
     
     IGGameState *gameState = [IGGameState gameState];
 
@@ -124,7 +125,7 @@ static CL03 *staticCL03;
 }
 
 // 被消除的水果的上边显示分数和combo
--(void)showPointAndCombo:(CGPoint) position{
+-(void)showPointAndCombo:(CGPoint) position {
     CGFloat position_x = position.x;
     CGFloat position_y = position.y;
     

@@ -40,6 +40,14 @@
         wBar.hidden = YES;
         hBar.hidden = YES;
         
+        CCSprite* playNormal=[CCSprite spriteWithFile:@"Icon.png"];
+        CCSprite* playSecelt=[CCSprite spriteWithFile:@"Icon.png"];
+        CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:self selector:@selector(gamePause)];
+        CCMenu* menu=[CCMenu menuWithItems:startSprite,nil]; //添加一个按钮，触发游戏暂停；
+        menu.position=CGPointZero;
+        [self addChild:menu];
+        menu.position=ccp(380,260);
+
         cType = eCNothing;
 	}
 	return self;
@@ -143,5 +151,10 @@
     CGSize size = [[CCDirector sharedDirector] winSize]; 
     wBar.frame = CGRectMake(wBar.frame.origin.x, size.height - (mp.R*kSL01OffsetY+kSL01StartY + kBarSize/2), wBar.frame.size.width, wBar.frame.size.height);
     hBar.frame = CGRectMake(mp.C*kSL01OffsetX+kSL01StartX-kBarSize/2, hBar.frame.origin.y, hBar.frame.size.width, hBar.frame.size.height);
+}
+
+-(void)gamePause
+{
+    CL04 *cl04 = [CL04 node];
 }
 @end

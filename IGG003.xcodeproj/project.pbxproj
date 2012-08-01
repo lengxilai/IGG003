@@ -12,6 +12,10 @@
 		1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EE15C125F9008342A7 /* IGBoxTools06.m */; };
 		1878E0FA15C27419008342A7 /* anime_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1878E0F815C27419008342A7 /* anime_default.plist */; };
 		1878E0FE15C27CBE008342A7 /* anime_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 1878E0FD15C27CBE008342A7 /* anime_default-hd.png */; };
+		18DE73BE15C911C500EE9C25 /* toolanime_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73BC15C911C500EE9C25 /* toolanime_default.plist */; };
+		18DE73C315C912EF00EE9C25 /* IGBoxTools05.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE73C215C912EF00EE9C25 /* IGBoxTools05.m */; };
+		18DE73C615C91C6D00EE9C25 /* toolanime_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73C415C91C6D00EE9C25 /* toolanime_default-hd.png */; };
+		18DE73C715C91C6D00EE9C25 /* toolanime_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE73C515C91C6D00EE9C25 /* toolanime_default.png */; };
 		18DE7A9115BE6D8100F9D2D8 /* popb.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A8F15BE6D8100F9D2D8 /* popb.png */; };
 		18DE7A9515BE6E7700F9D2D8 /* tools01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A9415BE6E7700F9D2D8 /* tools01.plist */; };
 		18DE7A9715BE84B300F9D2D8 /* igt003_default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */; };
@@ -149,11 +153,15 @@
 		D7030C2215B6B43400BA5EF4 /* SL01.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2015B6B43400BA5EF4 /* SL01.m */; };
 		D7030C2515B6B44400BA5EF4 /* SpriteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2415B6B44400BA5EF4 /* SpriteBox.m */; };
 		D743962F15C0B5BD00467020 /* IGBoxToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */; };
+		DC93533915C93814000AB032 /* bg_music3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC93533815C93814000AB032 /* bg_music3.caf */; };
+		DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533A15C9384F000AB032 /* IGMusicUtil.m */; };
+		DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533D15C93C2A000AB032 /* IGToolUtils.m */; };
+		DC93534115C93C2B000AB032 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */; };
 		E21A2C3D15C126B900E52519 /* bitmapFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3715C126B900E52519 /* bitmapFont.fnt */; };
 		E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3815C126B900E52519 /* bitmapFont.png */; };
 		E21A2C3F15C126B900E52519 /* CL02.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3A15C126B900E52519 /* CL02.m */; };
 		E21A2C4015C126B900E52519 /* CL03.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3C15C126B900E52519 /* CL03.m */; };
-		E276CF5F15C91AAD00D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF5E15C91AAD00D521FE /* CL04.m */; };
+		E276CF6B15C9481800D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF6A15C9481800D521FE /* CL04.m */; };
 		E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */; };
 		E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */; };
 /* End PBXBuildFile section */
@@ -167,6 +175,11 @@
 		1878E0EE15C125F9008342A7 /* IGBoxTools06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools06.m; sourceTree = "<group>"; };
 		1878E0F815C27419008342A7 /* anime_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = anime_default.plist; path = images/anime_default.plist; sourceTree = "<group>"; };
 		1878E0FD15C27CBE008342A7 /* anime_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anime_default-hd.png"; path = "images/anime_default-hd.png"; sourceTree = "<group>"; };
+		18DE73BC15C911C500EE9C25 /* toolanime_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = toolanime_default.plist; path = images/toolanime_default.plist; sourceTree = "<group>"; };
+		18DE73C115C912EF00EE9C25 /* IGBoxTools05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools05.h; sourceTree = "<group>"; };
+		18DE73C215C912EF00EE9C25 /* IGBoxTools05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools05.m; sourceTree = "<group>"; };
+		18DE73C415C91C6D00EE9C25 /* toolanime_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "toolanime_default-hd.png"; path = "images/toolanime_default-hd.png"; sourceTree = "<group>"; };
+		18DE73C515C91C6D00EE9C25 /* toolanime_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toolanime_default.png; path = images/toolanime_default.png; sourceTree = "<group>"; };
 		18DE7A8F15BE6D8100F9D2D8 /* popb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popb.png; sourceTree = "<group>"; };
 		18DE7A9415BE6E7700F9D2D8 /* tools01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tools01.plist; sourceTree = "<group>"; };
 		18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "igt003_default-hd.png"; path = "images/igt003_default-hd.png"; sourceTree = "<group>"; };
@@ -438,14 +451,20 @@
 		D7030C2415B6B44400BA5EF4 /* SpriteBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteBox.m; sourceTree = "<group>"; };
 		D743962D15C0B5BD00467020 /* IGBoxToolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxToolUtil.h; sourceTree = "<group>"; };
 		D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxToolUtil.m; sourceTree = "<group>"; };
+		DC93533815C93814000AB032 /* bg_music3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music3.caf; sourceTree = "<group>"; };
+		DC93533A15C9384F000AB032 /* IGMusicUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMusicUtil.m; sourceTree = "<group>"; };
+		DC93533B15C9384F000AB032 /* IGMusicUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMusicUtil.h; sourceTree = "<group>"; };
+		DC93533D15C93C2A000AB032 /* IGToolUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGToolUtils.m; sourceTree = "<group>"; };
+		DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
+		DC93533F15C93C2B000AB032 /* IGToolUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGToolUtils.h; sourceTree = "<group>"; };
 		E21A2C3715C126B900E52519 /* bitmapFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont.fnt; sourceTree = "<group>"; };
 		E21A2C3815C126B900E52519 /* bitmapFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont.png; sourceTree = "<group>"; };
 		E21A2C3915C126B900E52519 /* CL02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL02.h; sourceTree = "<group>"; };
 		E21A2C3A15C126B900E52519 /* CL02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL02.m; sourceTree = "<group>"; };
 		E21A2C3B15C126B900E52519 /* CL03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL03.h; sourceTree = "<group>"; };
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
-		E276CF5D15C91AAD00D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL04.h; sourceTree = "<group>"; };
-		E276CF5E15C91AAD00D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
+		E276CF6915C9481800D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CL04.h; path = IGG003/CL04.h; sourceTree = "<group>"; };
+		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CL04.m; path = IGG003/CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
 		E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -472,6 +491,8 @@
 		D7030A7115B6B2D000BA5EF4 = {
 			isa = PBXGroup;
 			children = (
+				E276CF6915C9481800D521FE /* CL04.h */,
+				E276CF6A15C9481800D521FE /* CL04.m */,
 				D7030A9015B6B2D000BA5EF4 /* IGG003 */,
 				D7030A7F15B6B2D000BA5EF4 /* Frameworks */,
 				D7030A7D15B6B2D000BA5EF4 /* Products */,
@@ -504,6 +525,10 @@
 		D7030A9015B6B2D000BA5EF4 /* IGG003 */ = {
 			isa = PBXGroup;
 			children = (
+				DC93533D15C93C2A000AB032 /* IGToolUtils.m */,
+				DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */,
+				DC93533F15C93C2B000AB032 /* IGToolUtils.h */,
+				DC93533615C937F4000AB032 /* music */,
 				E21A2C4215C126D000E52519 /* Font */,
 				D7030BFA15B6B35A00BA5EF4 /* images */,
 				D7030BF915B6B35100BA5EF4 /* IGCocosEx */,
@@ -873,8 +898,6 @@
 				D7030C1E15B6B43400BA5EF4 /* CL01.m */,
 				D7030C1F15B6B43400BA5EF4 /* SL01.h */,
 				D7030C2015B6B43400BA5EF4 /* SL01.m */,
-				E276CF5D15C91AAD00D521FE /* CL04.h */,
-				E276CF5E15C91AAD00D521FE /* CL04.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -891,6 +914,8 @@
 		D7030BF815B6B34800BA5EF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				DC93533A15C9384F000AB032 /* IGMusicUtil.m */,
+				DC93533B15C9384F000AB032 /* IGMusicUtil.h */,
 				D7030C0E15B6B40200BA5EF4 /* IGAnimeUtil.h */,
 				D7030C0F15B6B40200BA5EF4 /* IGAnimeUtil.m */,
 				D7030C1015B6B40200BA5EF4 /* IGCommonDefine.h */,
@@ -911,6 +936,8 @@
 				1878E0EB15C1242C008342A7 /* IGBoxTools03.m */,
 				1878E0ED15C125F9008342A7 /* IGBoxTools06.h */,
 				1878E0EE15C125F9008342A7 /* IGBoxTools06.m */,
+				18DE73C115C912EF00EE9C25 /* IGBoxTools05.h */,
+				18DE73C215C912EF00EE9C25 /* IGBoxTools05.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -931,6 +958,9 @@
 		D7030BFA15B6B35A00BA5EF4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				18DE73C415C91C6D00EE9C25 /* toolanime_default-hd.png */,
+				18DE73C515C91C6D00EE9C25 /* toolanime_default.png */,
+				18DE73BC15C911C500EE9C25 /* toolanime_default.plist */,
 				1878E0FD15C27CBE008342A7 /* anime_default-hd.png */,
 				1878E0F815C27419008342A7 /* anime_default.plist */,
 				18DE7A9615BE84B200F9D2D8 /* igt003_default-hd.png */,
@@ -943,6 +973,14 @@
 				D7030BFC15B6B3BB00BA5EF4 /* pop.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		DC93533615C937F4000AB032 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				DC93533815C93814000AB032 /* bg_music3.caf */,
+			);
+			name = music;
 			sourceTree = "<group>";
 		};
 		E21A2C4215C126D000E52519 /* Font */ = {
@@ -1027,6 +1065,11 @@
 				E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */,
 				1878E0FA15C27419008342A7 /* anime_default.plist in Resources */,
 				1878E0FE15C27CBE008342A7 /* anime_default-hd.png in Resources */,
+				18DE73BE15C911C500EE9C25 /* toolanime_default.plist in Resources */,
+				18DE73C615C91C6D00EE9C25 /* toolanime_default-hd.png in Resources */,
+				18DE73C715C91C6D00EE9C25 /* toolanime_default.png in Resources */,
+				DC93533915C93814000AB032 /* bg_music3.caf in Resources */,
+				DC93534115C93C2B000AB032 /* bitmapFont2.fnt in Resources */,
 				E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */,
 				E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */,
 			);
@@ -1156,7 +1199,10 @@
 				1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */,
 				E21A2C3F15C126B900E52519 /* CL02.m in Sources */,
 				E21A2C4015C126B900E52519 /* CL03.m in Sources */,
-				E276CF5F15C91AAD00D521FE /* CL04.m in Sources */,
+				18DE73C315C912EF00EE9C25 /* IGBoxTools05.m in Sources */,
+				DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */,
+				DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */,
+				E276CF6B15C9481800D521FE /* CL04.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

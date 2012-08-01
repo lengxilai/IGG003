@@ -22,6 +22,9 @@
 {
 	if( (self=[super init])) {
         
+        // 背景音乐
+        [IGMusicUtil showBackgroundMusic];
+        
         // 添加图片缓存
         {
             [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"igt003_default.plist"];
@@ -31,6 +34,11 @@
         {
             [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"anime_default.plist"];
             CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"anime_default.png"];
+            [self addChild:batch];
+        }
+        {
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"toolanime_default.plist"];
+            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"toolanime_default.png"];
             [self addChild:batch];
         }
         
@@ -83,7 +91,7 @@
             [self runTools05:mp];
             break;
         case tools04:
-            // 进行道具05的消除
+            // 进行道具04的消除
             [self runNoTool:mp];
             break;
         case tools06:
@@ -132,7 +140,7 @@
 // 运行T05道具
 -(void)runTools05:(MxPoint)mp
 {
-    IGBoxTools02 *t = [[IGBoxTools02 alloc] initForLayer:self forParticle:particleManager];
+    IGBoxTools05 *t = [[IGBoxTools05 alloc] initForLayer:self forParticle:particleManager];
     [t run:mp];
     [t release];
 }

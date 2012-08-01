@@ -66,13 +66,13 @@
         }
     }
     // 炸弹
-    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 2)){
         if([self probability:40]){
             tooltype = tools05;
         }
     }
     // 闪电
-    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 2)){
+    if(tooltype== toolsNO &&(deleteNo >=5 || gameState.m_combo >= 2)){
         if([self probability:60]){
             tooltype = tools06;
         }

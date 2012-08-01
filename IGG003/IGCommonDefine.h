@@ -25,7 +25,7 @@
 
 #define fTimeRate 1.0
 
-#define kComboBoxLimit 6
+#define kComboBoxLimit 5
 
 #define kToolSpriteTag 998
 

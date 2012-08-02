@@ -15,7 +15,7 @@
 	<key>emitterType</key>
 	<real>0</real>
 	<key>finishColorAlpha</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>finishColorBlue</key>
 	<real>0</real>
 	<key>finishColorGreen</key>
@@ -23,7 +23,7 @@
 	<key>finishColorRed</key>
 	<real>0</real>
 	<key>finishColorVarianceAlpha</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>finishColorVarianceBlue</key>
 	<real>0</real>
 	<key>finishColorVarianceGreen</key>
@@ -39,7 +39,7 @@
 	<key>gravityy</key>
 	<real>0</real>
 	<key>maxParticles</key>
-	<real>30</real>
+	<integer>90</integer>
 	<key>maxRadius</key>
 	<real>100</real>
 	<key>maxRadiusVariance</key>
@@ -79,17 +79,17 @@
 	<key>speedVariance</key>
 	<real>28.52590370178223</real>
 	<key>startColorAlpha</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>startColorBlue</key>
-	<real>1</real>
+	<integer>1</integer>
 	<key>startColorGreen</key>
-	<real>1</real>
+	<integer>1</integer>
 	<key>startColorRed</key>
-	<real>1</real>
+	<integer>1</integer>
 	<key>startColorVarianceAlpha</key>
-	<real>1</real>
+	<integer>0</integer>
 	<key>startColorVarianceBlue</key>
-	<real>0</real>
+	<integer>0</integer>
 	<key>startColorVarianceGreen</key>
 	<real>0</real>
 	<key>startColorVarianceRed</key>

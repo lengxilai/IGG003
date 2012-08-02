@@ -36,6 +36,7 @@
         particleManager = [[IGParticleManager alloc] initWithScene:self];
         [particleManager add:16 particleOfType:@"pop" atZ:1];
         [particleManager add:9 particleOfType:@"tools01" atZ:2];
+        [particleManager add:1 particleOfType:@"snow" atZ:3];
         
         IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);

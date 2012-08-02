@@ -88,14 +88,14 @@ static CL03 *staticCL03;
 -(void)changePointWithPoint{
     //计算位数
     NSString *pointStr = [NSString stringWithFormat:@"%d",totalPoints];
-    NSString *comboStr = [NSString stringWithFormat:@"%d",comboNum];
+//    NSString *comboStr = [NSString stringWithFormat:@"%d",comboNum];
     pointsSprit = (CCLabelBMFont *)[self getChildByTag:200001];
-    comboSprit = (CCLabelBMFont *)[self getChildByTag:200002];
+//    comboSprit = (CCLabelBMFont *)[self getChildByTag:200002];
     
     [pointsSprit setString:pointStr];
-    [comboSprit setString:comboStr];
-    pointsSprit.position = ccp(310 - pointStr.length * 10,450);
-    comboSprit.position = ccp(310 - comboStr.length * 10, 410);
+//    [comboSprit setString:comboStr];
+    pointsSprit.position = ccp(310 - pointStr.length * 10,463);
+//    comboSprit.position = ccp(310 - comboStr.length * 10, 410);
 }
 
 // 设置分数显示位置
@@ -105,23 +105,23 @@ static CL03 *staticCL03;
     // combo数
     NSString *comStr = [[NSString alloc] initWithFormat:@"%d", comNum];
     // 分数字体
-    pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"bitmapFont2.fnt"];
+    pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"pointFont.fnt"];
     // combo字体
-    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"bitmapFont2.fnt"];
-    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"bitmapFont2.fnt"];
+//    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"pointFont.fnt"];
+    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"pointFont.fnt"];
     // 分数显示坐标
-    pointsSprit.position = ccp(300,450);
+    pointsSprit.position = ccp(300,463);
     // combo显示坐标
-    comboName.position = ccp(230, 410);
-    comboSprit.position = ccp(300,410);
+//    comboName.position = ccp(230, 410);
+//    comboSprit.position = ccp(300,410);
     // 分数tag
     pointsSprit.tag = 200001;
     // combo tag
     comboSprit.tag = 200002;
     
     [self addChild:pointsSprit];
-    [self addChild:comboName];
-    [self addChild:comboSprit];
+//    [self addChild:comboName];
+//    [self addChild:comboSprit];
 }
 
 // 被消除的水果的上边显示分数和combo
@@ -132,7 +132,7 @@ static CL03 *staticCL03;
     // 增加的分数
     NSString *addPointStr = [[NSString alloc] initWithFormat:@"%d", addedPoint];
     // 增加分数显示的字体
-    addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"bitmapFont2.fnt"];
+    addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"pointFont.fnt"];
     addPointSprite.scale = 2;
     // 增加分数的起始位置
     addPointSprite.position = ccp(position_x, position_y+23);    
@@ -150,7 +150,7 @@ static CL03 *staticCL03;
     if (comboNum > 0) {
         NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
         // 增加combo显示的字体
-        addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"bitmapFont2.fnt"];
+        addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"pointFont.fnt"];
         addComboSprite.scale = 2.5;
         // 增加combo的起始位置
         addComboSprite.position = ccp(300, 410);

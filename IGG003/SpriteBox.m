@@ -45,7 +45,7 @@
 {
     IGSprite *toolSprite = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"t%d-1.png",type]];
     toolSprite.tag = kToolSpriteTag;
-    toolSprite.position = ccp(kBoxSize/2,kBoxSize/2);
+    toolSprite.position = ccp(kBoxSize/2 + (kBoxSize-kToolSize)/2,kBoxSize/2 - (kBoxSize-kToolSize)/2);
     [self addChild:toolSprite];
 }
 @end

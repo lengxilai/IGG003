@@ -7,7 +7,7 @@
 //  time control
 
 #import "IGLayer.h"
-
+#import "IGCommonDefine.h"
 @interface CL02 : IGLayer
 {
     NSDate *time;

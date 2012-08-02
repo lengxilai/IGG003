@@ -153,6 +153,12 @@
 		D743962F15C0B5BD00467020 /* IGBoxToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */; };
 		DC8A8CE815CA59DD0020E643 /* pointFont.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE615CA59DD0020E643 /* pointFont.png */; };
 		DC8A8CE915CA59DD0020E643 /* pointFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE715CA59DD0020E643 /* pointFont.fnt */; };
+		DC8A8CEB15CA61010020E643 /* pointFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CEA15CA61010020E643 /* pointFont2.fnt */; };
+		DC8A8CED15CA61090020E643 /* pointFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CEC15CA61090020E643 /* pointFont2.png */; };
+		DC8A8CF415CA7A330020E643 /* comboFont1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF215CA7A320020E643 /* comboFont1.png */; };
+		DC8A8CF515CA7A330020E643 /* comboFont1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF315CA7A330020E643 /* comboFont1.fnt */; };
+		DC8A8CF715CA81B50020E643 /* shake1.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF615CA81B50020E643 /* shake1.caf */; };
+		DC8A8CF915CA81C70020E643 /* orange2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF815CA81C70020E643 /* orange2.caf */; };
 		DC93533915C93814000AB032 /* bg_music3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC93533815C93814000AB032 /* bg_music3.caf */; };
 		DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533A15C9384F000AB032 /* IGMusicUtil.m */; };
 		DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533D15C93C2A000AB032 /* IGToolUtils.m */; };
@@ -453,6 +459,12 @@
 		D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxToolUtil.m; sourceTree = "<group>"; };
 		DC8A8CE615CA59DD0020E643 /* pointFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont.png; sourceTree = "<group>"; };
 		DC8A8CE715CA59DD0020E643 /* pointFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont.fnt; sourceTree = "<group>"; };
+		DC8A8CEA15CA61010020E643 /* pointFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont2.fnt; sourceTree = "<group>"; };
+		DC8A8CEC15CA61090020E643 /* pointFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont2.png; sourceTree = "<group>"; };
+		DC8A8CF215CA7A320020E643 /* comboFont1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comboFont1.png; sourceTree = "<group>"; };
+		DC8A8CF315CA7A330020E643 /* comboFont1.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comboFont1.fnt; sourceTree = "<group>"; };
+		DC8A8CF615CA81B50020E643 /* shake1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake1.caf; sourceTree = "<group>"; };
+		DC8A8CF815CA81C70020E643 /* orange2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = orange2.caf; sourceTree = "<group>"; };
 		DC93533815C93814000AB032 /* bg_music3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music3.caf; sourceTree = "<group>"; };
 		DC93533A15C9384F000AB032 /* IGMusicUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMusicUtil.m; sourceTree = "<group>"; };
 		DC93533B15C9384F000AB032 /* IGMusicUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMusicUtil.h; sourceTree = "<group>"; };
@@ -978,6 +990,8 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DC8A8CF815CA81C70020E643 /* orange2.caf */,
+				DC8A8CF615CA81B50020E643 /* shake1.caf */,
 				DC93533815C93814000AB032 /* bg_music3.caf */,
 			);
 			name = music;
@@ -986,6 +1000,10 @@
 		E21A2C4215C126D000E52519 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DC8A8CF215CA7A320020E643 /* comboFont1.png */,
+				DC8A8CF315CA7A330020E643 /* comboFont1.fnt */,
+				DC8A8CEC15CA61090020E643 /* pointFont2.png */,
+				DC8A8CEA15CA61010020E643 /* pointFont2.fnt */,
 				DC8A8CE615CA59DD0020E643 /* pointFont.png */,
 				DC8A8CE715CA59DD0020E643 /* pointFont.fnt */,
 				DC93533D15C93C2A000AB032 /* IGToolUtils.m */,
@@ -1074,6 +1092,12 @@
 				18DE73DB15C9595900EE9C25 /* images_default-hd.png in Resources */,
 				DC8A8CE815CA59DD0020E643 /* pointFont.png in Resources */,
 				DC8A8CE915CA59DD0020E643 /* pointFont.fnt in Resources */,
+				DC8A8CEB15CA61010020E643 /* pointFont2.fnt in Resources */,
+				DC8A8CED15CA61090020E643 /* pointFont2.png in Resources */,
+				DC8A8CF415CA7A330020E643 /* comboFont1.png in Resources */,
+				DC8A8CF515CA7A330020E643 /* comboFont1.fnt in Resources */,
+				DC8A8CF715CA81B50020E643 /* shake1.caf in Resources */,
+				DC8A8CF915CA81C70020E643 /* orange2.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

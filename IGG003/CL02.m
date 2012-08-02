@@ -10,13 +10,13 @@
 
 @implementation CL02
 //暂停时间
-static int pauseTime = 5;
+
 //加时间
-static int addTime = 5;
+
 //字体变化到倍数
-static int fontSizeTo = 1.1;
+
 //倒计时tag
-static int timeTag = 100001;
+
 static CL02 *staticCL02;
 
 - (void) dealloc
@@ -26,19 +26,24 @@ static CL02 *staticCL02;
 }   
 -(id) init{
     if( (self=[super init])) {
-        CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:@"01:00" fntFile:@"bitmapFont2.fnt"];
-		pointsSprit.position = ccp(40,450);
+        //倒计时显示  初始化1:00
+        CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:@"1:00" fntFile:@"bitmapFont.fnt"];
+		pointsSprit.position = ccp(timeFontX,timeFontY);
         pointsSprit.tag = timeTag;
        
         [self addChild:pointsSprit z:1];
-        time = [[NSDate dateWithTimeIntervalSinceNow:(60)] retain];
-        persecond = 60;
+        //计算倒计时长
+        time = [[NSDate dateWithTimeIntervalSinceNow:(delaySeconds)] retain];
+        //前一秒等于倒计时长
+        persecond = delaySeconds;
+        //调用倒计时方法
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
-        
+        //暂停按钮
         CCMenuItem  *button3 = [CCMenuItemImage
                                 itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
                                 target:self selector:@selector(pauseGame)];
         button3.position =  ccp(120, 420);
+        //再开始按钮
         CCMenuItem  *button4 = [CCMenuItemImage
                                 itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
                                 target:self selector:@selector(endPause)];
@@ -59,6 +64,9 @@ static CL02 *staticCL02;
         return staticCL02;
     }
 }
+#pragma mark -
+#pragma mark 倒计时
+//倒计时更新
 - (void) updateTimeDisplay{
     
     times = (int)[time timeIntervalSinceNow];
@@ -66,9 +74,9 @@ static CL02 *staticCL02;
     //改变引用的字体文件
     if(times ==10){
         [self removeChildByTag:timeTag cleanup:true];
-        clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont.fnt"];
+        clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont2.fnt"];
         clockLabel.tag = timeTag;
-        clockLabel.position = ccp(40,450);
+        clockLabel.position = ccp(timeFontX,timeFontY);
         [self addChild:clockLabel];
     }
     [clockLabel setString:[self stringForObjectValue:[NSNumber numberWithInt: times]]];
@@ -109,7 +117,7 @@ static CL02 *staticCL02;
     
     NSString *minutesString = (minutesPart < 10) ?
     
-    [NSString stringWithFormat:@"0%d", minutesPart] :
+    [NSString stringWithFormat:@"%d", minutesPart] :
     
     [NSString stringWithFormat:@"%d", minutesPart];
     
@@ -122,22 +130,28 @@ static CL02 *staticCL02;
     return [NSString stringWithFormat:@"%@:%@", minutesString, secondsString];
     
 }
+#pragma mark -
+#pragma mark 冰冻效果
 //使用冰冻道具
 -(void)clickIceTool{
-    CCSprite *bg = (CCSprite *)[self getChildByTag:100010];
+    //取得冰冻效果层
+    CCSprite *bg = (CCSprite *)[self getChildByTag:iceBgTag];
     if(!bg){
         bg = [CCSprite spriteWithFile:@"pop.png"];
         bg.position = ccp(100,400); //位置
-        bg.tag = 100010;
+        bg.tag = iceBgTag;
     }
     iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(pauseTime)] retain];
-    
+    //冰冻效果闪烁动画
     CCFiniteTimeAction *action0 = [CCFadeOut actionWithDuration:1.1];
     CCFiniteTimeAction *action1 = [CCFadeIn actionWithDuration:1.1];
     CCFiniteTimeAction *a3 = [CCSequence actions:action1,action0,action1,action0,nil];
     [bg runAction:a3];
-    [self addChild:bg]; //将精灵加到layer上 
+     //将精灵加到layer上 
+    [self addChild:bg];
+    //停止倒计时
     [self unschedule:@selector(updateTimeDisplay)];
+    //冰冻计时开始
     [self schedule:@selector(pauseScheduleByIce) interval:1];
     
 }
@@ -146,10 +160,16 @@ static CL02 *staticCL02;
     int pauseTimes = (int)[iceNSDateTime timeIntervalSinceNow];
     
     if(pauseTimes <= 0){
+        //冰冻效果结束
+        //为了时间显示正常  这里加一处理
         times = times + 1;
+        //重新计算时间
         time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
-        [self removeChildByTag:100010 cleanup:true];
+        //删除冰冻层
+        [self removeChildByTag:iceBgTag cleanup:true];
+        //停止冰冻效果
         [self unschedule:@selector(pauseScheduleByIce)];
+        //继续计时  
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
     }
 }
@@ -158,11 +178,13 @@ static CL02 *staticCL02;
     times = times + addTime;
     time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
 }
+#pragma mark -
+#pragma mark 暂停再开始
 //游戏暂停
 -(void)pauseGame{
     [self onExit];
 }
-
+//游戏再开始
 -(void)endPause{
     [self onEnter];
 }

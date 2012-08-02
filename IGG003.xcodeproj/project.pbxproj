@@ -151,6 +151,8 @@
 		D7030C2215B6B43400BA5EF4 /* SL01.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2015B6B43400BA5EF4 /* SL01.m */; };
 		D7030C2515B6B44400BA5EF4 /* SpriteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2415B6B44400BA5EF4 /* SpriteBox.m */; };
 		D743962F15C0B5BD00467020 /* IGBoxToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */; };
+		DC8A8CE815CA59DD0020E643 /* pointFont.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE615CA59DD0020E643 /* pointFont.png */; };
+		DC8A8CE915CA59DD0020E643 /* pointFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE715CA59DD0020E643 /* pointFont.fnt */; };
 		DC93533915C93814000AB032 /* bg_music3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC93533815C93814000AB032 /* bg_music3.caf */; };
 		DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533A15C9384F000AB032 /* IGMusicUtil.m */; };
 		DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533D15C93C2A000AB032 /* IGToolUtils.m */; };
@@ -449,6 +451,8 @@
 		D7030C2415B6B44400BA5EF4 /* SpriteBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteBox.m; sourceTree = "<group>"; };
 		D743962D15C0B5BD00467020 /* IGBoxToolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxToolUtil.h; sourceTree = "<group>"; };
 		D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxToolUtil.m; sourceTree = "<group>"; };
+		DC8A8CE615CA59DD0020E643 /* pointFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont.png; sourceTree = "<group>"; };
+		DC8A8CE715CA59DD0020E643 /* pointFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont.fnt; sourceTree = "<group>"; };
 		DC93533815C93814000AB032 /* bg_music3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music3.caf; sourceTree = "<group>"; };
 		DC93533A15C9384F000AB032 /* IGMusicUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMusicUtil.m; sourceTree = "<group>"; };
 		DC93533B15C9384F000AB032 /* IGMusicUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMusicUtil.h; sourceTree = "<group>"; };
@@ -982,6 +986,8 @@
 		E21A2C4215C126D000E52519 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				DC8A8CE615CA59DD0020E643 /* pointFont.png */,
+				DC8A8CE715CA59DD0020E643 /* pointFont.fnt */,
 				DC93533D15C93C2A000AB032 /* IGToolUtils.m */,
 				DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */,
 				E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */,
@@ -1066,6 +1072,8 @@
 				18DE73D515C958D600EE9C25 /* images_default.png in Resources */,
 				18DE73D915C9591D00EE9C25 /* sl01.png in Resources */,
 				18DE73DB15C9595900EE9C25 /* images_default-hd.png in Resources */,
+				DC8A8CE815CA59DD0020E643 /* pointFont.png in Resources */,
+				DC8A8CE915CA59DD0020E643 /* pointFont.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

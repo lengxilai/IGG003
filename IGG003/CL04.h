@@ -8,11 +8,11 @@
 
 #import "IGLayer.h"
 
-@class CL01;
+@class SL01;
 @interface CL04 : IGLayer{
-    CL01* currentGameLayer;
+    SL01* currentGameLayer;
 }
-+(id)initWithGamePause:(CL01 *)delegate;
+-(id)init;
 
 -(void)removePauseGameLayer;
 -(void)enterGamePauseGameLayer;

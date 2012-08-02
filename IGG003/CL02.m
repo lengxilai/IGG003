@@ -72,9 +72,15 @@ static CL02 *staticCL02;
     times = (int)[time timeIntervalSinceNow];
     CCLabelBMFont *clockLabel = (CCLabelBMFont *)[self getChildByTag:timeTag];
     //改变引用的字体文件
-    if(times ==10){
+    if(times <=10){
         [self removeChildByTag:timeTag cleanup:true];
         clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont2.fnt"];
+        clockLabel.tag = timeTag;
+        clockLabel.position = ccp(timeFontX,timeFontY);
+        [self addChild:clockLabel];
+    }else{
+        [self removeChildByTag:timeTag cleanup:true];
+        clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont.fnt"];
         clockLabel.tag = timeTag;
         clockLabel.position = ccp(timeFontX,timeFontY);
         [self addChild:clockLabel];
@@ -82,7 +88,7 @@ static CL02 *staticCL02;
     [clockLabel setString:[self stringForObjectValue:[NSNumber numberWithInt: times]]];
     
     //倒计时动画
-    if(times <= 55){
+    if(times <= 10){
         if(times != persecond){
             persecond = times;
             id action0 = [CCScaleTo actionWithDuration:0.2 scale:fontSizeTo];
@@ -136,21 +142,11 @@ static CL02 *staticCL02;
 -(void)clickIceTool{
     //取得冰冻效果层
     CCSprite *bg = (CCSprite *)[self getChildByTag:iceBgTag];
-    if(!bg){
-        bg = [CCSprite spriteWithFile:@"pop.png"];
-        bg.position = ccp(100,400); //位置
-        bg.tag = iceBgTag;
-    }
+
     iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(pauseTime)] retain];
-    //冰冻效果闪烁动画
-    CCFiniteTimeAction *action0 = [CCFadeOut actionWithDuration:1.1];
-    CCFiniteTimeAction *action1 = [CCFadeIn actionWithDuration:1.1];
-    CCFiniteTimeAction *a3 = [CCSequence actions:action1,action0,action1,action0,nil];
-    [bg runAction:a3];
-     //将精灵加到layer上 
-    [self addChild:bg];
     //停止倒计时
     [self unschedule:@selector(updateTimeDisplay)];
+    [self unschedule:@selector(pauseScheduleByIce)];
     //冰冻计时开始
     [self schedule:@selector(pauseScheduleByIce) interval:1];
     
@@ -182,7 +178,8 @@ static CL02 *staticCL02;
 #pragma mark 暂停再开始
 //游戏暂停
 -(void)pauseGame{
-    [self onExit];
+    S01 *s01 = [S01 getS01];
+    [s01 pauseGame];
 }
 //游戏再开始
 -(void)endPause{

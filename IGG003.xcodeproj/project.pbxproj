@@ -483,8 +483,8 @@
 		E21A2C3A15C126B900E52519 /* CL02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL02.m; sourceTree = "<group>"; };
 		E21A2C3B15C126B900E52519 /* CL03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL03.h; sourceTree = "<group>"; };
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
-		E276CF6915C9481800D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CL04.h; path = IGG003/CL04.h; sourceTree = "<group>"; };
-		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CL04.m; path = IGG003/CL04.m; sourceTree = "<group>"; };
+		E276CF6915C9481800D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL04.h; sourceTree = "<group>"; };
+		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
 		E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -511,8 +511,6 @@
 		D7030A7115B6B2D000BA5EF4 = {
 			isa = PBXGroup;
 			children = (
-				E276CF6915C9481800D521FE /* CL04.h */,
-				E276CF6A15C9481800D521FE /* CL04.m */,
 				D7030A9015B6B2D000BA5EF4 /* IGG003 */,
 				D7030A7F15B6B2D000BA5EF4 /* Frameworks */,
 				D7030A7D15B6B2D000BA5EF4 /* Products */,
@@ -908,6 +906,8 @@
 		D7030BF615B6B32700BA5EF4 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
+				E276CF6915C9481800D521FE /* CL04.h */,
+				E276CF6A15C9481800D521FE /* CL04.m */,
 				E21A2C3915C126B900E52519 /* CL02.h */,
 				E21A2C3A15C126B900E52519 /* CL02.m */,
 				E21A2C3B15C126B900E52519 /* CL03.h */,

@@ -26,7 +26,7 @@
 
 // 水果晃动时的音效
 +(void)showShakingMusic {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"shake2.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"shake1.caf"];
 }
 
 // 水果消除时的音效

@@ -20,8 +20,6 @@
     BOOL addPointFlag2;
     CCLabelBMFont *pointsSprit;
     CCLabelBMFont *comboSprit;
-    CCLabelBMFont *addPointSprite;
-    CCLabelBMFont *addComboSprite;
 }
 +(CL03*)getCL03;
 -(void)getTotalPoint:(ccTime)dt;

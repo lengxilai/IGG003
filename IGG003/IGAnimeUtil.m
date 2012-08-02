@@ -361,12 +361,12 @@
         return;
     }
     
-    //    // 粒子效果
-    //    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
-    //    popParticle.position = position;
-    //    // 根据箱子类型修改粒子效果
-    //    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
-    //    [popParticle resetSystem];
+    // 粒子效果
+    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
+    popParticle.position = position;
+    // 根据箱子类型修改粒子效果
+    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
+    [popParticle resetSystem];
     
     // 创建分裂之后的箱子
     IGSprite *lS = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%dl.png",bType]];

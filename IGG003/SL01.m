@@ -201,7 +201,7 @@
             if (!CGPointEqualToPoint(point, ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY))) {
                 float moveTime = 0.4;
                 // fTimeMoveto时间内移动到矩阵中位置对应的坐标
-                CCMoveTo *moveTo1 = [CCMoveTo actionWithDuration:moveTime-0.08 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY-4)];
+                CCMoveTo *moveTo1 = [CCMoveTo actionWithDuration:moveTime-0.08 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY-8)];
                 CCMoveTo *moveTo2 = [CCMoveTo actionWithDuration:0.04 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY+4)];
                 CCMoveTo *moveTo3 = [CCMoveTo actionWithDuration:0.04 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY)];
                 [box runAction:[CCSequence actions:moveTo1,moveTo2,moveTo3, nil]];

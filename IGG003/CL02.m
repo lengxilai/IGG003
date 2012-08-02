@@ -40,15 +40,10 @@ static CL02 *staticCL02;
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
         //暂停按钮
         CCMenuItem  *button3 = [CCMenuItemImage
-                                itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
+                                itemFromNormalImage:@"pause-1.png" selectedImage:@"pause-1.png"
                                 target:self selector:@selector(pauseGame)];
-        button3.position =  ccp(120, 420);
-        //再开始按钮
-        CCMenuItem  *button4 = [CCMenuItemImage
-                                itemFromNormalImage:@"Icon-Small.png" selectedImage:@"Icon-Small.png"
-                                target:self selector:@selector(endPause)];
-        button4.position =  ccp(160, 420);
-        CCMenu *starMenu = [CCMenu menuWithItems:button3,button4, nil];
+        button3.position =  ccp(35, 420);
+        CCMenu *starMenu = [CCMenu menuWithItems:button3, nil];
         starMenu.position = CGPointZero;
         [self addChild:starMenu];
     }

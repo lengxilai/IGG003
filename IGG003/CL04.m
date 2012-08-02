@@ -16,8 +16,12 @@
         //currentGameLayer=delegate;
         [self enterGamePauseGameLayer]; //进入游戏暂停界面；
         
-        CCSprite* playNormal=[CCSprite spriteWithFile:@"Icon.png"];
-        CCSprite* playSecelt=[CCSprite spriteWithFile:@"Icon.png"];
+        IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
+        bak.position = ccp(kWindowW/2,kWindowH/2);
+        [self addChild:bak];
+        
+        CCSprite* playNormal=[CCSprite spriteWithFile:@"resume-1.png"];
+        CCSprite* playSecelt=[CCSprite spriteWithFile:@"resume-2.png"];
         playSecelt.scale=0.9f;
         
         CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:self selector:@selector(removePauseGameLayer)];
@@ -25,7 +29,7 @@
         CCMenu* menu=[CCMenu menuWithItems:startSprite,nil]; //添加一个返回游戏按钮；
         menu.position=CGPointZero;
         [self addChild:menu];
-        menu.position=ccp(40, 400);
+        menu.position=ccp(kWindowW/2, 320);
         
     }
     return self;
@@ -39,6 +43,8 @@
 
 -(void)removePauseGameLayer //退出暂停界面，返回游戏；
 {
+    S01 *s01 = [S01 getS01];
+    [s01 pauseGameOver];
     [currentGameLayer onEnter];
     [self.parent removeChild:self cleanup:YES]; //
 }

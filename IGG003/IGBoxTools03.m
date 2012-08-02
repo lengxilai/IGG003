@@ -22,7 +22,7 @@
     [self removeBoxChildForDelBoxs:delBoxs forMP:mp];
     
     // 延时重新刷新箱子矩阵
-    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.8*fTimeRate];
+    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.9*fTimeRate];
 }
 
 #pragma mark -
@@ -102,7 +102,7 @@
                 sprite.position = box.position;
                 [node addChild:sprite];
                 
-                float moveTime = (kGameSizeRows - boxMP.R)*0.1*fTimeRate;
+                float moveTime = (kGameSizeRows - boxMP.R)*0.15*fTimeRate;
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }
@@ -126,7 +126,7 @@
                 sprite.position = box.position;
                 [node addChild:sprite];
                 
-                float moveTime = (boxMP.R)*0.1*fTimeRate;
+                float moveTime = (boxMP.R)*0.15*fTimeRate;
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }
@@ -149,7 +149,7 @@
                 sprite.position = box.position;
                 [node addChild:sprite];
                 
-                float moveTime = boxMP.C*0.1*fTimeRate;
+                float moveTime = boxMP.C*0.15*fTimeRate;
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }
@@ -173,7 +173,7 @@
                 sprite.position = box.position;
                 [node addChild:sprite];
                 
-                float moveTime = (kGameSizeCols - boxMP.C)*0.1*fTimeRate;
+                float moveTime = (kGameSizeCols - boxMP.C)*0.15*fTimeRate;
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }
@@ -191,10 +191,10 @@
         }else {
             float afterTime = 0;
             if (boxMP.R == targetBoxMP.R) {
-                afterTime = abs(boxMP.C - targetBoxMP.C)*0.1*fTimeRate;
+                afterTime = abs(boxMP.C - targetBoxMP.C)*0.15*fTimeRate;
             }
             if (boxMP.C == targetBoxMP.C) {
-                afterTime = abs(boxMP.R - targetBoxMP.R)*0.1*fTimeRate;
+                afterTime = abs(boxMP.R - targetBoxMP.R)*0.15*fTimeRate;
             }
             [self performSelector:@selector(showPopParticle:) withObject:box afterDelay:afterTime];
         }

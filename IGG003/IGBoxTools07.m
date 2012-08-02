@@ -24,9 +24,21 @@
         [self removeBoxChildForMxPoint:box];
     }
     CL02 *cl02 = [CL02 getCL02];
+    // 粒子效果
+    CCParticleSystemQuad *popParticle = [particleManager particleOfType:@"snow"];
+    popParticle.position = ccp(kWindowW/2,kWindowH);
+    [popParticle resetSystem];
+    [self performSelector:@selector(stopSnow:) withObject:popParticle afterDelay:pauseTime];
+    
     [cl02 clickIceTool];
     
     // 延时重新刷新箱子矩阵
     [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];
+}
+
+-(void)stopSnow:(id)data
+{
+    CCParticleSystemQuad *popParticle = data;
+    [data stopSystem];
 }
 @end

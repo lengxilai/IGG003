@@ -36,6 +36,7 @@
         particleManager = [[IGParticleManager alloc] initWithScene:self];
         [particleManager add:16 particleOfType:@"pop" atZ:1];
         [particleManager add:9 particleOfType:@"tools01" atZ:2];
+        [particleManager add:1 particleOfType:@"snow" atZ:3];
         
         IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
@@ -186,7 +187,6 @@
 -(void)reloadBoxs
 {
     // 取消定时运行本方法
-    [self unschedule:_cmd];
     float maxMoveTime = 0;
     for (int i = 0; i < kGameSizeRows; i++) {
         for (int j = 0; j < kGameSizeCols; j++) {
@@ -199,10 +199,12 @@
             
             // 如果坐标与当前在矩阵中的位置不符
             if (!CGPointEqualToPoint(point, ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY))) {
-                float moveTime = fTimeMoveto*(point.y - kSL01StartY - i*kSL01OffsetY)/kSL01OffsetY;
+                float moveTime = 0.4;
                 // fTimeMoveto时间内移动到矩阵中位置对应的坐标
-                CCMoveTo *moveTo = [CCMoveTo actionWithDuration:moveTime position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY)];
-                [box runAction:moveTo];
+                CCMoveTo *moveTo1 = [CCMoveTo actionWithDuration:moveTime-0.08 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY-4)];
+                CCMoveTo *moveTo2 = [CCMoveTo actionWithDuration:0.04 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY+4)];
+                CCMoveTo *moveTo3 = [CCMoveTo actionWithDuration:0.04 position:ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY)];
+                [box runAction:[CCSequence actions:moveTo1,moveTo2,moveTo3, nil]];
                 if (moveTime > maxMoveTime) {
                     maxMoveTime = moveTime;
                 }

@@ -13,31 +13,31 @@
 // 根据箱子类型修改粒子效果
 +(ccColor4F)editParticleColorForType:(GameBoxType)bType forParticle:(CCParticleSystemQuad*)popParticle
 {
-    // 1苹果 2橙子 3柠檬 4西瓜 5菠萝 6草莓 7香蕉 8葡萄
+    // 1苹果 2橙子 3草莓 4西瓜 5柠檬 6香蕉 7葡萄 8桃子
     switch (bType) {
         case eGbt1:
-            popParticle.startColor = (ccColor4F){1.0f, 1.0f, 1.0f, 1.0f};
+            popParticle.startColor = (ccColor4F){0.0f, 1.0f, 0.0f, 1.0f};
             break;
         case eGbt2:
-            popParticle.startColor = (ccColor4F){1.0f, 0.35f, 1.0f, 1.0f};
+            popParticle.startColor = (ccColor4F){1.0f, 0.5f, 0.5f, 1.0f};
             break;
         case eGbt3:
-            popParticle.startColor = (ccColor4F){1.0f, 0.96f, 0.0f, 1.0f};
-            break;
-        case eGbt4:
-            popParticle.startColor = (ccColor4F){0.0f, 1.0f, 1.0f, 1.0f};
-            break;
-        case eGbt5:
-            popParticle.startColor = (ccColor4F){1.0f, 0.7f, 1.0f, 1.0f};
-            break;
-        case eGbt6:
             popParticle.startColor = (ccColor4F){1.0f, 0.0f, 0.0f, 1.0f};
             break;
+        case eGbt4:
+            popParticle.startColor = (ccColor4F){0.0f, 1.0f, 0.0f, 1.0f};
+            break;
+        case eGbt5:
+            popParticle.startColor = (ccColor4F){1.0f, 1.0f, 0.0f, 1.0f};
+            break;
+        case eGbt6:
+            popParticle.startColor = (ccColor4F){1.0f, 1.0f, 1.0f, 1.0f};
+            break;
         case eGbt7:
-            popParticle.startColor = (ccColor4F){1.0f, 0.96f, 0.0f, 1.0f};
+            popParticle.startColor = (ccColor4F){0.7f, 0.29f, 1.0f, 1.0f};
             break;
         case eGbt8:
-            popParticle.startColor = (ccColor4F){0.7f, 1.0f, 1.0f, 1.0f};
+            popParticle.startColor = (ccColor4F){0.5f, 0.3f, 0.36f, 1.0f};
             break;
             
         default:
@@ -248,9 +248,7 @@
         CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
         popParticle.position = position;
         // 根据箱子类型修改粒子效果
-        //[IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
-        popParticle.startColor = (ccColor4F){1.0f, 1.0f, 1.0f, 1.0f};
-        popParticle.endColor = (ccColor4F){1.0f, 1.0f, 1.0f, 1.0f};
+        [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
         [popParticle resetSystem];
         return;
     }
@@ -328,7 +326,7 @@
     
     if (!box.isTarget) {
             
-        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime*3 scale:1.0],[CCScaleTo actionWithDuration:scaleTime scale:0.2],delCallback,particleCallback, nil];
+        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime*1.5 scale:1.0],[CCScaleTo actionWithDuration:scaleTime*1.5 scale:0.1],delCallback,particleCallback, nil];
         [box runAction:se];
         return;
     }
@@ -358,9 +356,7 @@
         CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
         popParticle.position = position;
         // 根据箱子类型修改粒子效果
-        //[IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
-        popParticle.startColor = (ccColor4F){1.0f, 1.0f, 1.0f, 1.0f};
-        popParticle.endColor = (ccColor4F){1.0f, 1.0f, 1.0f, 1.0f};
+        [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
         [popParticle resetSystem];
         return;
     }

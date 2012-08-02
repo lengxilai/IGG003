@@ -19,9 +19,10 @@
 #define kSL01OffsetY 40
 #define kBoxSize 37
 #define kBarSize 37
+#define kToolSize 30
 #define kMxPointNone 99
 
-#define fTimeMoveto 0.1
+#define fTimeMoveto 0.15
 
 #define kBoxTagR 100
 
@@ -35,6 +36,25 @@
 
 // 消除一个水果的分数
 #define pointPerBox 10
+
+//暂停时间
+#define pauseTime 5
+//加时间
+#define addTime 5
+//字体变化到倍数
+#define fontSizeTo 1.2
+//倒计时tag
+#define timeTag 100001
+//倒计时x坐标
+#define timeFontX 40
+//倒计时Y坐标
+#define timeFontY 463
+//倒计时时长秒数
+#define delaySeconds 60
+//冰冻效果图片tag
+#define iceBgTag 100010
+
+
 
 @interface IGCommonDefine : NSObject
 

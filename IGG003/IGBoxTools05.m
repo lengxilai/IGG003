@@ -126,7 +126,7 @@
                 sprite.position = targetBox.position;
                 [node addChild:sprite];
                 
-                float moveTime = sqrt((boxMP.R-targetBoxMP.R)*(boxMP.R-targetBoxMP.R)+(boxMP.C-targetBoxMP.C)*(boxMP.C-targetBoxMP.C))*0.1*fTimeRate;
+                float moveTime = sqrt((boxMP.R-targetBoxMP.R)*(boxMP.R-targetBoxMP.R)+(boxMP.C-targetBoxMP.C)*(boxMP.C-targetBoxMP.C))*0.15*fTimeRate;
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }

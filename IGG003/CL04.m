@@ -9,9 +9,9 @@
 #import "CL04.h"
 
 @implementation CL04
-+(id)initWithGamePause:(CL01*)delegate
+-(id)init
 {
-    if ((self=[super init])) {
+    if (self=[super init]) {
         
         //currentGameLayer=delegate;
         [self enterGamePauseGameLayer]; //进入游戏暂停界面；
@@ -25,7 +25,8 @@
         CCMenu* menu=[CCMenu menuWithItems:startSprite,nil]; //添加一个返回游戏按钮；
         menu.position=CGPointZero;
         [self addChild:menu];
-        menu.position=ccp(380, 100);
+        menu.position=ccp(40, 400);
+        
     }
     return self;
 }
@@ -33,7 +34,7 @@
 -(void)enterGamePauseGameLayer //进入暂停界面；
 {
     [currentGameLayer onExit]; //游戏界面暂时推出场景；（游戏界面所有的动作和预约方法等都将暂停）
-//    [currentGameLayer addChild:self];
+    //[currentGameLayer addChild:self];
 }
 
 -(void)removePauseGameLayer //退出暂停界面，返回游戏；

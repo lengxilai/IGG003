@@ -142,20 +142,8 @@ static CL02 *staticCL02;
 -(void)clickIceTool{
     //取得冰冻效果层
     CCSprite *bg = (CCSprite *)[self getChildByTag:iceBgTag];
-    if(!bg){
-        bg = [CCSprite spriteWithFile:@"pop.png"];
-        bg.position = ccp(100,400); //位置
-        bg.tag = iceBgTag;
-        [self addChild:bg];
-    }
+
     iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(pauseTime)] retain];
-    //冰冻效果闪烁动画
-    CCFiniteTimeAction *action0 = [CCFadeOut actionWithDuration:1.1];
-    CCFiniteTimeAction *action1 = [CCFadeIn actionWithDuration:1.1];
-    CCFiniteTimeAction *a3 = [CCSequence actions:action1,action0,action1,action0,nil];
-    [bg runAction:a3];
-     //将精灵加到layer上 
-    
     //停止倒计时
     [self unschedule:@selector(updateTimeDisplay)];
     [self unschedule:@selector(pauseScheduleByIce)];
@@ -190,7 +178,8 @@ static CL02 *staticCL02;
 #pragma mark 暂停再开始
 //游戏暂停
 -(void)pauseGame{
-    [self onExit];
+    S01 *s01 = [S01 getS01];
+    [s01 pauseGame];
 }
 //游戏再开始
 -(void)endPause{

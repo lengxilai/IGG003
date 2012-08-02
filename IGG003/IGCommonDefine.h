@@ -19,9 +19,10 @@
 #define kSL01OffsetY 40
 #define kBoxSize 37
 #define kBarSize 37
+#define kToolSize 30
 #define kMxPointNone 99
 
-#define fTimeMoveto 0.1
+#define fTimeMoveto 0.15
 
 #define kBoxTagR 100
 

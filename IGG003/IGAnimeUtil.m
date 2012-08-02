@@ -328,7 +328,7 @@
     
     if (!box.isTarget) {
             
-        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime*3 scale:1.0],[CCScaleTo actionWithDuration:scaleTime scale:0.2],delCallback,particleCallback, nil];
+        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime*1.5 scale:1.0],[CCScaleTo actionWithDuration:scaleTime*1.5 scale:0.1],delCallback,particleCallback, nil];
         [box runAction:se];
         return;
     }

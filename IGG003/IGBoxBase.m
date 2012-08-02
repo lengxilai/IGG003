@@ -122,7 +122,7 @@
         }
     }
     // 延时刷新矩阵
-    [node schedule:@selector(reloadBoxs) interval:0.1];
+    [node performSelector:@selector(reloadBoxs)];
 }
 
 // 取得一个箱子周围的8个箱子（不包括自己）

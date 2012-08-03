@@ -7,6 +7,7 @@
 //
 
 #import "CL03.h"
+#import "IGMusicUtil.h"
 
 @implementation CL03
 static CL03 *staticCL03;
@@ -48,8 +49,11 @@ static CL03 *staticCL03;
     // 得分计算,消除小于3个减分
     if (boxNum<3) {
         addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, comboNum));
+        [IGMusicUtil showDeletePointMusic];
     } else {
         addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, comboNum));
+        [IGMusicUtil showAddPointMusic];
+
     }
 
     // 合计总分
@@ -58,8 +62,7 @@ static CL03 *staticCL03;
     [self showPointAndCombo:position];
     // 更新GameState最新分数
     gameState.m_score = addedTotalPoint;
-    [self schedule:@selector(getTotalPoint:) interval:(0.01)];
-    
+    [self schedule:@selector(getTotalPoint:) interval:(0.01)];    
 }
 
 // 计算每次加分效果所加的分数

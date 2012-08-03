@@ -59,10 +59,17 @@
         isMoving = YES;
     }
     
+    // 如果为HappyTime，直接运行，不走后面的语句
+    IGGameState *gameState = [IGGameState gameState];
+    if (gameState.isHappyTime) {
+        [self runTools02:mp];
+        return;
+    }
+
     // 取得目标箱子
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
-
+    
     // 调用游戏层进行消除
     switch (b.tType) {
         case toolsNO:

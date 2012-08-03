@@ -16,6 +16,11 @@
 // 运行道具
 -(void)run:(MxPoint)mp
 {
+    IGGameState *gameState = [IGGameState gameState];
+    if (!gameState.isHappyTime) {
+        CL02 *cl02 = [CL02 getCL02];
+        [cl02 clickHappyTimeTool];
+    }
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *delBoxs = [self delAllBox:mp];
     NSArray *newBoxs = [super processRun:mp];

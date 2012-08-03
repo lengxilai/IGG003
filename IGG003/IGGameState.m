@@ -14,6 +14,7 @@ static IGGameState *staticGameState;
 @synthesize m_score;
 @synthesize m_time;
 @synthesize m_combo;
+@synthesize isHappyTime;
 
 +(IGGameState*)gameState
 {
@@ -47,6 +48,8 @@ static IGGameState *staticGameState;
     m_score = 0;
     // 连击数初始化
     m_combo = 0;
+    
+    isHappyTime = NO;
     return self;
 }
 

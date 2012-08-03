@@ -20,6 +20,7 @@
 #import "IGBoxTools07.h"
 #import "IGMusicUtil.h"
 
+@class CL02;
 @interface SL01 : IGLayer
 {
     GameMatrixType matrixType;

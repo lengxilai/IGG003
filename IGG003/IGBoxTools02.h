@@ -8,6 +8,7 @@
 
 #import "IGBoxBase.h"
 
+@class CL02;
 @interface IGBoxTools02 : IGBoxBase
 -(void)run:(MxPoint)mp;
 @end

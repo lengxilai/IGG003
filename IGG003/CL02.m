@@ -184,6 +184,8 @@ static CL02 *staticCL02;
     happyTimeFlg = 1;
     happyTimeNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(happytime)] retain];
     [self unschedule:@selector(scheduleForHappyTime)];
+    IGGameState *gameState = [IGGameState gameState];
+    gameState.isHappyTime = YES;
     //冰冻计时开始
     [self schedule:@selector(scheduleForHappyTime) interval:1];
 }
@@ -194,6 +196,8 @@ static CL02 *staticCL02;
     if(happyTimeDelay <= 0){
         //happy time 结束
         happyTimeFlg = 0;
+        IGGameState *gameState = [IGGameState gameState];
+        gameState.isHappyTime = NO;
         [self unschedule:@selector(scheduleForHappyTime)];
     }
 }

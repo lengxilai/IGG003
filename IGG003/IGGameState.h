@@ -49,11 +49,14 @@ MxPointMake(int r, int c)
     int             m_time;
     // 当前连击数
     int             m_combo;
+    
+    BOOL isHappyTime;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
 @property(nonatomic,assign) int m_time;
 @property(nonatomic,assign) int m_combo;
+@property(nonatomic,assign) BOOL isHappyTime;
 
 +(IGGameState*)gameState;
 -(id)init;

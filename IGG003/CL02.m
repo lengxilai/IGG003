@@ -9,6 +9,7 @@
 #import "CL02.h"
 
 @implementation CL02
+@synthesize iceNSDateTime;
 //暂停时间
 
 //加时间
@@ -21,6 +22,7 @@ static CL02 *staticCL02;
 
 - (void) dealloc
 {
+    [self.iceNSDateTime release];
 	[super dealloc];
 
 }   
@@ -140,7 +142,7 @@ static CL02 *staticCL02;
 //使用冰冻道具
 -(void)clickIceTool{
     iceFlg = 1;
-    iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(pauseTime)] retain];
+    self.iceNSDateTime = [NSDate dateWithTimeIntervalSinceNow:(pauseTime)];
     //停止倒计时
     [self unschedule:@selector(updateTimeDisplay)];
     [self unschedule:@selector(pauseScheduleByIce)];
@@ -150,7 +152,7 @@ static CL02 *staticCL02;
 }
 //冰冻暂停 记时
 -(void)pauseScheduleByIce{
-    int pauseTimes = (int)[iceNSDateTime timeIntervalSinceNow];
+    int pauseTimes = (int)[self.iceNSDateTime timeIntervalSinceNow];
     
     if(pauseTimes <= 0){
         //冰冻效果结束
@@ -190,7 +192,7 @@ static CL02 *staticCL02;
     [self schedule:@selector(scheduleForHappyTime) interval:1];
 }
 //happytime 记时
--(void)scheduleOfHappytime{
+-(void)scheduleForHappyTime{
     int happyTimeDelay = (int)[happyTimeNSDateTime timeIntervalSinceNow];
     
     if(happyTimeDelay <= 0){
@@ -209,7 +211,7 @@ static CL02 *staticCL02;
     
     
     if(iceFlg == 1){
-        iceDelayTime = (float)[iceNSDateTime timeIntervalSinceNow];
+        iceDelayTime = (float)[self.iceNSDateTime timeIntervalSinceNow];
         
         [self unschedule:@selector(pauseScheduleByIce)];
     }
@@ -228,7 +230,7 @@ static CL02 *staticCL02;
     //重新计算时间
     time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
     if(iceFlg == 1){
-        iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(iceDelayTime)] retain];
+        self.iceNSDateTime = [NSDate dateWithTimeIntervalSinceNow:(iceDelayTime)];
         [self schedule:@selector(pauseScheduleByIce) interval:1];
     }
     

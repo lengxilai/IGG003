@@ -129,6 +129,17 @@
 -(NSArray*)getLRUDBox:(SpriteBox*)box
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:8];
+    
+    { 
+        // 左
+        int tag = box.tag-1;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
+            if (b != nil) {
+                [result addObject:b];
+            }
+        }
+    }
     { 
         // 左上
         int tag = box.tag-1+kBoxTagR;
@@ -160,16 +171,6 @@
         }
     }
     { 
-        // 左
-        int tag = box.tag-1;
-        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
-            SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
-                [result addObject:b];
-            }
-        }
-    }
-    { 
         // 右
         int tag = box.tag+1;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
@@ -180,8 +181,8 @@
         }
     }
     { 
-        // 左下
-        int tag = box.tag-1-kBoxTagR;
+        // 右下
+        int tag = box.tag+1-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
             if (b != nil) {
@@ -200,8 +201,8 @@
         }
     }
     { 
-        // 右下
-        int tag = box.tag+1-kBoxTagR;
+        // 左下
+        int tag = box.tag-1-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
             if (b != nil) {

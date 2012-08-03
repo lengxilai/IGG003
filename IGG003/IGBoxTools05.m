@@ -131,7 +131,7 @@
                     maxTime = moveTime;
                 }
                 
-                CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.05*fTimeRate]];
+                CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
                 [sprite runAction:[CCRepeatForever actionWithAction:animation]];
                 CCMoveTo *mt = [CCMoveTo actionWithDuration:moveTime position:box.position];
                 

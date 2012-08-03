@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools01.h"
+#import "IGCommonDefine.h"
 
 @class SpriteBox;
 @class IGParticleManager;
@@ -18,6 +19,8 @@
 // 根据箱子类型修改粒子效果
 +(ccColor4F)editParticleColorForType:(GameBoxType)bType forParticle:(CCParticleSystemQuad*)popParticle;
 
++(CGPoint)getPointForMxPoint:(MxPoint)mp;
+
 // 显示消除箱子时的动画效果
 +(void)showRemoveBoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase;
 // 准备消除时的晃动效果
@@ -28,7 +31,6 @@
 +(void)showTools01BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 
 +(void)showTools06BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
-+(void)showReadyTools06BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 
 +(void)showTools05BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase;
 @end

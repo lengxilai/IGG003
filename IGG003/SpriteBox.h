@@ -34,4 +34,5 @@
 
 -(MxPoint)getMxPointByTag;
 -(MxPoint)setToolByType:(GameToolType)type;
+-(void)removeTool;
 @end

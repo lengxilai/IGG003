@@ -48,4 +48,9 @@
     toolSprite.position = ccp(kBoxSize/2 + (kBoxSize-kToolSize)/2,kBoxSize/2 - (kBoxSize-kToolSize)/2);
     [self addChild:toolSprite];
 }
+
+-(void)removeTool
+{
+    [self removeChildByTag:kToolSpriteTag cleanup:YES];
+}
 @end

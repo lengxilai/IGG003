@@ -168,6 +168,16 @@
 		DC8A8CF515CA7A330020E643 /* comboFont1.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF315CA7A330020E643 /* comboFont1.fnt */; };
 		DC8A8CF715CA81B50020E643 /* shake1.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF615CA81B50020E643 /* shake1.caf */; };
 		DC8A8CF915CA81C70020E643 /* orange2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CF815CA81C70020E643 /* orange2.caf */; };
+		DC8A8D0715CABFD10020E643 /* delete3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D0615CABFD10020E643 /* delete3.caf */; };
+		DC8A8D0A15CAC7C30020E643 /* zhizhu.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D0915CAC7C30020E643 /* zhizhu.caf */; };
+		DC8A8D0E15CACE820020E643 /* point.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D0D15CACE820020E643 /* point.caf */; };
+		DC8A8D1015CAE8DA0020E643 /* piaochong.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D0F15CAE8DA0020E643 /* piaochong.caf */; };
+		DC8A8D1215CAEB830020E643 /* piaochong2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D1115CAEB830020E643 /* piaochong2.caf */; };
+		DC8A8D1815CB994D0020E643 /* badpoint.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D1715CB994D0020E643 /* badpoint.caf */; };
+		DC8A8D2515CBB5730020E643 /* piaochong6.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D2415CBB5730020E643 /* piaochong6.caf */; };
+		DC8A8D2715CBBFDF0020E643 /* zhadan.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D2615CBBFDF0020E643 /* zhadan.caf */; };
+		DC8A8D2915CBC3FB0020E643 /* zhadan2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D2815CBC3FB0020E643 /* zhadan2.caf */; };
+		DC8A8D2B15CBC99F0020E643 /* delete4.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8D2A15CBC99F0020E643 /* delete4.caf */; };
 		DC93533915C93814000AB032 /* bg_music3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC93533815C93814000AB032 /* bg_music3.caf */; };
 		DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533A15C9384F000AB032 /* IGMusicUtil.m */; };
 		DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533D15C93C2A000AB032 /* IGToolUtils.m */; };
@@ -483,6 +493,16 @@
 		DC8A8CF315CA7A330020E643 /* comboFont1.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comboFont1.fnt; sourceTree = "<group>"; };
 		DC8A8CF615CA81B50020E643 /* shake1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake1.caf; sourceTree = "<group>"; };
 		DC8A8CF815CA81C70020E643 /* orange2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = orange2.caf; sourceTree = "<group>"; };
+		DC8A8D0615CABFD10020E643 /* delete3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = delete3.caf; sourceTree = "<group>"; };
+		DC8A8D0915CAC7C30020E643 /* zhizhu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zhizhu.caf; sourceTree = "<group>"; };
+		DC8A8D0D15CACE820020E643 /* point.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = point.caf; sourceTree = "<group>"; };
+		DC8A8D0F15CAE8DA0020E643 /* piaochong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = piaochong.caf; sourceTree = "<group>"; };
+		DC8A8D1115CAEB830020E643 /* piaochong2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = piaochong2.caf; sourceTree = "<group>"; };
+		DC8A8D1715CB994D0020E643 /* badpoint.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = badpoint.caf; sourceTree = "<group>"; };
+		DC8A8D2415CBB5730020E643 /* piaochong6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = piaochong6.caf; sourceTree = "<group>"; };
+		DC8A8D2615CBBFDF0020E643 /* zhadan.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zhadan.caf; sourceTree = "<group>"; };
+		DC8A8D2815CBC3FB0020E643 /* zhadan2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = zhadan2.caf; sourceTree = "<group>"; };
+		DC8A8D2A15CBC99F0020E643 /* delete4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = delete4.caf; sourceTree = "<group>"; };
 		DC93533815C93814000AB032 /* bg_music3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music3.caf; sourceTree = "<group>"; };
 		DC93533A15C9384F000AB032 /* IGMusicUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGMusicUtil.m; sourceTree = "<group>"; };
 		DC93533B15C9384F000AB032 /* IGMusicUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGMusicUtil.h; sourceTree = "<group>"; };
@@ -1017,6 +1037,16 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DC8A8D2A15CBC99F0020E643 /* delete4.caf */,
+				DC8A8D2815CBC3FB0020E643 /* zhadan2.caf */,
+				DC8A8D2615CBBFDF0020E643 /* zhadan.caf */,
+				DC8A8D2415CBB5730020E643 /* piaochong6.caf */,
+				DC8A8D1715CB994D0020E643 /* badpoint.caf */,
+				DC8A8D1115CAEB830020E643 /* piaochong2.caf */,
+				DC8A8D0F15CAE8DA0020E643 /* piaochong.caf */,
+				DC8A8D0D15CACE820020E643 /* point.caf */,
+				DC8A8D0915CAC7C30020E643 /* zhizhu.caf */,
+				DC8A8D0615CABFD10020E643 /* delete3.caf */,
 				DC8A8CF815CA81C70020E643 /* orange2.caf */,
 				DC8A8CF615CA81B50020E643 /* shake1.caf */,
 				DC93533815C93814000AB032 /* bg_music3.caf */,
@@ -1134,6 +1164,16 @@
 				18E7C99115CA8E15009DA2BD /* paused.png in Resources */,
 				18E7C99215CA8E15009DA2BD /* resume-1.png in Resources */,
 				18E7C99315CA8E15009DA2BD /* resume-2.png in Resources */,
+				DC8A8D0715CABFD10020E643 /* delete3.caf in Resources */,
+				DC8A8D0A15CAC7C30020E643 /* zhizhu.caf in Resources */,
+				DC8A8D0E15CACE820020E643 /* point.caf in Resources */,
+				DC8A8D1015CAE8DA0020E643 /* piaochong.caf in Resources */,
+				DC8A8D1215CAEB830020E643 /* piaochong2.caf in Resources */,
+				DC8A8D1815CB994D0020E643 /* badpoint.caf in Resources */,
+				DC8A8D2515CBB5730020E643 /* piaochong6.caf in Resources */,
+				DC8A8D2715CBBFDF0020E643 /* zhadan.caf in Resources */,
+				DC8A8D2915CBC3FB0020E643 /* zhadan2.caf in Resources */,
+				DC8A8D2B15CBC99F0020E643 /* delete4.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

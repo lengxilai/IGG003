@@ -13,11 +13,17 @@
 {
     NSDate *time;
     NSDate *iceNSDateTime;
+    NSDate *happyTimeNSDateTime;
     //剩余时间
     int times;
     //倒计时前一秒
     int persecond;
+    int iceFlg;
+    int happyTimeFlg;
+    float iceDelayTime;
+    float happytimeDelayTime;
 }
 
 +(CL02*)getCL02;
+-(void)endPause;
 @end

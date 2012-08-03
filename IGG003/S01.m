@@ -69,6 +69,7 @@ static S01 *staticS01;
     CL03 *cl03 = (CL03 *)[staticS01 getChildByTag:10013];
     [cl01 onEnter];
     [cl02 onEnter];
+    [cl02 endPause];
     [cl03 onEnter];
 }
 @end

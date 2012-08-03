@@ -45,6 +45,12 @@
     }
 }
 
+// 根据MxPoint返回CGPoint
++(CGPoint)getPointForMxPoint:(MxPoint)mp
+{
+    return ccp(kSL01StartX+kSL01OffsetX*mp.C,kSL01StartY+kSL01OffsetY*mp.R);
+}
+
 // 显示消除箱子时的动画效果
 +(void)showRemoveBoxAnime:(SpriteBox*)box forBoxBase:(IGBoxBase*)boxBase
 {
@@ -253,12 +259,12 @@
         return;
     }
     
-//    // 粒子效果
-//    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
-//    popParticle.position = position;
-//    // 根据箱子类型修改粒子效果
-//    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
-//    [popParticle resetSystem];
+    // 粒子效果
+    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
+    popParticle.position = position;
+    // 根据箱子类型修改粒子效果
+    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
+    [popParticle resetSystem];
     
     // 创建分裂之后的箱子
     IGSprite *lS = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%dl.png",bType]];
@@ -311,40 +317,6 @@
     [rS runAction:seqR];
 }
 
-// T06准备消除时的晃动效果
-+(void)showReadyTools06BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase
-{
-    // 放大
-    float scaleTime = 0.15*fTimeRate;
-    float scaleRate = 1.5;
-    CCScaleTo *st = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];
-    
-    // 通过回调函数删除用于显示动画效果的Sprite
-    id delCallback = [CCCallFuncN actionWithTarget:boxBase.node selector:@selector(actionEndCallback:)];
-    // 通过回调函数显示粒子效果
-    id particleCallback = [CCCallFuncN actionWithTarget:boxBase selector:@selector(showPopParticle:)];
-    
-    if (!box.isTarget) {
-            
-        CCSequence *se = [CCSequence actions:[CCScaleTo actionWithDuration:scaleTime*1.5 scale:1.0],[CCScaleTo actionWithDuration:scaleTime*1.5 scale:0.1],delCallback,particleCallback, nil];
-        [box runAction:se];
-        return;
-    }
-    
-    // 蜘蛛网
-    IGSprite *zzw = [IGSprite spriteWithSpriteFrameName:@"t6-w.png"];
-    [zzw setScale:0.3];
-    zzw.position = box.position;
-    
-    [boxBase.node addChild:zzw];
-    [zzw runAction:[CCSequence actions:[CCScaleTo actionWithDuration:scaleTime scale:1.2],[CCScaleTo actionWithDuration:scaleTime scale:0.8],delCallback,nil]];
-    
-    // 显示动画->删除元素
-    CCSpawn *sp = [CCSpawn actions:st, nil];
-    CCSequence *se = [CCSequence actions:sp,delCallback,particleCallback, nil];
-    [box runAction:se];
-}
-
 
 // 显示T05消除时的动画效果
 +(void)showTools05BoxAnime:(SpriteBox*)box forBoxBase:(IGBoxTools01*)boxBase
@@ -361,12 +333,12 @@
         return;
     }
     
-    //    // 粒子效果
-    //    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
-    //    popParticle.position = position;
-    //    // 根据箱子类型修改粒子效果
-    //    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
-    //    [popParticle resetSystem];
+    // 粒子效果
+    CCParticleSystemQuad *popParticle = [boxBase.particleManager particleOfType:@"pop"];
+    popParticle.position = position;
+    // 根据箱子类型修改粒子效果
+    [IGAnimeUtil editParticleColorForType:bType forParticle:popParticle];
+    [popParticle resetSystem];
     
     // 创建分裂之后的箱子
     IGSprite *lS = [IGSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"%dl.png",bType]];

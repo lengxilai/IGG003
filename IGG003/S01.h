@@ -16,4 +16,5 @@
 +(IGScene *) scene;
 +(S01*)getS01;
 -(void)pauseGame;
+-(void)pauseGameOver;
 @end

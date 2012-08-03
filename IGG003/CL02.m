@@ -10,6 +10,8 @@
 
 @implementation CL02
 @synthesize iceNSDateTime;
+@synthesize happyTimeNSDateTime;
+@synthesize time;
 //暂停时间
 
 //加时间
@@ -39,7 +41,7 @@ static CL02 *staticCL02;
        
         [self addChild:pointsSprit z:1];
         //计算倒计时长
-        time = [[NSDate dateWithTimeIntervalSinceNow:(delaySeconds)] retain];
+        self.time = [NSDate dateWithTimeIntervalSinceNow:(delaySeconds)];
         //前一秒等于倒计时长
         persecond = delaySeconds;
         //调用倒计时方法
@@ -47,7 +49,7 @@ static CL02 *staticCL02;
         //暂停按钮
         CCMenuItem  *button3 = [CCMenuItemImage
                                 itemFromNormalImage:@"pause-1.png" selectedImage:@"pause-1.png"
-                                target:self selector:@selector(pauseGame)];
+                                target:self selector:@selector(clickHappyTimeTool)];
         button3.position =  ccp(35, 420);
         CCMenu *starMenu = [CCMenu menuWithItems:button3, nil];
         starMenu.position = CGPointZero;
@@ -70,7 +72,7 @@ static CL02 *staticCL02;
 //倒计时更新
 - (void) updateTimeDisplay{
     
-    times = (int)[time timeIntervalSinceNow];
+    times = (int)[self.time timeIntervalSinceNow];
     CCLabelBMFont *clockLabel = (CCLabelBMFont *)[self getChildByTag:timeTag];
     //改变引用的字体文件
     if(times <=10){
@@ -159,7 +161,7 @@ static CL02 *staticCL02;
         //为了时间显示正常  这里加一处理
         //times = times + 1;
         //重新计算时间
-        time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
+        self.time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
         //删除冰冻层
         [self removeChildByTag:iceBgTag cleanup:true];
         //停止冰冻效果
@@ -174,7 +176,7 @@ static CL02 *staticCL02;
 //使用加时道具
 -(void)clickAddTimeTool{
     times = times + addTime;
-    time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
+    self.time = [NSDate dateWithTimeIntervalSinceNow:(times)];
     [self unschedule:@selector(pauseScheduleByIce)];
     //冰冻计时开始
     [self schedule:@selector(pauseScheduleByIce) interval:1];
@@ -184,7 +186,7 @@ static CL02 *staticCL02;
 #pragma mark happytime
 -(void)clickHappyTimeTool{
     happyTimeFlg = 1;
-    happyTimeNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(happytime)] retain];
+    self.happyTimeNSDateTime = [NSDate dateWithTimeIntervalSinceNow:(happytime)];
     [self unschedule:@selector(scheduleForHappyTime)];
     IGGameState *gameState = [IGGameState gameState];
     gameState.isHappyTime = YES;
@@ -193,7 +195,7 @@ static CL02 *staticCL02;
 }
 //happytime 记时
 -(void)scheduleForHappyTime{
-    int happyTimeDelay = (int)[happyTimeNSDateTime timeIntervalSinceNow];
+    int happyTimeDelay = (int)[self.happyTimeNSDateTime timeIntervalSinceNow];
     
     if(happyTimeDelay <= 0){
         //happy time 结束
@@ -216,7 +218,7 @@ static CL02 *staticCL02;
         [self unschedule:@selector(pauseScheduleByIce)];
     }
     if(happyTimeFlg == 1){
-        happytimeDelayTime = (float)[happyTimeNSDateTime timeIntervalSinceNow];
+        happytimeDelayTime = (float)[self.happyTimeNSDateTime timeIntervalSinceNow];
         [self unschedule:@selector(scheduleForHappyTime)];
     }
     
@@ -235,7 +237,7 @@ static CL02 *staticCL02;
     }
     
     if(happyTimeFlg == 1){
-        happyTimeNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(happytimeDelayTime)] retain];
+        self.happyTimeNSDateTime = [NSDate dateWithTimeIntervalSinceNow:(happytimeDelayTime)];
         [self schedule:@selector(scheduleForHappyTime) interval:1];
     }
     //继续计时  

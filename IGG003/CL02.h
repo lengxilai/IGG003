@@ -24,6 +24,8 @@
     float happytimeDelayTime;
 }
 @property(nonatomic,retain) NSDate *iceNSDateTime;
+@property(nonatomic,retain) NSDate *happyTimeNSDateTime;
+@property(nonatomic,retain) NSDate *time;
 +(CL02*)getCL02;
 -(void)endPause;
 @end

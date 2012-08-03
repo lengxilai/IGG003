@@ -30,6 +30,10 @@ static CL02 *staticCL02;
         CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:@"1:00" fntFile:@"bitmapFont.fnt"];
 		pointsSprit.position = ccp(timeFontX,timeFontY);
         pointsSprit.tag = timeTag;
+        //没有冰冻效果
+        iceFlg = 0;
+        //没有happytime
+        happyTimeFlg = 0;
        
         [self addChild:pointsSprit z:1];
         //计算倒计时长
@@ -135,9 +139,7 @@ static CL02 *staticCL02;
 #pragma mark 冰冻效果
 //使用冰冻道具
 -(void)clickIceTool{
-    //取得冰冻效果层
-    CCSprite *bg = (CCSprite *)[self getChildByTag:iceBgTag];
-
+    iceFlg = 1;
     iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(pauseTime)] retain];
     //停止倒计时
     [self unschedule:@selector(updateTimeDisplay)];
@@ -146,14 +148,14 @@ static CL02 *staticCL02;
     [self schedule:@selector(pauseScheduleByIce) interval:1];
     
 }
-//冰冻暂停后调用
+//冰冻暂停 记时
 -(void)pauseScheduleByIce{
     int pauseTimes = (int)[iceNSDateTime timeIntervalSinceNow];
     
     if(pauseTimes <= 0){
         //冰冻效果结束
         //为了时间显示正常  这里加一处理
-        times = times + 1;
+        //times = times + 1;
         //重新计算时间
         time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
         //删除冰冻层
@@ -162,22 +164,75 @@ static CL02 *staticCL02;
         [self unschedule:@selector(pauseScheduleByIce)];
         //继续计时  
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
+        iceFlg = 0;
     }
 }
+#pragma mark -
+#pragma mark 加时
 //使用加时道具
 -(void)clickAddTimeTool{
     times = times + addTime;
     time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
+    [self unschedule:@selector(pauseScheduleByIce)];
+    //冰冻计时开始
+    [self schedule:@selector(pauseScheduleByIce) interval:1];
+}
+
+#pragma mark -
+#pragma mark happytime
+-(void)clickHappyTimeTool{
+    happyTimeFlg = 1;
+    happyTimeNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(happytime)] retain];
+    [self unschedule:@selector(scheduleForHappyTime)];
+    //冰冻计时开始
+    [self schedule:@selector(scheduleForHappyTime) interval:1];
+}
+//happytime 记时
+-(void)scheduleOfHappytime{
+    int happyTimeDelay = (int)[happyTimeNSDateTime timeIntervalSinceNow];
+    
+    if(happyTimeDelay <= 0){
+        //happy time 结束
+        happyTimeFlg = 0;
+        [self unschedule:@selector(scheduleForHappyTime)];
+    }
 }
 #pragma mark -
 #pragma mark 暂停再开始
 //游戏暂停
 -(void)pauseGame{
+    [self unschedule:@selector(updateTimeDisplay)];
+    
+    
+    if(iceFlg == 1){
+        iceDelayTime = (float)[iceNSDateTime timeIntervalSinceNow];
+        
+        [self unschedule:@selector(pauseScheduleByIce)];
+    }
+    if(happyTimeFlg == 1){
+        happytimeDelayTime = (float)[happyTimeNSDateTime timeIntervalSinceNow];
+        [self unschedule:@selector(scheduleForHappyTime)];
+    }
+    
     S01 *s01 = [S01 getS01];
     [s01 pauseGame];
 }
 //游戏再开始
 -(void)endPause{
-    [self onEnter];
+    //为了时间显示正常  这里加一处理
+    //times = times + 1;
+    //重新计算时间
+    time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
+    if(iceFlg == 1){
+        iceNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(iceDelayTime)] retain];
+        [self schedule:@selector(pauseScheduleByIce) interval:1];
+    }
+    
+    if(happyTimeFlg == 1){
+        happyTimeNSDateTime = [[NSDate dateWithTimeIntervalSinceNow:(happytimeDelayTime)] retain];
+        [self schedule:@selector(scheduleForHappyTime) interval:1];
+    }
+    //继续计时  
+    [self schedule:@selector(updateTimeDisplay) interval:0.1];
 }
 @end

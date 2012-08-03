@@ -37,8 +37,10 @@
 // 消除一个水果的分数
 #define pointPerBox 10
 
-//暂停时间
+//冰冻暂停时间
 #define pauseTime 5
+// happytime
+#define happytime 5
 //加时间
 #define addTime 5
 //字体变化到倍数

@@ -41,49 +41,63 @@
         }
     }
     IGGameState *gameState = [IGGameState gameState];
-    // 地雷
-    if(deleteNo >=12 || gameState.m_combo >= 5){
-        if([self probability:49]){
-            tooltype = tools01;
-        }
-    }
-    // 欢乐时光
-    if(tooltype== toolsNO &&(deleteNo >=3 || gameState.m_combo >= 2)){
-        if([self probability:49]){
-            tooltype = tools02;
-        }
-    }
-    // 十字斩
-    if(tooltype== toolsNO &&(deleteNo >=10 || gameState.m_combo >= 4)){
+    
+    
+    // 
+    if(deleteNo >=12 || gameState.m_combo >= 6){
         if([self probability:90]){
+            // 地雷
+            if([self probability:40]){
+                tooltype = tools01;
+            }else {
+                // 欢乐时光
+                tooltype = tools02;
+            }
+        }
+    }
+    
+    // 十字斩
+    if(tooltype== toolsNO &&(deleteNo >=10 || gameState.m_combo >= 5)){
+        if([self probability:80]){
             tooltype = tools03;
         }
     }
     // 增加时间
-    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 3)){
+    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 4)){
         if([self probability:70]){
             tooltype = tools04;
         }
     }
     // 炸弹
-    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 2)){
+    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 3)){
         if([self probability:40]){
             tooltype = tools05;
         }
     }
     // 闪电
-    if(tooltype== toolsNO &&(deleteNo >=6 || gameState.m_combo >= 2)){
+    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 3)){
         if([self probability:60]){
             tooltype = tools06;
         }
     }
-
     // 冰冻
-    if(tooltype== toolsNO &&deleteNo >=5){
+    if(tooltype== toolsNO &&deleteNo >=6){
         if([self probability:50]){
             tooltype = tools07;
         }
     }
+    
+    // 分数太少时候给个惊喜
+    if(tooltype== toolsNO && gameState.m_score < 10000 && gameState.m_time < 20){
+        tooltype = tools01;
+    }
+    // 时间小于5秒时候，一定几率给予15秒时间奖励
+    if(tooltype== toolsNO && gameState.m_time < 5){
+        if([self probability:80]){
+            tooltype = tools04;
+        }
+    }
+    
     if(tooltype != toolsNO){
         SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*deleteNo+[result count]-deleteNo];
         // 将道具添加到随机新箱子上

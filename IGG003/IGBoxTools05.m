@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools05.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools05
 
@@ -138,14 +139,22 @@
                 // 通过回调函数删除用于显示动画效果的Sprite
                 id delCallback = [CCCallFuncN actionWithTarget:node selector:@selector(actionEndCallback:)];
                 // 消除箱子
-                id removeCallback =  [CCCallFuncND actionWithTarget:self selector:@selector(showPopParticleForSprite:data:) data:box];;
+                id removeCallback =  [CCCallFuncND actionWithTarget:self selector:@selector(showPopParticleForSprite:data:) data:box];
+
+                // 炸弹音效
+                id musicOfZhadan = [CCCallFuncN actionWithTarget:self selector:@selector(showMusic)];
                 
-                [sprite runAction:[CCSequence actions:mt,delCallback,removeCallback, nil]];
+                [sprite runAction:[CCSequence actions:mt, delCallback,removeCallback, nil]];
             }
         }else {
             [self showPopParticle:box];
             [box removeFromParentAndCleanup:YES];
         }
     }
+        [IGMusicUtil showDeleteOfZhadanMusic];
+}
+
+-(void) showMusic {
+    [IGMusicUtil showDeleteOfZhadanMusic];
 }
 @end

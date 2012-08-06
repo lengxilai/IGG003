@@ -60,11 +60,12 @@
     }
     
     // 如果为HappyTime，直接运行，不走后面的语句
-    IGGameState *gameState = [IGGameState gameState];
-    if (gameState.isHappyTime) {
-        [self runTools02:mp];
-        return;
-    }
+    // 欢乐时光触发式修改 lipeng
+//    IGGameState *gameState = [IGGameState gameState];
+//    if (gameState.isHappyTime) {
+//        [self runTools02:mp];
+//        return;
+//    }
 
     // 取得目标箱子
     int targetBoxTag = mp.R*kBoxTagR+mp.C;

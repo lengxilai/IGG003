@@ -86,6 +86,8 @@
     if (cType == eCNothing) {
         // 设定透明指示条位置
         [self showBarWithTouches:mp];
+        // 显示本次即将删除的箱子
+        [self.sl01 showMoveBox:mp];
         // 记忆当前选中点
         mxPoint = mp;
         cType = eCSelected;
@@ -103,6 +105,8 @@
             // 否则不进行消除，重新设定透明指示条位置（选中点发生了变化）
             // 设定透明指示条位置
             [self showBarWithTouches:mp];
+            // 显示本次即将删除的箱子
+            [self.sl01 showMoveBox:mp];
             // 记忆当前选中点
             mxPoint = mp;
             cType = eCSelected;

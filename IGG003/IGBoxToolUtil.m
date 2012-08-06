@@ -128,7 +128,7 @@
 }
 
 // 取新箱子的算法，从IGboxbase移动过来 
-+(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp;
++(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp
 {
     // 取得目标箱子   TODO 这个东西是不是能写个珙桐方法，或者直接传箱子，不传MxPoint
     int r = mp.R;
@@ -184,6 +184,4 @@
     }
     return NO;
 }
-
-
 @end

@@ -1197,18 +1197,18 @@
 				DC8A8D2715CBBFDF0020E643 /* zhadan.caf in Resources */,
 				DC8A8D2915CBC3FB0020E643 /* zhadan2.caf in Resources */,
 				DC8A8D2B15CBC99F0020E643 /* delete4.caf in Resources */,
-<<<<<<< HEAD
+
 				DC0290D615CFBD68006040B3 /* zhizhu7.caf in Resources */,
 				DC0290D915CFBED5006040B3 /* zhadan4.caf in Resources */,
 				DC0290DB15CFC5F1006040B3 /* zhadan6.caf in Resources */,
 				DC0290DD15CFD44A006040B3 /* sawang.caf in Resources */,
 				DC0290DF15CFD890006040B3 /* sawang2.caf in Resources */,
 				DC0290E115CFD9D5006040B3 /* shouwang.caf in Resources */,
-=======
+
 				18942C3015CFC587005535C5 /* heart-hd.png in Resources */,
 				18942C3115CFC587005535C5 /* heart.plist in Resources */,
 				18942C3215CFC587005535C5 /* heart.png in Resources */,
->>>>>>> 7e40f8d625e74995fe34a8fcde5aba7ce00b6639
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

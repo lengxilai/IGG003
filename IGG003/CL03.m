@@ -151,7 +151,7 @@ static CL03 *staticCL03;
     // 增加分数的起始位置
     addPointSprite.position = ccp(position_x, position_y);    
     // 增加分数的动态效果
-    CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.1 position:ccp(position_x,position_y+40)];
+    CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.1 position:ccp(position_x,position_y+85)];
     CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];
     CCScaleTo *scalePointTo = [CCScaleTo actionWithDuration:1.3 scale: 1.1];
     CCSpawn *sP = [CCSpawn actions:moTP, scalePointTo, nil];

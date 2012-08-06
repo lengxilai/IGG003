@@ -51,16 +51,32 @@
     }
     IGGameState *gameState = [IGGameState gameState];
     // 如果消除个数大于界限值
-    if (deleteNo > kComboBoxLimit) {
-        gameState.m_combo = gameState.m_combo + 1;
-    }else {
-        gameState.m_combo = 0;
+    // 道具暂时不计连击，也不打断连击   lipeng
+    int r = mp.R;
+    int c = mp.C;
+    int targetBoxTag = r*kBoxTagR+c;
+    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+    if(!box.isTool){
+        if (deleteNo > kComboBoxLimit) {
+            gameState.m_combo = gameState.m_combo + 1;
+        }else {
+            gameState.m_combo = 0;
+        }
     }
     
     CL03 *cl03 = [CL03 getCL03];
     [cl03 addPointForBoxNum:deleteNo forPoint:ccp(kSL01StartX + mp.C*kSL01OffsetX,kSL01StartY + mp.R*kSL01OffsetY)];
     
     return newBoxs;
+}
+
+// 显示要消除的箱子
+-(NSArray *)show:(MxPoint)mp
+{
+    NSArray *delBoxs = [self getDelAllBox:mp];
+    for (SpriteBox* box in delBoxs) {
+        [box runAnimeForever];
+    }
 }
 
 // 运行普通消除
@@ -79,8 +95,8 @@
     [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];
 }
 
-// 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
--(NSArray*)delAllBox:(MxPoint)mp
+// 取得所有要删除的箱子
+-(NSArray*)getDelAllBox:(MxPoint)mp
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
     int r = mp.R;
@@ -99,13 +115,22 @@
             SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
             // 如果没有被删除并且类型一致
             if (!box.isDel && box.bType == b.bType && 
-                    (box.tag/kBoxTagR == r || box.tag%kBoxTagR == c)) {
-                box.isDel = YES;
+                (box.tag/kBoxTagR == r || box.tag%kBoxTagR == c)) {
                 [result addObject:box];
             }
         }
     }
     
+    return result;
+}
+
+// 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
+-(NSArray*)delAllBox:(MxPoint)mp
+{
+    NSArray *result = [self getDelAllBox:mp];
+    for (SpriteBox *box in result) {
+        box.isDel = YES;
+    }
     return result;
 }
 

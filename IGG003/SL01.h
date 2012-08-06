@@ -30,6 +30,7 @@
 
 -(void)showBoxs;
 -(void)reloadBoxs;
+-(void)showMoveBox:(MxPoint)mp;
 -(void)runMoveBox:(MxPoint)mp;
 -(void)runTools01:(MxPoint)mp;
 -(void)runTools02:(MxPoint)mp;

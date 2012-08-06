@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "SimpleAudioEngine.h"
 
-@interface IGMusicUtil : NSObject
+@interface IGMusicUtil : NSObject {
+    NSInteger firstShow;
+    NSInteger endShow;
+}
 
 // 加载全部音效
 +(void)loadMusic;
@@ -31,4 +34,6 @@
 +(void)showDeletePointMusic;
 // 炸弹消除
 +(void)showDeleteOfZhadanMusic;
+//设置指定音效的播放次数
++(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops;
 @end

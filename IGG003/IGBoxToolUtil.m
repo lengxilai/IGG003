@@ -48,7 +48,7 @@
         }
     }
     // 欢乐时光
-    if(tooltype== toolsNO &&(deleteNo >=3 || gameState.m_combo >= 2)){
+    if(tooltype== toolsNO &&(deleteNo >=10 || gameState.m_combo >= 5)){
         if([self probability:49]){
             tooltype = tools02;
         }

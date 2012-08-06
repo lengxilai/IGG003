@@ -188,6 +188,39 @@
             [self addChild:s];
         }
     }
+    
+    [self schedule:@selector(runRandomBoxAnime) interval:3];
+    [self schedule:@selector(runToxToolAnime) interval:5];
+}
+
+// 随机显示一个水果的动作
+-(void)runRandomBoxAnime
+{
+    int randomR = kGameSizeRows * CCRANDOM_0_1();
+    int randomC = kGameSizeCols * CCRANDOM_0_1();
+    int randomTag = randomR*kBoxTagR + randomC;
+    SpriteBox *box = [self getChildByTag:randomTag];
+    if (box != nil) {
+        [box runAnime];
+    }
+
+}
+
+// 显示道具的效果
+-(void)runToxToolAnime
+{
+    for (int i = 0; i < kGameSizeRows; i++) {
+        for (int j = 0; j < kGameSizeCols; j++) {
+            int tag = i*kBoxTagR+j;
+            SpriteBox *sb = [self getChildByTag:tag];
+            if (sb == nil) {
+                continue;
+            }
+            if (sb.isTool) {
+                [sb runToolAnime];
+            }
+        }
+    }
 }
 
 // 刷新所有箱子的位置，显示动画效果

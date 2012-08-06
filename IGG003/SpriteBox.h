@@ -35,4 +35,9 @@
 -(MxPoint)getMxPointByTag;
 -(MxPoint)setToolByType:(GameToolType)type;
 -(void)removeTool;
+
+// 运行一个动画
+-(void)runAnime;
+// 在自己身上运行道具的动画
+-(void)runToolAnime;
 @end

@@ -20,6 +20,11 @@
     if (!gameState.isHappyTime) {
         CL02 *cl02 = [CL02 getCL02];
         [cl02 clickHappyTimeTool];
+        // 粒子效果
+        CCParticleSystemQuad *popParticle = [particleManager particleOfType:@"heart"];
+        popParticle.position = ccp(kWindowW/2,kWindowH);
+        [popParticle resetSystem];
+        [self performSelector:@selector(stopHeart:) withObject:popParticle afterDelay:happytime];
     }
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *delBoxs = [self delAllBox:mp];
@@ -65,4 +70,9 @@
     return result;
 }
 
+-(void)stopHeart:(id)data
+{
+    CCParticleSystemQuad *popParticle = data;
+    [data stopSystem];
+}
 @end

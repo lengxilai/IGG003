@@ -37,6 +37,7 @@
         [particleManager add:16 particleOfType:@"pop" atZ:1];
         [particleManager add:9 particleOfType:@"tools01" atZ:2];
         [particleManager add:1 particleOfType:@"snow" atZ:3];
+        [particleManager add:1 particleOfType:@"heart" atZ:4];
         
         IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
@@ -46,6 +47,27 @@
         [self showBoxs];
 	}
 	return self;
+}
+
+-(void)showMoveBox:(MxPoint)mp
+{
+    // 判断移动中的标记，如果正在移动，则不继续
+    if (isMoving) {
+        return;
+    }
+    // 如果为HappyTime，不走后面的语句
+    IGGameState *gameState = [IGGameState gameState];
+    if (gameState.isHappyTime) {
+        return;
+    }
+    int targetBoxTag = mp.R*kBoxTagR+mp.C;
+    SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
+    // 如果为道具则退出
+    if (b.isTool) {
+        return;
+    }
+    
+    [self showNoTool:mp];
 }
 
 // 根据坐标删除一个箱子，在CL01中调用
@@ -66,6 +88,9 @@
         return;
     }
 
+    // 先停止正在显示的动画
+    [self clearShow];
+    
     // 取得目标箱子
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
@@ -108,6 +133,27 @@
             // 进行普通消除
             break;
     }
+}
+
+// 停止显示箱子的效果
+-(void)clearShow
+{
+    for (int i = 0; i < kGameSizeRows; i++) {
+        for (int j = 0; j < kGameSizeCols; j++) {
+            int tag = i*kBoxTagR+j;
+            SpriteBox *sb = [self getChildByTag:tag];
+            [sb stopAnimeForever];
+        }
+    }
+}
+
+// 显示没有道具消除的箱子
+-(void)showNoTool:(MxPoint)mp
+{
+    [self clearShow];
+    IGBoxBase *t = [[IGBoxBase alloc] initForLayer:self forParticle:particleManager];
+    [t show:mp];
+    [t release];
 }
 
 // 运行没有道具的消除
@@ -190,7 +236,6 @@
     }
     
     [self schedule:@selector(runRandomBoxAnime) interval:3];
-    [self schedule:@selector(runToxToolAnime) interval:5];
 }
 
 // 随机显示一个水果的动作
@@ -204,23 +249,6 @@
         [box runAnime];
     }
 
-}
-
-// 显示道具的效果
--(void)runToxToolAnime
-{
-    for (int i = 0; i < kGameSizeRows; i++) {
-        for (int j = 0; j < kGameSizeCols; j++) {
-            int tag = i*kBoxTagR+j;
-            SpriteBox *sb = [self getChildByTag:tag];
-            if (sb == nil) {
-                continue;
-            }
-            if (sb.isTool) {
-                [sb runToolAnime];
-            }
-        }
-    }
 }
 
 // 刷新所有箱子的位置，显示动画效果

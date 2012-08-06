@@ -63,6 +63,15 @@
     return newBoxs;
 }
 
+// 显示要消除的箱子
+-(NSArray *)show:(MxPoint)mp
+{
+    NSArray *delBoxs = [self getDelAllBox:mp];
+    for (SpriteBox* box in delBoxs) {
+        [box runAnimeForever];
+    }
+}
+
 // 运行普通消除
 -(void)run:(MxPoint)mp
 {
@@ -79,8 +88,8 @@
     [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];
 }
 
-// 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
--(NSArray*)delAllBox:(MxPoint)mp
+// 取得所有要删除的箱子
+-(NSArray*)getDelAllBox:(MxPoint)mp
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
     int r = mp.R;
@@ -99,13 +108,22 @@
             SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
             // 如果没有被删除并且类型一致
             if (!box.isDel && box.bType == b.bType && 
-                    (box.tag/kBoxTagR == r || box.tag%kBoxTagR == c)) {
-                box.isDel = YES;
+                (box.tag/kBoxTagR == r || box.tag%kBoxTagR == c)) {
                 [result addObject:box];
             }
         }
     }
     
+    return result;
+}
+
+// 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
+-(NSArray*)delAllBox:(MxPoint)mp
+{
+    NSArray *result = [self getDelAllBox:mp];
+    for (SpriteBox *box in result) {
+        box.isDel = YES;
+    }
     return result;
 }
 

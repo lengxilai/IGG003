@@ -16,7 +16,15 @@
 @synthesize beforeTag;
 @synthesize isTool;
 @synthesize tType;
+@synthesize toolAnime;
 
+-(void)dealloc
+{
+    [super dealloc];
+    if (toolAnime != nil) {
+        [toolAnime release];
+    }
+}
 +(id)spriteBoxWithType:(GameBoxType)type
 {
     SpriteBox* box = [SpriteBox spriteWithSpriteFrameName:[NSString stringWithFormat:@"%d.png",type]];
@@ -47,6 +55,7 @@
     toolSprite.tag = kToolSpriteTag;
     toolSprite.position = ccp(kBoxSize/2 + (kBoxSize-kToolSize)/2,kBoxSize/2 - (kBoxSize-kToolSize)/2);
     [self addChild:toolSprite];
+    [self runToolAnime];
 }
 
 -(void)removeTool
@@ -65,6 +74,30 @@
     CCRotateBy *rb6 = [CCRotateBy actionWithDuration:time angle:-16];
     CCRotateBy *rb7 = [CCRotateBy actionWithDuration:time angle:8];
     [self runAction:[CCSequence actions:rb1,rb2,rb3,rb4,rb5,rb6,rb7,nil]];
+}
+
+-(void)runAnimeForever
+{
+    float time = 0.08*fTimeRate;
+    CCRotateBy *rb1 = [CCRotateBy actionWithDuration:time angle:8];
+    CCRotateBy *rb2 = [CCRotateBy actionWithDuration:time angle:-16];
+    CCRotateBy *rb3 = [CCRotateBy actionWithDuration:time angle:16];
+    CCRotateBy *rb4 = [CCRotateBy actionWithDuration:time angle:-16];
+    CCRotateBy *rb5 = [CCRotateBy actionWithDuration:time angle:16];
+    CCRotateBy *rb6 = [CCRotateBy actionWithDuration:time angle:-16];
+    CCRotateBy *rb7 = [CCRotateBy actionWithDuration:time angle:8];
+    CCRepeatForever *rf = [CCRepeatForever actionWithAction:[CCSequence actions:rb1,rb2,rb3,rb4,rb5,rb6,rb7,nil]];
+    rf.tag = kAnimeTag;
+    animeRunning = YES;
+    [self runAction:rf];
+}
+
+-(void)stopAnimeForever
+{
+    if (animeRunning) {
+        [self stopActionByTag:kAnimeTag];
+        animeRunning = NO;
+    }
 }
 
 -(void)runToolAnime
@@ -105,9 +138,70 @@
         CCSpriteFrame *frame = [cache spriteFrameByName:[NSString stringWithFormat:@"t%d-%d.png", self.tType, i]];
         [frames addObject:frame];
     }
-    CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
     
     IGSprite *tool = [self getChildByTag:kToolSpriteTag];
-    [tool runAction:[CCRepeat actionWithAction:animation times:3]];
+    
+    // 冰冻效果
+    if (tType == tools07) {
+        CCRotateTo *rt = [CCRotateBy actionWithDuration:0.1*fTimeRate angle:10];
+        CCRepeatForever *rf = [CCRepeatForever actionWithAction:rt];
+        [tool runAction:rf];
+    }
+    // 闪电效果
+    if (tType == tools06) {
+        // 构造动画
+        CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
+        CCRepeat *rt = [CCRepeat actionWithAction:animation times:3];
+        
+        rt.tag = kToolAnimeTag;
+        [tool runAction:rt];
+        
+        self.toolAnime = rt;
+        
+        [self schedule:@selector(runToolAnimeForRandom) interval:3];
+    }
+    // 炸弹效果
+    if (tType == tools05) {
+        // 构造动画
+        CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
+        CCRepeatForever *rt = [CCRepeatForever actionWithAction:animation];
+        
+        rt.tag = kToolAnimeTag;
+        [tool runAction:rt];
+    }
+    // 增加时间 04
+    
+    // 十字斩效果 03
+    if (tType == tools03) {
+        // 构造动画
+        CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
+        CCRepeat *rt = [CCRepeat actionWithAction:animation times:3];
+        
+        rt.tag = kToolAnimeTag;
+        [tool runAction:rt];
+        self.toolAnime = rt;
+        [self schedule:@selector(runToolAnimeForRandom) interval:3];
+    }
+    // 欢乐时光 02
+    // 地雷 01
+    // 炸弹效果
+    if (tType == tools05) {
+        // 构造动画
+        CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
+        CCRepeatForever *rt = [CCRepeatForever actionWithAction:animation];
+        
+        rt.tag = kToolAnimeTag;
+        [tool runAction:rt];
+    }
+}
+
+-(void)runToolAnimeForRandom
+{
+    [self unschedule:_cmd];
+    IGSprite *tool = [self getChildByTag:kToolSpriteTag];
+
+    CCAction *action = self.toolAnime;
+    [tool runAction:action];
+    [self schedule:@selector(runToolAnimeForRandom) interval:3];
 }
 @end

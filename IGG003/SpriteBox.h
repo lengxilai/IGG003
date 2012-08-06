@@ -8,6 +8,9 @@
 
 #import "IGSprite.h"
 
+#define kAnimeTag 901
+#define kToolAnimeTag 902
+
 @interface SpriteBox : IGSprite
 {
     GameBoxType bType;
@@ -17,9 +20,11 @@
     BOOL isBefore;
     // 是否是道具
     BOOL isTool;
+    // 正在显示动画
+    BOOL animeRunning;
     // 道具类型
     GameToolType tType;
-    
+    CCAction * toolAnime;
 }
 @property(nonatomic)GameBoxType bType;
 @property(nonatomic)BOOL isTarget;
@@ -28,6 +33,7 @@
 @property(nonatomic)BOOL isBefore;
 @property(nonatomic)BOOL isTool;
 @property(nonatomic)GameToolType tType;
+@property(nonatomic, retain)CCAction * toolAnime;
 
 +(id)spriteBoxWithType:(GameBoxType)type;
 +(id)spriteBoxWithRandomType;
@@ -38,6 +44,9 @@
 
 // 运行一个动画
 -(void)runAnime;
+// 不停地运行动画
+-(void)runAnimeForever;
+-(void)stopAnimeForever;
 // 在自己身上运行道具的动画
 -(void)runToolAnime;
 @end

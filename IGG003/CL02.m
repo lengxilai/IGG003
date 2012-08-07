@@ -12,6 +12,7 @@
 @synthesize iceNSDateTime;
 @synthesize happyTimeNSDateTime;
 @synthesize time;
+
 //暂停时间
 
 //加时间
@@ -76,36 +77,40 @@ static CL02 *staticCL02;
     
     times = (int)[self.time timeIntervalSinceNow];
     CCLabelBMFont *clockLabel = (CCLabelBMFont *)[self getChildByTag:timeTag];
-    //改变引用的字体文件
-    if(times <=10){
-        [self removeChildByTag:timeTag cleanup:true];
-        clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont2.fnt"];
-        clockLabel.tag = timeTag;
-        clockLabel.position = ccp(timeFontX,timeFontY);
-        [self addChild:clockLabel];
-    }else{
-        [self removeChildByTag:timeTag cleanup:true];
-        clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont.fnt"];
-        clockLabel.tag = timeTag;
-        clockLabel.position = ccp(timeFontX,timeFontY);
-        [self addChild:clockLabel];
-    }
-    [clockLabel setString:[self stringForObjectValue:[NSNumber numberWithInt: times]]];
     
-    //倒计时动画
-    if(times <= 10){
-        if(times != persecond){
-            persecond = times;
-            id action0 = [CCScaleTo actionWithDuration:0.2 scale:fontSizeTo];
-            id action1 = [CCScaleTo actionWithDuration:0.3 scale:1];
-            [clockLabel runAction:[CCSequence actions:action0, action1, nil]]; 
+    //判断时间是否变化
+    if(times != persecond){
+        //改变引用的字体文件
+        if(times <=10){
+            [self removeChildByTag:timeTag cleanup:true];
+            clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont2.fnt"];
+            clockLabel.tag = timeTag;
+            clockLabel.position = ccp(timeFontX,timeFontY);
+            [self addChild:clockLabel];
+        }else{
+            [self removeChildByTag:timeTag cleanup:true];
+            clockLabel = [CCLabelBMFont labelWithString:[self stringForObjectValue:[NSNumber numberWithInt: times]] fntFile:@"bitmapFont.fnt"];
+            clockLabel.tag = timeTag;
+            clockLabel.position = ccp(timeFontX,timeFontY);
+            [self addChild:clockLabel];
+        }
+        [clockLabel setString:[self stringForObjectValue:[NSNumber numberWithInt: times]]];
+        
+        //倒计时动画
+        if(times <= 10){
+            
+                persecond = times;
+                id action0 = [CCScaleTo actionWithDuration:0.2 scale:fontSizeTo];
+                id action1 = [CCScaleTo actionWithDuration:0.3 scale:1];
+                [clockLabel runAction:[CCSequence actions:action0, action1, nil]]; 
+           
+            
         }
         
-    }
-    
-    if(times <= 0){
-        
-        [self unschedule:@selector(updateTimeDisplay)];
+        if(times <= 0){
+            
+            [self unschedule:@selector(updateTimeDisplay)];
+        }
     }
 }
 

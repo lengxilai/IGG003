@@ -7,8 +7,8 @@
 //
 
 #import "SpriteBox.h"
-
-@interface IGBoxToolUtil : NSObject
+@class CL02;
+@interface IGBoxToolUtil : CCNode
 
 // 消除后生成带道具的新的箱子
 // node 全部箱子

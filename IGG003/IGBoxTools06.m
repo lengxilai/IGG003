@@ -7,6 +7,8 @@
 //
 
 #import "IGBoxTools06.h"
+#import "SimpleAudioEngine.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools06
 
@@ -83,7 +85,7 @@
         // 先把box的tag设定为999,这句很重要，表明已经从矩阵中删除了箱子
         box.tag = 999;
         
-        // 如果是中间点
+        // 如果不是中间点
         if (!box.isTarget) {
             
             // 通过回调函数显示粒子效果
@@ -140,6 +142,11 @@
     sprite.position = targetBox.position;
     [node addChild:sprite];
     
+    // 撒网音效
+    CCCallFuncN *sawang = [CCCallFuncN actionWithTarget:self selector:@selector(playSawang)];
+    // 收网音效
+    CCCallFuncN *shouwang = [CCCallFuncN actionWithTarget:self selector:@selector(playShouwang)];
+
     // 蜘蛛自身摇头的动画
     CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.1*fTimeRate]];
     [sprite runAction:[CCRepeatForever actionWithAction:animation]];
@@ -151,7 +158,11 @@
     [zzw setScale:0.3];
     zzw.position = targetBox.position;
     [node addChild:zzw];
-    [zzw runAction:[CCSequence actions:[CCScaleTo actionWithDuration:maxTime/5 scale:1.0],[CCScaleTo actionWithDuration:maxTime*3/5 scale:1.0],[CCScaleTo actionWithDuration:maxTime/5 scale:0.3],delCallback,nil]];
+    [zzw runAction:[CCSequence actions:sawang,[CCScaleTo actionWithDuration:maxTime/5 scale:1.0],[CCScaleTo actionWithDuration:maxTime*3/5 scale:1.0],shouwang,[CCScaleTo actionWithDuration:maxTime/5 scale:0.3],delCallback,nil]];
+    
+    // 取得蜘蛛吃水果的个数
+    // 吃水果音效
+    [IGMusicUtil showDeleteMusicWithNumberLoops:@"zhizhu7" ofType:@"caf" numberOfLoops:[mtArray count]];
     
     // 放大
     CCScaleTo *st = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];
@@ -160,6 +171,16 @@
     [targetBox runAction:se];
 
     return [NSNumber numberWithFloat:maxTime];
+}
+
+-(void)playSawang
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"sawang2.caf" pitch:-2.0f pan:0.0f gain:1.0f];
+}
+
+-(void)playShouwang
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"shouwang.caf" pitch:-2.0f pan:0.0f gain:1.0f];
 }
 
 @end

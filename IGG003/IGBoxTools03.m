@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools03.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools03
 
@@ -177,10 +178,11 @@
                 if (moveTime > maxTime) {
                     maxTime = moveTime;
                 }
-                
+
                 CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.02*fTimeRate]];
                 [sprite runAction:[CCRepeatForever actionWithAction:animation]];
                 CCMoveTo *mt = [CCMoveTo actionWithDuration:moveTime position:ccp(kSL01StartX+kGameSizeCols*kSL01OffsetX,box.position.y)];
+                
                 
                 // 通过回调函数删除用于显示动画效果的Sprite
                 id delCallback = [CCCallFuncN actionWithTarget:node selector:@selector(actionEndCallback:)];
@@ -198,6 +200,9 @@
             }
             [self performSelector:@selector(showPopParticle:) withObject:box afterDelay:afterTime];
         }
+
     }
+    NSInteger cout = maxTime/0.15;
+    [IGMusicUtil showDeleteMusicWithNumberLoops:@"piaochong3" ofType:@"caf" numberOfLoops:cout];
 }
 @end

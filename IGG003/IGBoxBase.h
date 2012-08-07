@@ -26,6 +26,8 @@
 // 消除时的共通处理，同时返回新的箱子
 -(NSArray*)processRun:(MxPoint)mp;
 
+// 显示要消除的箱子
+-(NSArray *)show:(MxPoint)mp;
 // 普通消除
 -(void)run:(MxPoint)mp;
 

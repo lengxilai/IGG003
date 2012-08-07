@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools05.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools05
 
@@ -19,10 +20,10 @@
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *delBoxs = [self delAllBox:mp];
     NSArray *newBoxs = [super processRun:mp];
-    [self removeBoxChildForDelBoxs:delBoxs forMP:mp];
+    NSNumber *time = [self removeBoxChildForDelBoxs:delBoxs forMP:mp];
 
     // 延时重新刷新箱子矩阵
-    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.8*fTimeRate];
+    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:[time floatValue]];
 }
 
 #pragma mark -
@@ -74,7 +75,7 @@
 }
 
 // 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
--(void)removeBoxChildForDelBoxs:(NSArray*)delBoxs forMP:(MxPoint)mp
+-(NSNumber*)removeBoxChildForDelBoxs:(NSArray*)delBoxs forMP:(MxPoint)mp
 {
     CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
     SpriteBox *targetBox = (SpriteBox *)[node getChildByTag:mp.R*kBoxTagR+mp.C];
@@ -138,14 +139,23 @@
                 // 通过回调函数删除用于显示动画效果的Sprite
                 id delCallback = [CCCallFuncN actionWithTarget:node selector:@selector(actionEndCallback:)];
                 // 消除箱子
-                id removeCallback =  [CCCallFuncND actionWithTarget:self selector:@selector(showPopParticleForSprite:data:) data:box];;
+                id removeCallback =  [CCCallFuncND actionWithTarget:self selector:@selector(showPopParticleForSprite:data:) data:box];
+
+                // 炸弹音效
+                id musicOfZhadan = [CCCallFuncN actionWithTarget:self selector:@selector(showMusic)];
                 
-                [sprite runAction:[CCSequence actions:mt,delCallback,removeCallback, nil]];
+                [sprite runAction:[CCSequence actions:mt, delCallback,removeCallback, nil]];
             }
         }else {
             [self showPopParticle:box];
             [box removeFromParentAndCleanup:YES];
         }
     }
+    [IGMusicUtil showDeleteOfZhadanMusic];
+    return [NSNumber numberWithFloat:maxTime];
+}
+
+-(void) showMusic {
+    [IGMusicUtil showDeleteOfZhadanMusic];
 }
 @end

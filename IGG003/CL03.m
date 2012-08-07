@@ -182,7 +182,7 @@ static CL03 *staticCL03;
         NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
         addComboStr = [@"x" stringByAppendingString:addComboStr];
         // 增加combo显示的字体
-        CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"combofont4.fnt"];
+        CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"comboFont4.fnt"];
         addComboSprite.scale = 2.5;
         // 增加combo的起始位置
         addComboSprite.position = ccp(290, 425);

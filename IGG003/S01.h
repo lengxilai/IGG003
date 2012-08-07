@@ -11,10 +11,12 @@
 #import "CL03.h"
 #import "CL02.h"
 #import "CL01.h"
+#import "CL05.h"
 
 @interface S01 : IGScene
 +(IGScene *) scene;
 +(S01*)getS01;
 -(void)pauseGame;
 -(void)pauseGameOver;
+-(void)overGame;
 @end

@@ -72,4 +72,15 @@ static S01 *staticS01;
     [cl02 endPause];
     [cl03 onEnter];
 }
+-(void)overGame{
+    CL01 *cl01 = (CL01 *)[staticS01 getChildByTag:10011];
+    CL02 *cl02 = (CL02 *)[staticS01 getChildByTag:10012];
+    CL03 *cl03 = (CL03 *)[staticS01 getChildByTag:10013];
+    [cl01 onExit];
+    [cl02 onExit];
+    [cl03 onExit];
+    
+    CL05 *cl05 = [CL05 node];
+    [staticS01 addChild:cl05];
+}
 @end

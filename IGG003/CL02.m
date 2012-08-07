@@ -106,10 +106,10 @@ static CL02 *staticCL02;
            
             
         }
-        
+        //游戏结束
         if(times <= 0){
-            
             [self unschedule:@selector(updateTimeDisplay)];
+            [self overGame];
         }
     }
 }
@@ -249,5 +249,11 @@ static CL02 *staticCL02;
     }
     //继续计时  
     [self schedule:@selector(updateTimeDisplay) interval:0.1];
+}
+#pragma mark -
+#pragma mark 游戏结束
+-(void)overGame{
+    S01 *s01 = [S01 getS01];
+    [s01 overGame];
 }
 @end

@@ -7,7 +7,12 @@
 //
 
 #import "CCLayer.h"
+#import "S01.h"
+@interface CL05 : CCLayer{
+    SL01* currentGameLayer;
+}
+-(id)init;
 
-@interface CL05 : CCLayer
-
+-(void)removePauseGameLayer;
+-(void)enterGameOverGameLayer;
 @end

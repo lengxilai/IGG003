@@ -10,16 +10,23 @@
 
 @implementation IGMusicUtil
 
+-(id) init
+{
+	return self;
+}
+
 //加载音乐
 +(void)loadMusic{
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake1.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake2.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"delete3.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"delete4.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhizhu.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhizhu7.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"point.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music3.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"refresh.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"sawang.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shouwang.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong2.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong5.caf"];
@@ -34,26 +41,22 @@
 +(void)showBackgroundMusic {
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bg_music3.caf" loop:YES];
 }
-
 // 水果晃动时的音效
 +(void)showShakingMusic {
     [[SimpleAudioEngine sharedEngine] playEffect:@"shake1.caf"];
 }
-
 // 水果消除时的音效
 +(void)showDeletingMusic {
     //    [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.7];
     [[SimpleAudioEngine sharedEngine] playEffect:@"delete4.caf"];
 }
-
 // 水果下落时的音效(重新刷新矩阵)
 +(void)showRefreshMusic {
     [[SimpleAudioEngine sharedEngine] playEffect:@"refresh.caf"];
 }
-
 // 蜘蛛消除
 +(void)showDeleteOfZhizhuMusic {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"zhizhu.caf"];
+   [[SimpleAudioEngine sharedEngine] playEffect:@"zhizhu5.caf"];
 }
 // 瓢虫消除
 +(void)showDeleteOfPiaochongMusic {
@@ -61,7 +64,7 @@
 }
 // 炸弹消除
 +(void)showDeleteOfZhadanMusic {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"zhadan2.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"zhadan4.caf"];
 }
 // 减分音效
 +(void)showDeletePointMusic {
@@ -71,4 +74,22 @@
 +(void)showAddPointMusic {
     [[SimpleAudioEngine sharedEngine] playEffect:@"point.caf"];
 }
+
++(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops {
+    //在资源库中的路径找指定的caf文件
+    NSString *path = [[NSBundle mainBundle] pathForResource:musicName ofType:musicType];
+    //在这里判断以下是否能找到这个音乐文件  
+    if (path) {  
+        //从path路径中 加载播放器  
+        AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSURL alloc]initFileURLWithPath:path]error:nil];
+        //设置播放循环次数，如果numberOfLoops为负数 音频文件就会一直循环播放下去
+        player.numberOfLoops = numberOfLoops;
+        //初始化播放器
+        [player prepareToPlay];
+
+        [player play];
+
+    }
+}
+
 @end

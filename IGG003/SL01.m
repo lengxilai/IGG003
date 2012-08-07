@@ -82,11 +82,12 @@
     }
     
     // 如果为HappyTime，直接运行，不走后面的语句
-    IGGameState *gameState = [IGGameState gameState];
-    if (gameState.isHappyTime) {
-        [self runTools02:mp];
-        return;
-    }
+    // 欢乐时光触发式修改 lipeng
+//    IGGameState *gameState = [IGGameState gameState];
+//    if (gameState.isHappyTime) {
+//        [self runTools02:mp];
+//        return;
+//    }
 
     // 先停止正在显示的动画
     [self clearShow];

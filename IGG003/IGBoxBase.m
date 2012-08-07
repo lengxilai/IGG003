@@ -51,10 +51,17 @@
     }
     IGGameState *gameState = [IGGameState gameState];
     // 如果消除个数大于界限值
-    if (deleteNo > kComboBoxLimit) {
-        gameState.m_combo = gameState.m_combo + 1;
-    }else {
-        gameState.m_combo = 0;
+    // 道具暂时不计连击，也不打断连击   lipeng
+    int r = mp.R;
+    int c = mp.C;
+    int targetBoxTag = r*kBoxTagR+c;
+    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+    if(!box.isTool){
+        if (deleteNo > kComboBoxLimit) {
+            gameState.m_combo = gameState.m_combo + 1;
+        }else {
+            gameState.m_combo = 0;
+        }
     }
     
     CL03 *cl03 = [CL03 getCL03];

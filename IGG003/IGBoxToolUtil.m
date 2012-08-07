@@ -13,6 +13,8 @@
 // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
 +(NSArray*)getNewBoxBringTool:(CCNode*) node clickPoint:(MxPoint)mp
 {
+    IGGameState *gameState = [IGGameState gameState];
+    
     // 取得目标箱子   TODO 这个东西是不是能写个珙桐方法，或者直接传箱子，不传MxPoint
     int r = mp.R;
     int c = mp.C;
@@ -21,7 +23,7 @@
     
     NSMutableArray *result = [self getNewBoxNoTool:node clickPoint:mp];
     // 如果当前点击的是道具，则不产生新道具
-    if(box.isTool){
+    if(box.isTool&&!gameState.isHappyTime){
         return result;
     }
     // 生成随机道具
@@ -40,15 +42,22 @@
             deleteNo ++;
         }
     }
-    IGGameState *gameState = [IGGameState gameState];
-    if(deleteNo >=12 || gameState.m_combo >= 6){
+    
+    // 如果在欢乐时间，道具固定
+    if(gameState.isHappyTime){
+        tooltype = tools05;
+    }
+    
+    if(tooltype== toolsNO && (deleteNo >=12 || gameState.m_combo >= 6)){
         if([self probability:90]){
             // 地雷
             if([self probability:40]){
                 tooltype = tools01;
             }else {
-                // 欢乐时光
                 tooltype = tools02;
+                // 欢乐时光
+                CL02 *cl02 = [CL02 getCL02];
+                [cl02 clickHappyTimeTool];
             }
         }
     }
@@ -96,17 +105,30 @@
     }
     
     if(tooltype != toolsNO){
-        SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*deleteNo+[result count]-deleteNo];
-        // 将道具添加到随机新箱子上
-        tempBox.isTool = YES;
-        tempBox.tType = tooltype;
-        [tempBox setToolByType:tooltype];
+        // 如果欢乐时光的话，全部作为炸弹返回
+        if(gameState.isHappyTime){
+            for (int i=0; i<[result count]; i++) {
+                SpriteBox *tempBox = [result objectAtIndex:i];
+                if(!tempBox.isTool){
+                    tempBox.isTool = YES;
+                    tempBox.tType = tools05;
+                    [tempBox setToolByType:tools05];
+                }
+            }                 
+        }else {
+            // 将道具添加到随机新箱子上
+            SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*deleteNo+[result count]-deleteNo];
+            tempBox.isTool = YES;
+            tempBox.tType = tooltype;
+            [tempBox setToolByType:tooltype];
+        }
+
     }
     return result;
 }
 
 // 取新箱子的算法，从IGboxbase移动过来 
-+(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp;
++(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp
 {
     // 取得目标箱子   TODO 这个东西是不是能写个珙桐方法，或者直接传箱子，不传MxPoint
     int r = mp.R;

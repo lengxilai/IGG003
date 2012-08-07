@@ -20,10 +20,10 @@
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *delBoxs = [self delAllBox:mp];
     NSArray *newBoxs = [super processRun:mp];
-    [self removeBoxChildForDelBoxs:delBoxs forMP:mp];
+    NSNumber *time = [self removeBoxChildForDelBoxs:delBoxs forMP:mp];
 
     // 延时重新刷新箱子矩阵
-    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.8*fTimeRate];
+    [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:[time floatValue]];
 }
 
 #pragma mark -
@@ -75,7 +75,7 @@
 }
 
 // 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
--(void)removeBoxChildForDelBoxs:(NSArray*)delBoxs forMP:(MxPoint)mp
+-(NSNumber*)removeBoxChildForDelBoxs:(NSArray*)delBoxs forMP:(MxPoint)mp
 {
     CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
     SpriteBox *targetBox = (SpriteBox *)[node getChildByTag:mp.R*kBoxTagR+mp.C];
@@ -151,7 +151,8 @@
             [box removeFromParentAndCleanup:YES];
         }
     }
-        [IGMusicUtil showDeleteOfZhadanMusic];
+    [IGMusicUtil showDeleteOfZhadanMusic];
+    return [NSNumber numberWithFloat:maxTime];
 }
 
 -(void) showMusic {

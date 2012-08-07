@@ -11,6 +11,7 @@
 #define kAnimeTag 901
 #define kToolAnimeTag 902
 
+@class IGGameState;
 @interface SpriteBox : IGSprite
 {
     GameBoxType bType;

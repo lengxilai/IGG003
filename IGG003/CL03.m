@@ -37,7 +37,6 @@ static CL03 *staticCL03;
 }
 
 //初始化  加分前的分数   combo数
-
 -(id)addPointForBoxNum:(int)boxNum forPoint:(CGPoint) position {
     
     IGGameState *gameState = [IGGameState gameState];
@@ -48,12 +47,11 @@ static CL03 *staticCL03;
     comboNum = gameState.m_combo;
     // 得分计算,消除小于3个减分
     if (boxNum<3) {
-        addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, comboNum));
+        addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, (int)comboNum/2));
         [IGMusicUtil showDeletePointMusic];
     } else {
-        addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, comboNum));
+        addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, (int)comboNum/2));
         [IGMusicUtil showAddPointMusic];
-
     }
 
     // 合计总分

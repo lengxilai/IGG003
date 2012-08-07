@@ -32,10 +32,10 @@
 // 消除时的共通处理，同时返回新的箱子
 -(NSArray*)processRun:(MxPoint)mp
 {
-    // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
-    NSArray *newBoxs = [IGBoxToolUtil getNewBoxBringTool:node clickPoint:mp];
+    // 游戏状态
+    IGGameState *gameState = [IGGameState gameState];
     
-    
+    // 本次删除个数
     int deleteNo = 0;
     // 取得元素
     CCArray* array = [node children];
@@ -49,13 +49,21 @@
             deleteNo ++;
         }
     }
-    IGGameState *gameState = [IGGameState gameState];
+    
+    // 记录本次删除个数
+    gameState.m_del_count = deleteNo;
+    
+    // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
+    NSArray *newBoxs = [IGBoxToolUtil getNewBoxBringTool:node clickPoint:mp];
+    
     // 如果消除个数大于界限值
     // 道具暂时不计连击，也不打断连击   lipeng
     int r = mp.R;
     int c = mp.C;
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+    
+    // 连击数
     if(!box.isTool){
         if (deleteNo > kComboBoxLimit) {
             gameState.m_combo = gameState.m_combo + 1;

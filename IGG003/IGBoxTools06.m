@@ -85,7 +85,7 @@
         // 先把box的tag设定为999,这句很重要，表明已经从矩阵中删除了箱子
         box.tag = 999;
         
-        // 如果是中间点
+        // 如果不是中间点
         if (!box.isTarget) {
             
             // 通过回调函数显示粒子效果
@@ -161,9 +161,8 @@
     [zzw runAction:[CCSequence actions:sawang,[CCScaleTo actionWithDuration:maxTime/5 scale:1.0],[CCScaleTo actionWithDuration:maxTime*3/5 scale:1.0],shouwang,[CCScaleTo actionWithDuration:maxTime/5 scale:0.3],delCallback,nil]];
     
     // 取得蜘蛛吃水果的个数
-    NSInteger cout = maxTime/0.15;
     // 吃水果音效
-    [IGMusicUtil showDeleteMusicWithNumberLoops:@"zhizhu7" ofType:@"caf" numberOfLoops:cout];
+    [IGMusicUtil showDeleteMusicWithNumberLoops:@"zhizhu7" ofType:@"caf" numberOfLoops:[mtArray count]];
     
     // 放大
     CCScaleTo *st = [CCScaleTo actionWithDuration:scaleTime scale:scaleRate];

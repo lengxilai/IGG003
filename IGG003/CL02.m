@@ -25,6 +25,8 @@ static CL02 *staticCL02;
 - (void) dealloc
 {
     [self.iceNSDateTime release];
+    [self.time release];
+    [self.happyTimeNSDateTime release];
 	[super dealloc];
 
 }   
@@ -161,7 +163,7 @@ static CL02 *staticCL02;
         //为了时间显示正常  这里加一处理
         //times = times + 1;
         //重新计算时间
-        self.time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
+        self.time = [NSDate dateWithTimeIntervalSinceNow:(times)];
         //删除冰冻层
         [self removeChildByTag:iceBgTag cleanup:true];
         //停止冰冻效果
@@ -230,7 +232,7 @@ static CL02 *staticCL02;
     //为了时间显示正常  这里加一处理
     //times = times + 1;
     //重新计算时间
-    time = [[NSDate dateWithTimeIntervalSinceNow:(times)] retain];
+    self.time = [NSDate dateWithTimeIntervalSinceNow:(times)];
     if(iceFlg == 1){
         self.iceNSDateTime = [NSDate dateWithTimeIntervalSinceNow:(iceDelayTime)];
         [self schedule:@selector(pauseScheduleByIce) interval:1];

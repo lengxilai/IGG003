@@ -38,7 +38,12 @@
 }
 +(id)spriteBoxWithRandomType
 {
-    GameBoxType type = CCRANDOM_0_1()*kInitBoxTypeCount + 1;
+    IGGameState *gameState = [IGGameState gameState];
+    
+    GameBoxType type = CCRANDOM_0_1()*gameState.m_box_level + 1;
+//    if (gameState.m_del_count < 3) {
+//        type = eGbt8;
+//    }
     return [SpriteBox spriteBoxWithType:type];
 }
 

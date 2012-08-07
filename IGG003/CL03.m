@@ -59,7 +59,7 @@ static CL03 *staticCL03;
     
     [self showPointAndCombo:position];
     // 更新GameState最新分数
-    gameState.m_score = addedTotalPoint;
+    [gameState setScore:addedTotalPoint];
     [self schedule:@selector(getTotalPoint:) interval:(0.01)];    
 }
 

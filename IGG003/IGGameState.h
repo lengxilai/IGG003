@@ -51,13 +51,25 @@ MxPointMake(int r, int c)
     int             m_combo;
     
     BOOL isHappyTime;
+    
+    // 水果种类数
+    int m_box_level;
+    
+    // 上一次消除的数量
+    int m_del_count;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
 @property(nonatomic,assign) int m_time;
 @property(nonatomic,assign) int m_combo;
+@property(nonatomic,assign) int m_box_level;
+@property(nonatomic,assign) int m_del_count;
 @property(nonatomic,assign) BOOL isHappyTime;
 
 +(IGGameState*)gameState;
 -(id)init;
+// 升级，水果数量增加
+-(void)levelUp;
+// 设定分数
+-(void)setScore:(int)score;
 @end

@@ -9,6 +9,7 @@
 #import "IGLayer.h"
 #import "IGCommonDefine.h"
 #import "S01.h"
+
 @interface CL02 : IGLayer
 {
     NSDate *time;
@@ -24,6 +25,8 @@
     float happytimeDelayTime;
 }
 @property(nonatomic,retain) NSDate *iceNSDateTime;
+@property(nonatomic,retain) NSDate *happyTimeNSDateTime;
+@property(nonatomic,retain) NSDate *time;
 +(CL02*)getCL02;
 -(void)endPause;
 @end

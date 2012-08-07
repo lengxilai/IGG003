@@ -27,4 +27,6 @@
 -(void)changePointWithPoint;
 -(void)setPointPlace:(int)totalPoint comboNum: (int) comNum;
 -(void)showPointAndCombo:(CGPoint) position;
+-(void)changeCombo;
+-(BOOL)isComboChanged;
 @end

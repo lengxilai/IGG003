@@ -31,9 +31,6 @@ static S01 *staticS01;
     CL02 *cl02 = [CL02 node];
     [scene addChild:cl02];
     [cl02 setTag:10012];
-    
-    //CL04 *cl04 = [CL04 node];
-    //[scene addChild:cl04];
 
     // 给控制层设定游戏层
     cl01.sl01 = sl01;

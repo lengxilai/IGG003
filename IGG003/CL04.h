@@ -8,6 +8,7 @@
 
 #import "IGLayer.h"
 #import "S01.h"
+#import "S00.h"
 
 @class SL01;
 @interface CL04 : IGLayer{

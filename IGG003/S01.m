@@ -12,7 +12,7 @@ static S01 *staticS01;
 +(IGScene *) scene{
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
-	
+    
 	// 游戏层
 	SL01 *sl01 = [SL01 node];
 	[scene addChild: sl01];
@@ -36,7 +36,7 @@ static S01 *staticS01;
     //[scene addChild:cl04];
 
     // 给控制层设定游戏层
-    [cl01 setSl01:sl01];
+    cl01.sl01 = sl01;
     
     staticS01 = scene;
 	return scene;

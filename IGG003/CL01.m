@@ -18,7 +18,7 @@
     [hBar removeFromSuperview];
     [wBar release];
     [hBar release];
-    [sl01 release];
+    //[sl01 release];
 }
 
 -(id) init
@@ -39,14 +39,6 @@
         [[[CCDirector sharedDirector] openGLView] addSubview:hBar];
         wBar.hidden = YES;
         hBar.hidden = YES;
-        
-        CCSprite* playNormal=[CCSprite spriteWithFile:@"Icon.png"];
-        CCSprite* playSecelt=[CCSprite spriteWithFile:@"Icon.png"];
-        CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:self selector:@selector(gamePause)];
-        CCMenu* menu=[CCMenu menuWithItems:startSprite,nil]; //添加一个按钮，触发游戏暂停；
-        menu.position=CGPointZero;
-        [self addChild:menu];
-        menu.position=ccp(380,430);
 
         cType = eCNothing;
 	}

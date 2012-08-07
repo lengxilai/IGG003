@@ -20,19 +20,41 @@
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         
-        CCSprite* playNormal=[CCSprite spriteWithFile:@"resume-1.png"];
-        CCSprite* playSecelt=[CCSprite spriteWithFile:@"resume-2.png"];
-        playSecelt.scale=0.9f;
+        CCSprite* resumeNormal=[CCSprite spriteWithSpriteFrameName:@"btn5-1.png"];
+        CCSprite* resumeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn5-2.png"];
+        resumeSecelt.scale=0.95f;
         
-        CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:self selector:@selector(removePauseGameLayer)];
+        CCMenuItemSprite* resumeSprite=[CCMenuItemSprite itemFromNormalSprite:resumeNormal selectedSprite:resumeSecelt target:self selector:@selector(removePauseGameLayer)];
         
-        CCMenu* menu=[CCMenu menuWithItems:startSprite,nil]; //添加一个返回游戏按钮；
-        menu.position=CGPointZero;
+        CCSprite* restartNormal=[CCSprite spriteWithSpriteFrameName:@"btn6-1.png"];
+        CCSprite* restartSecelt=[CCSprite spriteWithSpriteFrameName:@"btn6-2.png"];
+        restartSecelt.scale=0.95f;
+        
+        CCMenuItemSprite* restartSprite=[CCMenuItemSprite itemFromNormalSprite:restartNormal selectedSprite:restartSecelt target:self selector:@selector(restartGame)];
+        
+        CCSprite* menuNormal=[CCSprite spriteWithSpriteFrameName:@"btn7-1.png"];
+        CCSprite* menuSecelt=[CCSprite spriteWithSpriteFrameName:@"btn7-2.png"];
+        restartSecelt.scale=0.95f;
+        
+        CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
+        
+        CCMenu* menu=[CCMenu menuWithItems:resumeSprite,restartSprite,menuSprite,nil]; //添加一个返回游戏按钮；
         [self addChild:menu];
-        menu.position=ccp(kWindowW/2, 320);
+        menu.position=ccp(kWindowW/2, 200);
+        [menu alignItemsVerticallyWithPadding:30];
         
     }
     return self;
+}
+
+-(void)restartGame
+{
+    [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+}
+
+-(void)gobackMenu
+{
+    [[CCDirector sharedDirector] replaceScene:[S00 scene]];
 }
 
 -(void)enterGamePauseGameLayer //进入暂停界面；

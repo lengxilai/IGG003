@@ -197,6 +197,7 @@
 		E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3815C126B900E52519 /* bitmapFont.png */; };
 		E21A2C3F15C126B900E52519 /* CL02.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3A15C126B900E52519 /* CL02.m */; };
 		E21A2C4015C126B900E52519 /* CL03.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3C15C126B900E52519 /* CL03.m */; };
+		E262DFFC15D11FC70061ECE8 /* CL05.m in Sources */ = {isa = PBXBuildFile; fileRef = E262DFFB15D11FC70061ECE8 /* CL05.m */; };
 		E276CF6B15C9481800D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF6A15C9481800D521FE /* CL04.m */; };
 		E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */; };
 		E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */; };
@@ -538,6 +539,8 @@
 		E21A2C3A15C126B900E52519 /* CL02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL02.m; sourceTree = "<group>"; };
 		E21A2C3B15C126B900E52519 /* CL03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL03.h; sourceTree = "<group>"; };
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
+		E262DFFA15D11FC70061ECE8 /* CL05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL05.h; sourceTree = "<group>"; };
+		E262DFFB15D11FC70061ECE8 /* CL05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL05.m; sourceTree = "<group>"; };
 		E276CF6915C9481800D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL04.h; sourceTree = "<group>"; };
 		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
@@ -961,8 +964,6 @@
 		D7030BF615B6B32700BA5EF4 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
-				E276CF6915C9481800D521FE /* CL04.h */,
-				E276CF6A15C9481800D521FE /* CL04.m */,
 				E21A2C3915C126B900E52519 /* CL02.h */,
 				E21A2C3A15C126B900E52519 /* CL02.m */,
 				E21A2C3B15C126B900E52519 /* CL03.h */,
@@ -971,6 +972,10 @@
 				D7030C1E15B6B43400BA5EF4 /* CL01.m */,
 				D7030C1F15B6B43400BA5EF4 /* SL01.h */,
 				D7030C2015B6B43400BA5EF4 /* SL01.m */,
+				E276CF6915C9481800D521FE /* CL04.h */,
+				E276CF6A15C9481800D521FE /* CL04.m */,
+				E262DFFA15D11FC70061ECE8 /* CL05.h */,
+				E262DFFB15D11FC70061ECE8 /* CL05.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1353,6 +1358,7 @@
 				181646BB15C972090014D54A /* IGBoxTools04.m in Sources */,
 				181646BF15C973930014D54A /* IGBoxTools07.m in Sources */,
 				18942C4715D111A5005535C5 /* S00.m in Sources */,
+				E262DFFC15D11FC70061ECE8 /* CL05.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

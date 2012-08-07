@@ -62,7 +62,8 @@ static CL03 *staticCL03;
     [self showPointAndCombo:position];
     // 更新GameState最新分数
     gameState.m_score = addedTotalPoint;
-    [self schedule:@selector(getTotalPoint:) interval:(0.01)];    
+    [self schedule:@selector(getTotalPoint:) interval:(0.01)];
+    [self changeCombo];
 }
 
 // 计算每次加分效果所加的分数
@@ -95,18 +96,36 @@ static CL03 *staticCL03;
     [pointsSprit setString:pointStr];    
     pointsSprit.position = ccp(310 - pointStr.length * 10,463);
 
+}
+
+// 显示combo效果
+-(void)changeCombo {
     if (comboNum > 0) {
-        [comboSprit setVisible:YES];
+        // 本次combo数
         NSString *comboStr = [NSString stringWithFormat:@"%d",comboNum];
-        comboStr = [@"X" stringByAppendingString:comboStr];
+        [comboSprit setVisible:YES];
+        comboStr = [@"x" stringByAppendingString:comboStr];
         comboSprit = (CCLabelBMFont *)[self getChildByTag:200002];
         [comboSprit setString:comboStr];
         comboSprit.position = ccp(310 - comboStr.length * 10, 425);
-
     } else {
         [comboSprit setVisible:NO];
     }
+}
 
+// 判断combo数是否变化
+-(BOOL)isComboChanged {
+    // 本次combo数
+    NSString *comboStr = [NSString stringWithFormat:@"%d",comboNum];
+    // 本次combo数前加上"x"
+    NSString *tempStr = [@"x" stringByAppendingString:comboStr];
+    // 前一次combo数
+    NSString *preComboNumStr = [comboSprit string];
+    // 如果combo数没变不现实动画效果
+    if ([tempStr isEqualToString:preComboNumStr]) {
+        return NO;
+    }
+    return YES;
 }
 
 // 设置分数显示位置
@@ -115,12 +134,12 @@ static CL03 *staticCL03;
     NSString *numStr = [[NSString alloc] initWithFormat:@"%d", totalPoint];
     // combo数
     NSString *comStr = [[NSString alloc] initWithFormat:@"%d", comNum];
-    comStr = [@"X" stringByAppendingString:comStr];
+    comStr = [@"x" stringByAppendingString:comStr];
     // 分数字体
     pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"pointFont.fnt"];
     // combo字体
 //    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"pointFont.fnt"];
-    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"comboFont1.fnt"];
+    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"combofont4.fnt"];
     // 分数显示坐标
     pointsSprit.position = ccp(300,463);
     // combo显示坐标
@@ -163,9 +182,9 @@ static CL03 *staticCL03;
     // 增加的combo
     if (comboNum > 0) {
         NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
-        addComboStr = [@"X" stringByAppendingString:addComboStr];
+        addComboStr = [@"x" stringByAppendingString:addComboStr];
         // 增加combo显示的字体
-        CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"comboFont1.fnt"];
+        CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"combofont4.fnt"];
         addComboSprite.scale = 2.5;
         // 增加combo的起始位置
         addComboSprite.position = ccp(290, 425);
@@ -173,11 +192,14 @@ static CL03 *staticCL03;
         CCScaleTo *scaleComboTo = [CCScaleTo actionWithDuration:0.5 scale:1];
         CCSpawn *sC = [CCSpawn actions:scaleComboTo, nil];
         id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
-        CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
-        [self addChild:addComboSprite];
-        [addComboSprite runAction:seqC];
-    }
 
+        if ([self isComboChanged]) {
+            CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
+            [self addChild:addComboSprite];
+            [addComboSprite runAction:seqC];
+        }
+
+    }
 }
 
 // 动画之后删除精灵

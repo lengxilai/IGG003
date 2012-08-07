@@ -21,6 +21,7 @@
 -(id) init
 {
 	if( (self=[super init])) {
+        IGGameState *gs = [IGGameState gameState];
         
         // 背景音乐
         [IGMusicUtil showBackgroundMusic];
@@ -216,6 +217,8 @@
 {
     // 取得游戏状态中的矩阵
     IGGameState *gs = [IGGameState gameState];
+    // 初始化游戏状态
+    [gs clearGameState];
     NSArray *m = gs.m;
     
     for (int i = 0; i < kGameSizeRows; i++) {

@@ -12,11 +12,8 @@
 
 @class SL01;
 @interface CL04 : IGLayer{
-    SL01* currentGameLayer;
+
 }
 -(id)init;
-
--(void)removePauseGameLayer;
--(void)enterGamePauseGameLayer;
 
 @end

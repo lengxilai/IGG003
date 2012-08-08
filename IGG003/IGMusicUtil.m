@@ -27,7 +27,11 @@
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"refresh.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"sawang.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shouwang.caf"];
-//    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo1.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo2.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo3.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo4.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo5.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong2.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong5.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong6.caf"];
@@ -74,7 +78,10 @@
 +(void)showAddPointMusic {
     [[SimpleAudioEngine sharedEngine] playEffect:@"point.caf"];
 }
-
+// combo音效
++(void)showComboMusic {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"combo1.caf"];
+}
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops {
     //在资源库中的路径找指定的caf文件
     NSString *path = [[NSBundle mainBundle] pathForResource:musicName ofType:musicType];

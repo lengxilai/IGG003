@@ -105,18 +105,18 @@
     }
     
     if(tooltype != toolsNO){
-        // 如果欢乐时光的话，全部作为炸弹返回
-        if(gameState.isHappyTime){
-            for (int i=0; i<[result count]; i++) {
-                SpriteBox *tempBox = [result objectAtIndex:i];
-                // 如果当前不是道具并且不是石头
-                if(!tempBox.isTool && tempBox.bType != eGbt99){
-                    tempBox.isTool = YES;
-                    tempBox.tType = tools05;
-                    [tempBox setToolByType:tools05];
-                }
-            }                 
-        }else {
+//        // 如果欢乐时光的话，全部作为炸弹返回
+//        if(gameState.isHappyTime){
+//            for (int i=0; i<[result count]; i++) {
+//                SpriteBox *tempBox = [result objectAtIndex:i];
+//                // 如果当前不是道具并且不是石头
+//                if(!tempBox.isTool && tempBox.bType != eGbt99){
+//                    tempBox.isTool = YES;
+//                    tempBox.tType = tools05;
+//                    [tempBox setToolByType:tools05];
+//                }
+//            }                 
+//        }else {
             // 将道具添加到随机新箱子上
             SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*deleteNo+[result count]-deleteNo];
             // 道具不能加在石头上
@@ -125,7 +125,7 @@
                 tempBox.tType = tooltype;
                 [tempBox setToolByType:tooltype];
             }
-        }
+//        }
 
     }
     return result;

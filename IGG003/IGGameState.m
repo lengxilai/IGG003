@@ -37,6 +37,12 @@ static IGGameState *staticGameState;
 -(id)init
 {
     self = [super init];
+    
+    return self;
+}
+
+-(void)clearGameState
+{
     self.m_box_level = kInitBoxTypeCount;
     if (self) {
         NSMutableArray *mr = [NSMutableArray arrayWithCapacity:kGameSizeRows];
@@ -59,7 +65,8 @@ static IGGameState *staticGameState;
     m_combo = 0;
     
     isHappyTime = NO;
-    return self;
+    
+    m_del_count = 0;
 }
 
 // 设定分数，10000,25000,50000,100000时升级

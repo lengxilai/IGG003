@@ -9,12 +9,13 @@
 #import "CL04.h"
 
 @implementation CL04
+-(void)dealloc
+{
+    [super dealloc];
+}
 -(id)init
 {
     if (self=[super init]) {
-        
-        //currentGameLayer=delegate;
-        [self enterGamePauseGameLayer]; //进入游戏暂停界面；
         
         IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
@@ -24,6 +25,7 @@
         CCSprite* resumeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn5-2.png"];
         resumeSecelt.scale=0.95f;
         
+
         CCMenuItemSprite* resumeSprite=[CCMenuItemSprite itemFromNormalSprite:resumeNormal selectedSprite:resumeSecelt target:self selector:@selector(removePauseGameLayer)];
         
         CCSprite* restartNormal=[CCSprite spriteWithSpriteFrameName:@"btn6-1.png"];
@@ -39,6 +41,7 @@
         CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
         
         CCMenu* menu=[CCMenu menuWithItems:resumeSprite,restartSprite,menuSprite,nil]; //添加一个返回游戏按钮；
+
         [self addChild:menu];
         menu.position=ccp(kWindowW/2, 200);
         [menu alignItemsVerticallyWithPadding:30];
@@ -57,23 +60,12 @@
     [[CCDirector sharedDirector] replaceScene:[S00 scene]];
 }
 
--(void)enterGamePauseGameLayer //进入暂停界面；
-{
-    [currentGameLayer onExit]; //游戏界面暂时推出场景；（游戏界面所有的动作和预约方法等都将暂停）
-    //[currentGameLayer addChild:self];
-}
-
 -(void)removePauseGameLayer //退出暂停界面，返回游戏；
 {
     S01 *s01 = [S01 getS01];
     [s01 pauseGameOver];
-    [currentGameLayer onEnter];
     [self.parent removeChild:self cleanup:YES]; //
 }
 
--(void)dealloc
-{
-    currentGameLayer=Nil; //别忘了，释放内存；
-    [super dealloc];
-}
+
 @end

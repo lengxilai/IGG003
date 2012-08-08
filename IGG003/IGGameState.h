@@ -72,4 +72,5 @@ MxPointMake(int r, int c)
 -(void)levelUp;
 // 设定分数
 -(void)setScore:(int)score;
+-(void)clearGameState;
 @end

@@ -52,7 +52,12 @@
 
 -(void)restartGame
 {
-    [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+    IGGameState *gs = [IGGameState gameState];
+    if (gs.gameMode == IGGameMode1) {
+        [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+    }else {
+        [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
+    }
 }
 
 -(void)gobackMenu

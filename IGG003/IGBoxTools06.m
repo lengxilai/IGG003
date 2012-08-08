@@ -106,10 +106,15 @@
                 }else {
                     rt = [CCRotateTo actionWithDuration:0 angle:180];
                 }
-            }
-            // 如果在同
-            if (box.position.y == prePoint.y) {
+            }else if (box.position.y == prePoint.y) {
+            // 如果在同一行
                 // 向右
+                if (box.position.x > prePoint.x) {
+                    rt = [CCRotateTo actionWithDuration:0 angle:90];
+                }else {
+                    rt = [CCRotateTo actionWithDuration:0 angle:270];
+                }
+            }else {
                 if (box.position.x > prePoint.x) {
                     rt = [CCRotateTo actionWithDuration:0 angle:90];
                 }else {
@@ -117,7 +122,7 @@
                 }
             }
             prePoint = box.position;
-            [mtArray addObject:[CCSequence actions:rt,[CCMoveTo actionWithDuration:moveStepTime position:box.position],nil]];
+            [mtArray addObject:[CCSpawn actions:rt,[CCMoveTo actionWithDuration:moveStepTime position:box.position],nil]];
             [box performSelector:@selector(runAction:) withObject:se afterDelay:i*moveStepTime];
         }
         

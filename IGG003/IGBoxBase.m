@@ -185,7 +185,7 @@
         int tag = box.tag-1;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -195,7 +195,7 @@
         int tag = box.tag-1+kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -205,7 +205,7 @@
         int tag = box.tag+kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -215,7 +215,7 @@
         int tag = box.tag+1+kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -225,7 +225,7 @@
         int tag = box.tag+1;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -235,7 +235,7 @@
         int tag = box.tag+1-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -245,7 +245,7 @@
         int tag = box.tag-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }
@@ -255,7 +255,7 @@
         int tag = box.tag-1-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil && b.bType != eGbt99) {
+            if (b != nil) {
                 [result addObject:b];
             }
         }

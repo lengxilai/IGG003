@@ -43,8 +43,31 @@
     
     GameBoxType type = CCRANDOM_0_1()*gameState.m_box_level + 1;
     // 如果为IGGameMode2,并且删除数量比较少，则添加一个石头
-    if (gameState.gameMode == IGGameMode2 && gameState.m_del_count <= 3) {
-        type = eGbt99;
+    if (gameState.gameMode == IGGameMode2) {
+        if (gameState.m_del_count == 1) {
+                type = eGbt99;
+        }
+        if (gameState.m_del_count == 2) {
+                type = eGbt99;
+        }
+        if (gameState.m_del_count == 3) {
+                type = eGbt99;
+        }
+        if (gameState.m_del_count == 4) {
+            if ([self probability:50]) {
+                type = eGbt99;
+            }
+        }
+        if (gameState.m_del_count == 5) {
+            if ([self probability:25]) {
+                type = eGbt99;
+            }
+        }
+        if (gameState.m_del_count == 6) {
+            if ([self probability:10]) {
+                type = eGbt99;
+            }
+        }
     }
     return [SpriteBox spriteBoxWithType:type];
 }
@@ -223,5 +246,13 @@
     CCAction *action = self.toolAnime;
     [tool runAction:action];
     [self schedule:@selector(runToolAnimeForRandom) interval:3];
+}
+
++(BOOL)probability:(int)num{
+    int r = CCRANDOM_0_1()*100 + 1;
+    if(r<num){
+        return YES;
+    }
+    return NO;
 }
 @end

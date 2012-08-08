@@ -54,4 +54,5 @@
 -(void)stopAnimeForever;
 // 在自己身上运行道具的动画
 -(void)runToolAnime;
++(BOOL)probability:(int)num;
 @end

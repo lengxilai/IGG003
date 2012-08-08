@@ -15,6 +15,7 @@
     NSDate *time;
     NSDate *iceNSDateTime;
     NSDate *happyTimeNSDateTime;
+    NSDate *dateClick;
     //剩余时间
     int times;
     //倒计时前一秒
@@ -27,6 +28,7 @@
 @property(nonatomic,retain) NSDate *iceNSDateTime;
 @property(nonatomic,retain) NSDate *happyTimeNSDateTime;
 @property(nonatomic,retain) NSDate *time;
+@property(nonatomic,retain) NSDate *dateClick;
 +(CL02*)getCL02;
 -(void)endPause;
 @end

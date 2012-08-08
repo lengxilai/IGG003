@@ -12,14 +12,7 @@
 @synthesize iceNSDateTime;
 @synthesize happyTimeNSDateTime;
 @synthesize time;
-
-//暂停时间
-
-//加时间
-
-//字体变化到倍数
-
-//倒计时tag
+@synthesize dateClick;
 
 static CL02 *staticCL02;
 
@@ -64,6 +57,7 @@ static CL02 *staticCL02;
     staticCL02 = self;
     return self;
 }
+
 +(CL02*)getCL02
 {
     if (staticCL02 == nil) {
@@ -258,5 +252,16 @@ static CL02 *staticCL02;
 -(void)overGame{
     S01 *s01 = [S01 getS01];
     [s01 overGame];
+}
+
+-(void)getDateNow{
+    self.dateClick = [NSDate date];
+}
+-(int)getSecondsBetweenDate{
+    NSTimeInterval late=[self.dateClick timeIntervalSince1970]*1;
+    NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval now=[dat timeIntervalSince1970]*1;
+    NSTimeInterval cha=now-late;
+    return cha;
 }
 @end

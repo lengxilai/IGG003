@@ -73,13 +73,13 @@ static IGGameState *staticGameState;
 // 设定分数，10000,25000,50000,100000时升级
 -(void)setScore:(int)score
 {
-    if (self.m_score <= 10000 && score > 10000) {
+    if (self.m_score <= 7500 && score > 7500) {
         [self levelUp];
     }
-    if (self.m_score <= 25000 && score > 25000) {
+    if (self.m_score <= 15000 && score > 15000) {
         [self levelUp];
     }
-    if (self.m_score <= 50000 && score > 50000) {
+    if (self.m_score <= 30000 && score > 30000) {
         [self levelUp];
     }
     if (self.m_score <= 100000 && score > 100000) {

@@ -68,8 +68,8 @@
             tooltype = tools03;
         }
     }
-    // 增加时间
-    if(tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 4)){
+    // 增加时间,Broken模式不出
+    if(gameState.gameMode == IGGameMode1 && tooltype== toolsNO &&(deleteNo >=9 || gameState.m_combo >= 4)){
         if([self probability:70]){
             tooltype = tools04;
         }
@@ -81,13 +81,13 @@
         }
     }
     // 闪电
-    if(tooltype== toolsNO &&(deleteNo >=8 || gameState.m_combo >= 3)){
+    if(tooltype== toolsNO &&(deleteNo >=4 || gameState.m_combo >= 3)){
         if([self probability:60]){
             tooltype = tools06;
         }
     }
-    // 冰冻
-    if(tooltype== toolsNO &&deleteNo >=6){
+    // 冰冻,Broken模式不出
+    if(gameState.gameMode == IGGameMode1 &&tooltype== toolsNO &&deleteNo >=6){
         if([self probability:50]){
             tooltype = tools07;
         }
@@ -109,7 +109,8 @@
         if(gameState.isHappyTime){
             for (int i=0; i<[result count]; i++) {
                 SpriteBox *tempBox = [result objectAtIndex:i];
-                if(!tempBox.isTool){
+                // 如果当前不是道具并且不是石头
+                if(!tempBox.isTool && tempBox.bType != eGbt99){
                     tempBox.isTool = YES;
                     tempBox.tType = tools05;
                     [tempBox setToolByType:tools05];
@@ -118,9 +119,12 @@
         }else {
             // 将道具添加到随机新箱子上
             SpriteBox *tempBox = [result objectAtIndex:CCRANDOM_0_1()*deleteNo+[result count]-deleteNo];
-            tempBox.isTool = YES;
-            tempBox.tType = tooltype;
-            [tempBox setToolByType:tooltype];
+            // 道具不能加在石头上
+            if (tempBox.bType != eGbt99) {
+                tempBox.isTool = YES;
+                tempBox.tType = tooltype;
+                [tempBox setToolByType:tooltype];
+            }
         }
 
     }

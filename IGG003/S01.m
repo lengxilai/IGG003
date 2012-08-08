@@ -36,6 +36,48 @@ static S01 *staticS01;
     cl01.sl01 = sl01;
     
     staticS01 = scene;
+    
+    // 普通模式
+    IGGameState *gs = [IGGameState gameState];
+    gs.gameMode = IGGameMode1;
+	return scene;
+}
+
+
++(IGScene *) sceneForBroken{
+	// 'scene' is an autorelease object.
+	IGScene *scene = [S01 node];
+    
+	// 游戏层
+	SL01 *sl01 = [SL01 node];
+	[scene addChild: sl01];
+    [sl01 setTag:1001];
+    
+    // 控制层
+    CL01 *cl01 = [CL01 node];
+    [scene addChild:cl01];
+    [cl01 setTag:10011];
+    
+    // 分数
+    CL03 *cl03 = [CL03 node];
+    [scene addChild:cl03];
+    [cl03 setTag:10013];
+    
+    CL02 *cl02 = [CL02 node];
+    [scene addChild:cl02];
+    [cl02 setTag:10012];
+    // 不显示计时
+    cl02.visible = NO;
+    
+    // 给控制层设定游戏层
+    cl01.sl01 = sl01;
+    
+    staticS01 = scene;
+    
+    // 碎石模式
+    IGGameState *gs = [IGGameState gameState];
+    gs.gameMode = IGGameMode2;
+    
 	return scene;
 }
 
@@ -70,14 +112,18 @@ static S01 *staticS01;
     [cl03 onEnter];
 }
 -(void)overGame{
-    CL01 *cl01 = (CL01 *)[staticS01 getChildByTag:10011];
-    CL02 *cl02 = (CL02 *)[staticS01 getChildByTag:10012];
-    CL03 *cl03 = (CL03 *)[staticS01 getChildByTag:10013];
-    [cl01 onExit];
-    [cl02 onExit];
-    [cl03 onExit];
     
-    CL05 *cl05 = [CL05 node];
-    [staticS01 addChild:cl05];
+    IGGameState *gs = [IGGameState gameState];
+    if (gs.gameMode == IGGameMode1) {
+        CL01 *cl01 = (CL01 *)[staticS01 getChildByTag:10011];
+        CL02 *cl02 = (CL02 *)[staticS01 getChildByTag:10012];
+        CL03 *cl03 = (CL03 *)[staticS01 getChildByTag:10013];
+        [cl01 onExit];
+        [cl02 onExit];
+        [cl03 onExit];
+        
+        CL05 *cl05 = [CL05 node];
+        [staticS01 addChild:cl05];
+    }
 }
 @end

@@ -33,6 +33,10 @@
     CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
     playSecelt.scale=0.95f;
     
+    CCSprite* brokenNormal=[CCSprite spriteWithSpriteFrameName:@"btn11-1.png"];
+    CCSprite* brokenSecelt=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
+    brokenSecelt.scale=0.95f;
+    
     CCSprite* scoreNormal=[CCSprite spriteWithSpriteFrameName:@"btn2-1.png"];
     CCSprite* scoreSecelt=[CCSprite spriteWithSpriteFrameName:@"btn2-2.png"];
     scoreSecelt.scale=0.95f;
@@ -46,21 +50,22 @@
     aboutSecelt.scale=0.95f;
     
     CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:scene selector:@selector(startGame)];
+    CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(startGameForBroken)];
     CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* settingSprite=[CCMenuItemSprite itemFromNormalSprite:settingNormal selectedSprite:settingSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(startGame)];
     
     // 开始游戏按钮
-    CCMenu* menu1=[CCMenu menuWithItems:startSprite,nil];
-    menu1.position=ccp(100, 300);    
+    CCMenu* menu1=[CCMenu menuWithItems:startSprite,brokenSprite,nil];
+    menu1.position=ccp(100, 280);    
     [scene addChild:menu1];
+    [menu1 alignItemsVerticallyWithPadding:15];
     
     // 下面的其他按钮
     CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,nil];
-    menu2.position=ccp(75, 160);    
+    menu2.position=ccp(75, 140);    
     [scene addChild:menu2];
-    [menu2 alignItemsVerticallyWithPadding:30];
-    
+    [menu2 alignItemsVerticallyWithPadding:15];
     
 	return scene;
 }
@@ -68,5 +73,11 @@
 -(void)startGame
 {
     [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+}
+
+-(void)startGameForBroken
+{
+    
+    [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
 }
 @end

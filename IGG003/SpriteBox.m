@@ -17,6 +17,7 @@
 @synthesize isTool;
 @synthesize tType;
 @synthesize toolAnime;
+@synthesize sCount;
 
 -(void)dealloc
 {
@@ -41,9 +42,10 @@
     IGGameState *gameState = [IGGameState gameState];
     
     GameBoxType type = CCRANDOM_0_1()*gameState.m_box_level + 1;
-//    if (gameState.m_del_count < 3) {
-//        type = eGbt8;
-//    }
+    // 如果为IGGameMode2,并且删除数量比较少，则添加一个石头
+    if (gameState.gameMode == IGGameMode2 && gameState.m_del_count <= 3) {
+        type = eGbt99;
+    }
     return [SpriteBox spriteBoxWithType:type];
 }
 
@@ -52,6 +54,19 @@
     int r = self.tag / kBoxTagR;
     int c = self.tag % kBoxTagR;
     return MxPointMake(r, c);
+}
+
+// 碎石
+-(void)upSCount
+{
+    if (self.bType == eGbt99 &&self.sCount == 0) {
+        self.sCount = 1;
+        CCSprite *newSprite = [CCSprite spriteWithSpriteFrameName:@"99-s.png"];
+        [self setTexture:newSprite.texture];
+        [self setTextureRect:newSprite.textureRect];
+    }else if (self.bType == eGbt99 && self.sCount == 1) {
+        self.sCount = 2;
+    }
 }
 
 -(MxPoint)setToolByType:(GameToolType)type

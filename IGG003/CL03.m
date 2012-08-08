@@ -137,7 +137,7 @@ static CL03 *staticCL03;
     pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"pointFont.fnt"];
     // combo字体
 //    CCLabelBMFont *comboName = [CCLabelBMFont labelWithString:@"combo:" fntFile:@"pointFont.fnt"];
-    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"comboFont4.fnt"];
+    comboSprit = [CCLabelBMFont labelWithString:comStr fntFile:@"comboFont5.fnt"];
     // 分数显示坐标
     pointsSprit.position = ccp(300,463);
     // combo显示坐标
@@ -182,7 +182,7 @@ static CL03 *staticCL03;
         NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
         addComboStr = [@"x" stringByAppendingString:addComboStr];
         // 增加combo显示的字体
-        CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"comboFont4.fnt"];
+        CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"comboFont5.fnt"];
         addComboSprite.scale = 2.5;
         // 增加combo的起始位置
         addComboSprite.position = ccp(290, 425);
@@ -192,6 +192,7 @@ static CL03 *staticCL03;
         id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
 
         if ([self isComboChanged]) {
+            [IGMusicUtil showComboMusic];
             CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
             [self addChild:addComboSprite];
             [addComboSprite runAction:seqC];

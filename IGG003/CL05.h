@@ -12,7 +12,4 @@
 
 }
 -(id)init;
-
--(void)removePauseGameLayer;
--(void)enterGameOverGameLayer;
 @end

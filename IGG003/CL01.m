@@ -10,7 +10,7 @@
 
 @implementation CL01
 @synthesize sl01;
-
+@synthesize cl02;
 - (void) dealloc
 {
 	[super dealloc];
@@ -39,8 +39,19 @@
         [[[CCDirector sharedDirector] openGLView] addSubview:hBar];
         wBar.hidden = YES;
         hBar.hidden = YES;
-
+        
         cType = eCNothing;
+        
+        //暂停按钮
+        CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
+        CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
+        CCMenuItem  *button3 = [CCMenuItemImage
+                                itemFromNormalSprite:playNormal selectedSprite:playSecelt
+                                target:self selector:@selector(gamePause)];
+        button3.position =  ccp(35, 420);
+        CCMenu *starMenu = [CCMenu menuWithItems:button3, nil];
+        starMenu.position = CGPointZero;
+        [self addChild:starMenu];
 	}
 	return self;
 }
@@ -151,6 +162,7 @@
 
 -(void)gamePause
 {
-    CL04 *cl04 = [CL04 node];
+    self.cl02 = [CL02 getCL02];
+    [self.cl02 pauseGame];
 }
 @end

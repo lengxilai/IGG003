@@ -43,16 +43,15 @@ static CL02 *staticCL02;
         //调用倒计时方法
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
         //暂停按钮
-        CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
-        CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
-        CCMenuItem  *button3 = [CCMenuItemImage
-
-        itemFromNormalSprite:playNormal selectedSprite:playSecelt
-        target:self selector:@selector(pauseGame)];
-        button3.position =  ccp(35, 420);
-        CCMenu *starMenu = [CCMenu menuWithItems:button3, nil];
-        starMenu.position = CGPointZero;
-        [self addChild:starMenu];
+        //CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
+        //CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
+        //CCMenuItem  *button3 = [CCMenuItemImage
+        //itemFromNormalSprite:playNormal selectedSprite:playSecelt
+        //target:self selector:@selector(pauseGame)];
+        //button3.position =  ccp(35, 420);
+        //CCMenu *starMenu = [CCMenu menuWithItems:button3, nil];
+        //starMenu.position = CGPointZero;
+        //[self addChild:starMenu];
     }
     staticCL02 = self;
     return self;

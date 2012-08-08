@@ -10,6 +10,7 @@
 #import "IGSprite.h"
 #import "SpriteBox.h"
 #import "CL04.h"
+#import "CL02.h"
 
 @class SL01;
 
@@ -24,8 +25,10 @@
     GameControlType cType;
     // SL01,游戏层
     SL01* sl01;
+    CL02 *cl02;
 }
 @property(nonatomic,retain) SL01* sl01;
+@property(nonatomic,retain) CL02 *cl02;
 -(MxPoint) getMxPoint:(NSSet *)touches;
 -(void)showBarWithTouches:(MxPoint)mp;
 @end

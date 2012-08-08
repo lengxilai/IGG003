@@ -31,4 +31,5 @@
 @property(nonatomic,retain) NSDate *dateClick;
 +(CL02*)getCL02;
 -(void)endPause;
+-(void)pauseGame;
 @end

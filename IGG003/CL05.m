@@ -16,6 +16,7 @@
 -(id)init
 {
     if (self=[super init]) {
+        
         //加载游戏终了背景图片
         IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
@@ -34,9 +35,23 @@
         
         CCMenu* menu=[CCMenu menuWithItems:restartSprite,menuSprite,nil]; //添加一个返回游戏按钮；
         menu.position=ccp(kWindowW/2, 200);
-        [menu alignItemsVerticallyWithPadding:30];
+        [menu alignItemsHorizontallyWithPadding:30];
         [self addChild:menu];
-        //[self writePlist];
+        
+        int score = [self getGameScore];
+        [self writePlist:score];
+        NSArray *array  = [self readPlist];
+        for (int i = 0; i < [array count]; i++) {
+            NSLog(@"%@",[array objectAtIndex:i]);
+        }
+        
+        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"yourScore:" fntFile:@"bitmapFont.fnt"];
+        yourScoreStr.position = ccp(120,350);
+        [self addChild:yourScoreStr];
+        CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:0] fntFile:@"bitmapFont.fnt"];
+        scoreStr.position = ccp(40,300);
+        [self addChild:scoreStr];
+        
     }
     return self;
 }
@@ -51,7 +66,7 @@
 }
 
 //读取plist
--(void)readPlist{
+-(NSArray *)readPlist{
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
@@ -61,25 +76,25 @@
     NSString *content = [ dic objectForKey:@"Score" ];
     //array是将content里的数据按“,”拆分，仅将两个“,”之间的数据保存。
     NSArray *array = [ content componentsSeparatedByString:@","];
+    return array;
 }
 //写入plist
--(void)writePlist{
+-(void)writePlist:(int)score{
+    
+    //　用来覆盖原始数据的新dic
+    NSMutableDictionary *newDic = [ [ NSMutableDictionary alloc ] init ];
+    // 新数据
+    NSString *newScore = [NSString stringWithFormat:@"%d",score];
+    // 将新的dic里的“Score”项里的数据写为“newScore”
+    [ newDic setValue:newScore forKey:@"Score" ];
+    // 将　newDic　保存至 docPath＋“Score.plist”文件里，也就是覆盖原来的文件
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
     NSString *docPath = [ doc objectAtIndex:0 ];
-    
-    if( [[NSFileManager defaultManager] fileExistsAtPath:[docPath stringByAppendingPathComponent:@"Score.plist"] ]==NO ) {
-        
-        //　用来覆盖原始数据的新dic
-        NSMutableDictionary *newDic = [ [ NSMutableDictionary alloc ] init ];
-        // 新数据
-        NSString *newScore = @"100,200,300";
-        // 将新的dic里的“Score”项里的数据写为“newScore”
-        [ newDic setValue:newScore forKey:@"Score" ];
-        // 将　newDic　保存至 docPath＋“Score.plist”文件里，也就是覆盖原来的文件
-        NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docPath = [ doc objectAtIndex:0 ];
-        [newDic writeToFile:[docPath stringByAppendingPathComponent:@"Score.plist"] atomically:YES ];
-    }
+    [newDic writeToFile:[docPath stringByAppendingPathComponent:@"Score.plist"] atomically:YES ];
+
+}
+-(int)getGameScore{
+    IGGameState *gameState = [IGGameState gameState];
+    return gameState.m_score;
 }
 @end

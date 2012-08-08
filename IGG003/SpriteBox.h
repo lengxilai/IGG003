@@ -26,11 +26,14 @@
     // 道具类型
     GameToolType tType;
     CCAction * toolAnime;
+    // 石头次数
+    int sCount;
 }
 @property(nonatomic)GameBoxType bType;
 @property(nonatomic)BOOL isTarget;
 @property(nonatomic)BOOL isDel;
 @property(nonatomic)int beforeTag;
+@property(nonatomic)int sCount;
 @property(nonatomic)BOOL isBefore;
 @property(nonatomic)BOOL isTool;
 @property(nonatomic)GameToolType tType;
@@ -38,7 +41,8 @@
 
 +(id)spriteBoxWithType:(GameBoxType)type;
 +(id)spriteBoxWithRandomType;
-
+// 碎石
+-(void)upSCount;
 -(MxPoint)getMxPointByTag;
 -(MxPoint)setToolByType:(GameToolType)type;
 -(void)removeTool;

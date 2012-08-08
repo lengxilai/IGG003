@@ -21,8 +21,6 @@
 -(id) init
 {
 	if( (self=[super init])) {
-        IGGameState *gs = [IGGameState gameState];
-        
         // 背景音乐
         [IGMusicUtil showBackgroundMusic];
         
@@ -36,6 +34,11 @@
         IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
+        
+        // 取得游戏状态中的矩阵
+        IGGameState *gs = [IGGameState gameState];
+        // 初始化游戏状态
+        [gs clearGameState];
         
         // 显示所有箱子
         [self showBoxs];
@@ -89,6 +92,12 @@
     // 取得目标箱子
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
+    
+    IGGameState *gameState = [IGGameState gameState];
+    if (b.bType == eGbt99) {
+        isMoving = NO;
+        return;
+    }
     
     // 调用游戏层进行消除
     switch (b.tType) {
@@ -217,8 +226,7 @@
 {
     // 取得游戏状态中的矩阵
     IGGameState *gs = [IGGameState gameState];
-    // 初始化游戏状态
-    [gs clearGameState];
+
     NSArray *m = gs.m;
     
     for (int i = 0; i < kGameSizeRows; i++) {

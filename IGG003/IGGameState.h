@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-// 箱子类型 苹果 橙子 柠檬 西瓜 菠萝 草莓 香蕉 葡萄
+// 游戏模式
 typedef enum{
-    eGbt0 = 0,eGbt1 = 1,eGbt2 = 2,eGbt3 = 3,eGbt4 = 4,eGbt5 = 5,eGbt6 = 6,eGbt7 = 7,eGbt8 = 8,
+    IGGameMode1 = 1,IGGameMode2 = 2,
+}IGGameMode;
+
+// 箱子类型 苹果 橙子 柠檬 西瓜 菠萝 草莓 香蕉 葡萄 石头
+typedef enum{
+    eGbt0 = 0,eGbt1 = 1,eGbt2 = 2,eGbt3 = 3,eGbt4 = 4,eGbt5 = 5,eGbt6 = 6,eGbt7 = 7,eGbt8 = 8,eGbt99 = 99,
 } GameBoxType;
 
 // 道具类型 地雷  欢乐时光  十字斩 增加时间 炸弹  闪电  冰冻         
@@ -57,6 +62,9 @@ MxPointMake(int r, int c)
     
     // 上一次消除的数量
     int m_del_count;
+    
+    // 游戏模式
+    IGGameMode gameMode; 
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -64,6 +72,7 @@ MxPointMake(int r, int c)
 @property(nonatomic,assign) int m_combo;
 @property(nonatomic,assign) int m_box_level;
 @property(nonatomic,assign) int m_del_count;
+@property(nonatomic,assign) IGGameMode gameMode;
 @property(nonatomic,assign) BOOL isHappyTime;
 
 +(IGGameState*)gameState;

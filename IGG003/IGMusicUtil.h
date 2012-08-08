@@ -34,6 +34,8 @@
 +(void)showDeletePointMusic;
 // 炸弹消除
 +(void)showDeleteOfZhadanMusic;
+// combo音效
++(void)showComboMusic;
 //设置指定音效的播放次数
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops;
 @end

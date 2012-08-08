@@ -16,7 +16,4 @@
 }
 -(id)init;
 
--(void)removePauseGameLayer;
--(void)enterGamePauseGameLayer;
-
 @end

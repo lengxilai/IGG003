@@ -23,7 +23,9 @@
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"delete4.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhizhu7.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"point.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music3.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music1.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music2.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music0.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"refresh.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"sawang.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shouwang.caf"];
@@ -42,8 +44,8 @@
 }
 
 // 游戏界面的背景音乐
-+(void)showBackgroundMusic {
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"bg_music3.caf" loop:YES];
++(void)showBackgroundMusic:(int) musicId {
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[NSString stringWithFormat:@"bg_music%d.caf", musicId] loop:YES];
 }
 // 水果晃动时的音效
 +(void)showShakingMusic {
@@ -79,8 +81,8 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"point.caf"];
 }
 // combo音效
-+(void)showComboMusic {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"combo1.caf"];
++(void)showComboMusic:(NSInteger) comboNum {
+    [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"combo%d.caf", comboNum]];
 }
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops {
     //在资源库中的路径找指定的caf文件

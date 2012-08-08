@@ -17,7 +17,7 @@
 // 加载全部音效
 +(void)loadMusic;
 // 游戏界面的背景音乐
-+(void)showBackgroundMusic;
++(void)showBackgroundMusic:(int) musicId;
 // 水果晃动时的音效
 +(void)showShakingMusic;
 // 水果消除时的音效
@@ -35,7 +35,7 @@
 // 炸弹消除
 +(void)showDeleteOfZhadanMusic;
 // combo音效
-+(void)showComboMusic;
++(void)showComboMusic:(NSInteger) comboNum;
 //设置指定音效的播放次数
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops;
 @end

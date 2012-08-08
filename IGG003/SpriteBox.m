@@ -58,6 +58,16 @@
                 type = eGbt99;
             }
         }
+        if (gameState.m_del_count == 5) {
+            if ([self probability:25]) {
+                type = eGbt99;
+            }
+        }
+        if (gameState.m_del_count == 6) {
+            if ([self probability:10]) {
+                type = eGbt99;
+            }
+        }
     }
     return [SpriteBox spriteBoxWithType:type];
 }

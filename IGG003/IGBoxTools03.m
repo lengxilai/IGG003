@@ -49,7 +49,7 @@
             // 取得相应位置的箱子
             SpriteBox *box = (SpriteBox *)[node getChildByTag:boxTag];
             // 如果类型一致
-            if ((i == r || j == c )&& box.bType != eGbt99) {
+            if ((i == r || j == c )) {
                 box.isDel = YES;
                 [result addObject:box];
             }

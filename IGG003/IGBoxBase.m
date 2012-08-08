@@ -45,7 +45,8 @@
         if (![child isKindOfClass:[SpriteBox class]]){
             continue;
         }
-        if(((SpriteBox*)child).isDel){
+        // 统计消除个数时不统计石头
+        if(((SpriteBox*)child).isDel&&((SpriteBox*)child).bType!=eGbt99){
             deleteNo ++;
         }
     }
@@ -91,7 +92,22 @@
 -(void)run:(MxPoint)mp
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
-    NSArray *delBoxs = [self delAllBox:mp];
+    NSMutableArray *delBoxs = [self delAllBox:mp];
+    
+    // 把要删除的箱子周围的石头击碎
+    int c = [delBoxs count];
+    for (int i = 0; i<c;i++ ) {
+        SpriteBox *box = [delBoxs objectAtIndex:i];
+        NSArray *sBoxs = [self getSLRUDBox:box];
+        for (SpriteBox *sBox in sBoxs) {
+            [sBox upSCount];
+            if (sBox.sCount == 2) {
+                sBox.isDel = YES;
+                [delBoxs addObject:sBox];
+            }
+        }
+    }
+    
     NSArray *newBoxs = [self processRun:mp];
 
     // 循环删除箱子并且显示动画效果
@@ -104,7 +120,7 @@
 }
 
 // 取得所有要删除的箱子
--(NSArray*)getDelAllBox:(MxPoint)mp
+-(NSMutableArray*)getDelAllBox:(MxPoint)mp
 {
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:5];
     int r = mp.R;
@@ -133,9 +149,9 @@
 }
 
 // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
--(NSArray*)delAllBox:(MxPoint)mp
+-(NSMutableArray*)delAllBox:(MxPoint)mp
 {
-    NSArray *result = [self getDelAllBox:mp];
+    NSMutableArray *result = [self getDelAllBox:mp];
     for (SpriteBox *box in result) {
         box.isDel = YES;
     }
@@ -158,9 +174,10 @@
     [node performSelector:@selector(reloadBoxs)];
 }
 
-// 取得一个箱子周围的8个箱子（不包括自己）
+// 取得一个箱子周围的8个箱子（不包括自己和石头）
 -(NSArray*)getLRUDBox:(SpriteBox*)box
 {
+    
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:8];
     
     { 
@@ -168,7 +185,7 @@
         int tag = box.tag-1;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -178,7 +195,7 @@
         int tag = box.tag-1+kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -188,7 +205,7 @@
         int tag = box.tag+kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -198,7 +215,7 @@
         int tag = box.tag+1+kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -208,7 +225,7 @@
         int tag = box.tag+1;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -218,7 +235,7 @@
         int tag = box.tag+1-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -228,7 +245,7 @@
         int tag = box.tag-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -238,7 +255,7 @@
         int tag = box.tag-1-kBoxTagR;
         if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
             SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
-            if (b != nil) {
+            if (b != nil && b.bType != eGbt99) {
                 [result addObject:b];
             }
         }
@@ -246,7 +263,54 @@
     return result;
 }
 
-
+// 返回周围的石头
+-(NSArray*)getSLRUDBox:(SpriteBox*)box
+{
+    
+    NSMutableArray *result = [NSMutableArray arrayWithCapacity:4];
+    
+    { 
+        // 左
+        int tag = box.tag-1;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
+            if (b != nil && b.bType == eGbt99) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 上
+        int tag = box.tag+kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
+            if (b != nil && b.bType == eGbt99) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 右
+        int tag = box.tag+1;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
+            if (b != nil && b.bType == eGbt99) {
+                [result addObject:b];
+            }
+        }
+    }
+    { 
+        // 下
+        int tag = box.tag-kBoxTagR;
+        if (tag >= 0 && tag / kBoxTagR < kGameSizeRows && tag % kBoxTagR < kGameSizeCols){
+            SpriteBox *b = (SpriteBox *)[node getChildByTag:tag];
+            if (b != nil && b.bType == eGbt99) {
+                [result addObject:b];
+            }
+        }
+    }
+    return result;
+}
 
 // 显示消除箱子时的动画效果，在IGAnimeUtil showReadyRemoveBoxAnime中使用回调调用
 -(void)showPopParticle:(SpriteBox*)box

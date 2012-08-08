@@ -15,6 +15,7 @@
 
 @interface S01 : IGScene
 +(IGScene *) scene;
++(IGScene *) sceneForBroken;
 +(S01*)getS01;
 -(void)pauseGame;
 -(void)pauseGameOver;

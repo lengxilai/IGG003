@@ -33,6 +33,7 @@
 
 // 取得一个箱子周围的8个箱子（不包括自己）
 -(NSArray*)getLRUDBox:(SpriteBox*)box;
+-(NSArray*)getSLRUDBox:(SpriteBox*)box;
 
 // 重新刷新箱子矩阵
 -(void)reload:(NSArray*)newBoxs;

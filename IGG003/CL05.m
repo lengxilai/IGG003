@@ -11,16 +11,14 @@
 @implementation CL05
 -(void)dealloc
 {
-    currentGameLayer=Nil; //别忘了，释放内存；
     [super dealloc];
 }
 -(id)init
 {
     if (self=[super init]) {
         
-        //currentGameLayer=delegate;
-        [self enterGameOverGameLayer]; //进入游戏暂停界面；
-        
+        [self enterGameOverGameLayer]; //所有动作停止；
+        //加载游戏终了背景图片
         IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
@@ -30,7 +28,6 @@
 //进入暂停界面
 -(void)enterGameOverGameLayer
 {
-    [currentGameLayer onExit]; //游戏界面暂时推出场景；（游戏界面所有的动作和预约方法等都将暂停）
     
 }
 

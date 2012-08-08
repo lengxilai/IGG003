@@ -10,7 +10,6 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "S01.h"
 #import "RootViewController.h"
 #import "IGMusicUtil.h"
 
@@ -93,7 +92,7 @@
 #endif
 	
 	[director setAnimationInterval:1.0/60];
-	[director setDisplayFPS:YES];
+	[director setDisplayFPS:NO];
 	
 	
 	// make the OpenGLView a child of the view controller
@@ -114,7 +113,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [S01 scene]];
+	[[CCDirector sharedDirector] runWithScene: [S00 scene]];
 }
 
 

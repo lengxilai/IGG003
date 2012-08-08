@@ -28,6 +28,12 @@ static IGGameState *staticGameState;
     }
 }
 
+-(void)dealloc
+{
+    [super dealloc];
+    [m release];
+}
+
 -(id)init
 {
     self = [super init];
@@ -42,7 +48,7 @@ static IGGameState *staticGameState;
             }
             [mr addObject:mc];
         }
-        m = (NSArray*)mr;
+        self.m = (NSArray*)mr;
     }
     
     // 时间初始化

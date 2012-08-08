@@ -25,13 +25,6 @@
         // 背景音乐
         [IGMusicUtil showBackgroundMusic];
         
-        // 添加图片缓存
-        {
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"images_default.plist"];
-            CCSpriteBatchNode* batch = [CCSpriteBatchNode batchNodeWithFile:@"images_default.png"];
-            [self addChild:batch];
-        }
-        
         // 粒子效果缓存
         particleManager = [[IGParticleManager alloc] initWithScene:self];
         [particleManager add:16 particleOfType:@"pop" atZ:1];

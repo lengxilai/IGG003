@@ -24,7 +24,8 @@
         IGGameState *gs = [IGGameState gameState];
         
         // 背景音乐
-        [IGMusicUtil showBackgroundMusic];
+        int musicId = CCRANDOM_0_1()*3;
+        [IGMusicUtil showBackgroundMusic:musicId];
         
         // 粒子效果缓存
         particleManager = [[IGParticleManager alloc] initWithScene:self];

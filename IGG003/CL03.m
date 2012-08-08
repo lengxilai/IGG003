@@ -107,6 +107,7 @@ static CL03 *staticCL03;
         [comboSprit setString:comboStr];
         comboSprit.position = ccp(310 - comboStr.length * 10, 425);
     } else {
+        [comboSprit setString:@"0"];
         [comboSprit setVisible:NO];
     }
 }
@@ -192,7 +193,7 @@ static CL03 *staticCL03;
         id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
 
         if ([self isComboChanged]) {
-            [IGMusicUtil showComboMusic];
+            [IGMusicUtil showComboMusic:comboNum];
             CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
             [self addChild:addComboSprite];
             [addComboSprite runAction:seqC];

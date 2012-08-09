@@ -18,6 +18,7 @@ static IGGameState *staticGameState;
 @synthesize isHappyTime;
 @synthesize m_del_count;
 @synthesize gameMode;
+@synthesize isPaused;
 
 +(IGGameState*)gameState
 {

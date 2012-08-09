@@ -71,6 +71,7 @@ MxPointMake(int r, int c)
     
     // 当前石头的数量
     int m_s_count;
+    BOOL isPaused;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -82,6 +83,7 @@ MxPointMake(int r, int c)
 @property(nonatomic,assign) int m_s_count;
 @property(nonatomic,assign) IGGameMode gameMode;
 @property(nonatomic,assign) BOOL isHappyTime;
+@property(nonatomic,assign) BOOL isPaused;
 
 +(IGGameState*)gameState;
 -(id)init;

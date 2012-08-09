@@ -213,7 +213,8 @@ static CL02 *staticCL02;
 //游戏暂停
 -(void)pauseGame{
     [self unschedule:@selector(updateTimeDisplay)];
-    
+    IGGameState *gameState = [IGGameState gameState];
+    gameState.isPaused = YES;
     
     if(iceFlg == 1){
         iceDelayTime = (float)[self.iceNSDateTime timeIntervalSinceNow];

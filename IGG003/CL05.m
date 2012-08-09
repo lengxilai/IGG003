@@ -39,9 +39,8 @@
         [self addChild:menu];
         
         int score = [self getGameScore];
-        [self writePlistWithGameMode:@"arcade" withScore:score];
         
-        
+        [self writePlistWithGameMode:[self getGameModeStr] withScore:score];
         
         CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"yourScore:" fntFile:@"bitmapFont.fnt"];
         yourScoreStr.position = ccp(120,350);
@@ -58,7 +57,13 @@
 }
 -(void)restartGame
 {
-    [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+    IGGameState *gs = [IGGameState gameState];
+    gs.isPaused = NO;
+    if (gs.gameMode == IGGameMode1) {
+        [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+    }else {
+        [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
+    }
 }
 
 -(void)gobackMenu
@@ -92,7 +97,9 @@
         if(i < [scoreArr count]){
             //正常纪录
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
+            
             if(bestScore <= score){
+                //破纪录时
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
                 if([newScoreArr count] < 3){
                    [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]]; 
@@ -102,7 +109,7 @@
             }else {
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]];
             }
-            
+            //超过条数时
             if([newScoreArr count] >= 3){
                 break;
             }
@@ -125,5 +132,13 @@
 -(int)getGameScore{
     IGGameState *gameState = [IGGameState gameState];
     return gameState.m_score;
+}
+-(NSString*)getGameModeStr{
+    IGGameState *gs = [IGGameState gameState];
+    if (gs.gameMode == IGGameMode1) {
+        return arcadeMode;
+    }else {
+        return brokenMode;
+    }
 }
 @end

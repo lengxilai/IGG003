@@ -20,6 +20,7 @@ static IGGameState *staticGameState;
 @synthesize m_broken_count;
 @synthesize m_s_count;
 @synthesize gameMode;
+@synthesize isPaused;
 
 +(IGGameState*)gameState
 {

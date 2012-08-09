@@ -65,7 +65,7 @@ MxPointMake(int r, int c)
     
     // 游戏模式
     IGGameMode gameMode; 
-    int isPaused;
+    BOOL isPaused;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -75,7 +75,7 @@ MxPointMake(int r, int c)
 @property(nonatomic,assign) int m_del_count;
 @property(nonatomic,assign) IGGameMode gameMode;
 @property(nonatomic,assign) BOOL isHappyTime;
-@property(nonatomic,assign) int isPaused;
+@property(nonatomic,assign) BOOL isPaused;
 
 +(IGGameState*)gameState;
 -(id)init;

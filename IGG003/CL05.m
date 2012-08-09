@@ -58,7 +58,7 @@
 -(void)restartGame
 {
     IGGameState *gs = [IGGameState gameState];
-    gs.isPaused = 0;
+    gs.isPaused = NO;
     if (gs.gameMode == IGGameMode1) {
         [[CCDirector sharedDirector] replaceScene:[S01 scene]];
     }else {

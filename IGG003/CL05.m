@@ -18,7 +18,7 @@
     if (self=[super init]) {
         
         //加载游戏终了背景图片
-        IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
+        IGSprite *bak = [IGSprite spriteWithFile:@"cover.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         CCSprite* restartNormal=[CCSprite spriteWithSpriteFrameName:@"btn6-1.png"];
@@ -39,18 +39,19 @@
         [self addChild:menu];
         
         int score = [self getGameScore];
-        [self writePlist:score];
-        NSArray *array  = [self readPlist];
-        for (int i = 0; i < [array count]; i++) {
-            NSLog(@"%@",[array objectAtIndex:i]);
-        }
+        [self writePlistWithGameMode:@"arcade" withScore:score];
+        
+        
         
         CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"yourScore:" fntFile:@"bitmapFont.fnt"];
         yourScoreStr.position = ccp(120,350);
         [self addChild:yourScoreStr];
-        CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:0] fntFile:@"bitmapFont.fnt"];
+        
+            
+        CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",score] fntFile:@"bitmapFont.fnt"];
         scoreStr.position = ccp(40,300);
         [self addChild:scoreStr];
+        
         
     }
     return self;
@@ -66,27 +67,55 @@
 }
 
 //读取plist
--(NSArray *)readPlist{
+-(NSArray *)readPlistWithGameMode:(NSString *)gameMode{
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
     
     NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:@"Score.plist"] ]; // 解析数据
     
-    NSString *content = [ dic objectForKey:@"Score" ];
+    NSString *content = [ dic objectForKey:gameMode ];
     //array是将content里的数据按“,”拆分，仅将两个“,”之间的数据保存。
     NSArray *array = [ content componentsSeparatedByString:@","];
     return array;
 }
 //写入plist
--(void)writePlist:(int)score{
+-(void)writePlistWithGameMode:(NSString *)gameMode withScore:(int)score{
+    NSArray *scoreArr = [self readPlistWithGameMode:gameMode];
+    NSMutableArray *newScoreArr = [[[NSMutableArray alloc] init] autorelease];
+    
+    if([scoreArr count] == 0){
+        [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
+    }
+    
+    for(int i = 0 ; i < 3;i++){
+        if(i < [scoreArr count]){
+            //正常纪录
+            int bestScore =[[scoreArr objectAtIndex:i] intValue];
+            if(bestScore <= score){
+                [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
+                if([newScoreArr count] < 3){
+                   [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]]; 
+                }else {
+                    break;
+                }
+            }else {
+                [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]];
+            }
+            
+            if([newScoreArr count] >= 3){
+                break;
+            }
+        }else{
+            //纪录中少于三条的时候的最后一条
+            [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
+        }
+    }
     
     //　用来覆盖原始数据的新dic
     NSMutableDictionary *newDic = [ [ NSMutableDictionary alloc ] init ];
-    // 新数据
-    NSString *newScore = [NSString stringWithFormat:@"%d",score];
     // 将新的dic里的“Score”项里的数据写为“newScore”
-    [ newDic setValue:newScore forKey:@"Score" ];
+    [ newDic setValue:[newScoreArr componentsJoinedByString:@","] forKey:@"arcade" ];
     // 将　newDic　保存至 docPath＋“Score.plist”文件里，也就是覆盖原来的文件
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [ doc objectAtIndex:0 ];

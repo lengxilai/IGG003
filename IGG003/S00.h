@@ -8,7 +8,7 @@
 
 #import "IGScene.h"
 #import "S01.h"
-
+#import "S02.h"
 @interface S00 : IGScene
 +(IGScene *) scene;
 -(void)startGame;

@@ -39,9 +39,8 @@
         [self addChild:menu];
         
         int score = [self getGameScore];
-        [self writePlistWithGameMode:@"arcade" withScore:score];
         
-        
+        [self writePlistWithGameMode:[self getGameModeStr] withScore:score];
         
         CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"yourScore:" fntFile:@"bitmapFont.fnt"];
         yourScoreStr.position = ccp(120,350);
@@ -59,6 +58,7 @@
 -(void)restartGame
 {
     IGGameState *gs = [IGGameState gameState];
+    gs.isPaused = 0;
     if (gs.gameMode == IGGameMode1) {
         [[CCDirector sharedDirector] replaceScene:[S01 scene]];
     }else {
@@ -132,5 +132,13 @@
 -(int)getGameScore{
     IGGameState *gameState = [IGGameState gameState];
     return gameState.m_score;
+}
+-(NSString*)getGameModeStr{
+    IGGameState *gs = [IGGameState gameState];
+    if (gs.gameMode == IGGameMode1) {
+        return arcadeMode;
+    }else {
+        return brokenMode;
+    }
 }
 @end

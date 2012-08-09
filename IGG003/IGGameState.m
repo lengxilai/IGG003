@@ -17,6 +17,7 @@ static IGGameState *staticGameState;
 @synthesize m_box_level;
 @synthesize isHappyTime;
 @synthesize m_del_count;
+@synthesize m_broken_count;
 @synthesize gameMode;
 
 +(IGGameState*)gameState
@@ -68,6 +69,7 @@ static IGGameState *staticGameState;
     isHappyTime = NO;
     
     m_del_count = 0;
+    m_broken_count = 0;
 }
 
 // 设定分数，10000,25000,50000,100000时升级

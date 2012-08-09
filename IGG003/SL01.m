@@ -81,11 +81,11 @@
     
     // 如果为HappyTime，直接运行，不走后面的语句
     // 欢乐时光触发式修改 lipeng
-//    IGGameState *gameState = [IGGameState gameState];
-//    if (gameState.isHappyTime) {
-//        [self runTools02:mp];
-//        return;
-//    }
+    IGGameState *gameState = [IGGameState gameState];
+    if (gameState.isHappyTime) {
+        [self runTools02:mp];
+        return;
+    }
 
     // 先停止正在显示的动画
     [self clearShow];
@@ -94,7 +94,7 @@
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
     
-    IGGameState *gameState = [IGGameState gameState];
+//    IGGameState *gameState = [IGGameState gameState];
     if (b.bType == eGbt99) {
         isMoving = NO;
         return;

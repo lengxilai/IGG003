@@ -44,29 +44,49 @@
     GameBoxType type = CCRANDOM_0_1()*gameState.m_box_level + 1;
     // 如果为IGGameMode2,并且删除数量比较少，则添加一个石头
     if (gameState.gameMode == IGGameMode2) {
+        
+        int probability = 0;
         if (gameState.m_del_count == 1) {
-                type = eGbt99;
+            probability = 100;
+            if (gameState.m_broken_count > gameState.m_del_count) {
+                probability = probability - gameState.m_broken_count*30;
+            }
         }
         if (gameState.m_del_count == 2) {
-                type = eGbt99;
+            probability = 100;
+            if (gameState.m_broken_count > gameState.m_del_count) {
+                probability = probability - gameState.m_broken_count*15;
+            }
         }
         if (gameState.m_del_count == 3) {
-                type = eGbt99;
+            probability = 100;
+            if (gameState.m_broken_count > gameState.m_del_count) {
+                probability = probability - gameState.m_broken_count*7;
+            }
         }
         if (gameState.m_del_count == 4) {
-            if ([self probability:50]) {
-                type = eGbt99;
+            probability = 50;
+            if (gameState.m_broken_count > gameState.m_del_count) {
+                probability = probability - gameState.m_broken_count*3;
             }
         }
         if (gameState.m_del_count == 5) {
-            if ([self probability:25]) {
-                type = eGbt99;
-            }
+            probability = 25;
         }
         if (gameState.m_del_count == 6) {
-            if ([self probability:10]) {
-                type = eGbt99;
+            probability = 12;
+        }
+        // 消除个数大于6时、如果连击超过11,则增加石头
+        if (gameState.m_del_count > 6) {
+            if (gameState.m_combo >= 11 && gameState.m_combo <= 16) {
+                probability = gameState.m_combo*10 - 90;
             }
+            if (gameState.m_combo > 16) {
+                probability = 80;
+            }
+        }
+        if ([self probability:probability]) {
+            type = eGbt99;
         }
     }
     return [SpriteBox spriteBoxWithType:type];

@@ -48,25 +48,29 @@
         int probability = 0;
         if (gameState.m_del_count == 1) {
             probability = 100;
-            if (gameState.m_broken_count > gameState.m_del_count) {
+            // 当前石头数量大于一定百分比 并且 击碎的石头数量大于水果数量时 可以降低出石头的概率
+            if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.6 && gameState.m_broken_count > gameState.m_del_count) {
                 probability = probability - gameState.m_broken_count*15;
             }
         }
         if (gameState.m_del_count == 2) {
             probability = 100;
-            if (gameState.m_broken_count > gameState.m_del_count) {
+            // 当前石头数量大于一定百分比 并且 击碎的石头数量大于水果数量时 可以降低出石头的概率
+            if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.6 && gameState.m_broken_count > gameState.m_del_count) {
                 probability = probability - gameState.m_broken_count*8;
             }
         }
         if (gameState.m_del_count == 3) {
             probability = 100;
-            if (gameState.m_broken_count > gameState.m_del_count) {
+            // 当前石头数量大于一定百分比 并且 击碎的石头数量大于水果数量时 可以降低出石头的概率
+            if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.6 && gameState.m_broken_count > gameState.m_del_count) {
                 probability = probability - gameState.m_broken_count*4;
             }
         }
         if (gameState.m_del_count == 4) {
             probability = 50;
-            if (gameState.m_broken_count > gameState.m_del_count) {
+            // 当前石头数量大于一定百分比 并且 击碎的石头数量大于水果数量时 可以降低出石头的概率
+            if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.6 && gameState.m_broken_count > gameState.m_del_count) {
                 probability = probability - gameState.m_broken_count*2;
             }
         }
@@ -79,6 +83,7 @@
         // 消除个数大于6时、如果连击超过11,则增加石头
         if (gameState.m_del_count > 6) {
             if (gameState.m_combo >= 11 && gameState.m_combo <= 16) {
+                // 连击数11时概率为20
                 probability = gameState.m_combo*10 - 90;
             }
             if (gameState.m_combo > 16) {

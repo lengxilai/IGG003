@@ -293,7 +293,11 @@
     // 取最大移动时间，更新移动中的标记
     [self performSelector:@selector(moveOver) withObject:nil afterDelay:maxMoveTime];
     
-    if (sCount == kGameSizeRows*kGameSizeCols) {
+    // 更新当前石头的数量
+    IGGameState *gs = [IGGameState gameState];
+    gs.m_s_count = sCount;
+    
+    if (sCount >= kGameSizeRows*kGameSizeCols) {
         [self performSelector:@selector(overGameForMode2) withObject:nil afterDelay:2];
     }
 }

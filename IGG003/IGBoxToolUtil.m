@@ -53,12 +53,13 @@
             // 地雷
             if([self probability:40]){
                 tooltype = tools01;
-            }else {
-                tooltype = tools02;
+            }
+//            else {
+//                tooltype = tools02;
 //                // 欢乐时光
 //                CL02 *cl02 = [CL02 getCL02];
 //                [cl02 clickHappyTimeTool];
-            }
+//            }
         }
     }
     

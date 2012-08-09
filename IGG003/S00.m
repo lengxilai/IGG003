@@ -51,7 +51,7 @@
     
     CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(startGameForBroken)];
-    CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(startGame)];
+    CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(showScores)];
     CCMenuItemSprite* settingSprite=[CCMenuItemSprite itemFromNormalSprite:settingNormal selectedSprite:settingSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(startGame)];
     
@@ -79,5 +79,8 @@
 {
     
     [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
+}
+-(void)showScores{
+    [[CCDirector sharedDirector] replaceScene:[S02 showScores]];
 }
 @end

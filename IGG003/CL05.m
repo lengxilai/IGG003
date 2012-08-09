@@ -58,7 +58,12 @@
 }
 -(void)restartGame
 {
-    [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+    IGGameState *gs = [IGGameState gameState];
+    if (gs.gameMode == IGGameMode1) {
+        [[CCDirector sharedDirector] replaceScene:[S01 scene]];
+    }else {
+        [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
+    }
 }
 
 -(void)gobackMenu
@@ -92,7 +97,9 @@
         if(i < [scoreArr count]){
             //正常纪录
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
+            
             if(bestScore <= score){
+                //破纪录时
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
                 if([newScoreArr count] < 3){
                    [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]]; 
@@ -102,7 +109,7 @@
             }else {
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]];
             }
-            
+            //超过条数时
             if([newScoreArr count] >= 3){
                 break;
             }

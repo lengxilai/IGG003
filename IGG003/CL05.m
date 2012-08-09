@@ -18,7 +18,7 @@
     if (self=[super init]) {
         
         //加载游戏终了背景图片
-        IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
+        IGSprite *bak = [IGSprite spriteWithFile:@"cover.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         CCSprite* restartNormal=[CCSprite spriteWithSpriteFrameName:@"btn6-1.png"];
@@ -46,14 +46,12 @@
         CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"yourScore:" fntFile:@"bitmapFont.fnt"];
         yourScoreStr.position = ccp(120,350);
         [self addChild:yourScoreStr];
-        NSArray *array  = [self readPlistWithGameMode:@"arcade"];
-        for (int i = 0; i < [array count]; i++) {
-            NSLog(@"%@",[array objectAtIndex:i]);
+        
             
-            CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:i] fntFile:@"bitmapFont.fnt"];
-            scoreStr.position = ccp(40,(300 - i *30));
-            [self addChild:scoreStr];
-        }
+        CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",score] fntFile:@"bitmapFont.fnt"];
+        scoreStr.position = ccp(40,300);
+        [self addChild:scoreStr];
+        
         
     }
     return self;

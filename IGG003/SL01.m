@@ -262,6 +262,7 @@
 {
     // 取消定时运行本方法
     float maxMoveTime = 0;
+    int sCount = 0;
     for (int i = 0; i < kGameSizeRows; i++) {
         for (int j = 0; j < kGameSizeCols; j++) {
             int boxTag = i*kBoxTagR+j;
@@ -270,6 +271,10 @@
             CGPoint point = box.position;
             // 让其显示，刚添加的时候是不显示的
             box.visible = YES;
+            // 如果是石头
+            if (box.bType == eGbt99) {
+                sCount ++;
+            }
             
             // 如果坐标与当前在矩阵中的位置不符
             if (!CGPointEqualToPoint(point, ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY))) {
@@ -287,6 +292,16 @@
     }
     // 取最大移动时间，更新移动中的标记
     [self performSelector:@selector(moveOver) withObject:nil afterDelay:maxMoveTime];
+    
+    if (sCount == kGameSizeRows*kGameSizeCols) {
+        [self performSelector:@selector(overGameForMode2) withObject:nil afterDelay:2];
+    }
+}
+
+-(void)overGameForMode2
+{
+    S01 *s01 = [S01 getS01];
+    [s01 overGameForMode2];
 }
 
 #pragma mark -

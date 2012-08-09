@@ -49,25 +49,25 @@
         if (gameState.m_del_count == 1) {
             probability = 100;
             if (gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*30;
+                probability = probability - gameState.m_broken_count*15;
             }
         }
         if (gameState.m_del_count == 2) {
             probability = 100;
             if (gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*15;
+                probability = probability - gameState.m_broken_count*8;
             }
         }
         if (gameState.m_del_count == 3) {
             probability = 100;
             if (gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*7;
+                probability = probability - gameState.m_broken_count*4;
             }
         }
         if (gameState.m_del_count == 4) {
             probability = 50;
             if (gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*3;
+                probability = probability - gameState.m_broken_count*2;
             }
         }
         if (gameState.m_del_count == 5) {

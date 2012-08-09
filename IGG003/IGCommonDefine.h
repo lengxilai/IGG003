@@ -56,7 +56,8 @@
 //冰冻效果图片tag
 #define iceBgTag 100010
 
-
+#define brokenMode @"broken"
+#define arcadeMode @"arcade"
 
 @interface IGCommonDefine : NSObject
 

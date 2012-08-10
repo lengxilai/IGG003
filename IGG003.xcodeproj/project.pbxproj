@@ -176,6 +176,7 @@
 		DC3AF91315D4F4480031E475 /* happytime.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91215D4F4480031E475 /* happytime.caf */; };
 		DC3AF91715D5064D0031E475 /* bg_menu.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91615D5064D0031E475 /* bg_menu.caf */; };
 		DC3AF91915D519C50031E475 /* snowfly.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91815D519C50031E475 /* snowfly.caf */; };
+		DC3AF92215D520B20031E475 /* delete5.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF92115D520B10031E475 /* delete5.caf */; };
 		DC8A8CE815CA59DD0020E643 /* pointFont.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE615CA59DD0020E643 /* pointFont.png */; };
 		DC8A8CE915CA59DD0020E643 /* pointFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE715CA59DD0020E643 /* pointFont.fnt */; };
 		DC8A8CEB15CA61010020E643 /* pointFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CEA15CA61010020E643 /* pointFont2.fnt */; };
@@ -527,6 +528,7 @@
 		DC3AF91215D4F4480031E475 /* happytime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = happytime.caf; sourceTree = "<group>"; };
 		DC3AF91615D5064D0031E475 /* bg_menu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_menu.caf; sourceTree = "<group>"; };
 		DC3AF91815D519C50031E475 /* snowfly.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snowfly.caf; sourceTree = "<group>"; };
+		DC3AF92115D520B10031E475 /* delete5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = delete5.caf; sourceTree = "<group>"; };
 		DC8A8CE615CA59DD0020E643 /* pointFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont.png; sourceTree = "<group>"; };
 		DC8A8CE715CA59DD0020E643 /* pointFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont.fnt; sourceTree = "<group>"; };
 		DC8A8CEA15CA61010020E643 /* pointFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont2.fnt; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DC3AF92115D520B10031E475 /* delete5.caf */,
 				DC3AF91815D519C50031E475 /* snowfly.caf */,
 				DC3AF91615D5064D0031E475 /* bg_menu.caf */,
 				DC3AF91215D4F4480031E475 /* happytime.caf */,
@@ -1278,6 +1281,7 @@
 				DC3AF91315D4F4480031E475 /* happytime.caf in Resources */,
 				DC3AF91715D5064D0031E475 /* bg_menu.caf in Resources */,
 				DC3AF91915D519C50031E475 /* snowfly.caf in Resources */,
+				DC3AF92215D520B20031E475 /* delete5.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

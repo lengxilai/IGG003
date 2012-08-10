@@ -62,8 +62,8 @@
 // 从Layer中删除箱子，在下面的removeTargetBoxForMxPoint中调用
 -(NSNumber*)removeBoxChildForDelBoxs:(NSArray*)delBoxs forMP:(MxPoint)mp
 {
-    float scaleTime = 0.3*fTimeRate;
-    float moveStepTime = 0.15*fTimeRate;
+    float scaleTime = 0.2*fTimeRate;
+    float moveStepTime = 0.1*fTimeRate;
     float scaleRate = 1.5;
     
     CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];

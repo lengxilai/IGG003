@@ -62,8 +62,9 @@
         }
     }
     
-    // 记录本次删除个数，用来算下落石头的
+    // 本次删除个数
     gameState.m_del_count = deleteNo;
+    // 本次击碎石头的数量
     gameState.m_broken_count = brokenCount;
     
     // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
@@ -76,9 +77,13 @@
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
     
-    // 连击数
+    // 一开始7个算连击，6级6个算连击、7级5个算、8级4个算
+    int comboLimit = kComboBoxLimit;
+    if (gameState.m_box_level > kInitBoxTypeCount) {
+        comboLimit = kComboBoxLimit - (gameState.m_box_level - kInitBoxTypeCount);
+    }
     if(!box.isTool){
-        if (deleteNo > kComboBoxLimit) {
+        if (deleteNo > comboLimit) {
             gameState.m_combo = gameState.m_combo + 1;
         }else {
             gameState.m_combo = 0;

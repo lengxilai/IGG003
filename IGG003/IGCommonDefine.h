@@ -28,14 +28,16 @@
 
 #define fTimeRate 1.0
 
-#define kComboBoxLimit 5
+#define kComboBoxLimit 6
 
 #define kToolSpriteTag 998
 
+// 初始化时水果个数
 #define kInitBoxTypeCount 5
 
 // 消除一个水果的分数
-#define pointPerBox 10
+#define pointPerBox 9
+#define kPointPerS 27
 
 //冰冻暂停时间
 #define pauseTime 5

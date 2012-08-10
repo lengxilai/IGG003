@@ -10,6 +10,11 @@
 static S01 *staticS01;
 @implementation S01
 +(IGScene *) scene{
+    // 背景音乐
+    int musicId = CCRANDOM_0_1()*3;
+    NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
+    [IGMusicUtil showBackgroundMusic:musicName];
+
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
     
@@ -45,6 +50,11 @@ static S01 *staticS01;
 
 
 +(IGScene *) sceneForBroken{
+    // 背景音乐
+    int musicId = CCRANDOM_0_1()*3;
+    NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
+    [IGMusicUtil showBackgroundMusic:musicName];
+    
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
     

@@ -193,7 +193,12 @@ static CL03 *staticCL03;
         id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
 
         if ([self isComboChanged]) {
-            [IGMusicUtil showComboMusic:comboNum];
+            if (comboNum <= 5) {
+                [IGMusicUtil showComboMusic:comboNum];
+            } else {
+                [IGMusicUtil showComboMusic:0];
+            }
+
             CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
             [self addChild:addComboSprite];
             [addComboSprite runAction:seqC];

@@ -85,12 +85,7 @@
     
     [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
 }
-<<<<<<< HEAD
--(void)showBackgroundMusic {
-    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
-=======
 -(void)showScores{
     [[CCDirector sharedDirector] replaceScene:[S02 showScores]];
->>>>>>> 3800720e76883011b58fc66931c84767425134fc
 }
 @end

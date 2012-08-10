@@ -10,14 +10,20 @@
 #import "SimpleAudioEngine.h"
 
 @interface IGMusicUtil : NSObject {
-    NSInteger firstShow;
-    NSInteger endShow;
 }
 
 // 加载全部音效
 +(void)loadMusic;
 // 游戏界面的背景音乐
-+(void)showBackgroundMusic:(int) musicId;
++(void)showBackgroundMusic:(NSString *) musicId;
+// 暂停背景音乐
++(void)pauseBackGroundMusic;
+// 停止背景音乐
++(void)stopBackGroundMusic;
+// 继续播放背景音乐
++(void)resumeBackGroundMusic;
+// 根据音效名字播放
++(void)showMusciByName:(NSString *) musicName;
 // 水果晃动时的音效
 +(void)showShakingMusic;
 // 水果消除时的音效

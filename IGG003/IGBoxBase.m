@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxBase.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxBase
 @synthesize node;
@@ -93,6 +94,9 @@
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSMutableArray *delBoxs = [self delAllBox:mp];
+    
+    // 普通消除音效
+    [IGMusicUtil showDeletingMusic];
     
     // 把要删除的箱子周围的石头击碎
     int c = [delBoxs count];

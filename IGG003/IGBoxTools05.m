@@ -19,6 +19,23 @@
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSArray *delBoxs = [self delAllBox:mp];
+    
+    // 把要删除的箱子周围的石头击碎
+    int c = [delBoxs count];
+    for (int i = 0; i<c;i++ ) {
+        SpriteBox *box = [delBoxs objectAtIndex:i];
+        NSArray *sBoxs = [self getSLRUDBox:box];
+        for (SpriteBox *sBox in sBoxs) {
+            [sBox upSCount];
+            if (sBox.sCount == 2) {
+                sBox.isDel = YES;
+                if (![delBoxs containsObject:sBox]) {
+                    [delBoxs addObject:sBox];
+                }
+            }
+        }
+    }
+    
     NSArray *newBoxs = [super processRun:mp];
     NSNumber *time = [self removeBoxChildForDelBoxs:delBoxs forMP:mp];
 
@@ -82,6 +99,7 @@
     MxPoint targetBoxMP = [targetBox getMxPointByTag];
     float maxTime = 0;
     for (SpriteBox *box in delBoxs) {
+
         MxPoint boxMP = [box getMxPointByTag];
         // 先把box的tag设定为0,这句很重要，表明已经从矩阵中删除了箱子
         box.tag = 999;

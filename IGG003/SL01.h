@@ -21,6 +21,7 @@
 #import "IGMusicUtil.h"
 
 @class CL02;
+@class S01;
 @interface SL01 : IGLayer
 {
     GameMatrixType matrixType;

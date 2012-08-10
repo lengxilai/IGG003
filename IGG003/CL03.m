@@ -45,12 +45,16 @@ static CL03 *staticCL03;
     totalPoints = gameState.m_score;
     // 连击数
     comboNum = gameState.m_combo;
+    
+    // 计算分数时，连击数最多为16,也就是基数最大为256
+    int scoreCombo = comboNum > 16?16:comboNum;
+    
     // 得分计算,消除小于3个减分
     if (boxNum<3) {
-        addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, (int)comboNum/2));
+        addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, (int)scoreCombo/2));
         [IGMusicUtil showDeletePointMusic];
     } else {
-        addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, (int)comboNum/2));
+        addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, (int)scoreCombo/2));
         [IGMusicUtil showAddPointMusic];
     }
 

@@ -20,4 +20,5 @@
 -(void)pauseGame;
 -(void)pauseGameOver;
 -(void)overGame;
+-(void)overGameForMode2;
 @end

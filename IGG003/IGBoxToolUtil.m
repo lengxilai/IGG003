@@ -43,22 +43,23 @@
         }
     }
     
-    // 如果在欢乐时间，道具固定
-    if(gameState.isHappyTime){
-        tooltype = tools05;
-    }
+//    // 如果在欢乐时间，道具固定
+//    if(gameState.isHappyTime){
+//        tooltype = tools05;
+//    }
     
     if(tooltype== toolsNO && (deleteNo >=12 || gameState.m_combo >= 6)){
         if([self probability:90]){
             // 地雷
             if([self probability:40]){
                 tooltype = tools01;
-            }else {
-                tooltype = tools02;
-                // 欢乐时光
-                CL02 *cl02 = [CL02 getCL02];
-                [cl02 clickHappyTimeTool];
             }
+//            else {
+//                tooltype = tools02;
+//                // 欢乐时光
+//                CL02 *cl02 = [CL02 getCL02];
+//                [cl02 clickHappyTimeTool];
+//            }
         }
     }
     
@@ -81,7 +82,7 @@
         }
     }
     // 闪电
-    if(tooltype== toolsNO &&(deleteNo >=4 || gameState.m_combo >= 3)){
+    if(tooltype== toolsNO &&(deleteNo >=6 || gameState.m_combo >= 3)){
         if([self probability:60]){
             tooltype = tools06;
         }

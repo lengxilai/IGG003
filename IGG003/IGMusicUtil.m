@@ -73,7 +73,7 @@ static SimpleAudioEngine *backGroundMusicManager;
 // 水果消除时的音效
 +(void)showDeletingMusic {
     //    [[SimpleAudioEngine sharedEngine] setEffectsVolume:0.7];
-    [[SimpleAudioEngine sharedEngine] playEffect:@"delete4.caf"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"delete5.caf"];
 }
 // 水果下落时的音效(重新刷新矩阵)
 +(void)showRefreshMusic {

@@ -18,7 +18,7 @@
     if (self=[super init]) {
         
         //加载游戏终了背景图片
-        IGSprite *bak = [IGSprite spriteWithFile:@"cover.png"];
+        IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         CCSprite* restartNormal=[CCSprite spriteWithSpriteFrameName:@"btn6-1.png"];
@@ -34,7 +34,7 @@
         CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
         
         CCMenu* menu=[CCMenu menuWithItems:restartSprite,menuSprite,nil]; //添加一个返回游戏按钮；
-        menu.position=ccp(kWindowW/2, 200);
+        menu.position=ccp(kWindowW/2, 100);
         [menu alignItemsHorizontallyWithPadding:30];
         [self addChild:menu];
         
@@ -42,14 +42,26 @@
         
         [self writePlistWithGameMode:[self getGameModeStr] withScore:score];
         
-        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"yourScore:" fntFile:@"bitmapFont.fnt"];
-        yourScoreStr.position = ccp(120,350);
+        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"your score" fntFile:@"bitmapFont.fnt"];
+        yourScoreStr.position = ccp(kWindowW/2,330);
         [self addChild:yourScoreStr];
         
             
         CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",score] fntFile:@"bitmapFont.fnt"];
-        scoreStr.position = ccp(40,300);
+        scoreStr.position = ccp(kWindowW/2,300);
         [self addChild:scoreStr];
+        CCLabelBMFont *bestScoreStr = [CCLabelBMFont labelWithString:@"best scores" fntFile:@"bitmapFont.fnt"];
+        bestScoreStr.position = ccp(kWindowW/2,260);
+        [self addChild:bestScoreStr];
+        NSArray *array  = [self readPlistWithGameMode:[self getGameModeStr]];
+        for (int i = 0; i < [array count]; i++) {
+            NSLog(@"%@",[array objectAtIndex:i]);
+            
+            CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:i] fntFile:@"bitmapFont.fnt"];
+            scoreStr.position = ccp(kWindowW/2,(230 - i *30));
+        
+            [self addChild:scoreStr];
+        }
         
         
     }

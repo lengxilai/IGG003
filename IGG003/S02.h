@@ -11,4 +11,5 @@
 #import "CL06.h"
 @interface S02 : IGScene
 +(IGScene *) showScores;
+-(void)showArcadeModeScores;
 @end

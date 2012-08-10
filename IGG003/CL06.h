@@ -12,4 +12,6 @@
 
 }
 -(id)init;
+-(void)showBrokenModeScores;
+-(void)showArcadeModeScores;
 @end

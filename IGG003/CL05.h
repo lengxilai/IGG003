@@ -9,7 +9,6 @@
 #import "CCLayer.h"
 #import "S01.h"
 @interface CL05 : CCLayer{
-
 }
 -(id)init;
 @end

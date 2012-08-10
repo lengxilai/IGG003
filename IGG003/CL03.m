@@ -94,6 +94,12 @@ static CL03 *staticCL03;
         addPointFlag = false;
         addPointFlag2 = false;
         [self unschedule:@selector(getTotalPoint:)];
+    }else if (addedTotalPoint <= 0) {
+        totalPoints = 0;
+        [self changePointWithPoint];
+        addPointFlag = false;
+        addPointFlag2 = false;
+        [self unschedule:@selector(getTotalPoint:)];
     }
 }
 

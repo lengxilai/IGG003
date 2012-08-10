@@ -77,10 +77,18 @@
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
     
-    // 一开始7个算连击，6级6个算连击、7级5个算、8级4个算
+    // BrokenMode时，一开始7个算连击，6级6个算连击、7级5个算、8级4个算
     int comboLimit = kComboBoxLimit;
-    if (gameState.m_box_level > kInitBoxTypeCount) {
+    if (gameState.gameMode == IGGameMode2 && gameState.m_box_level > kInitBoxTypeCount) {
         comboLimit = kComboBoxLimit - (gameState.m_box_level - kInitBoxTypeCount);
+    }
+    // 计时模式连击界限的计算
+    if (gameState.gameMode == IGGameMode1) {
+        if (gameState.m_box_level == 5) {
+            comboLimit = 5;
+        } else {
+            comboLimit = 5;
+        }
     }
     if(!box.isTool){
         if (deleteNo > comboLimit) {

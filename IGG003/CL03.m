@@ -52,9 +52,10 @@ static CL03 *staticCL03;
     // 计算分数时，连击数最多为16,也就是基数最大为256
     int scoreCombo = comboNum > 16?16:comboNum;
     
-    // 得分计算,消除小于3个减分
-    if (boxNum<3) {
-        addedPoint = (0-pointPerBox) * boxNum * (comboNum==0?1:pow(2, (int)scoreCombo/2));
+    // GameMode1消除4个以下减分，GameMode2消除3个以下减分
+    int scoreLimit = (gameState.gameMode == IGGameMode1 ? 4 : 3);
+    if (boxNum<scoreLimit) {
+        addedPoint = (0-pointPerBox) * gameState.m_box_level * (scoreLimit-boxNum) * (comboNum==0?1:pow(2, (int)scoreCombo/2));
         [IGMusicUtil showDeletePointMusic];
     } else {
         addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, (int)scoreCombo/2));

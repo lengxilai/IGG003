@@ -65,7 +65,7 @@ static CL03 *staticCL03;
     // 消除石头个数＊当前等级和初始等级差+1＊石头分数的基数
     addedPoint = addedPoint + kPointPerS * sNum * (gameState.m_box_level - kInitBoxTypeCount + 1);
 
-    // 合计总分
+    // 合计总分 = 上一次总分＋本次增加分数
     addedTotalPoint = (totalPoints + addedPoint)<0?0:(totalPoints + addedPoint);
     
     [self showPointAndCombo:position];

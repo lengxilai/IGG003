@@ -54,7 +54,7 @@
 //倒计时Y坐标
 #define timeFontY 463
 //倒计时时长秒数
-#define delaySeconds 100
+#define delaySeconds 61
 //冰冻效果图片tag
 #define iceBgTag 100010
 

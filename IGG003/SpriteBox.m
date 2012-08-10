@@ -48,11 +48,11 @@
         int probability = 0;
         if (gameState.m_del_count == 1) {
             probability = 100;
-            // 当前石头数量大于一定百分比 
-            // 并且 击碎的石头数量大于水果数量时 可以降低出石头的概率
-            if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.5 && gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*20;
-            }
+//            // 当前石头数量大于一定百分比 
+//            // 并且 击碎的石头数量大于水果数量时 可以降低出石头的概率
+//            if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.5 && gameState.m_broken_count > gameState.m_del_count) {
+//                probability = probability - gameState.m_broken_count*20;
+//            }
         }
         if (gameState.m_del_count == 2) {
             probability = 100;
@@ -66,7 +66,7 @@
             probability = 85;
             // 击碎的石头数量大于水果数量时 可以降低出石头的概率
             if (gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*5;
+                probability = probability - gameState.m_broken_count*10;
             }
         }
         if (gameState.m_del_count == 4) {

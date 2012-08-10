@@ -28,14 +28,16 @@
 
 #define fTimeRate 1.0
 
-#define kComboBoxLimit 5
+#define kComboBoxLimit 6
 
 #define kToolSpriteTag 998
 
+// 初始化时水果个数
 #define kInitBoxTypeCount 5
 
 // 消除一个水果的分数
-#define pointPerBox 10
+#define pointPerBox 9
+#define kPointPerS 27
 
 //冰冻暂停时间
 #define pauseTime 5
@@ -52,11 +54,12 @@
 //倒计时Y坐标
 #define timeFontY 463
 //倒计时时长秒数
-#define delaySeconds 60
+#define delaySeconds 100
 //冰冻效果图片tag
 #define iceBgTag 100010
 
-
+#define brokenMode @"broken"
+#define arcadeMode @"arcade"
 
 @interface IGCommonDefine : NSObject
 

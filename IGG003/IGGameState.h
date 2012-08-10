@@ -63,8 +63,15 @@ MxPointMake(int r, int c)
     // 上一次消除的数量
     int m_del_count;
     
+    // 上一次消除的石头数量
+    int m_broken_count;
+    
     // 游戏模式
     IGGameMode gameMode; 
+    
+    // 当前石头的数量
+    int m_s_count;
+    BOOL isPaused;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -72,8 +79,11 @@ MxPointMake(int r, int c)
 @property(nonatomic,assign) int m_combo;
 @property(nonatomic,assign) int m_box_level;
 @property(nonatomic,assign) int m_del_count;
+@property(nonatomic,assign) int m_broken_count;
+@property(nonatomic,assign) int m_s_count;
 @property(nonatomic,assign) IGGameMode gameMode;
 @property(nonatomic,assign) BOOL isHappyTime;
+@property(nonatomic,assign) BOOL isPaused;
 
 +(IGGameState*)gameState;
 -(id)init;

@@ -208,7 +208,9 @@
 		E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3815C126B900E52519 /* bitmapFont.png */; };
 		E21A2C3F15C126B900E52519 /* CL02.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3A15C126B900E52519 /* CL02.m */; };
 		E21A2C4015C126B900E52519 /* CL03.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3C15C126B900E52519 /* CL03.m */; };
+		E230445515D3AB7100C4D2E3 /* CL06.m in Sources */ = {isa = PBXBuildFile; fileRef = E230445415D3AB7100C4D2E3 /* CL06.m */; };
 		E262DFFC15D11FC70061ECE8 /* CL05.m in Sources */ = {isa = PBXBuildFile; fileRef = E262DFFB15D11FC70061ECE8 /* CL05.m */; };
+		E274588D15D3B2AE00E77BE6 /* S02.m in Sources */ = {isa = PBXBuildFile; fileRef = E274588C15D3B2AE00E77BE6 /* S02.m */; };
 		E276CF6B15C9481800D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF6A15C9481800D521FE /* CL04.m */; };
 		E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */; };
 		E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */; };
@@ -561,8 +563,12 @@
 		E21A2C3A15C126B900E52519 /* CL02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL02.m; sourceTree = "<group>"; };
 		E21A2C3B15C126B900E52519 /* CL03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL03.h; sourceTree = "<group>"; };
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
+		E230445315D3AB7000C4D2E3 /* CL06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL06.h; sourceTree = "<group>"; };
+		E230445415D3AB7100C4D2E3 /* CL06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL06.m; sourceTree = "<group>"; };
 		E262DFFA15D11FC70061ECE8 /* CL05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL05.h; sourceTree = "<group>"; };
 		E262DFFB15D11FC70061ECE8 /* CL05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL05.m; sourceTree = "<group>"; };
+		E274588B15D3B2AE00E77BE6 /* S02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S02.h; sourceTree = "<group>"; };
+		E274588C15D3B2AE00E77BE6 /* S02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = S02.m; sourceTree = "<group>"; };
 		E276CF6915C9481800D521FE /* CL04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL04.h; sourceTree = "<group>"; };
 		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
@@ -998,6 +1004,8 @@
 				E276CF6A15C9481800D521FE /* CL04.m */,
 				E262DFFA15D11FC70061ECE8 /* CL05.h */,
 				E262DFFB15D11FC70061ECE8 /* CL05.m */,
+				E230445315D3AB7000C4D2E3 /* CL06.h */,
+				E230445415D3AB7100C4D2E3 /* CL06.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1009,6 +1017,8 @@
 				D7030C1B15B6B41A00BA5EF4 /* S01.m */,
 				18942C4515D111A5005535C5 /* S00.h */,
 				18942C4615D111A5005535C5 /* S00.m */,
+				E274588B15D3B2AE00E77BE6 /* S02.h */,
+				E274588C15D3B2AE00E77BE6 /* S02.m */,
 			);
 			name = Scene;
 			sourceTree = "<group>";
@@ -1403,6 +1413,8 @@
 				181646BF15C973930014D54A /* IGBoxTools07.m in Sources */,
 				18942C4715D111A5005535C5 /* S00.m in Sources */,
 				E262DFFC15D11FC70061ECE8 /* CL05.m in Sources */,
+				E230445515D3AB7100C4D2E3 /* CL06.m in Sources */,
+				E274588D15D3B2AE00E77BE6 /* S02.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

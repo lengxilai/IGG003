@@ -55,7 +55,7 @@
     
     CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(startGameForBroken)];
-    CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(startGame)];
+    CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(showScores)];
     CCMenuItemSprite* settingSprite=[CCMenuItemSprite itemFromNormalSprite:settingNormal selectedSprite:settingSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(startGame)];
     
@@ -85,7 +85,12 @@
     
     [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
 }
+<<<<<<< HEAD
 -(void)showBackgroundMusic {
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+=======
+-(void)showScores{
+    [[CCDirector sharedDirector] replaceScene:[S02 showScores]];
+>>>>>>> 3800720e76883011b58fc66931c84767425134fc
 }
 @end

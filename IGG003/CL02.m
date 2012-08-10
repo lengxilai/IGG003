@@ -27,7 +27,7 @@ static CL02 *staticCL02;
 -(id) init{
     if( (self=[super init])) {
         //倒计时显示  初始化1:00
-        CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:@"1:00" fntFile:@"bitmapFont.fnt"];
+        CCLabelBMFont *pointsSprit = [CCLabelBMFont labelWithString:@"1:40" fntFile:@"bitmapFont.fnt"];
 		pointsSprit.position = ccp(timeFontX,timeFontY);
         pointsSprit.tag = timeTag;
         //没有冰冻效果
@@ -213,7 +213,8 @@ static CL02 *staticCL02;
 //游戏暂停
 -(void)pauseGame{
     [self unschedule:@selector(updateTimeDisplay)];
-    
+    IGGameState *gameState = [IGGameState gameState];
+    gameState.isPaused = YES;
     
     if(iceFlg == 1){
         iceDelayTime = (float)[self.iceNSDateTime timeIntervalSinceNow];

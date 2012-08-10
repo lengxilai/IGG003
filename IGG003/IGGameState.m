@@ -17,7 +17,10 @@ static IGGameState *staticGameState;
 @synthesize m_box_level;
 @synthesize isHappyTime;
 @synthesize m_del_count;
+@synthesize m_broken_count;
+@synthesize m_s_count;
 @synthesize gameMode;
+@synthesize isPaused;
 
 +(IGGameState*)gameState
 {
@@ -44,6 +47,7 @@ static IGGameState *staticGameState;
 
 -(void)clearGameState
 {
+    // 水果种类数
     self.m_box_level = kInitBoxTypeCount;
     if (self) {
         NSMutableArray *mr = [NSMutableArray arrayWithCapacity:kGameSizeRows];
@@ -68,6 +72,9 @@ static IGGameState *staticGameState;
     isHappyTime = NO;
     
     m_del_count = 0;
+    m_broken_count = 0;
+    m_s_count = 0;
+    isPaused = NO;
 }
 
 // 设定分数，10000,25000,50000,100000时升级

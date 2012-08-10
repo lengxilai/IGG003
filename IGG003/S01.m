@@ -136,4 +136,10 @@ static S01 *staticS01;
         [staticS01 addChild:cl05];
     }
 }
+
+-(void)overGameForMode2
+{
+    CL05 *cl05 = [CL05 node];
+    [staticS01 addChild:cl05];
+}
 @end

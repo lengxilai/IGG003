@@ -38,6 +38,10 @@
     
     // 本次删除个数
     int deleteNo = 0;
+    
+    // 消除的石头数量
+    int brokenCount = 0;
+    
     // 取得元素
     CCArray* array = [node children];
     // 取得消除元素个数
@@ -47,13 +51,22 @@
             continue;
         }
         // 统计消除个数时不统计石头
-        if(((SpriteBox*)child).isDel&&((SpriteBox*)child).bType!=eGbt99){
-            deleteNo ++;
+        if(((SpriteBox*)child).isDel){
+            // 如果删除的是石头，则消除的时候数量增加
+            if (((SpriteBox*)child).bType==eGbt99) {
+                brokenCount ++;
+            
+            // 否则增加消除数量
+            }else {
+                deleteNo ++;
+            }
         }
     }
     
-    // 记录本次删除个数
+    // 本次删除个数
     gameState.m_del_count = deleteNo;
+    // 本次击碎石头的数量
+    gameState.m_broken_count = brokenCount;
     
     // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
     NSArray *newBoxs = [IGBoxToolUtil getNewBoxBringTool:node clickPoint:mp];
@@ -65,9 +78,21 @@
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
     
-    // 连击数
+    // BrokenMode时，一开始7个算连击，6级6个算连击、7级5个算、8级4个算
+    int comboLimit = kComboBoxLimit;
+    if (gameState.gameMode == IGGameMode2 && gameState.m_box_level > kInitBoxTypeCount) {
+        comboLimit = kComboBoxLimit - (gameState.m_box_level - kInitBoxTypeCount);
+    }
+    // 计时模式连击界限的计算
+    if (gameState.gameMode == IGGameMode1) {
+        if (gameState.m_box_level == 5) {
+            comboLimit = 5;
+        } else {
+            comboLimit = 5;
+        }
+    }
     if(!box.isTool){
-        if (deleteNo > kComboBoxLimit) {
+        if (deleteNo > comboLimit) {
             gameState.m_combo = gameState.m_combo + 1;
         }else {
             gameState.m_combo = 0;
@@ -107,7 +132,9 @@
             [sBox upSCount];
             if (sBox.sCount == 2) {
                 sBox.isDel = YES;
-                [delBoxs addObject:sBox];
+                if (![delBoxs containsObject:sBox]) {
+                    [delBoxs addObject:sBox];
+                }
             }
         }
     }
@@ -178,7 +205,7 @@
     [node performSelector:@selector(reloadBoxs)];
 }
 
-// 取得一个箱子周围的8个箱子（不包括自己和石头）
+// 取得一个箱子周围的8个箱子（不包括自己）
 -(NSArray*)getLRUDBox:(SpriteBox*)box
 {
     

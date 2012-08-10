@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools07.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools07
 
@@ -31,6 +32,9 @@
     [self performSelector:@selector(stopSnow:) withObject:popParticle afterDelay:pauseTime];
     
     [cl02 clickIceTool];
+    
+    // 冰冻音效
+    [IGMusicUtil showMusciByName:@"snowfly.caf"];
     
     // 延时重新刷新箱子矩阵
     [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];

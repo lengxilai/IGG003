@@ -171,8 +171,11 @@
 		DC0290DF15CFD890006040B3 /* sawang2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC0290DE15CFD890006040B3 /* sawang2.caf */; };
 		DC0290E115CFD9D5006040B3 /* shouwang.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC0290E015CFD9D5006040B3 /* shouwang.caf */; };
 		DC0290E715D038D1006040B3 /* piaochong3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC0290E615D038D1006040B3 /* piaochong3.caf */; };
-		DC6A785515D27B3200973C77 /* bg_music1.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC6A785415D27B3100973C77 /* bg_music1.caf */; };
-		DC6A785B15D286F100973C77 /* bg_music2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC6A785A15D286F100973C77 /* bg_music2.caf */; };
+		DC3AF90F15D4E0080031E475 /* bg_music2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF90E15D4E0080031E475 /* bg_music2.caf */; };
+		DC3AF91115D4E3F90031E475 /* heihei.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91015D4E3F90031E475 /* heihei.caf */; };
+		DC3AF91315D4F4480031E475 /* happytime.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91215D4F4480031E475 /* happytime.caf */; };
+		DC3AF91715D5064D0031E475 /* bg_menu.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91615D5064D0031E475 /* bg_menu.caf */; };
+		DC3AF91915D519C50031E475 /* snowfly.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91815D519C50031E475 /* snowfly.caf */; };
 		DC8A8CE815CA59DD0020E643 /* pointFont.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE615CA59DD0020E643 /* pointFont.png */; };
 		DC8A8CE915CA59DD0020E643 /* pointFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CE715CA59DD0020E643 /* pointFont.fnt */; };
 		DC8A8CEB15CA61010020E643 /* pointFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC8A8CEA15CA61010020E643 /* pointFont2.fnt */; };
@@ -193,6 +196,7 @@
 		DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533A15C9384F000AB032 /* IGMusicUtil.m */; };
 		DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533D15C93C2A000AB032 /* IGToolUtils.m */; };
 		DC93534115C93C2B000AB032 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */; };
+		DCE753D715D3AB580066C84C /* combo0.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCE753D615D3AB580066C84C /* combo0.caf */; };
 		DCEBD64215D135F000450CC6 /* comboFont5.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64015D135F000450CC6 /* comboFont5.png */; };
 		DCEBD64315D135F000450CC6 /* comboFont5.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64115D135F000450CC6 /* comboFont5.fnt */; };
 		DCEBD64915D1363800450CC6 /* combo1.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64415D1363800450CC6 /* combo1.caf */; };
@@ -516,8 +520,11 @@
 		DC0290DE15CFD890006040B3 /* sawang2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sawang2.caf; sourceTree = "<group>"; };
 		DC0290E015CFD9D5006040B3 /* shouwang.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shouwang.caf; sourceTree = "<group>"; };
 		DC0290E615D038D1006040B3 /* piaochong3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = piaochong3.caf; sourceTree = "<group>"; };
-		DC6A785415D27B3100973C77 /* bg_music1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music1.caf; sourceTree = "<group>"; };
-		DC6A785A15D286F100973C77 /* bg_music2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music2.caf; sourceTree = "<group>"; };
+		DC3AF90E15D4E0080031E475 /* bg_music2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music2.caf; sourceTree = "<group>"; };
+		DC3AF91015D4E3F90031E475 /* heihei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = heihei.caf; sourceTree = "<group>"; };
+		DC3AF91215D4F4480031E475 /* happytime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = happytime.caf; sourceTree = "<group>"; };
+		DC3AF91615D5064D0031E475 /* bg_menu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_menu.caf; sourceTree = "<group>"; };
+		DC3AF91815D519C50031E475 /* snowfly.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snowfly.caf; sourceTree = "<group>"; };
 		DC8A8CE615CA59DD0020E643 /* pointFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont.png; sourceTree = "<group>"; };
 		DC8A8CE715CA59DD0020E643 /* pointFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont.fnt; sourceTree = "<group>"; };
 		DC8A8CEA15CA61010020E643 /* pointFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont2.fnt; sourceTree = "<group>"; };
@@ -540,6 +547,7 @@
 		DC93533D15C93C2A000AB032 /* IGToolUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGToolUtils.m; sourceTree = "<group>"; };
 		DC93533E15C93C2B000AB032 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
 		DC93533F15C93C2B000AB032 /* IGToolUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGToolUtils.h; sourceTree = "<group>"; };
+		DCE753D615D3AB580066C84C /* combo0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = combo0.caf; sourceTree = "<group>"; };
 		DCEBD64015D135F000450CC6 /* comboFont5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comboFont5.png; sourceTree = "<group>"; };
 		DCEBD64115D135F000450CC6 /* comboFont5.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comboFont5.fnt; sourceTree = "<group>"; };
 		DCEBD64415D1363800450CC6 /* combo1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = combo1.caf; sourceTree = "<group>"; };
@@ -1084,8 +1092,12 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
-				DC6A785A15D286F100973C77 /* bg_music2.caf */,
-				DC6A785415D27B3100973C77 /* bg_music1.caf */,
+				DC3AF91815D519C50031E475 /* snowfly.caf */,
+				DC3AF91615D5064D0031E475 /* bg_menu.caf */,
+				DC3AF91215D4F4480031E475 /* happytime.caf */,
+				DC3AF91015D4E3F90031E475 /* heihei.caf */,
+				DC3AF90E15D4E0080031E475 /* bg_music2.caf */,
+				DCE753D615D3AB580066C84C /* combo0.caf */,
 				DCEBD64415D1363800450CC6 /* combo1.caf */,
 				DCEBD64515D1363800450CC6 /* combo2.caf */,
 				DCEBD64615D1363800450CC6 /* combo3.caf */,
@@ -1250,8 +1262,12 @@
 				DCEBD64B15D1363800450CC6 /* combo3.caf in Resources */,
 				DCEBD64C15D1363800450CC6 /* combo4.caf in Resources */,
 				DCEBD64D15D1363800450CC6 /* combo5.caf in Resources */,
-				DC6A785515D27B3200973C77 /* bg_music1.caf in Resources */,
-				DC6A785B15D286F100973C77 /* bg_music2.caf in Resources */,
+				DCE753D715D3AB580066C84C /* combo0.caf in Resources */,
+				DC3AF90F15D4E0080031E475 /* bg_music2.caf in Resources */,
+				DC3AF91115D4E3F90031E475 /* heihei.caf in Resources */,
+				DC3AF91315D4F4480031E475 /* happytime.caf in Resources */,
+				DC3AF91715D5064D0031E475 /* bg_menu.caf in Resources */,
+				DC3AF91915D519C50031E475 /* snowfly.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

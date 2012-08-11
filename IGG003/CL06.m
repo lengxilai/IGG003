@@ -56,8 +56,8 @@
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
-    
-    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:@"Score.plist"] ]; // 解析数据
+    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
+    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:fileName] ]; // 解析数据
     
     NSString *content = [ dic objectForKey:gameMode ];
     //array是将content里的数据按“,”拆分，仅将两个“,”之间的数据保存。
@@ -112,7 +112,7 @@
     }
 }
 -(void)getBrokenModeScores{
-    NSArray *array  = [self readPlistWithGameMode:@"borken"];
+    NSArray *array  = [self readPlistWithGameMode:@"broken"];
     for (int i = 0; i < [array count]; i++) {
         NSLog(@"%@",[array objectAtIndex:i]);
         

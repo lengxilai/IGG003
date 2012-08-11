@@ -88,12 +88,12 @@
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
-    
-    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:@"Score.plist"] ]; // 解析数据
+    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
+    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:fileName] ]; // 解析数据
     
     NSString *content = [ dic objectForKey:gameMode ];
     //array是将content里的数据按“,”拆分，仅将两个“,”之间的数据保存。
-    NSArray *array = [ content componentsSeparatedByString:@","];
+    NSArray *array = [content componentsSeparatedByString:@","];
     return array;
 }
 //写入plist
@@ -125,20 +125,24 @@
             if([newScoreArr count] >= 3){
                 break;
             }
-        }else{
+        }else if([scoreArr count] != 0){
             //纪录中少于三条的时候的最后一条
             [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
+            break;
+        }else{
+            break;
         }
     }
     
     //　用来覆盖原始数据的新dic
     NSMutableDictionary *newDic = [ [ NSMutableDictionary alloc ] init ];
     // 将新的dic里的“Score”项里的数据写为“newScore”
-    [ newDic setValue:[newScoreArr componentsJoinedByString:@","] forKey:@"arcade" ];
+    [newDic setValue:[newScoreArr componentsJoinedByString:@","] forKey:gameMode ];
     // 将　newDic　保存至 docPath＋“Score.plist”文件里，也就是覆盖原来的文件
     NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docPath = [ doc objectAtIndex:0 ];
-    [newDic writeToFile:[docPath stringByAppendingPathComponent:@"Score.plist"] atomically:YES ];
+    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
+    [newDic writeToFile:[docPath stringByAppendingPathComponent:fileName] atomically:YES ];
 
 }
 -(int)getGameScore{

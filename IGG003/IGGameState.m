@@ -21,6 +21,7 @@ static IGGameState *staticGameState;
 @synthesize m_s_count;
 @synthesize gameMode;
 @synthesize isPaused;
+@synthesize isBreakBest;
 
 +(IGGameState*)gameState
 {

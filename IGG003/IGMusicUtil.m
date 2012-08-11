@@ -9,14 +9,12 @@
 #import "IGMusicUtil.h"
 
 @implementation IGMusicUtil
-
--(id) init
-{
-	return self;
-}
+static SimpleAudioEngine *backGroundMusicManager;
 
 //加载音乐
 +(void)loadMusic{
+    backGroundMusicManager = [SimpleAudioEngine sharedEngine];
+    
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake1.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake2.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"delete3.caf"];
@@ -29,6 +27,7 @@
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"refresh.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"sawang.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shouwang.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo0.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo1.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo2.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo3.caf"];
@@ -37,15 +36,35 @@
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong2.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong5.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong6.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"heihei.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhandan.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhandan2.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"badpoint.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"orange2.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"snowfly.caf"];
+}
+
+// 根据音效名字播放
++(void)showMusciByName:(NSString *) musicName {
+    [[SimpleAudioEngine sharedEngine] playEffect:musicName];
 }
 
 // 游戏界面的背景音乐
-+(void)showBackgroundMusic:(int) musicId {
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[NSString stringWithFormat:@"bg_music%d.caf", musicId] loop:YES];
++(void)showBackgroundMusic:(NSString *) musicName {
+    [backGroundMusicManager playBackgroundMusic:musicName loop:YES];
+}
+
+// 暂停背景音乐
++(void)pauseBackGroundMusic {
+    [backGroundMusicManager pauseBackgroundMusic];
+}
+// 继续播放背景音乐
++(void)resumeBackGroundMusic {
+    [backGroundMusicManager resumeBackgroundMusic];
+}
+// 停止背景音乐
++(void)stopBackGroundMusic {
+    [backGroundMusicManager stopBackgroundMusic];
 }
 // 水果晃动时的音效
 +(void)showShakingMusic {

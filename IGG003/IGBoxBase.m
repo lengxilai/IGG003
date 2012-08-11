@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxBase.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxBase
 @synthesize node;
@@ -62,8 +63,9 @@
         }
     }
     
-    // 记录本次删除个数，用来算下落石头的
+    // 本次删除个数
     gameState.m_del_count = deleteNo;
+    // 本次击碎石头的数量
     gameState.m_broken_count = brokenCount;
     
     // 取得要新建点的箱子，不新建但是要移动位置的箱子会记录beforeTag
@@ -76,9 +78,21 @@
     int targetBoxTag = r*kBoxTagR+c;
     SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
     
-    // 连击数
+    // BrokenMode时，一开始7个算连击，6级6个算连击、7级5个算、8级4个算
+    int comboLimit = kComboBoxLimit;
+    if (gameState.gameMode == IGGameMode2 && gameState.m_box_level > kInitBoxTypeCount) {
+        comboLimit = kComboBoxLimit - (gameState.m_box_level - kInitBoxTypeCount);
+    }
+    // 计时模式连击界限的计算
+    if (gameState.gameMode == IGGameMode1) {
+        if (gameState.m_box_level == 5) {
+            comboLimit = 5;
+        } else {
+            comboLimit = 5;
+        }
+    }
     if(!box.isTool){
-        if (deleteNo > kComboBoxLimit) {
+        if (deleteNo > comboLimit) {
             gameState.m_combo = gameState.m_combo + 1;
         }else {
             gameState.m_combo = 0;
@@ -105,6 +119,9 @@
 {
     // 给所有要删除的箱子打isDel标记，并且返回爆炸点的箱子
     NSMutableArray *delBoxs = [self delAllBox:mp];
+    
+    // 普通消除音效
+    [IGMusicUtil showDeletingMusic];
     
     // 把要删除的箱子周围的石头击碎
     int c = [delBoxs count];

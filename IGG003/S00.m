@@ -7,11 +7,15 @@
 //
 
 #import "S00.h"
+#import "IGMusicUtil.h"
 
 @implementation S00
 +(IGScene *) scene{
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S00 node];
+    
+    // 菜单背景音乐
+    [IGMusicUtil showBackgroundMusic:@"bg_menu.caf"];
 	
     // 添加图片缓存
     {
@@ -72,6 +76,7 @@
 
 -(void)startGame
 {
+    [IGMusicUtil stopBackGroundMusic];
     [[CCDirector sharedDirector] replaceScene:[S01 scene]];
 }
 

@@ -21,9 +21,6 @@
 -(id) init
 {
 	if( (self=[super init])) {
-        // 背景音乐
-        int musicId = CCRANDOM_0_1()*3;
-        [IGMusicUtil showBackgroundMusic:musicId];
         
         // 粒子效果缓存
         particleManager = [[IGParticleManager alloc] initWithScene:self];

@@ -46,19 +46,26 @@ static CL03 *staticCL03;
     // 连击数
     comboNum = gameState.m_combo;
     
+    // 消除的石头数量
+    int sNum = gameState.m_broken_count;
+    
     // 计算分数时，连击数最多为16,也就是基数最大为256
     int scoreCombo = comboNum > 16?16:comboNum;
     
-    // 得分计算,消除小于3个减分
-    if (boxNum<3) {
-        addedPoint = -10 * boxNum * (comboNum==0?1:pow(2, (int)scoreCombo/2));
+    // GameMode1消除4个以下减分，GameMode2消除3个以下减分
+    int scoreLimit = (gameState.gameMode == IGGameMode1 ? 4 : 3);
+    if (boxNum<scoreLimit) {
+        addedPoint = (0-pointPerBox) * gameState.m_box_level * (scoreLimit-boxNum) * (comboNum==0?1:pow(2, (int)scoreCombo/2));
         [IGMusicUtil showDeletePointMusic];
     } else {
         addedPoint = pointPerBox * boxNum * (comboNum==0?1:pow(2, (int)scoreCombo/2));
         [IGMusicUtil showAddPointMusic];
     }
+    
+    // 消除石头个数＊当前等级和初始等级差+1＊石头分数的基数
+    addedPoint = addedPoint + kPointPerS * sNum * (gameState.m_box_level - kInitBoxTypeCount + 1);
 
-    // 合计总分
+    // 合计总分 = 上一次总分＋本次增加分数
     addedTotalPoint = (totalPoints + addedPoint)<0?0:(totalPoints + addedPoint);
     
     [self showPointAndCombo:position];
@@ -75,15 +82,21 @@ static CL03 *staticCL03;
     if ((totalPoints + addedPoint)>=0 || addPointFlag==TRUE) {
         addPointFlag = TRUE;
         // 上一次分数基础上分步增加分数
-        totalPoints = totalPoints + addedPoint/10;
+        totalPoints = totalPoints + addedPoint/pointPerBox;
     } else if ((totalPoints>0 && (totalPoints + addedPoint)<0) || addPointFlag2==TRUE) {
         addPointFlag2 = TRUE;
         // 上一次分数基础上分步增加分数
-        totalPoints = totalPoints + addedPoint/10;
+        totalPoints = totalPoints + addedPoint/pointPerBox;
     }
     
     [self changePointWithPoint];
     if(addedTotalPoint == totalPoints){
+        addPointFlag = false;
+        addPointFlag2 = false;
+        [self unschedule:@selector(getTotalPoint:)];
+    }else if (addedTotalPoint <= 0) {
+        totalPoints = 0;
+        [self changePointWithPoint];
         addPointFlag = false;
         addPointFlag2 = false;
         [self unschedule:@selector(getTotalPoint:)];
@@ -197,7 +210,12 @@ static CL03 *staticCL03;
         id callbackC = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallbackC:)];
 
         if ([self isComboChanged]) {
-            [IGMusicUtil showComboMusic:comboNum];
+            if (comboNum <= 5) {
+                [IGMusicUtil showComboMusic:comboNum];
+            } else {
+                [IGMusicUtil showComboMusic:0];
+            }
+
             CCSequence *seqC = [CCSequence actions:sC,callbackC, nil];
             [self addChild:addComboSprite];
             [addComboSprite runAction:seqC];

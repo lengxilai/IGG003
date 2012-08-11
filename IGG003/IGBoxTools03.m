@@ -202,7 +202,13 @@
         }
 
     }
+    
+    [self performSelector:@selector(showHeiheiMusic) withObject:nil afterDelay:maxTime];
     NSInteger cout = maxTime/0.15;
     [IGMusicUtil showDeleteMusicWithNumberLoops:@"piaochong3" ofType:@"caf" numberOfLoops:cout];
+}
+// 蜘蛛出场音效
+-(void)showHeiheiMusic {
+    [IGMusicUtil showMusciByName:@"heihei.caf"];
 }
 @end

@@ -72,6 +72,7 @@ MxPointMake(int r, int c)
     // 当前石头的数量
     int m_s_count;
     BOOL isPaused;
+
     // 是否破纪录
     BOOL isBreakBest;
 }

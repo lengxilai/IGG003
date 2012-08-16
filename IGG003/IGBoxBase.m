@@ -80,8 +80,12 @@
     
     // BrokenMode时，一开始7个算连击，6级6个算连击、7级5个算、8级4个算
     int comboLimit = kComboBoxLimit;
-    if (gameState.gameMode == IGGameMode2 && gameState.m_box_level > kInitBoxTypeCount) {
-        comboLimit = kComboBoxLimit - (gameState.m_box_level - kInitBoxTypeCount);
+    if (gameState.gameMode == IGGameMode2) {
+        if ( gameState.m_box_level < 8) {
+            comboLimit = kComboBoxLimit - (gameState.m_box_level - kInitBoxTypeCount);
+        }else {
+            comboLimit = 4;
+        }
     }
     // 计时模式连击界限的计算
     if (gameState.gameMode == IGGameMode1) {

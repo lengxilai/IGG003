@@ -21,4 +21,5 @@
 -(void)pauseGameOver;
 -(void)overGame;
 -(void)overGameForMode2;
+-(void)loadCL05;
 @end

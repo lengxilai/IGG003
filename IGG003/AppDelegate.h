@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "S00.h"
+#import "IGGameState.h"
+#import "CL02.h"
 
 @class RootViewController;
 

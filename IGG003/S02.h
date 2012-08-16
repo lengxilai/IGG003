@@ -9,7 +9,11 @@
 #import "IGScene.h"
 #import "SL01.h"
 #import "CL06.h"
+#import "CL07.h"
 @interface S02 : IGScene
 +(IGScene *) showScores;
 -(void)showArcadeModeScores;
+
+// 显示设定页面
++(IGScene *) showSettings;
 @end

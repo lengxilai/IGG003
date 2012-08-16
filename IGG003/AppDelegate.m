@@ -140,6 +140,8 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 	CCDirector *director = [CCDirector sharedDirector];
 	
+//    IGGameState *m_dataState = [IGGameState gameState];
+//    [m_dataState save];
 	[[director openGLView] removeFromSuperview];
 	
 	[viewController release];

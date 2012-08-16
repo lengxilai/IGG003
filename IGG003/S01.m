@@ -127,14 +127,19 @@ static S01 *staticS01;
     if (gs.gameMode == IGGameMode1) {
         CL01 *cl01 = (CL01 *)[staticS01 getChildByTag:10011];
         CL02 *cl02 = (CL02 *)[staticS01 getChildByTag:10012];
-        CL03 *cl03 = (CL03 *)[staticS01 getChildByTag:10013];
+        
         [cl01 onExit];
         [cl02 onExit];
-        [cl03 onExit];
         
-        CL05 *cl05 = [CL05 node];
-        [staticS01 addChild:cl05];
+        [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:1];
+        
     }
+}
+-(void)loadCL05{
+    CL05 *cl05 = [CL05 node];
+    CL03 *cl03 = (CL03 *)[staticS01 getChildByTag:10013];
+    [cl03 onExit];
+    [staticS01 addChild:cl05];
 }
 
 -(void)overGameForMode2

@@ -38,6 +38,9 @@
         // 初始化游戏状态
         [gs clearGameState];
         
+        // 取得保存数据
+        [gs load];
+        
         // 显示所有箱子
         [self showBoxs];
 	}

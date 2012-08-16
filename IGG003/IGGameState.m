@@ -22,6 +22,9 @@ static IGGameState *staticGameState;
 @synthesize gameMode;
 @synthesize isPaused;
 @synthesize isBreakBest;
+@synthesize isDataSaved;
+@synthesize isMusicOn;
+@synthesize isSoundOn;
 
 +(IGGameState*)gameState
 {
@@ -43,6 +46,14 @@ static IGGameState *staticGameState;
 {
     self = [super init];
     
+    // 是否有保存的游戏数据
+    isDataSaved = NO;
+    // 游戏音乐开启
+	isMusicOn = YES;
+	// 游戏音效开启
+    isSoundOn = YES;
+    
+    [self load];
     return self;
 }
 
@@ -76,6 +87,7 @@ static IGGameState *staticGameState;
     m_broken_count = 0;
     m_s_count = 0;
     isPaused = NO;
+    
 }
 
 // 设定分数，10000,25000,50000,100000时升级
@@ -102,6 +114,65 @@ static IGGameState *staticGameState;
     if (self.m_box_level < eGbt8) {
         self.m_box_level = self.m_box_level + 1;
     }
+}
+
+///////////////////
+
+// 读取游戏数据
+- (GamePlayingData*) getPlayingData
+{
+	return &m_playingData;
+}
+
+// 取得用户信息
+- (id) getUserData:(NSString*) key
+{
+	return [[NSUserDefaults standardUserDefaults] objectForKey:key];
+}
+
+// 写入用户信息
+- (void) storeUserData:(id)data forKey:(NSString*)key
+{
+	[[NSUserDefaults standardUserDefaults] setObject:data forKey:key];
+}
+
+// 音效音量初始化
+- (CGFloat) realSoundVolume
+{
+	return isSoundOn == YES ? 1.0 : 0;
+}
+
+// 背景音乐音量初始化
+- (CGFloat) realMusicVolume
+{
+	return isMusicOn == YES ? 1.0 : 0;
+}
+
+- (void) save
+{
+	id tmpId = [NSNumber numberWithInt:1];
+	tmpId = [NSNumber numberWithBool:isSoundOn];
+	[self storeUserData:tmpId forKey:@"isSoundOn"];
+	
+	tmpId = [NSNumber numberWithBool:isMusicOn];
+	[self storeUserData:tmpId forKey:@"isMusicOn"];
+}
+
+
+- (void) load
+{
+    id tmpId = [NSNumber numberWithInt:1];
+	tmpId = [self getUserData:@"isSoundOn"];
+	if (tmpId)
+	{
+		isSoundOn = [(NSNumber*)tmpId boolValue]?YES:NO;
+	}
+	
+	tmpId = [self getUserData:@"isMusicOn"];
+	if (tmpId)
+	{
+		isMusicOn = [(NSNumber*)tmpId boolValue]?YES:NO;
+	}
 }
 
 @end

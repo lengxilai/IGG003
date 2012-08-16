@@ -52,4 +52,14 @@ static S02 *staticS02;
     CL06 *cl06 = (CL06 *)[staticS02 getChildByTag:10016];
     [cl06 showBrokenModeScores];
 }
+
+// 显示设定页面
++(IGScene *) showSettings{
+    IGScene *scene = [S02 node];
+    staticS02 = scene;
+    CL07 *cL07 = [CL07 node];
+    [scene addChild:cL07];
+    [cL07 setTag:10017];
+    return scene;
+}
 @end

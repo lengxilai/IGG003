@@ -163,6 +163,10 @@
 -(void)gamePause
 {
     self.cl02 = [CL02 getCL02];
+    // 将透明条设置成隐藏
+    wBar.hidden = YES;
+    hBar.hidden = YES;
+    
     [self.cl02 pauseGame];
 }
 @end

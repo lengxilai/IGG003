@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SimpleAudioEngine.h"
+#import "IGGameState.h"
 
 @interface IGMusicUtil : NSObject {
 }

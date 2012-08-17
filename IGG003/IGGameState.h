@@ -106,9 +106,9 @@ typedef struct GamePlayingData_tag
     // 是否有保存的游戏数据
     BOOL isDataSaved;
     // 游戏音乐开启
-	BOOL isMusicOn;
+	bool isMusicOn;
 	// 游戏音效开启
-    BOOL isSoundOn;
+    bool isSoundOn;
     
     // 游戏中数据
     GamePlayingData	m_playingData;
@@ -126,8 +126,8 @@ typedef struct GamePlayingData_tag
 @property(nonatomic,assign) BOOL isPaused;
 @property(nonatomic,assign) BOOL isBreakBest;
 @property(nonatomic,assign) BOOL isDataSaved;
-@property(nonatomic,assign) BOOL isMusicOn;
-@property(nonatomic,assign) BOOL isSoundOn;
+@property(nonatomic,assign) bool isMusicOn;
+@property(nonatomic,assign) bool isSoundOn;
 
 +(IGGameState*)gameState;
 -(id)init;

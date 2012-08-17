@@ -45,15 +45,6 @@ static IGGameState *staticGameState;
 -(id)init
 {
     self = [super init];
-    
-    // 是否有保存的游戏数据
-    isDataSaved = NO;
-    // 游戏音乐开启
-	isMusicOn = YES;
-	// 游戏音效开启
-    isSoundOn = YES;
-    
-    [self load];
     return self;
 }
 
@@ -87,6 +78,15 @@ static IGGameState *staticGameState;
     m_broken_count = 0;
     m_s_count = 0;
     isPaused = NO;
+    
+    // 是否有保存的游戏数据
+    isDataSaved = NO;
+    // 游戏音乐开启
+	isMusicOn = true;
+	// 游戏音效开启
+    isSoundOn = true;
+    
+    [self load];
     
 }
 
@@ -139,13 +139,13 @@ static IGGameState *staticGameState;
 // 音效音量初始化
 - (CGFloat) realSoundVolume
 {
-	return isSoundOn == YES ? 1.0 : 0;
+	return isSoundOn? 1.0 : 0;
 }
 
 // 背景音乐音量初始化
 - (CGFloat) realMusicVolume
 {
-	return isMusicOn == YES ? 1.0 : 0;
+	return isMusicOn? 1.0 : 0;
 }
 
 - (void) save
@@ -165,13 +165,13 @@ static IGGameState *staticGameState;
 	tmpId = [self getUserData:@"isSoundOn"];
 	if (tmpId)
 	{
-		isSoundOn = [(NSNumber*)tmpId boolValue]?YES:NO;
+		isSoundOn = [(NSNumber*)tmpId boolValue]?true:false;
 	}
 	
 	tmpId = [self getUserData:@"isMusicOn"];
 	if (tmpId)
 	{
-		isMusicOn = [(NSNumber*)tmpId boolValue]?YES:NO;
+		isMusicOn = [(NSNumber*)tmpId boolValue]?true:false;
 	}
 }
 

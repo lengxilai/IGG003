@@ -104,6 +104,12 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"combo%d.caf", comboNum]];
 }
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops {
+    
+    // 音效关闭的状态下，不播放
+    IGGameState *m_gameState = [IGGameState gameState];
+    if(!m_gameState.isSoundOn){
+        return;
+    }
     //在资源库中的路径找指定的caf文件
     NSString *path = [[NSBundle mainBundle] pathForResource:musicName ofType:musicType];
     //在这里判断以下是否能找到这个音乐文件  

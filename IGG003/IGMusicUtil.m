@@ -33,7 +33,7 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo3.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo4.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo5.caf"];
-//    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong2.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"dilei.caf"];
 //    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong5.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong6.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"heihei.caf"];
@@ -83,10 +83,6 @@ static SimpleAudioEngine *backGroundMusicManager;
 +(void)showDeleteOfZhizhuMusic {
    [[SimpleAudioEngine sharedEngine] playEffect:@"zhizhu5.caf"];
 }
-// 瓢虫消除
-+(void)showDeleteOfPiaochongMusic {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"piaochong6.caf"];
-}
 // 炸弹消除
 +(void)showDeleteOfZhadanMusic {
     [[SimpleAudioEngine sharedEngine] playEffect:@"zhadan4.caf"];
@@ -103,6 +99,7 @@ static SimpleAudioEngine *backGroundMusicManager;
 +(void)showComboMusic:(NSInteger) comboNum {
     [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"combo%d.caf", comboNum]];
 }
+//设置指定音效的播放次数
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops {
     
     // 音效关闭的状态下，不播放

@@ -35,8 +35,6 @@
 +(void)showDeleteOfZhizhuMusic;
 // 加分音效
 +(void)showAddPointMusic;
-// 瓢虫消除
-+(void)showDeleteOfPiaochongMusic;
 // 减分音效
 +(void)showDeletePointMusic;
 // 炸弹消除

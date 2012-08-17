@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools01.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools01
 
@@ -20,12 +21,15 @@
     NSArray *t01Boxs = [self delAllTools01Box:mp];
     NSArray *newBoxs = [super processRun:mp];
     int i = 0;
-    float time = 0.2;
+    float time = 0.8;
     // 循环爆炸点、删除爆炸点和周围的箱子并且显示动画效果
     for (SpriteBox *box in t01Boxs) {
         [self performSelector:@selector(removeBoxForTools01:) withObject:box afterDelay:i*time*fTimeRate];
         i++;
     }
+    // 播放地雷音效
+    [IGMusicUtil showDeleteMusicWithNumberLoops:@"dilei" ofType:@"caf" numberOfLoops:([t01Boxs count]-1)];
+    
     // 延时重新刷新箱子矩阵
     [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:i*time*fTimeRate];
 }

@@ -14,6 +14,9 @@
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S00 node];
     
+    // 游戏状态初始化
+    [IGGameState gameState];
+    
     // 菜单背景音乐
     [IGMusicUtil showBackgroundMusic:@"bg_menu.caf"];
 	

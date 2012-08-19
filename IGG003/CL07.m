@@ -65,22 +65,22 @@
 // 音效和音乐开关
 - (void) changeLayer:(IGSettingGrade*)layer selectIdx:(int)idx
 {
-    SimpleAudioEngine* engin = [SimpleAudioEngine sharedEngine];
 	if (layer == m_soundLayer)
 	{
-        
 		m_gameState.isSoundOn = (idx == 0?YES:NO);
-        engin.effectsVolume = [m_gameState realSoundVolume];
+        [m_gameState soundContorl];
 	}
 	else if (layer == m_musicLayer)
 	{
 		m_gameState.isMusicOn = (idx == 0?YES:NO);
-        engin.backgroundMusicVolume = [m_gameState realMusicVolume];
+        [m_gameState musicContorl];
 	}
 }
 
 -(void)gobackMenu
 {
+    // 保存设置数据
+    [m_gameState save];
     [[CCDirector sharedDirector] replaceScene:[S00 scene]];
 }
 

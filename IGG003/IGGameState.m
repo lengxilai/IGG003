@@ -121,12 +121,6 @@ static IGGameState *staticGameState;
 
 ///////////////////
 
-// 读取游戏数据
-- (GamePlayingData*) getPlayingData
-{
-	return &m_playingData;
-}
-
 // 取得用户信息
 - (id) getUserData:(NSString*) key
 {
@@ -139,18 +133,21 @@ static IGGameState *staticGameState;
 	[[NSUserDefaults standardUserDefaults] setObject:data forKey:key];
 }
 
-// 音效音量初始化
-- (CGFloat) realSoundVolume
+// 音效控制
+- (void) soundContorl
 {
-	return isSoundOn == YES? 1.0 : 0;
+    SimpleAudioEngine* engin = [SimpleAudioEngine sharedEngine];
+    engin.effectsVolume = isSoundOn == YES? 1.0 : 0.0;
 }
 
-// 背景音乐音量初始化
-- (CGFloat) realMusicVolume
+// 背景音乐控制
+- (void) musicContorl
 {
-	return isMusicOn == YES? 1.0 : 0;
+    SimpleAudioEngine* engin = [SimpleAudioEngine sharedEngine];
+    engin.backgroundMusicVolume = isMusicOn == YES? 1.0 : 0.0;
 }
 
+// 保存游戏数据
 - (void) save
 {
 	id tmpId = [NSNumber numberWithInt:1];
@@ -164,7 +161,7 @@ static IGGameState *staticGameState;
     [self storeUserData:m_scoreListBroken forKey:@"ScoreListBroken"];
 }
 
-
+// 读取游戏数据
 - (void) load
 {
     id tmpId = [NSNumber numberWithInt:1];
@@ -173,12 +170,14 @@ static IGGameState *staticGameState;
 	{
 		isSoundOn = [(NSNumber*)tmpId boolValue]?YES:NO;
 	}
-	
+	[self soundContorl];
+    
 	tmpId = [self getUserData:@"isMusicOn"];
 	if (tmpId)
 	{
 		isMusicOn = [(NSNumber*)tmpId boolValue]?YES:NO;
 	}
+    [self musicContorl];
     
     tmpId = [self getUserData:@"ScoreListNormal"];
 	if (tmpId)
@@ -195,6 +194,7 @@ static IGGameState *staticGameState;
 	}
 }
 
+// 添加游戏分数
 - (void) insertScore:(int) score
 {
     if(self.gameMode == IGGameMode1){
@@ -205,12 +205,14 @@ static IGGameState *staticGameState;
     }
 }
 
+// 根据游戏模式添加分数，内部用
 - (void) insertScore:(int) score
 		   scoreList:(NSMutableArray*)socreList 
 {
 	int count = [socreList count];
 	int insertIdx = 0;
 	
+    // 游戏分数排序
 	for ( ; insertIdx < count; insertIdx++)
 	{
 		NSNumber* curScore = [socreList objectAtIndex:insertIdx];
@@ -223,7 +225,7 @@ static IGGameState *staticGameState;
 	NSNumber* num = [[NSNumber alloc] initWithInt:score];
 	[socreList insertObject:num atIndex:insertIdx];
 	[num release];
-	
+	// 最多显示20回的分数
 	if ([socreList count] > 20)
 	{
 		[socreList removeLastObject];

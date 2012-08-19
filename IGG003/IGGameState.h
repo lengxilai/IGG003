@@ -103,15 +103,19 @@ typedef struct GamePlayingData_tag
     // 是否破纪录
     BOOL isBreakBest;
     
-    // 是否有保存的游戏数据
-    BOOL isDataSaved;
     // 游戏音乐开启
-	bool isMusicOn;
+	BOOL isMusicOn;
 	// 游戏音效开启
-    bool isSoundOn;
+    BOOL isSoundOn;
     
     // 游戏中数据
     GamePlayingData	m_playingData;
+    
+    // 普通分数列表
+    NSMutableArray*	m_scoreListNormal;
+    
+    // 分数列表
+    NSMutableArray*	m_scoreListBroken;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -125,9 +129,10 @@ typedef struct GamePlayingData_tag
 @property(nonatomic,assign) BOOL isHappyTime;
 @property(nonatomic,assign) BOOL isPaused;
 @property(nonatomic,assign) BOOL isBreakBest;
-@property(nonatomic,assign) BOOL isDataSaved;
-@property(nonatomic,assign) bool isMusicOn;
-@property(nonatomic,assign) bool isSoundOn;
+@property(nonatomic,assign) BOOL isMusicOn;
+@property(nonatomic,assign) BOOL isSoundOn;
+@property(nonatomic,assign) NSMutableArray *m_scoreListNormal;
+@property(nonatomic,assign) NSMutableArray *m_scoreListBroken;
 
 +(IGGameState*)gameState;
 -(id)init;
@@ -145,4 +150,7 @@ typedef struct GamePlayingData_tag
 - (void) load;
 - (CGFloat) realSoundVolume;
 - (CGFloat) realMusicVolume;
+
+// 添加得分
+- (void) insertScore:(int) score;
 @end

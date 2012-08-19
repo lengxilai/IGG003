@@ -103,6 +103,10 @@
 }
 //写入plist
 -(void)writePlistWithGameMode:(NSString *)gameMode withScore:(int)score{
+    
+    // 写入分数
+    [[IGGameState gameState] insertScore:score];
+    
     NSArray *scoreArr = [self readPlistWithGameMode:gameMode];
     NSMutableArray *newScoreArr = [[[NSMutableArray alloc] init] autorelease];
      IGGameState *gameState = [IGGameState gameState];

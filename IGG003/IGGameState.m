@@ -22,9 +22,10 @@ static IGGameState *staticGameState;
 @synthesize gameMode;
 @synthesize isPaused;
 @synthesize isBreakBest;
-@synthesize isDataSaved;
 @synthesize isMusicOn;
 @synthesize isSoundOn;
+@synthesize m_scoreListNormal;
+@synthesize m_scoreListBroken;
 
 +(IGGameState*)gameState
 {
@@ -45,6 +46,17 @@ static IGGameState *staticGameState;
 -(id)init
 {
     self = [super init];
+    
+    // 分数初始化
+    m_scoreListNormal = [[NSMutableArray alloc] initWithCapacity:21];
+    m_scoreListBroken = [[NSMutableArray alloc] initWithCapacity:21];
+    // 游戏音乐开启
+	isMusicOn = YES;
+	// 游戏音效开启
+    isSoundOn = YES;
+    
+    [self load];
+    
     return self;
 }
 
@@ -78,15 +90,6 @@ static IGGameState *staticGameState;
     m_broken_count = 0;
     m_s_count = 0;
     isPaused = NO;
-    
-    // 是否有保存的游戏数据
-    isDataSaved = NO;
-    // 游戏音乐开启
-	isMusicOn = true;
-	// 游戏音效开启
-    isSoundOn = true;
-    
-    [self load];
     
 }
 
@@ -139,13 +142,13 @@ static IGGameState *staticGameState;
 // 音效音量初始化
 - (CGFloat) realSoundVolume
 {
-	return isSoundOn? 1.0 : 0;
+	return isSoundOn == YES? 1.0 : 0;
 }
 
 // 背景音乐音量初始化
 - (CGFloat) realMusicVolume
 {
-	return isMusicOn? 1.0 : 0;
+	return isMusicOn == YES? 1.0 : 0;
 }
 
 - (void) save
@@ -156,6 +159,9 @@ static IGGameState *staticGameState;
 	
 	tmpId = [NSNumber numberWithBool:isMusicOn];
 	[self storeUserData:tmpId forKey:@"isMusicOn"];
+    
+    [self storeUserData:m_scoreListNormal forKey:@"ScoreListNormal"];
+    [self storeUserData:m_scoreListBroken forKey:@"ScoreListBroken"];
 }
 
 
@@ -165,14 +171,64 @@ static IGGameState *staticGameState;
 	tmpId = [self getUserData:@"isSoundOn"];
 	if (tmpId)
 	{
-		isSoundOn = [(NSNumber*)tmpId boolValue]?true:false;
+		isSoundOn = [(NSNumber*)tmpId boolValue]?YES:NO;
 	}
 	
 	tmpId = [self getUserData:@"isMusicOn"];
 	if (tmpId)
 	{
-		isMusicOn = [(NSNumber*)tmpId boolValue]?true:false;
+		isMusicOn = [(NSNumber*)tmpId boolValue]?YES:NO;
+	}
+    
+    tmpId = [self getUserData:@"ScoreListNormal"];
+	if (tmpId)
+	{
+		[m_scoreListNormal release];
+		m_scoreListNormal = [[NSMutableArray alloc] initWithArray:(NSArray*)tmpId];
+	}
+    
+    tmpId = [self getUserData:@"ScoreListBroken"];
+	if (tmpId)
+	{
+		[m_scoreListBroken release];
+		m_scoreListBroken = [[NSMutableArray alloc] initWithArray:(NSArray*)tmpId];
 	}
 }
+
+- (void) insertScore:(int) score
+{
+    if(self.gameMode == IGGameMode1){
+        [self insertScore:score scoreList:m_scoreListNormal];
+    }
+    if(self.gameMode == IGGameMode2){
+        [self insertScore:score scoreList:m_scoreListBroken];
+    }
+}
+
+- (void) insertScore:(int) score
+		   scoreList:(NSMutableArray*)socreList 
+{
+	int count = [socreList count];
+	int insertIdx = 0;
+	
+	for ( ; insertIdx < count; insertIdx++)
+	{
+		NSNumber* curScore = [socreList objectAtIndex:insertIdx];
+		if (score >= [curScore intValue])
+		{
+			break;
+		}
+	}
+	
+	NSNumber* num = [[NSNumber alloc] initWithInt:score];
+	[socreList insertObject:num atIndex:insertIdx];
+	[num release];
+	
+	if ([socreList count] > 20)
+	{
+		[socreList removeLastObject];
+	}	
+}
+
 
 @end

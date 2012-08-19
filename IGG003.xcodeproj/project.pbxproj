@@ -164,6 +164,7 @@
 		D7030C2215B6B43400BA5EF4 /* SL01.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2015B6B43400BA5EF4 /* SL01.m */; };
 		D7030C2515B6B44400BA5EF4 /* SpriteBox.m in Sources */ = {isa = PBXBuildFile; fileRef = D7030C2415B6B44400BA5EF4 /* SpriteBox.m */; };
 		D743962F15C0B5BD00467020 /* IGBoxToolUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */; };
+		D782332D15DFA7CA0047F37B /* CL08.m in Sources */ = {isa = PBXBuildFile; fileRef = D782332B15DFA7CA0047F37B /* CL08.m */; };
 		D7860FFA15DA8BEB001BC40A /* CL07.m in Sources */ = {isa = PBXBuildFile; fileRef = D7860FF915DA8BEB001BC40A /* CL07.m */; };
 		D7860FFE15DA94ED001BC40A /* IGSettingGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = D7860FFD15DA94ED001BC40A /* IGSettingGrade.m */; };
 		DC0290D615CFBD68006040B3 /* zhizhu7.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC0290D515CFBD68006040B3 /* zhizhu7.caf */; };
@@ -513,6 +514,8 @@
 		D7030C2415B6B44400BA5EF4 /* SpriteBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteBox.m; sourceTree = "<group>"; };
 		D743962D15C0B5BD00467020 /* IGBoxToolUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxToolUtil.h; sourceTree = "<group>"; };
 		D743962E15C0B5BD00467020 /* IGBoxToolUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxToolUtil.m; sourceTree = "<group>"; };
+		D782332A15DFA7CA0047F37B /* CL08.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL08.h; sourceTree = "<group>"; };
+		D782332B15DFA7CA0047F37B /* CL08.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL08.m; sourceTree = "<group>"; };
 		D7860FF815DA8BEB001BC40A /* CL07.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL07.h; sourceTree = "<group>"; };
 		D7860FF915DA8BEB001BC40A /* CL07.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL07.m; sourceTree = "<group>"; };
 		D7860FFC15DA94ED001BC40A /* IGSettingGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGSettingGrade.h; sourceTree = "<group>"; };
@@ -1006,6 +1009,8 @@
 				E230445415D3AB7100C4D2E3 /* CL06.m */,
 				D7860FF815DA8BEB001BC40A /* CL07.h */,
 				D7860FF915DA8BEB001BC40A /* CL07.m */,
+				D782332A15DFA7CA0047F37B /* CL08.h */,
+				D782332B15DFA7CA0047F37B /* CL08.m */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -1411,6 +1416,7 @@
 				E274588D15D3B2AE00E77BE6 /* S02.m in Sources */,
 				D7860FFA15DA8BEB001BC40A /* CL07.m in Sources */,
 				D7860FFE15DA94ED001BC40A /* IGSettingGrade.m in Sources */,
+				D782332D15DFA7CA0047F37B /* CL08.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

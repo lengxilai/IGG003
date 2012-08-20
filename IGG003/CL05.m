@@ -45,15 +45,7 @@
         int score = [self getGameScore];
         
         [self writePlistWithGameMode:[self getGameModeStr] withScore:score];
-        //得分字体
-        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"your score" fntFile:@"bitmapFont.fnt"];
-        yourScoreStr.position = ccp(kWindowW/2,330);
-        [self addChild:yourScoreStr];
         
-            
-        CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",score] fntFile:@"bitmapFont.fnt"];
-        scoreStr.position = ccp(kWindowW/2,300);
-        [self addChild:scoreStr];
         //得分纪录
         CCLabelBMFont *bestScoreStr = [CCLabelBMFont labelWithString:@"best scores" fntFile:@"bitmapFont.fnt"];
         bestScoreStr.position = ccp(kWindowW/2,260);
@@ -67,7 +59,22 @@
         
             [self addChild:scoreStr];
         }
-        
+        //得分字体
+        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"your score" fntFile:@"bitmapFont.fnt"];
+        yourScoreStr.position = ccp(kWindowW/2,330);
+        [self addChild:yourScoreStr];
+
+        NSString *scoreStrFile;
+        if(!gameState.isBreakBest){
+            //未进入前三名  黑色显示
+            scoreStrFile = [NSString stringWithString:@"bitmapFont.fnt"];
+        }else{
+            //进入前3名  红色显示
+            scoreStrFile = [NSString stringWithString:@"bitmapFont2.fnt"];
+        }
+        CCLabelBMFont *scoreStr= [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",score] fntFile:scoreStrFile];
+        scoreStr.position = ccp(kWindowW/2,300);
+        [self addChild:scoreStr];
         
     }
     return self;
@@ -103,10 +110,16 @@
 }
 //写入plist
 -(void)writePlistWithGameMode:(NSString *)gameMode withScore:(int)score{
+    
+    // 写入分数
+    [[IGGameState gameState] insertScore:score];
+    
     NSArray *scoreArr = [self readPlistWithGameMode:gameMode];
     NSMutableArray *newScoreArr = [[[NSMutableArray alloc] init] autorelease];
      IGGameState *gameState = [IGGameState gameState];
     if([scoreArr count] == 0){
+        //只有一条纪录不论分数多少都算破纪录
+        gameState.isBreakBest = YES;
         [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
     }
     
@@ -115,7 +128,7 @@
             //正常纪录
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
             
-            if(bestScore <= score){
+            if(bestScore <= score && !gameState.isBreakBest){
                 gameState.isBreakBest = YES;
                 //破纪录时
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
@@ -132,7 +145,8 @@
                 break;
             }
         }else if([scoreArr count] != 0 && !gameState.isBreakBest){
-            //纪录中少于三条的时候的最后一条
+            //纪录中少于三条的时候的最后一条，并且属于破纪录
+            gameState.isBreakBest = YES;
             [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
             break;
         }else{

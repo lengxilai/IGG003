@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "SimpleAudioEngine.h"
 // 游戏模式
 typedef enum{
     IGGameMode1 = 1,IGGameMode2 = 2,
@@ -45,33 +45,6 @@ MxPointMake(int r, int c)
     MxPoint p; p.R = r; p.C = c; return p;
 };
 
-// 游戏中数据的纪录
-typedef struct GamePlayingData_tag
-{   
-    // 游戏时间
-    int m_time;
-    // 游戏等级
-    int m_combo;
-    // 游戏分数
-	int m_scores;
-    // 页面状态
-	NSArray *m;
-    // 欢乐时光
-    BOOL isHappyTime;
-    // 水果种类数
-    int m_box_level;
-    // 上一次消除的数量
-    int m_del_count;
-    // 上一次消除的石头数量
-    int m_broken_count;
-    // 游戏模式
-    IGGameMode gameMode; 
-    // 当前石头的数量
-    int m_s_count;
-    BOOL isPaused;
-    BOOL isBreakBest;
-} GamePlayingData;
-
 @interface IGGameState : NSObject
 {
     NSArray *m;
@@ -103,15 +76,16 @@ typedef struct GamePlayingData_tag
     // 是否破纪录
     BOOL isBreakBest;
     
-    // 是否有保存的游戏数据
-    BOOL isDataSaved;
     // 游戏音乐开启
 	BOOL isMusicOn;
 	// 游戏音效开启
     BOOL isSoundOn;
     
-    // 游戏中数据
-    GamePlayingData	m_playingData;
+    // 普通分数列表
+    NSMutableArray*	m_scoreListNormal;
+    
+    // 分数列表
+    NSMutableArray*	m_scoreListBroken;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -125,9 +99,10 @@ typedef struct GamePlayingData_tag
 @property(nonatomic,assign) BOOL isHappyTime;
 @property(nonatomic,assign) BOOL isPaused;
 @property(nonatomic,assign) BOOL isBreakBest;
-@property(nonatomic,assign) BOOL isDataSaved;
 @property(nonatomic,assign) BOOL isMusicOn;
 @property(nonatomic,assign) BOOL isSoundOn;
+@property(nonatomic,assign) NSMutableArray *m_scoreListNormal;
+@property(nonatomic,assign) NSMutableArray *m_scoreListBroken;
 
 +(IGGameState*)gameState;
 -(id)init;
@@ -137,12 +112,14 @@ typedef struct GamePlayingData_tag
 -(void)setScore:(int)score;
 -(void)clearGameState;
 
-// 取得当前游戏数据
-- (GamePlayingData*)	getPlayingData;
 // 保存游戏数据
 - (void) save;
 // 读取游戏数据
 - (void) load;
-- (CGFloat) realSoundVolume;
-- (CGFloat) realMusicVolume;
+// 音效控制
+- (void) soundContorl;
+// 音乐控制
+- (void) musicContorl;
+// 添加得分
+- (void) insertScore:(int) score;
 @end

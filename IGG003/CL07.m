@@ -27,7 +27,6 @@
         
         // 取得全局数据
         m_gameState = [IGGameState gameState];
-        
         CGSize contentSize = self.contentSize;
         // 音效	
         m_soundLayer = [[IGSettingGrade alloc] initWithLabelName:@"SOUND:" 
@@ -36,7 +35,7 @@
                                                           delegate:self];
         m_soundLayer.anchorPoint = ccp(0.5, 0.5);
         m_soundLayer.position = ccp(0, contentSize.height - 250);
-        m_soundLayer.selectedIndex = m_gameState.isSoundOn==NO ? 0 : 1;
+        m_soundLayer.selectedIndex = m_gameState.isSoundOn == YES? 0 : 1;
         [self addChild:m_soundLayer];
        
         
@@ -49,7 +48,7 @@
         m_musicLayer.position = ccp(0, contentSize.height - 375);
         [self addChild:m_musicLayer];
         
-        m_musicLayer.selectedIndex = m_gameState.isMusicOn ==NO ? 0 : 1;
+        m_musicLayer.selectedIndex = m_gameState.isMusicOn == YES? 0 : 1;
         
          //添加一个返回游戏按钮；
         CCSprite* menuNormal=[CCSprite spriteWithSpriteFrameName:@"btn7-1.png"];
@@ -66,23 +65,22 @@
 // 音效和音乐开关
 - (void) changeLayer:(IGSettingGrade*)layer selectIdx:(int)idx
 {
-    SimpleAudioEngine* engin = [SimpleAudioEngine sharedEngine];
 	if (layer == m_soundLayer)
 	{
-        
 		m_gameState.isSoundOn = (idx == 0?YES:NO);
-        engin.effectsVolume = [m_gameState realSoundVolume];
+        [m_gameState soundContorl];
 	}
 	else if (layer == m_musicLayer)
 	{
 		m_gameState.isMusicOn = (idx == 0?YES:NO);
-        NSLog(@"%d",m_gameState.isMusicOn);
-        engin.backgroundMusicVolume = [m_gameState realMusicVolume];
+        [m_gameState musicContorl];
 	}
 }
 
 -(void)gobackMenu
 {
+    // 保存设置数据
+    [m_gameState save];
     [[CCDirector sharedDirector] replaceScene:[S00 scene]];
 }
 

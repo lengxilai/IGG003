@@ -14,6 +14,9 @@
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S00 node];
     
+    // 游戏状态初始化
+    [IGGameState gameState];
+    
     // 菜单背景音乐
     [IGMusicUtil showBackgroundMusic:@"bg_menu.caf"];
 	
@@ -57,7 +60,7 @@
     CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(startGameForBroken)];
     CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(showScores)];
     CCMenuItemSprite* settingSprite=[CCMenuItemSprite itemFromNormalSprite:settingNormal selectedSprite:settingSecelt target:scene selector:@selector(showSettings)];
-    CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(startGame)];
+    CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(showAbout)];
     
     // 开始游戏按钮
     CCMenu* menu1=[CCMenu menuWithItems:startSprite,brokenSprite,nil];
@@ -92,4 +95,10 @@
 -(void)showSettings{
     [[CCDirector sharedDirector] replaceScene:[S02 showSettings]];
 }
+
+// 关于页面
+-(void)showAbout{
+    [[CCDirector sharedDirector] replaceScene:[S02 showAbout]];
+}
+
 @end

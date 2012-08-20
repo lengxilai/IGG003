@@ -62,4 +62,15 @@ static S02 *staticS02;
     [cL07 setTag:10017];
     return scene;
 }
+
+// 显示关于页面
++(IGScene *) showAbout{
+    // 暂时显示分数统计页面
+    IGScene *scene = [S02 node];
+    staticS02 = scene;
+    CL08 *cL08 = [CL08 node];
+    [scene addChild:cL08];
+    [cL08 setTag:10018];
+    return scene;
+}
 @end

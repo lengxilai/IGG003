@@ -62,7 +62,7 @@
 
 -(void)gobackMenu
 {
-    [[CCDirector sharedDirector] replaceScene:[S00 scene]];
+    [[CCDirector sharedDirector] replaceScene:[S00 scene:YES]];
 }
 
 -(void)removePauseGameLayer //退出暂停界面，返回游戏；

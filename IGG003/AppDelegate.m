@@ -113,7 +113,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [S00 scene]];
+	[[CCDirector sharedDirector] runWithScene: [S00 scene:YES]];
 }
 
 

@@ -92,7 +92,7 @@
 
 -(void)gobackMenu
 {
-    [[CCDirector sharedDirector] replaceScene:[S00 scene]];
+    [[CCDirector sharedDirector] replaceScene:[S00 scene:YES]];
 }
 
 //读取plist

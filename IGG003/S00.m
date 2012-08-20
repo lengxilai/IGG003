@@ -10,15 +10,18 @@
 #import "IGMusicUtil.h"
 
 @implementation S00
-+(IGScene *) scene{
++(IGScene *) scene:(BOOL) needChangeMusic {
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S00 node];
-    
+
     // 游戏状态初始化
     [IGGameState gameState];
+    // 从分数画面和设定画面不换背景音乐
     
-    // 菜单背景音乐
-    [IGMusicUtil showBackgroundMusic:@"bg_menu.caf"];
+    if (needChangeMusic) {
+        // 菜单背景音乐
+        [IGMusicUtil showBackgroundMusic:@"bg_menu.caf"];
+    }
 	
     // 添加图片缓存
     {

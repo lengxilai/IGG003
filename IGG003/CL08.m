@@ -70,7 +70,7 @@
 -(void)gobackMenu
 {
     [m_tableView removeFromSuperview];
-    [[CCDirector sharedDirector] replaceScene:[S00 scene]];
+    [[CCDirector sharedDirector] replaceScene:[S00 scene:NO]];
 }
 
 // 显示普通模式分数

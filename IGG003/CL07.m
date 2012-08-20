@@ -81,7 +81,7 @@
 {
     // 保存设置数据
     [m_gameState save];
-    [[CCDirector sharedDirector] replaceScene:[S00 scene]];
+    [[CCDirector sharedDirector] replaceScene:[S00 scene:NO]];
 }
 
 - (void) dealloc

@@ -16,9 +16,6 @@ static SimpleAudioEngine *backGroundMusicManager;
     backGroundMusicManager = [SimpleAudioEngine sharedEngine];
     
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake1.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake2.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"delete3.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"delete4.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhizhu7.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"point.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music1.caf"];
@@ -33,14 +30,10 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo3.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo4.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"combo5.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"dilei.caf"];
-//    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong5.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"piaochong6.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"dilei5.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"dilei_end.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"heihei.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhandan.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhandan2.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"badpoint.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"orange2.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"snowfly.caf"];
 }
 
@@ -98,6 +91,10 @@ static SimpleAudioEngine *backGroundMusicManager;
 // combo音效
 +(void)showComboMusic:(NSInteger) comboNum {
     [[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"combo%d.caf", comboNum]];
+}
+// 地雷微音音效
++(void)showDileEndMusic {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"dilei_end.caf"];
 }
 //设置指定音效的播放次数
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops {

@@ -10,6 +10,6 @@
 #import "S01.h"
 #import "S02.h"
 @interface S00 : IGScene
-+(IGScene *) scene;
++(IGScene *) scene:(BOOL) needChangeMusic;
 -(void)startGame;
 @end

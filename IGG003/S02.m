@@ -25,13 +25,13 @@ static S02 *staticS02;
     [scene addChild:cl06];
     [cl06 setTag:10016];
     //broken mode
-    CCSprite* brokenNormal=[CCSprite spriteWithSpriteFrameName:@"btn1-1.png"];
-    CCSprite* brokenSecelt=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
+    CCSprite* brokenNormal=[CCSprite spriteWithSpriteFrameName:@"btn11-1.png"];
+    CCSprite* brokenSecelt=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
     brokenNormal.scale = 0.8f;
     brokenSecelt.scale=0.75f;
     //arcade mode 
-    CCSprite* arcadeNormal=[CCSprite spriteWithSpriteFrameName:@"btn11-1.png"];
-    CCSprite* arcadeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
+    CCSprite* arcadeNormal=[CCSprite spriteWithSpriteFrameName:@"btn1-1.png"];
+    CCSprite* arcadeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
     arcadeNormal.scale = 0.8f;
     arcadeSecelt.scale=0.75f;
     

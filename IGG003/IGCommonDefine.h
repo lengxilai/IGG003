@@ -60,6 +60,9 @@
 
 #define brokenMode @"broken"
 #define arcadeMode @"arcade"
+#define scoreWriteNum 5
+#define scoreReadNum 3
+#define scoreAllReadNum 5
 
 @interface IGCommonDefine : NSObject
 

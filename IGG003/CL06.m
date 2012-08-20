@@ -67,7 +67,7 @@
 -(void)showBrokenModeScores{
     //隐藏arcade mode分数
     [self setArcadeModeScoresHidden];
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600200 + i];
         if(scoreStr){
             [scoreStr setVisible:YES];
@@ -77,7 +77,7 @@
 -(void)showArcadeModeScores{
     //隐藏broken mode 分数
     [self setBrokenModeScoresHidden];
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600100 + i];
         if(scoreStr){
             [scoreStr setVisible:YES];
@@ -85,7 +85,7 @@
     }
 }
 -(void)setBrokenModeScoresHidden{
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600200 + i];
         if(scoreStr){
             [scoreStr setVisible:NO];
@@ -93,7 +93,7 @@
     }
 }
 -(void)setArcadeModeScoresHidden{
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600100 + i];
         if(scoreStr){
             [scoreStr setVisible:NO];

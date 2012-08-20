@@ -51,7 +51,7 @@
         bestScoreStr.position = ccp(kWindowW/2,260);
         [self addChild:bestScoreStr];
         NSArray *array  = [self readPlistWithGameMode:[self getGameModeStr]];
-        for (int i = 0; i < [array count] && i < 3; i++) {
+        for (int i = 0; i < [array count] && i < scoreReadNum; i++) {
             NSLog(@"%@",[array objectAtIndex:i]);
             
             CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:i] fntFile:@"bitmapFont.fnt"];
@@ -123,17 +123,20 @@
         [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
     }
     
-    for(int i = 0 ; i < 5;i++){
+    for(int i = 0 ; i < scoreWriteNum;i++){
         if(i < [scoreArr count]){
             //正常纪录
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
             
             if(bestScore <= score && !gameState.isBreakBest){
-                gameState.isBreakBest = YES;
-                //破纪录时
+                
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
-                if([newScoreArr count] < 3){
-                   [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]]; 
+                if([newScoreArr count] < scoreReadNum){
+                    gameState.isBreakBest = YES;
+                }
+                if([newScoreArr count] < scoreWriteNum){
+                    [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]]; 
+                    //破纪录时 进入前3
                 }else {
                     break;
                 }
@@ -141,12 +144,12 @@
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]];
             }
             //超过条数时
-            if([newScoreArr count] >= 5){
+            if([newScoreArr count] >= scoreWriteNum){
                 break;
             }
         }else if([scoreArr count] != 0 && !gameState.isBreakBest){
             //纪录中少于三条的时候的最后一条，并且属于破纪录
-            if(i < 3){
+            if(i < scoreReadNum){
                 gameState.isBreakBest = YES;
             }
             [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];

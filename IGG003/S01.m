@@ -18,6 +18,10 @@ static S01 *staticS01;
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
     
+    IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
+    bak.position = ccp(kWindowW/2,kWindowH/2);
+    [scene addChild:bak];
+    
 	// 游戏层
 	SL01 *sl01 = [SL01 node];
 	[scene addChild: sl01];
@@ -57,6 +61,10 @@ static S01 *staticS01;
     
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
+    
+    IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
+    bak.position = ccp(kWindowW/2,kWindowH/2);
+    [scene addChild:bak];
     
 	// 游戏层
 	SL01 *sl01 = [SL01 node];
@@ -131,6 +139,8 @@ static S01 *staticS01;
         [cl01 onExit];
         [cl02 onExit];
         
+        [self readyForGameOver];
+        
         [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:1];
         
     }
@@ -142,9 +152,21 @@ static S01 *staticS01;
     [staticS01 addChild:cl05];
 }
 
+-(void)readyForGameOver
+{
+    SL01 *sl01 = [self getChildByTag:1001];
+    CCScaleTo *st = [CCScaleTo actionWithDuration:0.8 scale:0];
+    CCRotateBy *rb = [CCRotateBy actionWithDuration:0.8 angle:300];
+    CCSpawn *spawn = [CCSpawn actions:st,rb, nil];
+    [sl01 runAction:spawn];
+}
+
 -(void)overGameForMode2
 {
-    CL05 *cl05 = [CL05 node];
-    [staticS01 addChild:cl05];
+    CL01 *cl01 = (CL01 *)[staticS01 getChildByTag:10011];
+    
+    [cl01 onExit];
+    [self readyForGameOver];
+    [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:1];
 }
 @end

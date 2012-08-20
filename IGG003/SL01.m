@@ -29,10 +29,6 @@
         [particleManager add:1 particleOfType:@"snow" atZ:3];
         [particleManager add:1 particleOfType:@"heart" atZ:4];
         
-        IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
-        bak.position = ccp(kWindowW/2,kWindowH/2);
-        [self addChild:bak];
-        
         // 取得游戏状态中的矩阵
         IGGameState *gs = [IGGameState gameState];
         // 初始化游戏状态

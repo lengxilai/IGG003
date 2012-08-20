@@ -49,7 +49,7 @@
     
     CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
     CCMenu* menu=[CCMenu menuWithItems:menuSprite,nil];
-    menu.position=ccp(kWindowW/2, 40);
+    menu.position=ccp(kWindowW/2, 100);
     [self addChild:menu];
     
 	// 分数显示区域

@@ -18,7 +18,7 @@
     if (self=[super init]) {
         
         //加载游戏终了背景图片
-        IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
+        IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         
@@ -28,7 +28,7 @@
         CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
         //添加一个返回游戏按钮；
         CCMenu* menu=[CCMenu menuWithItems:menuSprite,nil];
-        menu.position=ccp(kWindowW/2, 40);
+        menu.position=ccp(kWindowW/2, 100);
         [self addChild:menu];
             
         CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"Best Scores:" fntFile:@"bitmapFont.fnt"];

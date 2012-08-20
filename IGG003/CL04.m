@@ -21,6 +21,10 @@
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         
+        IGSprite *title = [IGSprite spriteWithSpriteFrameName:@"paused_title.png"];
+        title.position = ccp(kWindowW/2,400);
+        [self addChild:title];
+        
         CCSprite* resumeNormal=[CCSprite spriteWithSpriteFrameName:@"btn5-1.png"];
         CCSprite* resumeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn5-2.png"];
         resumeSecelt.scale=0.95f;

@@ -25,22 +25,22 @@ static S02 *staticS02;
     [scene addChild:cl06];
     [cl06 setTag:10016];
     //broken mode
-    CCSprite* brokenNormal=[CCSprite spriteWithSpriteFrameName:@"btn11-1.png"];
-    CCSprite* brokenSecelt=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
-    brokenNormal.scale = 0.6f;
-    brokenSecelt.scale=0.55f;
+    CCSprite* brokenNormal=[CCSprite spriteWithSpriteFrameName:@"btn1-1.png"];
+    CCSprite* brokenSecelt=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
+    brokenNormal.scale = 0.8f;
+    brokenSecelt.scale=0.75f;
     //arcade mode 
     CCSprite* arcadeNormal=[CCSprite spriteWithSpriteFrameName:@"btn11-1.png"];
     CCSprite* arcadeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
-    arcadeNormal.scale = 0.6f;
-    arcadeSecelt.scale=0.55f;
+    arcadeNormal.scale = 0.8f;
+    arcadeSecelt.scale=0.75f;
     
     CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(showBrokenModeScores)];
     CCMenuItemSprite* arcadeSprite=[CCMenuItemSprite itemFromNormalSprite:arcadeNormal selectedSprite:arcadeSecelt target:scene selector:@selector(showArcadeModeScores)];
     
     CCMenu* menu=[CCMenu menuWithItems:arcadeSprite,brokenSprite,nil];
     [menu alignItemsHorizontallyWithPadding:0];
-    menu.position=ccp(150, 350);    
+    menu.position=ccp(kWindowW/2+10, 400);    
     [scene addChild:menu];
     return scene;
 }

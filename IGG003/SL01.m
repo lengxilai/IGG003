@@ -56,8 +56,17 @@
     }
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
+    
+    // 清除之前的效果
+    [self clearShow];
+    
     // 如果为道具则退出
     if (b.isTool) {
+        return;
+    }
+    
+    // 如果是石头则直接退出
+    if (b.bType == eGbt99) {
         return;
     }
     
@@ -151,7 +160,6 @@
 // 显示没有道具消除的箱子
 -(void)showNoTool:(MxPoint)mp
 {
-    [self clearShow];
     IGBoxBase *t = [[IGBoxBase alloc] initForLayer:self forParticle:particleManager];
     [t show:mp];
     [t release];

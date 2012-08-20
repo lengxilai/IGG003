@@ -41,6 +41,8 @@
 +(void)showDeleteOfZhadanMusic;
 // combo音效
 +(void)showComboMusic:(NSInteger) comboNum;
+// 地雷微音音效
++(void)showDileEndMusic;
 //设置指定音效的播放次数
 +(void)showDeleteMusicWithNumberLoops:(NSString *) musicName ofType:(NSString *) musicType numberOfLoops:(NSInteger) numberOfLoops;
 @end

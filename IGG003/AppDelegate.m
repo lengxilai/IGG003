@@ -131,6 +131,9 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {
 	[[CCDirector sharedDirector] stopAnimation];
+    //退出时显示暂停
+    S01 *s01 = [S01 getS01];
+    [s01 pauseGame];
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {

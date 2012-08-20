@@ -51,7 +51,7 @@
         bestScoreStr.position = ccp(kWindowW/2,260);
         [self addChild:bestScoreStr];
         NSArray *array  = [self readPlistWithGameMode:[self getGameModeStr]];
-        for (int i = 0; i < [array count]; i++) {
+        for (int i = 0; i < [array count] && i < 3; i++) {
             NSLog(@"%@",[array objectAtIndex:i]);
             
             CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:i] fntFile:@"bitmapFont.fnt"];
@@ -123,7 +123,7 @@
         [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
     }
     
-    for(int i = 0 ; i < 3;i++){
+    for(int i = 0 ; i < 5;i++){
         if(i < [scoreArr count]){
             //正常纪录
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
@@ -141,12 +141,14 @@
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]];
             }
             //超过条数时
-            if([newScoreArr count] >= 3){
+            if([newScoreArr count] >= 5){
                 break;
             }
         }else if([scoreArr count] != 0 && !gameState.isBreakBest){
             //纪录中少于三条的时候的最后一条，并且属于破纪录
-            gameState.isBreakBest = YES;
+            if(i < 3){
+                gameState.isBreakBest = YES;
+            }
             [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
             break;
         }else{

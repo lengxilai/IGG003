@@ -17,8 +17,8 @@
     [hBar removeFromSuperview];
     [wBar release];
     [hBar release];
-    [self.cl02 release];
-    [self.sl01 release];
+    [cl02 release];
+    [sl01 release];
     [super dealloc];
 }
 

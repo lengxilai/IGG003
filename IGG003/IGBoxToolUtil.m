@@ -136,10 +136,10 @@
 +(NSArray*)getNewBoxNoTool:(CCNode*) node clickPoint:(MxPoint)mp
 {
     // 取得目标箱子   TODO 这个东西是不是能写个珙桐方法，或者直接传箱子，不传MxPoint
-    int r = mp.R;
-    int c = mp.C;
-    int targetBoxTag = r*kBoxTagR+c;
-    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
+//    int r = mp.R;
+//    int c = mp.C;
+//    int targetBoxTag = r*kBoxTagR+c;
+//    SpriteBox *box = (SpriteBox *)[node getChildByTag:targetBoxTag];
 
     NSMutableArray *result = [NSMutableArray arrayWithCapacity:10];
     NSMutableArray *newBoxs = [NSMutableArray arrayWithCapacity:10];

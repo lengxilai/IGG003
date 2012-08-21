@@ -35,6 +35,11 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"heihei.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"badpoint.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"snowfly.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"addtime.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"timeout.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"highscore.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"newscore.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"daojishi.caf"];
 }
 
 // 根据音效名字播放

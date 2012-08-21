@@ -18,6 +18,7 @@
     [hBar removeFromSuperview];
     [wBar release];
     [hBar release];
+    [cl02 release];
     //[sl01 release];
 }
 
@@ -163,10 +164,17 @@
 -(void)gamePause
 {
     self.cl02 = [CL02 getCL02];
+   
+    [self hiddenBar];
+    
+    [self.cl02 pauseGame];
+}
+
+// 让提示条消失，暂停游戏和游戏结束时候使用
+-(void)hiddenBar{
     // 将透明条设置成隐藏
     wBar.hidden = YES;
     hBar.hidden = YES;
     
-    [self.cl02 pauseGame];
 }
 @end

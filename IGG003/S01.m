@@ -154,10 +154,16 @@ static S01 *staticS01;
 
 -(void)readyForGameOver
 {
-    // 
+    // 结束时候显示的分数小时，对应右上角显示分数问题
     CCLabelBMFont *ccPoint = [(CL03 *)[staticS01 getChildByTag:10013] getChildByTag:200003];
     if(ccPoint != nil){
         [ccPoint removeFromParentAndCleanup:YES];
+    }
+    
+    // 游戏结束时候将透明条隐藏
+    CL01 * cl01 = (CL01 *)[staticS01 getChildByTag:10011];
+    if (cl01!=nil) {
+        [cl01 hiddenBar];
     }
     
     SL01 *sl01 = [self getChildByTag:1001];

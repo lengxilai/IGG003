@@ -31,4 +31,5 @@
 @property(nonatomic,retain) CL02 *cl02;
 -(MxPoint) getMxPoint:(NSSet *)touches;
 -(void)showBarWithTouches:(MxPoint)mp;
+-(void)hiddenBar;
 @end

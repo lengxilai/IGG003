@@ -115,7 +115,7 @@
     [[IGGameState gameState] insertScore:score];
     
     NSArray *scoreArr = [self readPlistWithGameMode:gameMode];
-    NSMutableArray *newScoreArr = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableArray *newScoreArr = [NSMutableArray arrayWithCapacity:scoreWriteNum];
      IGGameState *gameState = [IGGameState gameState];
     if([scoreArr count] == 0){
         //只有一条纪录不论分数多少都算破纪录

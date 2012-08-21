@@ -26,29 +26,47 @@ static S02 *staticS02;
     [cl06 setTag:10016];
     //broken mode
     CCSprite* brokenNormal=[CCSprite spriteWithSpriteFrameName:@"btn11-1.png"];
-    CCSprite* brokenSecelt=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
+    CCSprite* brokenSelect=[CCSprite spriteWithSpriteFrameName:@"btn11-2.png"];
+
     brokenNormal.scale = 0.8f;
-    brokenSecelt.scale=0.75f;
+    brokenSelect.scale=0.75f;
     //arcade mode 
     CCSprite* arcadeNormal=[CCSprite spriteWithSpriteFrameName:@"btn1-1.png"];
-    CCSprite* arcadeSecelt=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
+    CCSprite* arcadeSelect=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
     arcadeNormal.scale = 0.8f;
-    arcadeSecelt.scale=0.75f;
+    arcadeSelect.scale=0.75f;
     
-    CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(showBrokenModeScores)];
-    CCMenuItemSprite* arcadeSprite=[CCMenuItemSprite itemFromNormalSprite:arcadeNormal selectedSprite:arcadeSecelt target:scene selector:@selector(showArcadeModeScores)];
-    
+    CCMenuItemSprite *brokenSpriteNormal = [CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:nil];
+    CCMenuItemSprite *brokenSpriteSelect = [CCMenuItemSprite itemFromNormalSprite:brokenSelect selectedSprite:nil];
+    CCMenuItemToggle* brokenSprite = [CCMenuItemToggle itemWithTarget:staticS02 selector:@selector(showBrokenModeScores) items:brokenSpriteNormal,brokenSpriteSelect,nil];
+    brokenSprite.tag = 600002;
+    CCMenuItemSprite *arcadeSpriteNormal = [CCMenuItemSprite itemFromNormalSprite:arcadeNormal selectedSprite:nil];
+    CCMenuItemSprite *arcadeSpriteSelect = [CCMenuItemSprite itemFromNormalSprite:arcadeSelect selectedSprite:nil];
+    CCMenuItemToggle* arcadeSprite = [CCMenuItemToggle itemWithTarget:staticS02 selector:@selector(showArcadeModeScores) items:arcadeSpriteNormal,arcadeSpriteSelect,nil];
+    arcadeSprite.selectedIndex = 1;
+    arcadeSprite.tag = 600001;
     CCMenu* menu=[CCMenu menuWithItems:arcadeSprite,brokenSprite,nil];
     [menu alignItemsHorizontallyWithPadding:0];
+    menu.tag = 600003;
     menu.position=ccp(kWindowW/2+10, 400);    
     [scene addChild:menu];
     return scene;
 }
 -(void)showArcadeModeScores{
+    CCMenu* menu = (CCMenu*)[staticS02 getChildByTag:600003];
+    CCMenuItemToggle* brokenSprite = (CCMenuItemToggle*)[menu getChildByTag:600002];
+    brokenSprite.selectedIndex = 0;
+    CCMenuItemToggle* arcadeSprite = (CCMenuItemToggle*)[menu getChildByTag:600001];
+    arcadeSprite.selectedIndex = 1;
     CL06 *cl06 = (CL06 *)[staticS02 getChildByTag:10016];
     [cl06 showArcadeModeScores];
 }
 -(void)showBrokenModeScores{
+    CCMenu* menu = (CCMenu*)[staticS02 getChildByTag:600003];
+    CCMenuItemToggle* brokenSprite = (CCMenuItemToggle*)[menu getChildByTag:600002];
+    brokenSprite.selectedIndex = 1;
+    CCMenuItemToggle* arcadeSprite = (CCMenuItemToggle*)[menu getChildByTag:600001];
+    arcadeSprite.selectedIndex = 0;
     CL06 *cl06 = (CL06 *)[staticS02 getChildByTag:10016];
     [cl06 showBrokenModeScores];
 }

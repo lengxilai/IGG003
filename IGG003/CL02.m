@@ -21,6 +21,7 @@ static CL02 *staticCL02;
     [self.iceNSDateTime release];
     [self.time release];
     [self.happyTimeNSDateTime release];
+    [self.dateClick release];
 	[super dealloc];
 
 }   

@@ -12,6 +12,7 @@
 		1878E0E815C11806008342A7 /* IGBoxTools02.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0E715C11806008342A7 /* IGBoxTools02.m */; };
 		1878E0EC15C1242C008342A7 /* IGBoxTools03.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EB15C1242C008342A7 /* IGBoxTools03.m */; };
 		1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EE15C125F9008342A7 /* IGBoxTools06.m */; };
+		187B3FA015E3802500311F6D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187B3F9F15E3802500311F6D /* Default@2x.png */; };
 		18942C3015CFC587005535C5 /* heart-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18942C2D15CFC587005535C5 /* heart-hd.png */; };
 		18942C3115CFC587005535C5 /* heart.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18942C2E15CFC587005535C5 /* heart.plist */; };
 		18942C3215CFC587005535C5 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 18942C2F15CFC587005535C5 /* heart.png */; };
@@ -227,6 +228,7 @@
 		1878E0EB15C1242C008342A7 /* IGBoxTools03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools03.m; sourceTree = "<group>"; };
 		1878E0ED15C125F9008342A7 /* IGBoxTools06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools06.h; sourceTree = "<group>"; };
 		1878E0EE15C125F9008342A7 /* IGBoxTools06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools06.m; sourceTree = "<group>"; };
+		187B3F9F15E3802500311F6D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		18942C2D15CFC587005535C5 /* heart-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-hd.png"; sourceTree = "<group>"; };
 		18942C2E15CFC587005535C5 /* heart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heart.plist; sourceTree = "<group>"; };
 		18942C2F15CFC587005535C5 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 			isa = PBXGroup;
 			children = (
 				D7030A9215B6B2D000BA5EF4 /* Default.png */,
+				187B3F9F15E3802500311F6D /* Default@2x.png */,
 				D7030A9415B6B2D000BA5EF4 /* fps_images.png */,
 				D7030A9615B6B2D000BA5EF4 /* Icon-72.png */,
 				D7030A9815B6B2D000BA5EF4 /* Icon-Small-50.png */,
@@ -1281,6 +1284,7 @@
 				DC3AF92215D520B20031E475 /* delete5.caf in Resources */,
 				DCC5BE9015E229BA00534185 /* dilei5.caf in Resources */,
 				DCC5BE9415E22DC900534185 /* dilei_end.caf in Resources */,
+				187B3FA015E3802500311F6D /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

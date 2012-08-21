@@ -239,12 +239,14 @@
         for (int j = 0; j < kGameSizeCols; j++) {
             GameBoxType type = [(NSNumber*)[mr objectAtIndex:j] intValue];
             SpriteBox *s = [SpriteBox spriteBoxWithType:type];
-            s.position = ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY);
+            //s.position = ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + i*kSL01OffsetY);
+            s.position = ccp(kSL01StartX + j*kSL01OffsetX,kSL01StartY + kGameSizeRows*kSL01OffsetY);
             s.tag = i*kBoxTagR+j;
             [self addChild:s];
         }
     }
     
+    [self reloadBoxs];
     [self schedule:@selector(runRandomBoxAnime) interval:3];
 }
 

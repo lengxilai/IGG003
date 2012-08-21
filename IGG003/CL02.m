@@ -104,16 +104,19 @@ static CL02 *staticCL02;
            
             
         }
+        IGGameState *gameState = [IGGameState gameState];
         // 倒计时音效
-        if (times <= 5 && times!=0) {
+        if (times <= 5 && times!=0 && gameState.gameMode==1 ) {
             [IGMusicUtil showMusciByName:@"daojishi.caf"];
         }
         //游戏结束
         if(times <= 0){
-            // 背景音乐停止
-            [IGMusicUtil stopBackGroundMusic];
-            // 时间到音效
-            [IGMusicUtil showMusciByName:@"timeout.caf"];
+            if (gameState.gameMode==1) {
+                // 背景音乐停止
+                [IGMusicUtil stopBackGroundMusic];
+                // 时间到音效
+                [IGMusicUtil showMusciByName:@"timeout.caf"];
+            }
             [self unschedule:@selector(updateTimeDisplay)];
             [self overGame];
         }

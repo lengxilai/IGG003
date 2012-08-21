@@ -13,13 +13,13 @@
 @synthesize cl02;
 - (void) dealloc
 {
-	[super dealloc];
     [wBar removeFromSuperview];
     [hBar removeFromSuperview];
     [wBar release];
     [hBar release];
-    [cl02 release];
-    //[sl01 release];
+    [self.cl02 release];
+    [self.sl01 release];
+    [super dealloc];
 }
 
 -(id) init

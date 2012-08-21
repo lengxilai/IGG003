@@ -160,7 +160,7 @@
                 id removeCallback =  [CCCallFuncND actionWithTarget:self selector:@selector(showPopParticleForSprite:data:) data:box];
 
                 // 炸弹音效
-                id musicOfZhadan = [CCCallFuncN actionWithTarget:self selector:@selector(showMusic)];
+//                id musicOfZhadan = [CCCallFuncN actionWithTarget:self selector:@selector(showMusic)];
                 
                 [sprite runAction:[CCSequence actions:mt, delCallback,removeCallback, nil]];
             }

@@ -7,6 +7,7 @@
 //
 
 #import "IGBoxTools04.h"
+#import "IGMusicUtil.h"
 
 @implementation IGBoxTools04
 
@@ -33,6 +34,9 @@
     
     // 动画效果，飞到左上角
     [self showAnime:point];
+    
+    //增加时间音效
+    [IGMusicUtil showMusciByName:@"addtime.caf"];
     
     // 延时重新刷新箱子矩阵
     [self performSelector:@selector(reload:) withObject:newBoxs afterDelay:0.3*fTimeRate];

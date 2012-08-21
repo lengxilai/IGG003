@@ -111,12 +111,30 @@
 {
     if (self.bType == eGbt99 &&self.sCount == 0) {
         self.sCount = 1;
-        CCSprite *newSprite = [CCSprite spriteWithSpriteFrameName:@"99-s.png"];
-        [self setTexture:newSprite.texture];
-        [self setTextureRect:newSprite.textureRect];
+        
+        // 石头破碎的动画
+        CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
+        NSMutableArray *frames = [NSMutableArray arrayWithCapacity:4];
+        // 构造每一个帧的实际图像数据
+        for (int i = 1; i <= 4; i++) {
+            CCSpriteFrame *frame = [cache spriteFrameByName:[NSString stringWithFormat:@"99-s-%d.png", i]];
+            [frames addObject:frame];
+        }
+        CCAnimate *animation = [CCAnimate actionWithAnimation:[CCAnimation animationWithFrames:frames delay:0.08*fTimeRate]];
+        id changeSTexture = [CCCallFuncN actionWithTarget:self selector:@selector(changeSTexture)];
+        [self runAction:[CCSequence actions:animation,changeSTexture, nil]];
+
     }else if (self.bType == eGbt99 && self.sCount == 1) {
         self.sCount = 2;
     }
+}
+
+// 改变石头状态
+-(void)changeSTexture
+{
+    CCSprite *newSprite = [CCSprite spriteWithSpriteFrameName:@"99-s-4.png"];
+    [self setTexture:newSprite.texture];
+    [self setTextureRect:newSprite.textureRect];
 }
 
 -(MxPoint)setToolByType:(GameToolType)type

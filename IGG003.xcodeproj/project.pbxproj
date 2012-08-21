@@ -176,10 +176,10 @@
 		DC0290E715D038D1006040B3 /* piaochong3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC0290E615D038D1006040B3 /* piaochong3.caf */; };
 		DC35472F15E3754F00EEFCA3 /* bg_menu.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35472E15E3754F00EEFCA3 /* bg_menu.caf */; };
 		DC35473115E37AFE00EEFCA3 /* addtime.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35473015E37AFE00EEFCA3 /* addtime.caf */; };
-		DC35473715E382EB00EEFCA3 /* daojishi.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35473615E382EB00EEFCA3 /* daojishi.caf */; };
 		DC35473915E3929100EEFCA3 /* timeout.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35473815E3929100EEFCA3 /* timeout.caf */; };
 		DC35473B15E3956500EEFCA3 /* highscore.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35473A15E3956500EEFCA3 /* highscore.caf */; };
 		DC35473F15E3993200EEFCA3 /* newscore.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35473E15E3993200EEFCA3 /* newscore.caf */; };
+		DC35474E15E3A67F00EEFCA3 /* daojishi.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC35474D15E3A67F00EEFCA3 /* daojishi.caf */; };
 		DC3AF90F15D4E0080031E475 /* bg_music2.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF90E15D4E0080031E475 /* bg_music2.caf */; };
 		DC3AF91115D4E3F90031E475 /* heihei.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91015D4E3F90031E475 /* heihei.caf */; };
 		DC3AF91315D4F4480031E475 /* happytime.caf in Resources */ = {isa = PBXBuildFile; fileRef = DC3AF91215D4F4480031E475 /* happytime.caf */; };
@@ -538,10 +538,10 @@
 		DC0290E615D038D1006040B3 /* piaochong3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = piaochong3.caf; sourceTree = "<group>"; };
 		DC35472E15E3754F00EEFCA3 /* bg_menu.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_menu.caf; sourceTree = "<group>"; };
 		DC35473015E37AFE00EEFCA3 /* addtime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = addtime.caf; sourceTree = "<group>"; };
-		DC35473615E382EB00EEFCA3 /* daojishi.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = daojishi.caf; sourceTree = "<group>"; };
 		DC35473815E3929100EEFCA3 /* timeout.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = timeout.caf; sourceTree = "<group>"; };
 		DC35473A15E3956500EEFCA3 /* highscore.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = highscore.caf; sourceTree = "<group>"; };
 		DC35473E15E3993200EEFCA3 /* newscore.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = newscore.caf; sourceTree = "<group>"; };
+		DC35474D15E3A67F00EEFCA3 /* daojishi.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = daojishi.caf; sourceTree = "<group>"; };
 		DC3AF90E15D4E0080031E475 /* bg_music2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music2.caf; sourceTree = "<group>"; };
 		DC3AF91015D4E3F90031E475 /* heihei.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = heihei.caf; sourceTree = "<group>"; };
 		DC3AF91215D4F4480031E475 /* happytime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = happytime.caf; sourceTree = "<group>"; };
@@ -1130,10 +1130,10 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DC35474D15E3A67F00EEFCA3 /* daojishi.caf */,
 				DC35473E15E3993200EEFCA3 /* newscore.caf */,
 				DC35473A15E3956500EEFCA3 /* highscore.caf */,
 				DC35473815E3929100EEFCA3 /* timeout.caf */,
-				DC35473615E382EB00EEFCA3 /* daojishi.caf */,
 				DC35473015E37AFE00EEFCA3 /* addtime.caf */,
 				DC35472E15E3754F00EEFCA3 /* bg_menu.caf */,
 				DCC5BE9315E22DC900534185 /* dilei_end.caf */,
@@ -1306,13 +1306,13 @@
 				DCC5BE9415E22DC900534185 /* dilei_end.caf in Resources */,
 				DC35472F15E3754F00EEFCA3 /* bg_menu.caf in Resources */,
 				DC35473115E37AFE00EEFCA3 /* addtime.caf in Resources */,
-				DC35473715E382EB00EEFCA3 /* daojishi.caf in Resources */,
 				DC35473915E3929100EEFCA3 /* timeout.caf in Resources */,
 				DC35473B15E3956500EEFCA3 /* highscore.caf in Resources */,
 				DC35473F15E3993200EEFCA3 /* newscore.caf in Resources */,
 				187B3FA015E3802500311F6D /* Default@2x.png in Resources */,
 				E2E0E5B015E39F3A00C2D3F1 /* go.png in Resources */,
 				E2E0E5B315E39F4400C2D3F1 /* ready.png in Resources */,
+				DC35474E15E3A67F00EEFCA3 /* daojishi.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

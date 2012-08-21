@@ -182,6 +182,7 @@ static CL03 *staticCL03;
     NSString *addPointStr = [[NSString alloc] initWithFormat:@"%d", addedPoint];
     // 增加分数显示的字体
     CCLabelBMFont *addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"pointFont2.fnt"];
+    addPointSprite.tag = 200003;
     addPointSprite.scale = 1.6;
     // 增加分数的起始位置
     addPointSprite.position = ccp(position_x, position_y);    

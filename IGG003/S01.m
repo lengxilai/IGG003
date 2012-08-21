@@ -154,6 +154,12 @@ static S01 *staticS01;
 
 -(void)readyForGameOver
 {
+    // 
+    CCLabelBMFont *ccPoint = [(CL03 *)[staticS01 getChildByTag:10013] getChildByTag:200003];
+    if(ccPoint != nil){
+        [ccPoint removeFromParentAndCleanup:YES];
+    }
+    
     SL01 *sl01 = [self getChildByTag:1001];
     CCScaleTo *st = [CCScaleTo actionWithDuration:0.8 scale:0];
     CCRotateBy *rb = [CCRotateBy actionWithDuration:0.8 angle:300];

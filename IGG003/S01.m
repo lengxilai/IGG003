@@ -21,29 +21,9 @@ static S01 *staticS01;
     IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
     bak.position = ccp(kWindowW/2,kWindowH/2);
     [scene addChild:bak];
-    
+    [scene showReady];
 	// 游戏层
-	SL01 *sl01 = [SL01 node];
-	[scene addChild: sl01];
-    [sl01 setTag:1001];
-    
-    // 控制层
-    CL01 *cl01 = [CL01 node];
-    [scene addChild:cl01];
-    [cl01 setTag:10011];
-    
-    // 分数
-    CL03 *cl03 = [CL03 node];
-    [scene addChild:cl03];
-    [cl03 setTag:10013];
-    
-    CL02 *cl02 = [CL02 node];
-    [scene addChild:cl02];
-    [cl02 setTag:10012];
-
-    // 给控制层设定游戏层
-    cl01.sl01 = sl01;
-    
+    [scene performSelector:@selector(gameStart) withObject:Nil afterDelay:1.6];
     staticS01 = scene;
     
     // 普通模式
@@ -66,29 +46,9 @@ static S01 *staticS01;
     bak.position = ccp(kWindowW/2,kWindowH/2);
     [scene addChild:bak];
     
+    [scene showReady];
 	// 游戏层
-	SL01 *sl01 = [SL01 node];
-	[scene addChild: sl01];
-    [sl01 setTag:1001];
-    
-    // 控制层
-    CL01 *cl01 = [CL01 node];
-    [scene addChild:cl01];
-    [cl01 setTag:10011];
-    
-    // 分数
-    CL03 *cl03 = [CL03 node];
-    [scene addChild:cl03];
-    [cl03 setTag:10013];
-    
-    CL02 *cl02 = [CL02 node];
-    [scene addChild:cl02];
-    [cl02 setTag:10012];
-    // 不显示计时
-    cl02.visible = NO;
-    
-    // 给控制层设定游戏层
-    cl01.sl01 = sl01;
+    [scene performSelector:@selector(gameStartForBroken) withObject:Nil afterDelay:1.6];
     
     staticS01 = scene;
     
@@ -180,5 +140,70 @@ static S01 *staticS01;
     [cl01 onExit];
     [self readyForGameOver];
     [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:1];
+}
+-(void)showReady{
+    CCSprite *readyImg = [CCSprite spriteWithFile:@"ready.png"];
+    id readyac0 = [readyImg runAction:[CCPlace actionWithPosition:ccp(kWindowW/2,kWindowH/2)]]; 
+    id readyac1 = [CCScaleBy actionWithDuration:0.3 scaleX:3.0f scaleY:3.0f];  
+    id readyac2 = [CCFadeOut actionWithDuration:0.5];
+    [readyImg runAction:[CCSequence actions:readyac0, readyac1, readyac2, nil]]; 
+    [self addChild:readyImg];
+    //调用显示GO
+    [self performSelector:@selector(showGo) withObject:Nil afterDelay:1];
+    
+}
+-(void)showGo{
+    CCSprite *goImg = [CCSprite spriteWithFile:@"go.png"];
+    [self addChild:goImg];
+    id goac0 = [goImg runAction:[CCPlace actionWithPosition:ccp(kWindowW/2,kWindowH/2)]]; 
+    id goac1 = [CCScaleBy actionWithDuration:0.3 scaleX:3.0f scaleY:3.0f];  
+    id goac2 = [CCFadeOut actionWithDuration:0.5];
+    [goImg runAction:[CCSequence actions:goac0, goac1, goac2, nil]]; 
+}
+-(void)gameStart{
+    SL01 *sl01 = [SL01 node];
+    [staticS01 addChild: sl01];
+    [sl01 setTag:1001];
+
+    // 控制层
+    CL01 *cl01 = [CL01 node];
+    [staticS01 addChild:cl01];
+    [cl01 setTag:10011];
+
+    // 分数
+    CL03 *cl03 = [CL03 node];
+    [staticS01 addChild:cl03];
+    [cl03 setTag:10013];
+
+    CL02 *cl02 = [CL02 node];
+    [staticS01 addChild:cl02];
+    [cl02 setTag:10012];
+
+    // 给控制层设定游戏层
+    cl01.sl01 = sl01;
+}
+-(void)gameStartForBroken{
+    SL01 *sl01 = [SL01 node];
+	[staticS01 addChild: sl01];
+    [sl01 setTag:1001];
+    
+    // 控制层
+    CL01 *cl01 = [CL01 node];
+    [staticS01 addChild:cl01];
+    [cl01 setTag:10011];
+    
+    // 分数
+    CL03 *cl03 = [CL03 node];
+    [staticS01 addChild:cl03];
+    [cl03 setTag:10013];
+    
+    CL02 *cl02 = [CL02 node];
+    [staticS01 addChild:cl02];
+    [cl02 setTag:10012];
+    // 不显示计时
+    cl02.visible = NO;
+    
+    // 给控制层设定游戏层
+    cl01.sl01 = sl01;
 }
 @end

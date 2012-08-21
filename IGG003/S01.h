@@ -22,4 +22,8 @@
 -(void)overGame;
 -(void)overGameForMode2;
 -(void)loadCL05;
+-(void)showReady;
+-(void)showGO;
+-(void)gameStart;
+-(void)gameStartForBroken;
 @end

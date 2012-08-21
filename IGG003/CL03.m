@@ -147,9 +147,9 @@ static CL03 *staticCL03;
 // 设置分数显示位置
 -(void)setPointPlace:(int) totalPoint comboNum:(int) comNum {
     // 分数
-    NSString *numStr = [[NSString alloc] initWithFormat:@"%d", totalPoint];
+    NSString *numStr = [NSString stringWithFormat:@"%d", totalPoint];
     // combo数
-    NSString *comStr = [[NSString alloc] initWithFormat:@"%d", comNum];
+    NSString *comStr = [NSString stringWithFormat:@"%d", comNum];
     comStr = [@"x" stringByAppendingString:comStr];
     // 分数字体
     pointsSprit = [CCLabelBMFont labelWithString:numStr fntFile:@"pointFont.fnt"];
@@ -179,7 +179,7 @@ static CL03 *staticCL03;
     CGFloat position_y = position.y;
     
     // 增加的分数
-    NSString *addPointStr = [[NSString alloc] initWithFormat:@"%d", addedPoint];
+    NSString *addPointStr = [NSString stringWithFormat:@"%d", addedPoint];
     // 增加分数显示的字体
     CCLabelBMFont *addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"pointFont2.fnt"];
     addPointSprite.scale = 1.6;
@@ -197,7 +197,7 @@ static CL03 *staticCL03;
     
     // 增加的combo
     if (comboNum > 0) {
-        NSString *addComboStr = [[NSString alloc] initWithFormat:@"%d", comboNum];
+        NSString *addComboStr = [NSString stringWithFormat:@"%d", comboNum];
         addComboStr = [@"x" stringByAppendingString:addComboStr];
         // 增加combo显示的字体
         CCLabelBMFont *addComboSprite = [CCLabelBMFont labelWithString:addComboStr fntFile:@"comboFont5.fnt"];

@@ -66,9 +66,13 @@
 
         NSString *scoreStrFile;
         if(!gameState.isBreakBest){
+            // 未进排行榜音效
+            [IGMusicUtil showMusciByName:@"newscore.caf"];
             //未进入前三名  黑色显示
             scoreStrFile = [NSString stringWithString:@"bitmapFont.fnt"];
         }else{
+            // 进排行榜音效
+            [IGMusicUtil showMusciByName:@"highscore.caf"];
             //进入前3名  红色显示
             scoreStrFile = [NSString stringWithString:@"bitmapFont2.fnt"];
         }

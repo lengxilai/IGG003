@@ -7,6 +7,7 @@
 //  倒计时
 
 #import "CL02.h"
+#import "IGMusicUtil.h"
 
 @implementation CL02
 @synthesize iceNSDateTime;
@@ -102,8 +103,16 @@ static CL02 *staticCL02;
            
             
         }
+        // 倒计时音效
+        if (times <= 5) {
+            [IGMusicUtil showMusciByName:@"timeout.caf"];
+        }
         //游戏结束
         if(times <= 0){
+            // 背景音乐停止
+            [IGMusicUtil stopBackGroundMusic];
+            // 时间到音效
+            [IGMusicUtil showMusciByName:@"timeout.caf"];
             [self unschedule:@selector(updateTimeDisplay)];
             [self overGame];
         }

@@ -44,7 +44,7 @@
 // happytime
 #define happytime 5
 //加时间
-#define addTime 5
+#define addTime 10
 //字体变化到倍数
 #define fontSizeTo 1.2
 //倒计时tag

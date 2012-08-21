@@ -105,8 +105,8 @@ static CL02 *staticCL02;
             
         }
         // 倒计时音效
-        if (times <= 5) {
-            [IGMusicUtil showMusciByName:@"timeout.caf"];
+        if (times <= 5 && times!=0) {
+            [IGMusicUtil showMusciByName:@"daojishi.caf"];
         }
         //游戏结束
         if(times <= 0){

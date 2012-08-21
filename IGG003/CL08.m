@@ -107,7 +107,7 @@
 	UITableViewCell* tableViewCell = (UITableViewCell*)[m_tableView dequeueReusableCellWithIdentifier:identifier];
 	if (tableViewCell == nil)
 	{ 
-		tableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+		tableViewCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	tableViewCell.userInteractionEnabled = NO;

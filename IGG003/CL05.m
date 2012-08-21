@@ -160,7 +160,7 @@
     }
     
     //　用来覆盖原始数据的新dic
-    NSMutableDictionary *newDic = [ [ NSMutableDictionary alloc ] init ];
+    NSMutableDictionary *newDic = [[ [ NSMutableDictionary alloc ] init ] autorelease];
     // 将新的dic里的“Score”项里的数据写为“newScore”
     [newDic setValue:[newScoreArr componentsJoinedByString:@","] forKey:gameMode ];
     // 将　newDic　保存至 docPath＋“Score.plist”文件里，也就是覆盖原来的文件

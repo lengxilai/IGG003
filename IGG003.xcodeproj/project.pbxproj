@@ -220,6 +220,8 @@
 		E276CF6B15C9481800D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF6A15C9481800D521FE /* CL04.m */; };
 		E28220C115C7CD2D00A2AB79 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */; };
 		E28220C215C7CD2D00A2AB79 /* bitmapFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */; };
+		E2E0E5B015E39F3A00C2D3F1 /* go.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E0E5AF15E39F3A00C2D3F1 /* go.png */; };
+		E2E0E5B315E39F4400C2D3F1 /* ready.png in Resources */ = {isa = PBXBuildFile; fileRef = E2E0E5B215E39F4400C2D3F1 /* ready.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -588,6 +590,8 @@
 		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
 		E28220C015C7CD2D00A2AB79 /* bitmapFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont2.png; sourceTree = "<group>"; };
+		E2E0E5AF15E39F3A00C2D3F1 /* go.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = go.png; sourceTree = "<group>"; };
+		E2E0E5B215E39F4400C2D3F1 /* ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ready.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1096,6 +1100,8 @@
 		D7030BFA15B6B35A00BA5EF4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E2E0E5B215E39F4400C2D3F1 /* ready.png */,
+				E2E0E5AF15E39F3A00C2D3F1 /* go.png */,
 				18942C2D15CFC587005535C5 /* heart-hd.png */,
 				18942C2E15CFC587005535C5 /* heart.plist */,
 				18942C2F15CFC587005535C5 /* heart.png */,
@@ -1305,6 +1311,8 @@
 				DC35473B15E3956500EEFCA3 /* highscore.caf in Resources */,
 				DC35473F15E3993200EEFCA3 /* newscore.caf in Resources */,
 				187B3FA015E3802500311F6D /* Default@2x.png in Resources */,
+				E2E0E5B015E39F3A00C2D3F1 /* go.png in Resources */,
+				E2E0E5B315E39F4400C2D3F1 /* ready.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

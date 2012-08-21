@@ -150,8 +150,7 @@ static IGGameState *staticGameState;
 // 保存游戏数据
 - (void) save
 {
-	id tmpId = [NSNumber numberWithInt:1];
-	tmpId = [NSNumber numberWithBool:isSoundOn];
+	id tmpId = [NSNumber numberWithBool:isSoundOn];
 	[self storeUserData:tmpId forKey:@"isSoundOn"];
 	
 	tmpId = [NSNumber numberWithBool:isMusicOn];
@@ -164,8 +163,7 @@ static IGGameState *staticGameState;
 // 读取游戏数据
 - (void) load
 {
-    id tmpId = [NSNumber numberWithInt:1];
-	tmpId = [self getUserData:@"isSoundOn"];
+    id tmpId = [self getUserData:@"isSoundOn"];
 	if (tmpId)
 	{
 		isSoundOn = [(NSNumber*)tmpId boolValue]?YES:NO;

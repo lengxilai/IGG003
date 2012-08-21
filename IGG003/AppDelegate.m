@@ -131,9 +131,12 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application {
 	[[CCDirector sharedDirector] stopAnimation];
-    //退出时显示暂停
-    S01 *s01 = [S01 getS01];
-    [s01 pauseGame];
+    //如果当前场景时游戏中时，退出时显示暂停
+    if([[[[[CCDirector sharedDirector] runningScene] children] lastObject] tag] == 10012){
+        S01 *s01 = [S01 getS01];
+        CL01 *cl01 = (CL01 *)[s01 getChildByTag:10011];
+        [cl01 gamePause]; 
+    }
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {

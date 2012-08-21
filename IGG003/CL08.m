@@ -49,7 +49,7 @@
     
     CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
     CCMenu* menu=[CCMenu menuWithItems:menuSprite,nil];
-    menu.position=ccp(kWindowW/2, 40);
+    menu.position=ccp(kWindowW/2, 100);
     [self addChild:menu];
     
 	// 分数显示区域
@@ -107,7 +107,7 @@
 	UITableViewCell* tableViewCell = (UITableViewCell*)[m_tableView dequeueReusableCellWithIdentifier:identifier];
 	if (tableViewCell == nil)
 	{ 
-		tableViewCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+		tableViewCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier] autorelease];
         tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	tableViewCell.userInteractionEnabled = NO;

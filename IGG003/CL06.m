@@ -18,7 +18,7 @@
     if (self=[super init]) {
         
         //加载游戏终了背景图片
-        IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
+        IGSprite *bak = [IGSprite spriteWithFile:@"sl01.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         
@@ -28,11 +28,11 @@
         CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
         //添加一个返回游戏按钮；
         CCMenu* menu=[CCMenu menuWithItems:menuSprite,nil];
-        menu.position=ccp(kWindowW/2, 40);
+        menu.position=ccp(kWindowW/2, 100);
         [self addChild:menu];
             
         CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"Best Scores:" fntFile:@"bitmapFont.fnt"];
-        yourScoreStr.position = ccp(kWindowW/2,300);
+        yourScoreStr.position = ccp(kWindowW/2,350);
         [self addChild:yourScoreStr];
         //取得arcade mode 分数  显示
         [self getArcadeModeScores];
@@ -67,7 +67,7 @@
 -(void)showBrokenModeScores{
     //隐藏arcade mode分数
     [self setArcadeModeScoresHidden];
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600200 + i];
         if(scoreStr){
             [scoreStr setVisible:YES];
@@ -77,7 +77,7 @@
 -(void)showArcadeModeScores{
     //隐藏broken mode 分数
     [self setBrokenModeScoresHidden];
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600100 + i];
         if(scoreStr){
             [scoreStr setVisible:YES];
@@ -85,7 +85,7 @@
     }
 }
 -(void)setBrokenModeScoresHidden{
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600200 + i];
         if(scoreStr){
             [scoreStr setVisible:NO];
@@ -93,7 +93,7 @@
     }
 }
 -(void)setArcadeModeScoresHidden{
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < scoreAllReadNum; i++){
         CCLabelBMFont *scoreStr = (CCLabelBMFont *)[self getChildByTag:600100 + i];
         if(scoreStr){
             [scoreStr setVisible:NO];
@@ -106,7 +106,7 @@
         NSLog(@"%@",[array objectAtIndex:i]);
         
         CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:i] fntFile:@"bitmapFont.fnt"];
-        scoreStr.position = ccp(kWindowW/2,(250 - i *30));
+        scoreStr.position = ccp(kWindowW/2,(300 - i *30));
         scoreStr.tag = 600100 + i;
         [self addChild:scoreStr];
     }
@@ -117,7 +117,7 @@
         NSLog(@"%@",[array objectAtIndex:i]);
         
         CCLabelBMFont *scoreStr = [CCLabelBMFont labelWithString:[array objectAtIndex:i] fntFile:@"bitmapFont.fnt"];
-        scoreStr.position = ccp(kWindowW/2,(250 - i *30));
+        scoreStr.position = ccp(kWindowW/2,(300 - i *30));
         scoreStr.tag = 600200 + i;
         [scoreStr setVisible:NO];
         [self addChild:scoreStr];

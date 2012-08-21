@@ -22,7 +22,7 @@
         
         // 提示字
         CCLabelBMFont *levelLabel= [CCLabelBMFont labelWithString:@"Settings" fntFile:@"bitmapFont2.fnt"];
-        levelLabel.position = ccp(kWindowW/2, 381);
+        levelLabel.position = ccp(kWindowW/2, 460);
         [self addChild:levelLabel];
         
         // 取得全局数据
@@ -34,7 +34,7 @@
                                                            toggle1:@"btn8-2.png"
                                                           delegate:self];
         m_soundLayer.anchorPoint = ccp(0.5, 0.5);
-        m_soundLayer.position = ccp(0, contentSize.height - 250);
+        m_soundLayer.position = ccp(0, contentSize.height - 200);
         m_soundLayer.selectedIndex = m_gameState.isSoundOn == YES? 0 : 1;
         [self addChild:m_soundLayer];
        
@@ -45,7 +45,7 @@
                                                            toggle1:@"btn9-2.png"
                                                           delegate:self];
         m_musicLayer.anchorPoint = ccp(0.5, 0.5);
-        m_musicLayer.position = ccp(0, contentSize.height - 375);
+        m_musicLayer.position = ccp(0, contentSize.height - 325);
         [self addChild:m_musicLayer];
         
         m_musicLayer.selectedIndex = m_gameState.isMusicOn == YES? 0 : 1;
@@ -56,7 +56,7 @@
         
         CCMenuItemSprite* menuSprite=[CCMenuItemSprite itemFromNormalSprite:menuNormal selectedSprite:menuSecelt target:self selector:@selector(gobackMenu)];
         CCMenu* menu=[CCMenu menuWithItems:menuSprite,nil];
-        menu.position=ccp(kWindowW/2, 40);
+        menu.position=ccp(kWindowW/2, 100);
         [self addChild:menu];
     }
     return self;

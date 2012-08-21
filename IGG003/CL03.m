@@ -182,12 +182,13 @@ static CL03 *staticCL03;
     NSString *addPointStr = [NSString stringWithFormat:@"%d", addedPoint];
     // 增加分数显示的字体
     CCLabelBMFont *addPointSprite = [CCLabelBMFont labelWithString:addPointStr fntFile:@"pointFont2.fnt"];
+    addPointSprite.tag = 200003;
     addPointSprite.scale = 1.6;
     // 增加分数的起始位置
     addPointSprite.position = ccp(position_x, position_y);    
     // 增加分数的动态效果
     CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.1 position:ccp(position_x,position_y+85)];
-    CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];
+//    CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];
     CCScaleTo *scalePointTo = [CCScaleTo actionWithDuration:1.3 scale: 1.1];
     CCSpawn *sP = [CCSpawn actions:moTP, scalePointTo, nil];
     id callbackP = [CCCallFuncN actionWithTarget:self selector:@selector(actionEndCallback:)];

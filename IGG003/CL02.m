@@ -19,9 +19,10 @@ static CL02 *staticCL02;
 
 - (void) dealloc
 {
-    [self.iceNSDateTime release];
-    [self.time release];
-    [self.happyTimeNSDateTime release];
+    [iceNSDateTime release];
+    [time release];
+    [happyTimeNSDateTime release];
+    [dateClick release];
 	[super dealloc];
 
 }   
@@ -73,7 +74,7 @@ static CL02 *staticCL02;
 - (void) updateTimeDisplay{
     
     times = (int)[self.time timeIntervalSinceNow];
-    CCLabelBMFont *clockLabel = (CCLabelBMFont *)[self getChildByTag:timeTag];
+    CCLabelBMFont *clockLabel = nil;
     
     //判断时间是否变化
     if(times != persecond){

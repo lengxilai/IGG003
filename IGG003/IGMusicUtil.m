@@ -40,6 +40,10 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"highscore.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"newscore.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"daojishi.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"ready_go.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"failed.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"buguniao.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"drop.caf"];
 }
 
 // 根据音效名字播放

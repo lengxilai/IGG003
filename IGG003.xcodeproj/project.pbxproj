@@ -206,6 +206,7 @@
 		DCC6274E15E4E8F1000240E7 /* ready_go.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC6274D15E4E8F1000240E7 /* ready_go.caf */; };
 		DCC6275015E4F1E0000240E7 /* buguniao.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC6274F15E4F1E0000240E7 /* buguniao.caf */; };
 		DCC6275215E4F43A000240E7 /* drop.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC6275115E4F43A000240E7 /* drop.caf */; };
+		DCC6275415E4FBCD000240E7 /* xuanzhuan.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC6275315E4FBCD000240E7 /* xuanzhuan.caf */; };
 		DCE753D715D3AB580066C84C /* combo0.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCE753D615D3AB580066C84C /* combo0.caf */; };
 		DCEBD64215D135F000450CC6 /* comboFont5.png in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64015D135F000450CC6 /* comboFont5.png */; };
 		DCEBD64315D135F000450CC6 /* comboFont5.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64115D135F000450CC6 /* comboFont5.fnt */; };
@@ -574,6 +575,7 @@
 		DCC6274D15E4E8F1000240E7 /* ready_go.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ready_go.caf; sourceTree = "<group>"; };
 		DCC6274F15E4F1E0000240E7 /* buguniao.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = buguniao.caf; sourceTree = "<group>"; };
 		DCC6275115E4F43A000240E7 /* drop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop.caf; sourceTree = "<group>"; };
+		DCC6275315E4FBCD000240E7 /* xuanzhuan.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = xuanzhuan.caf; sourceTree = "<group>"; };
 		DCE753D615D3AB580066C84C /* combo0.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = combo0.caf; sourceTree = "<group>"; };
 		DCEBD64015D135F000450CC6 /* comboFont5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comboFont5.png; sourceTree = "<group>"; };
 		DCEBD64115D135F000450CC6 /* comboFont5.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comboFont5.fnt; sourceTree = "<group>"; };
@@ -1138,6 +1140,7 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DCC6275315E4FBCD000240E7 /* xuanzhuan.caf */,
 				DCC6275115E4F43A000240E7 /* drop.caf */,
 				DCC6274F15E4F1E0000240E7 /* buguniao.caf */,
 				DCC6274D15E4E8F1000240E7 /* ready_go.caf */,
@@ -1329,6 +1332,7 @@
 				DCC6274E15E4E8F1000240E7 /* ready_go.caf in Resources */,
 				DCC6275015E4F1E0000240E7 /* buguniao.caf in Resources */,
 				DCC6275215E4F43A000240E7 /* drop.caf in Resources */,
+				DCC6275415E4FBCD000240E7 /* xuanzhuan.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

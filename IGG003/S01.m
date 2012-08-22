@@ -103,9 +103,9 @@ static S01 *staticS01;
         [cl02 onExit];
         
         // 时间停止音效
-        [self performSelector:@selector(readyForGameOver) withObject:nil afterDelay:1];
-        
-        [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:3];
+        [self performSelector:@selector(readyForGameOver) withObject:nil afterDelay:1.8];
+
+        [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:2.8];
         
     }
 }
@@ -134,6 +134,7 @@ static S01 *staticS01;
     CCScaleTo *st = [CCScaleTo actionWithDuration:0.8 scale:0];
     CCRotateBy *rb = [CCRotateBy actionWithDuration:0.8 angle:300];
     CCSpawn *spawn = [CCSpawn actions:st,rb, nil];
+    [IGMusicUtil showMusciByName:@"xuanzhuan.caf"];
     [sl01 runAction:spawn];
 }
 

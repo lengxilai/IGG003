@@ -56,6 +56,7 @@
 
 -(void)restartGame
 {
+    [IGMusicUtil stopBackGroundMusic];
     IGGameState *gs = [IGGameState gameState];
     if (gs.gameMode == IGGameMode1) {
         [[CCDirector sharedDirector] replaceScene:[S01 scene]];

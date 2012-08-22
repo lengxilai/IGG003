@@ -24,6 +24,12 @@
         IGSprite *bak = [IGSprite spriteWithFile:@"paused.png"];
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
+        
+        // GameOver的图片
+        IGSprite *gameover = [IGSprite spriteWithSpriteFrameName:@"gameover.png"];
+        gameover.position = ccp(kWindowW/2,390);
+        [self addChild:gameover];
+        
         //restart按钮
         CCSprite* restartNormal=[CCSprite spriteWithSpriteFrameName:@"btn6-1.png"];
         CCSprite* restartSecelt=[CCSprite spriteWithSpriteFrameName:@"btn6-2.png"];

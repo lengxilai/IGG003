@@ -23,7 +23,7 @@ static S01 *staticS01;
     [scene addChild:bak];
     [scene showReady];
 	// 游戏层
-    [scene performSelector:@selector(gameStart) withObject:Nil afterDelay:1.6];
+    [scene performSelector:@selector(gameStart) withObject:Nil afterDelay:1.1];
     staticS01 = scene;
     
     // 普通模式
@@ -48,7 +48,7 @@ static S01 *staticS01;
     
     [scene showReady];
 	// 游戏层
-    [scene performSelector:@selector(gameStartForBroken) withObject:Nil afterDelay:1.6];
+    [scene performSelector:@selector(gameStartForBroken) withObject:Nil afterDelay:1.1];
     
     staticS01 = scene;
     
@@ -143,22 +143,22 @@ static S01 *staticS01;
     [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:1];
 }
 -(void)showReady{
-    CCSprite *readyImg = [CCSprite spriteWithFile:@"ready.png"];
+    CCSprite *readyImg = [CCSprite spriteWithSpriteFrameName:@"ready.png"];
     id readyac0 = [readyImg runAction:[CCPlace actionWithPosition:ccp(kWindowW/2,kWindowH/2)]]; 
     id readyac1 = [CCScaleBy actionWithDuration:0.3 scaleX:3.0f scaleY:3.0f];  
-    id readyac2 = [CCFadeOut actionWithDuration:0.5];
+    id readyac2 = [CCFadeOut actionWithDuration:0.3];
     [readyImg runAction:[CCSequence actions:readyac0, readyac1, readyac2, nil]]; 
     [self addChild:readyImg];
     //调用显示GO
-    [self performSelector:@selector(showGo) withObject:Nil afterDelay:1];
+    [self performSelector:@selector(showGo) withObject:Nil afterDelay:0.6];
     
 }
 -(void)showGo{
-    CCSprite *goImg = [CCSprite spriteWithFile:@"go.png"];
+    CCSprite *goImg = [CCSprite spriteWithSpriteFrameName:@"go.png"];
     [self addChild:goImg];
     id goac0 = [goImg runAction:[CCPlace actionWithPosition:ccp(kWindowW/2,kWindowH/2)]]; 
     id goac1 = [CCScaleBy actionWithDuration:0.3 scaleX:3.0f scaleY:3.0f];  
-    id goac2 = [CCFadeOut actionWithDuration:0.5];
+    id goac2 = [CCFadeOut actionWithDuration:0.1];
     [goImg runAction:[CCSequence actions:goac0, goac1, goac2, nil]]; 
 }
 -(void)gameStart{

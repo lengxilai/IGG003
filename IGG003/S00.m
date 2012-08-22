@@ -37,7 +37,42 @@
     
     IGSprite *bak = [IGSprite spriteWithFile:@"cover.png"];
     bak.position = ccp(kWindowW/2,kWindowH/2);
-    [scene addChild:bak];
+    [scene addChild:bak z:0];
+    
+    
+    // 云彩
+    CCSprite *cloud1 = [CCSprite spriteWithSpriteFrameName:@"cloud.png"];
+    cloud1.tag = 9801;
+    [scene addChild:cloud1 z:10];
+    cloud1.position = ccp(160,400);
+    
+    CCSprite *cloud2 = [CCSprite spriteWithSpriteFrameName:@"cloud.png"];
+    cloud2.tag = 9802;
+    [scene addChild:cloud2 z:11];
+    cloud2.position = ccp(480,400);
+    
+    CCRepeatForever *cloud1RF = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1.0 position:ccp(-15,0)]];
+    CCRepeatForever *cloud2RF = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1.0 position:ccp(-15,0)]];
+    [cloud1 runAction:cloud1RF];
+    [cloud2 runAction:cloud2RF];
+    [scene schedule:@selector(cloudMoveCheck) interval:1];
+    
+    
+    // 标题
+    CCSprite *bobo = [CCSprite spriteWithSpriteFrameName:@"BOBO.png"];
+    [scene addChild:bobo z:20];
+    bobo.position = ccp(100,400);
+    
+    // 太阳
+    CCSprite* sunin=[CCSprite spriteWithSpriteFrameName:@"sunin.png"];
+    CCSprite* sunout=[CCSprite spriteWithSpriteFrameName:@"sunout.png"];
+    [scene addChild:sunin z:5];
+    [scene addChild:sunout z:6];
+    sunin.position = ccp(260,410);
+    sunout.position = ccp(260,410);
+    CCRepeatForever *rf = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:1.0 angle:20]];
+    [sunout runAction:rf];
+
     
     CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn1-1.png"];
     CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn1-2.png"];
@@ -68,15 +103,14 @@
     // 开始游戏按钮
     CCMenu* menu1=[CCMenu menuWithItems:startSprite,brokenSprite,nil];
     menu1.position=ccp(100, 280);    
-    [scene addChild:menu1];
+    [scene addChild:menu1 z:40];
     [menu1 alignItemsVerticallyWithPadding:15];
     
     // 下面的其他按钮
     CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,nil];
     menu2.position=ccp(75, 140);    
-    [scene addChild:menu2];
-    [menu2 alignItemsVerticallyWithPadding:15];
-    
+    [scene addChild:menu2 z:41];
+    [menu2 alignItemsVerticallyWithPadding:15];    
 	return scene;
 }
 
@@ -102,6 +136,23 @@
 // 关于页面
 -(void)showAbout{
     [[CCDirector sharedDirector] replaceScene:[S02 showAbout]];
+}
+
+-(void)cloudMoveCheck{
+    CCSprite *cloud1 = [self getChildByTag:9801];
+    CCSprite *cloud2 = [self getChildByTag:9802];
+    if (cloud1.position.x < -160) {
+        [cloud1 removeFromParentAndCleanup:YES];
+        cloud2.tag = 9801;
+        
+        CCSprite *cloud = [CCSprite spriteWithSpriteFrameName:@"cloud.png"];
+        cloud.tag = 9802;
+        [self addChild:cloud z:11];
+        cloud.position = ccp(480,400);
+        
+        CCRepeatForever *cloudRF = [CCRepeatForever actionWithAction:[CCMoveBy actionWithDuration:1.0 position:ccp(-15,0)]];
+        [cloud runAction:cloudRF];
+    }
 }
 
 @end

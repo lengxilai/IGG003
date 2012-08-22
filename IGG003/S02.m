@@ -48,7 +48,7 @@ static S02 *staticS02;
     CCMenu* menu=[CCMenu menuWithItems:arcadeSprite,brokenSprite,nil];
     [menu alignItemsHorizontallyWithPadding:0];
     menu.tag = 600003;
-    menu.position=ccp(kWindowW/2+10, 400);    
+    menu.position=ccp(kWindowW/2+20, 400);    
     [scene addChild:menu];
     return scene;
 }

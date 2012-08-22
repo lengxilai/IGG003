@@ -125,7 +125,7 @@ static CL02 *staticCL02;
 -(void) showDaojishiMusic {
     IGGameState *gameState = [IGGameState gameState];
     // 倒计时音效
-    if (times <= 5 && times>1 && gameState.gameMode==1) {
+    if (times <= kDaojishiSoundTime && times>1 && gameState.gameMode==1) {
         [IGMusicUtil showMusciByName:@"daojishi.caf"];
     }
 }

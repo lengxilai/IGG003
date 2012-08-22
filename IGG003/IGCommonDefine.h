@@ -57,6 +57,8 @@
 #define delaySeconds 61
 //冰冻效果图片tag
 #define iceBgTag 100010
+// 倒计时显示音效的时间
+#define kDaojishiSoundTime 8
 
 #define brokenMode @"broken"
 #define arcadeMode @"arcade"

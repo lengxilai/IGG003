@@ -44,6 +44,9 @@ static CL02 *staticCL02;
         persecond = delaySeconds;
         //调用倒计时方法
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
+        // 倒计时音效
+        [self schedule:@selector(showDaojishiMusic) interval:1];
+
         //暂停按钮
         //CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
         //CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
@@ -105,10 +108,6 @@ static CL02 *staticCL02;
             
         }
         IGGameState *gameState = [IGGameState gameState];
-        // 倒计时音效
-        if (times <= 5 && times!=0 && gameState.gameMode==1 ) {
-            [IGMusicUtil showMusciByName:@"daojishi.caf"];
-        }
         //游戏结束
         if(times <= 0){
             if (gameState.gameMode==1) {
@@ -120,6 +119,14 @@ static CL02 *staticCL02;
             [self unschedule:@selector(updateTimeDisplay)];
             [self overGame];
         }
+    }
+}
+#pragma mark 倒计时音效
+-(void) showDaojishiMusic {
+    IGGameState *gameState = [IGGameState gameState];
+    // 倒计时音效
+    if (times <= 5 && times>1 && gameState.gameMode==1) {
+        [IGMusicUtil showMusciByName:@"daojishi.caf"];
     }
 }
 

@@ -44,6 +44,7 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"failed.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"buguniao.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"drop.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"xuanzhuan.caf"];
 }
 
 // 根据音效名字播放

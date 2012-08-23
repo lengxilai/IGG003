@@ -307,7 +307,6 @@
     gs.m_s_count = sCount;
     
     if (sCount >= kGameSizeRows*kGameSizeCols) {
-        [IGMusicUtil stopBackGroundMusic];
         [self performSelector:@selector(showGameOverMusic) withObject:nil afterDelay:0.6];
         [self performSelector:@selector(overGameForMode2) withObject:nil afterDelay:2];
     }
@@ -333,7 +332,9 @@
 {
     isMoving = NO;
 }
+//石头模式的游戏结束音效
 -(void)showGameOverMusic {
+    [IGMusicUtil stopBackGroundMusic];
     [IGMusicUtil showMusciByName:@"failed.caf"];
 }
 @end

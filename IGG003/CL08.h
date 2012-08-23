@@ -11,16 +11,22 @@
 #import <UIKit/UIKit.h>
 #import "IGGameState.h"
 
+typedef enum{
+    AppID_TenYearsDiary = 508014699,
+    AppID_TripChecker = 529403333,
+    AppID_Pomodoro = 533655318,
+    AppID_FruitBoBo = 533655318,
+}AppID;
 
-@interface CL08 : CCLayer<UITableViewDataSource, UITableViewDelegate>
+
+@interface CL08 : CCLayer<UIScrollViewDelegate>
 {
-	UITableView*			m_tableView;
-    // 数据状态
-    IGGameState *m_gameState;
-    // 数据显示区分
-    int showScoresFlag;
-    // 列表数据源
-    NSArray* scoreList;
+	UIScrollView *scrollView;
+	UIPageControl *pageControl;
+    NSMutableArray *views;
+    
+    // To be used when scrolls originate from the UIPageControl
+    BOOL pageControlUsed;
 }
 // 初始化
 - (id) init;

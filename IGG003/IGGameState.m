@@ -26,6 +26,7 @@ static IGGameState *staticGameState;
 @synthesize isSoundOn;
 @synthesize m_scoreListNormal;
 @synthesize m_scoreListBroken;
+@synthesize m_tool_type;
 
 +(IGGameState*)gameState
 {
@@ -69,7 +70,7 @@ static IGGameState *staticGameState;
         for (int i = 0; i < kGameSizeRows; i++) {
             NSMutableArray *mc = [NSMutableArray arrayWithCapacity:kGameSizeCols];
             for (int j = 0; j < kGameSizeCols; j++) {
-                int bType = CCRANDOM_0_1()*self.m_box_level + 1;
+                int bType = arc4random()%self.m_box_level + 1;
                 [mc addObject:[NSNumber numberWithInt:bType]];
             }
             [mr addObject:mc];

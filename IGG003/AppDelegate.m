@@ -111,7 +111,30 @@
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
+    
+    NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys: kInitGameStoneCount, GameStoneCount,nil];   
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues]; 
 	
+    if([self isGameCenterAvailable]){
+        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error){ 
+            if (error == nil) { 
+                //成功处理 
+                NSLog(@"成功"); 
+                NSLog(@"1--alias--.%@",[GKLocalPlayer localPlayer].alias); 
+                NSLog(@"2--authenticated--.%d",[GKLocalPlayer localPlayer].authenticated); 
+                NSLog(@"3--isFriend--.%d",[GKLocalPlayer localPlayer].isFriend); 
+                NSLog(@"4--playerID--.%@",[GKLocalPlayer localPlayer].playerID); 
+                NSLog(@"5--underage--.%d",[GKLocalPlayer localPlayer].underage); 
+            }else { 
+                //错误处理 
+                NSLog(@"失败  %@",error); 
+            } 
+        }];
+    }
+    
+    
+
+    
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [S00 scene:YES]];
 }
@@ -141,6 +164,12 @@
 
 -(void) applicationWillEnterForeground:(UIApplication*)application {
 	[[CCDirector sharedDirector] startAnimation];
+    //如果当前场景时游戏中时，退出时显示暂停
+    if([[[[[CCDirector sharedDirector] runningScene] children] lastObject] tag] == 10012){
+        S01 *s01 = [S01 getS01];
+        CL01 *cl01 = (CL01 *)[s01 getChildByTag:10011];
+        [cl01 gamePause]; 
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -165,6 +194,16 @@
 	[[CCDirector sharedDirector] end];
 	[window release];
 	[super dealloc];
+}
+//判断gamecenter是否可用
+- (BOOL) isGameCenterAvailable 
+{ 
+    Class gcClass = (NSClassFromString(@"GKLocalPlayer")); 
+    NSString *reqSysVer = @"4.1"; 
+    NSString *currSysVer = [[UIDevice currentDevice] systemVersion]; 
+    BOOL osVersionSupported = ([currSysVer compare:reqSysVer options:NSNumericSearch] != NSOrderedAscending); 
+    
+    return (gcClass && osVersionSupported); 
 }
 
 @end

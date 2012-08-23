@@ -48,7 +48,7 @@
 //        tooltype = tools05;
 //    }
     
-    if(tooltype== toolsNO && (deleteNo >=12 || gameState.m_combo >= 6)){
+    if(tooltype== toolsNO && (deleteNo >=1 || gameState.m_combo >= 1)){
         if([self probability:90]){
             // 地雷
             if([self probability:40]){

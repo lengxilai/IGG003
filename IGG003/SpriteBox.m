@@ -41,7 +41,7 @@
 {
     IGGameState *gameState = [IGGameState gameState];
     
-    GameBoxType type = CCRANDOM_0_1()*gameState.m_box_level + 1;
+    GameBoxType type = arc4random()%gameState.m_box_level + 1;
     // 如果为IGGameMode2,并且删除数量比较少，则添加一个石头
     if (gameState.gameMode == IGGameMode2) {
         
@@ -73,7 +73,7 @@
             probability = 50;
             // 击碎的石头数量大于水果数量时 可以降低出石头的概率
             if (gameState.m_s_count > kGameSizeCols*kGameSizeRows*0.6 && gameState.m_broken_count > gameState.m_del_count) {
-                probability = probability - gameState.m_broken_count*2;
+                probability = probability - gameState.m_broken_count*4;
             }
         }
         if (gameState.m_del_count == 5) {
@@ -91,6 +91,13 @@
             if (gameState.m_combo > 16) {
                 probability = 80;
             }
+        }
+        // 如果当前使用了地雷，则出石头的概率减半
+        if (gameState.m_tool_type == tools01) {
+            probability = probability / 3;
+        }
+        if (gameState.m_tool_type == tools03) {
+            probability = probability / 2;
         }
         if ([self probability:probability]) {
             type = eGbt99;
@@ -294,7 +301,7 @@
 }
 
 +(BOOL)probability:(int)num{
-    int r = CCRANDOM_0_1()*100 + 1;
+    int r = arc4random()%100 + 1;
     if(r<num){
         return YES;
     }

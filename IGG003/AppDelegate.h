@@ -10,7 +10,7 @@
 #import "S00.h"
 #import "IGGameState.h"
 #import "CL02.h"
-
+#import<GameKit/GameKit.h>
 @class RootViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
@@ -19,5 +19,5 @@
 }
 
 @property (nonatomic, retain) UIWindow *window;
-
+- (BOOL) isGameCenterAvailable;
 @end

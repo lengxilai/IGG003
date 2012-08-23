@@ -10,6 +10,7 @@
 #import "IGMusicUtil.h"
 
 @implementation S00
+@synthesize gameCenterView;
 +(IGScene *) scene:(BOOL) needChangeMusic {
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S00 node];
@@ -98,7 +99,7 @@
     CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(startGameForBroken)];
     CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(showScores)];
     CCMenuItemSprite* settingSprite=[CCMenuItemSprite itemFromNormalSprite:settingNormal selectedSprite:settingSecelt target:scene selector:@selector(showSettings)];
-    CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(showAbout)];
+    CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(openGameCenter)];
     
     // 开始游戏按钮
     CCMenu* menu1=[CCMenu menuWithItems:startSprite,brokenSprite,nil];
@@ -156,5 +157,34 @@
         [cloud runAction:cloudRF];
     }
 }
+-(void)openGameCenter{
+    
+    gameCenterView = [[UIViewController alloc] init];
+    
+    gameCenterView.view = [[CCDirector sharedDirector] openGLView];
+    
+    GKLeaderboardViewController *leaderboardController = [[GKLeaderboardViewController alloc] init];
+    
+    if (leaderboardController != NULL) 
+        
+    {
+        
+        leaderboardController.category = @"arcade";
+        
+        leaderboardController.leaderboardDelegate = self; 
+        
+        [gameCenterView presentModalViewController: leaderboardController animated: YES];
+        
+    }
+    
+}
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController 
 
+{
+    
+    [gameCenterView dismissModalViewControllerAnimated:YES];
+    [gameCenterView removeFromParentViewController];
+    [gameCenterView release];
+    
+}
 @end

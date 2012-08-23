@@ -221,11 +221,13 @@
 		DCEBD64B15D1363800450CC6 /* combo3.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64615D1363800450CC6 /* combo3.caf */; };
 		DCEBD64C15D1363800450CC6 /* combo4.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64715D1363800450CC6 /* combo4.caf */; };
 		DCEBD64D15D1363800450CC6 /* combo5.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCEBD64815D1363800450CC6 /* combo5.caf */; };
+		E202D6B915E642B700CEC535 /* IGGameCenterUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E202D6B815E642B600CEC535 /* IGGameCenterUtil.m */; };
 		E21A2C3D15C126B900E52519 /* bitmapFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3715C126B900E52519 /* bitmapFont.fnt */; };
 		E21A2C3E15C126B900E52519 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E21A2C3815C126B900E52519 /* bitmapFont.png */; };
 		E21A2C3F15C126B900E52519 /* CL02.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3A15C126B900E52519 /* CL02.m */; };
 		E21A2C4015C126B900E52519 /* CL03.m in Sources */ = {isa = PBXBuildFile; fileRef = E21A2C3C15C126B900E52519 /* CL03.m */; };
 		E230445515D3AB7100C4D2E3 /* CL06.m in Sources */ = {isa = PBXBuildFile; fileRef = E230445415D3AB7100C4D2E3 /* CL06.m */; };
+		E2467F7415E61C0000BC1E4E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2467F7315E61C0000BC1E4E /* GameKit.framework */; };
 		E262DFFC15D11FC70061ECE8 /* CL05.m in Sources */ = {isa = PBXBuildFile; fileRef = E262DFFB15D11FC70061ECE8 /* CL05.m */; };
 		E274588D15D3B2AE00E77BE6 /* S02.m in Sources */ = {isa = PBXBuildFile; fileRef = E274588C15D3B2AE00E77BE6 /* S02.m */; };
 		E276CF6B15C9481800D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF6A15C9481800D521FE /* CL04.m */; };
@@ -596,6 +598,8 @@
 		DCEBD64615D1363800450CC6 /* combo3.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = combo3.caf; sourceTree = "<group>"; };
 		DCEBD64715D1363800450CC6 /* combo4.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = combo4.caf; sourceTree = "<group>"; };
 		DCEBD64815D1363800450CC6 /* combo5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = combo5.caf; sourceTree = "<group>"; };
+		E202D6B715E642B600CEC535 /* IGGameCenterUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IGGameCenterUtil.h; path = ../IGGameCenterUtil.h; sourceTree = "<group>"; };
+		E202D6B815E642B600CEC535 /* IGGameCenterUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IGGameCenterUtil.m; path = ../IGGameCenterUtil.m; sourceTree = "<group>"; };
 		E21A2C3715C126B900E52519 /* bitmapFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont.fnt; sourceTree = "<group>"; };
 		E21A2C3815C126B900E52519 /* bitmapFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont.png; sourceTree = "<group>"; };
 		E21A2C3915C126B900E52519 /* CL02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL02.h; sourceTree = "<group>"; };
@@ -604,6 +608,7 @@
 		E21A2C3C15C126B900E52519 /* CL03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL03.m; sourceTree = "<group>"; };
 		E230445315D3AB7000C4D2E3 /* CL06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL06.h; sourceTree = "<group>"; };
 		E230445415D3AB7100C4D2E3 /* CL06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL06.m; sourceTree = "<group>"; };
+		E2467F7315E61C0000BC1E4E /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		E262DFFA15D11FC70061ECE8 /* CL05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CL05.h; sourceTree = "<group>"; };
 		E262DFFB15D11FC70061ECE8 /* CL05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL05.m; sourceTree = "<group>"; };
 		E274588B15D3B2AE00E77BE6 /* S02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = S02.h; sourceTree = "<group>"; };
@@ -621,6 +626,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2467F7415E61C0000BC1E4E /* GameKit.framework in Frameworks */,
 				D7030A8115B6B2D000BA5EF4 /* QuartzCore.framework in Frameworks */,
 				D7030A8315B6B2D000BA5EF4 /* OpenGLES.framework in Frameworks */,
 				D7030A8515B6B2D000BA5EF4 /* OpenAL.framework in Frameworks */,
@@ -638,6 +644,7 @@
 		D7030A7115B6B2D000BA5EF4 = {
 			isa = PBXGroup;
 			children = (
+				E2467F7315E61C0000BC1E4E /* GameKit.framework */,
 				D7030A9015B6B2D000BA5EF4 /* IGG003 */,
 				D7030A7F15B6B2D000BA5EF4 /* Frameworks */,
 				D7030A7D15B6B2D000BA5EF4 /* Products */,
@@ -1072,6 +1079,8 @@
 		D7030BF815B6B34800BA5EF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E202D6B715E642B600CEC535 /* IGGameCenterUtil.h */,
+				E202D6B815E642B600CEC535 /* IGGameCenterUtil.m */,
 				DC93533A15C9384F000AB032 /* IGMusicUtil.m */,
 				DC93533B15C9384F000AB032 /* IGMusicUtil.h */,
 				D7030C0E15B6B40200BA5EF4 /* IGAnimeUtil.h */,
@@ -1497,6 +1506,7 @@
 				D7860FFA15DA8BEB001BC40A /* CL07.m in Sources */,
 				D7860FFE15DA94ED001BC40A /* IGSettingGrade.m in Sources */,
 				D782332D15DFA7CA0047F37B /* CL08.m in Sources */,
+				E202D6B915E642B700CEC535 /* IGGameCenterUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

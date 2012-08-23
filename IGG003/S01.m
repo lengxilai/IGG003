@@ -10,10 +10,6 @@
 static S01 *staticS01;
 @implementation S01
 +(IGScene *) scene{
-    // 背景音乐
-    int musicId = CCRANDOM_0_1()*3;
-    NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
-    [IGMusicUtil showBackgroundMusic:musicName];
 
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
@@ -22,10 +18,16 @@ static S01 *staticS01;
     bak.position = ccp(kWindowW/2,kWindowH/2);
     [scene addChild:bak];
     [scene showReady];
+    
 	// 游戏层
     [scene performSelector:@selector(gameStart) withObject:Nil afterDelay:1.1];
     staticS01 = scene;
     
+    // ready go之后播放背景音乐
+    [scene performSelector:@selector(showBackMusic) withObject:nil afterDelay:1.1];
+    // 水果掉落音效
+    [scene performSelector:@selector(showDropMusic) withObject:nil afterDelay:1.4];
+
     // 普通模式
     IGGameState *gs = [IGGameState gameState];
     gs.gameMode = IGGameMode1;
@@ -34,10 +36,6 @@ static S01 *staticS01;
 
 
 +(IGScene *) sceneForBroken{
-    // 背景音乐
-    int musicId = CCRANDOM_0_1()*3;
-    NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
-    [IGMusicUtil showBackgroundMusic:musicName];
     
 	// 'scene' is an autorelease object.
 	IGScene *scene = [S01 node];
@@ -51,7 +49,12 @@ static S01 *staticS01;
     [scene performSelector:@selector(gameStartForBroken) withObject:Nil afterDelay:1.1];
     
     staticS01 = scene;
-    
+
+    // ready go之后播放背景音乐
+    [scene performSelector:@selector(showBackMusic) withObject:nil afterDelay:1.1];
+    // 水果掉落音效
+    [scene performSelector:@selector(showDropMusic) withObject:nil afterDelay:1.4];
+
     // 碎石模式
     IGGameState *gs = [IGGameState gameState];
     gs.gameMode = IGGameMode2;
@@ -100,9 +103,9 @@ static S01 *staticS01;
         [cl02 onExit];
         
         // 时间停止音效
-        [self performSelector:@selector(readyForGameOver) withObject:nil afterDelay:1];
-        
-        [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:3];
+        [self performSelector:@selector(readyForGameOver) withObject:nil afterDelay:1.8];
+
+        [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:2.8];
         
     }
 }
@@ -131,6 +134,7 @@ static S01 *staticS01;
     CCScaleTo *st = [CCScaleTo actionWithDuration:0.8 scale:0];
     CCRotateBy *rb = [CCRotateBy actionWithDuration:0.8 angle:300];
     CCSpawn *spawn = [CCSpawn actions:st,rb, nil];
+    [IGMusicUtil showMusciByName:@"xuanzhuan.caf"];
     [sl01 runAction:spawn];
 }
 
@@ -145,6 +149,7 @@ static S01 *staticS01;
 -(void)showReady{
     CCSprite *readyImg = [CCSprite spriteWithSpriteFrameName:@"ready.png"];
     id readyac0 = [readyImg runAction:[CCPlace actionWithPosition:ccp(kWindowW/2,kWindowH/2)]]; 
+    [IGMusicUtil showMusciByName:@"ready_go.caf"];
     id readyac1 = [CCScaleBy actionWithDuration:0.3 scaleX:3.0f scaleY:3.0f];  
     id readyac2 = [CCFadeOut actionWithDuration:0.3];
     [readyImg runAction:[CCSequence actions:readyac0, readyac1, readyac2, nil]]; 
@@ -206,5 +211,16 @@ static S01 *staticS01;
     
     // 给控制层设定游戏层
     cl01.sl01 = sl01;
+}
+// 游戏背景音乐
+-(void)showBackMusic {
+    // 背景音乐
+    int musicId = CCRANDOM_0_1()*3;
+    NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
+    [IGMusicUtil showBackgroundMusic:musicName]; 
+}
+// 开始掉落水果音效
+-(void)showDropMusic {
+    [IGMusicUtil showMusciByName:@"drop.caf"];
 }
 @end

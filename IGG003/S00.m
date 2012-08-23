@@ -116,13 +116,15 @@
 
 -(void)startGame
 {
+    //停止菜单音乐
     [IGMusicUtil stopBackGroundMusic];
     [[CCDirector sharedDirector] replaceScene:[S01 scene]];
 }
 
 -(void)startGameForBroken
 {
-    
+    //停止菜单音乐
+    [IGMusicUtil stopBackGroundMusic];    
     [[CCDirector sharedDirector] replaceScene:[S01 sceneForBroken]];
 }
 -(void)showScores{

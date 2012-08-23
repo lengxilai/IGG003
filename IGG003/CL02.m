@@ -111,10 +111,8 @@ static CL02 *staticCL02;
         //游戏结束
         if(times <= 0){
             if (gameState.gameMode==1) {
-                // 背景音乐停止
-                [IGMusicUtil stopBackGroundMusic];
-                // 时间到音效
-                [IGMusicUtil showMusciByName:@"timeout.caf"];
+                //结束音效
+                [self performSelector:@selector(showGameOverMusic) withObject:nil afterDelay:0.5];
             }
             [self unschedule:@selector(updateTimeDisplay)];
             [self overGame];
@@ -125,11 +123,19 @@ static CL02 *staticCL02;
 -(void) showDaojishiMusic {
     IGGameState *gameState = [IGGameState gameState];
     // 倒计时音效
-    if (times <= 5 && times>1 && gameState.gameMode==1) {
+    if (times <= kDaojishiSoundTime && times>3 && gameState.gameMode==1) {
         [IGMusicUtil showMusciByName:@"daojishi.caf"];
+    } else if (times <= 3 && times>0 && gameState.gameMode==1) {
+        [IGMusicUtil showMusciByName:@"buguniao.caf"];
     }
 }
-
+#pragma mark 结束音效
+-(void) showGameOverMusic {
+    // 背景音乐停止
+    [IGMusicUtil stopBackGroundMusic];
+    // 时间到音效
+    [IGMusicUtil showMusciByName:@"timeout.caf"];
+}
 //将时间转换为字符串11：11结构
 - (NSString *)stringForObjectValue:(id)anObject{
     

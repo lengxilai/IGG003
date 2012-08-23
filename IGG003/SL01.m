@@ -234,6 +234,9 @@
 
     NSArray *m = gs.m;
     
+    // 设定移动状态，显示动画的过程不能点击，否则会出错
+    isMoving = YES;
+    
     for (int i = 0; i < kGameSizeRows; i++) {
         NSArray *mr = (NSArray*)[m objectAtIndex:i];
         for (int j = 0; j < kGameSizeCols; j++) {

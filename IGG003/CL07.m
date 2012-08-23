@@ -20,10 +20,10 @@
         bak.position = ccp(kWindowW/2,kWindowH/2);
         [self addChild:bak];
         
-        // 提示字
-        CCLabelBMFont *levelLabel= [CCLabelBMFont labelWithString:@"Settings" fntFile:@"bitmapFont2.fnt"];
-        levelLabel.position = ccp(kWindowW/2, 460);
-        [self addChild:levelLabel];
+//        // 提示字
+//        CCLabelBMFont *levelLabel= [CCLabelBMFont labelWithString:@"Settings" fntFile:@"bitmapFont2.fnt"];
+//        levelLabel.position = ccp(kWindowW/2, 460);
+//        [self addChild:levelLabel];
         
         // 取得全局数据
         m_gameState = [IGGameState gameState];

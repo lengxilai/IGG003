@@ -9,7 +9,10 @@
 #import "IGScene.h"
 #import "S01.h"
 #import "S02.h"
-@interface S00 : IGScene
+@interface S00 : IGScene{
+    UIViewController *gameCenterView;
+}
+@property(nonatomic,retain) UIViewController *gameCenterView;
 +(IGScene *) scene:(BOOL) needChangeMusic;
 -(void)startGame;
 @end

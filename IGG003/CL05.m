@@ -85,7 +85,7 @@
         CCLabelBMFont *scoreStr= [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",score] fntFile:scoreStrFile];
         scoreStr.position = ccp(kWindowW/2,300);
         [self addChild:scoreStr];
-        
+        [self reportScore:score];
     }
     return self;
 }
@@ -191,5 +191,10 @@
     }else {
         return brokenMode;
     }
+}
+//上传到gamecenter
+- (void) reportScore: (int64_t) score{ 
+    NSString *gameMode = [self getGameModeStr];
+    [IGGameCenterUtil reportScore:score forCategory:gameMode];
 }
 @end

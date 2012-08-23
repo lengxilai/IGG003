@@ -26,6 +26,7 @@ static IGGameState *staticGameState;
 @synthesize isSoundOn;
 @synthesize m_scoreListNormal;
 @synthesize m_scoreListBroken;
+@synthesize m_tool_type;
 
 +(IGGameState*)gameState
 {

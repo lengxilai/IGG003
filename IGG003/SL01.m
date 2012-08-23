@@ -98,6 +98,8 @@
     // 取得目标箱子
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
+    // 设定当前道具种类
+    gameState.m_tool_type = b.tType;
     
 //    IGGameState *gameState = [IGGameState gameState];
     if (b.bType == eGbt99) {

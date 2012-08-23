@@ -95,11 +95,16 @@
     CCSprite* aboutSecelt=[CCSprite spriteWithSpriteFrameName:@"btn4-2.png"];
     aboutSecelt.scale=0.95f;
     
+    CCSprite* gameCenterNormal=[CCSprite spriteWithSpriteFrameName:@"btn4-1.png"];
+    CCSprite* gameCenterSecelt=[CCSprite spriteWithSpriteFrameName:@"btn4-2.png"];
+    aboutSecelt.scale=0.95f;
+    
     CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:scene selector:@selector(startGame)];
     CCMenuItemSprite* brokenSprite=[CCMenuItemSprite itemFromNormalSprite:brokenNormal selectedSprite:brokenSecelt target:scene selector:@selector(startGameForBroken)];
     CCMenuItemSprite* scoreSprite=[CCMenuItemSprite itemFromNormalSprite:scoreNormal selectedSprite:scoreSecelt target:scene selector:@selector(showScores)];
     CCMenuItemSprite* settingSprite=[CCMenuItemSprite itemFromNormalSprite:settingNormal selectedSprite:settingSecelt target:scene selector:@selector(showSettings)];
-    CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(openGameCenter)];
+    CCMenuItemSprite* aboutSprite=[CCMenuItemSprite itemFromNormalSprite:aboutNormal selectedSprite:aboutSecelt target:scene selector:@selector(showAbout)];
+    CCMenuItemSprite* gameCenterSprite=[CCMenuItemSprite itemFromNormalSprite:gameCenterNormal selectedSprite:gameCenterSecelt target:scene selector:@selector(openGameCenter)];
     
     // 开始游戏按钮
     CCMenu* menu1=[CCMenu menuWithItems:startSprite,brokenSprite,nil];
@@ -108,7 +113,7 @@
     [menu1 alignItemsVerticallyWithPadding:15];
     
     // 下面的其他按钮
-    CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,nil];
+    CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,gameCenterSprite,nil];
     menu2.position=ccp(75, 140);    
     [scene addChild:menu2 z:41];
     [menu2 alignItemsVerticallyWithPadding:15];    

@@ -98,6 +98,8 @@
     // 取得目标箱子
     int targetBoxTag = mp.R*kBoxTagR+mp.C;
     SpriteBox *b = (SpriteBox *)[self getChildByTag:targetBoxTag];
+    // 设定当前道具种类
+    gameState.m_tool_type = b.tType;
     
 //    IGGameState *gameState = [IGGameState gameState];
     if (b.bType == eGbt99) {
@@ -256,8 +258,8 @@
 // 随机显示一个水果的动作
 -(void)runRandomBoxAnime
 {
-    int randomR = kGameSizeRows * CCRANDOM_0_1();
-    int randomC = kGameSizeCols * CCRANDOM_0_1();
+    int randomR = arc4random()%kGameSizeRows;
+    int randomC = arc4random()%kGameSizeCols;
     int randomTag = randomR*kBoxTagR + randomC;
     SpriteBox *box = [self getChildByTag:randomTag];
     if (box != nil) {

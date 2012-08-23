@@ -215,7 +215,7 @@ static S01 *staticS01;
 // 游戏背景音乐
 -(void)showBackMusic {
     // 背景音乐
-    int musicId = CCRANDOM_0_1()*3;
+    int musicId = arc4random()%3;
     NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
     [IGMusicUtil showBackgroundMusic:musicName]; 
 }

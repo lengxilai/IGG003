@@ -54,6 +54,8 @@ MxPointMake(int r, int c)
     int             m_time;
     // 当前连击数
     int             m_combo;
+    // 当前使用的道具种类
+    int             m_tool_type;
     
     BOOL isHappyTime;
     
@@ -95,6 +97,7 @@ MxPointMake(int r, int c)
 @property(nonatomic,assign) int m_del_count;
 @property(nonatomic,assign) int m_broken_count;
 @property(nonatomic,assign) int m_s_count;
+@property(nonatomic,assign) int m_tool_type;
 @property(nonatomic,assign) IGGameMode gameMode;
 @property(nonatomic,assign) BOOL isHappyTime;
 @property(nonatomic,assign) BOOL isPaused;

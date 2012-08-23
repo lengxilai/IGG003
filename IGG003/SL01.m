@@ -258,8 +258,8 @@
 // 随机显示一个水果的动作
 -(void)runRandomBoxAnime
 {
-    int randomR = kGameSizeRows * CCRANDOM_0_1();
-    int randomC = kGameSizeCols * CCRANDOM_0_1();
+    int randomR = arc4random()%kGameSizeRows;
+    int randomC = arc4random()%kGameSizeCols;
     int randomTag = randomR*kBoxTagR + randomC;
     SpriteBox *box = [self getChildByTag:randomTag];
     if (box != nil) {

@@ -1368,7 +1368,7 @@
 				D7A9B58315E507FC00DC0667 /* tenyeardiaryicon@2x.png in Resources */,
 				D7A9B58415E507FC00DC0667 /* tripcheckericon.png in Resources */,
 				D7A9B58515E507FC00DC0667 /* tripcheckericon@2x.png in Resources */,
->>>>>>> 73a45dec1055404aebf525b530603d12493064bd
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

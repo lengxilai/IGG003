@@ -76,6 +76,15 @@
 // 根据坐标删除一个箱子，在CL01中调用
 -(void)runMoveBox:(MxPoint)mp
 {
+    // 开启限制时
+    if (isGameStoneCountLimit) {
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        NSString *gameStoneCount = [ud objectForKey:GameStoneCount];
+        int stoneCount = [gameStoneCount intValue];
+        if (stoneCount <= 0) {
+            return;
+        }
+    }
     
     // 判断移动中的标记，如果正在移动，则不继续
     if (isMoving) {

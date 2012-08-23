@@ -111,6 +111,9 @@
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
+    
+    NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys: kInitGameStoneCount, GameStoneCount,nil];   
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues]; 
 	
     if([self isGameCenterAvailable]){
         [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error){ 

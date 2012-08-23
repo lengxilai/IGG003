@@ -51,7 +51,7 @@ static S01 *staticS01;
     staticS01 = scene;
 
     // ready go之后播放背景音乐
-    [scene performSelector:@selector(showBackMusic) withObject:nil afterDelay:1.1];
+    [scene performSelector:@selector(showBreakBackMusic) withObject:nil afterDelay:1.1];
     // 水果掉落音效
     [scene performSelector:@selector(showDropMusic) withObject:nil afterDelay:1.4];
 
@@ -218,6 +218,11 @@ static S01 *staticS01;
     int musicId = arc4random()%3;
     NSString *musicName = [NSString stringWithFormat:@"bg_music%d.caf", musicId];
     [IGMusicUtil showBackgroundMusic:musicName]; 
+}
+// break游戏背景音乐
+-(void)showBreakBackMusic {
+    // 背景音乐
+    [IGMusicUtil showBackgroundMusic:@"bg_music4.m4a"]; 
 }
 // 开始掉落水果音效
 -(void)showDropMusic {

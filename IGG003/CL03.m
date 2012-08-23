@@ -19,6 +19,15 @@ static CL03 *staticCL03;
         // 初始化分数
         totalPoints = 0;
         comboNum = 0;
+        
+        // 开启限制时
+        if (isGameStoneCountLimit) {
+            // 初始化石头的数量
+            NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+            NSString *gameStoneCount = [ud objectForKey:GameStoneCount];
+            stonCount = [gameStoneCount intValue];
+        }
+        
         // 设置分数显示位置
         [self setPointPlace:totalPoints comboNum:comboNum];
 	}
@@ -49,6 +58,16 @@ static CL03 *staticCL03;
     // 消除的石头数量
     int sNum = gameState.m_broken_count;
     
+    // 开启限制时
+    if (isGameStoneCountLimit) {
+        // 石头数量
+        //======================
+        stonCount = stonCount + sNum - 1;
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        [ud setValue:[NSString stringWithFormat:@"%d",stonCount] forKey:GameStoneCount];
+        //======================
+    }
+    
     // 计算分数时，连击数最多为16,也就是基数最大为256
     int scoreCombo = comboNum > 16?16:comboNum;
     
@@ -73,6 +92,13 @@ static CL03 *staticCL03;
     [gameState setScore:addedTotalPoint];
     [self schedule:@selector(getTotalPoint:) interval:(0.01)];
     [self changeCombo];
+    
+    // 开启限制时
+    if (isGameStoneCountLimit) {
+        
+        // 显示石头数量
+        [stonSprit setString:[NSString stringWithFormat:@"%d",stonCount]];
+    }
 }
 
 // 计算每次加分效果所加的分数
@@ -170,6 +196,18 @@ static CL03 *staticCL03;
 //    [self addChild:comboName];
     [comboSprit setVisible:NO];
     [self addChild:comboSprit];
+    
+    // 开启限制时显示石头个数
+    if (isGameStoneCountLimit) {
+        // 显示石头数量
+        stonSprit = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"%d",stonCount] fntFile:@"pointFont2.fnt"];
+        stonSprit.position = ccp(160,460);
+        [self addChild:stonSprit];
+        CCSprite *stone = [CCSprite spriteWithSpriteFrameName:@"99.png"];
+        [stone setScale:0.7];
+        stone.position = ccp(120,460);
+        [self addChild:stone];
+    }
     
 }
 

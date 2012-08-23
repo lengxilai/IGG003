@@ -65,6 +65,9 @@
 #define scoreWriteNum 5
 #define scoreReadNum 3
 #define scoreAllReadNum 5
+#define GameStoneCount @"GameStoneCount"
+#define kInitGameStoneCount @"500"
+#define isGameStoneCountLimit 1
 
 @interface IGCommonDefine : NSObject
 

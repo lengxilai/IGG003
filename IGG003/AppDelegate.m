@@ -111,6 +111,9 @@
 	
 	// Removes the startup flicker
 	[self removeStartupFlicker];
+    
+    NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys: kInitGameStoneCount, GameStoneCount,nil];   
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues]; 
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [S00 scene:YES]];

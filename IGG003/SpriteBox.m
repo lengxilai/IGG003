@@ -7,6 +7,8 @@
 //
 
 #import "SpriteBox.h"
+#import "SL01.h"
+#import "IGMusicUtil.h"
 
 @implementation SpriteBox
 @synthesize bType;
@@ -118,7 +120,12 @@
 {
     if (self.bType == eGbt99 &&self.sCount == 0) {
         self.sCount = 1;
-        
+        // 如果没播放过碎石声，就播放且直播放一次
+        if ([IGMusicUtil getBreakFlag]) {
+            [IGMusicUtil showMusciByName:@"break1.caf"];
+            [IGMusicUtil setBreakFlag:NO];
+        }
+
         // 石头破碎的动画
         CCSpriteFrameCache *cache = [CCSpriteFrameCache sharedSpriteFrameCache];
         NSMutableArray *frames = [NSMutableArray arrayWithCapacity:4];

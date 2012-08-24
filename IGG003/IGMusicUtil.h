@@ -12,7 +12,10 @@
 
 @interface IGMusicUtil : NSObject {
 }
-
+// 设置碎石flag
++(void)setBreakFlag:(BOOL) bgFlag;
+// 取得碎石flag
++(BOOL)getBreakFlag;
 // 加载全部音效
 +(void)loadMusic;
 // 游戏界面的背景音乐

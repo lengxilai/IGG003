@@ -63,6 +63,10 @@
         }
     }
     
+    if (brokenCount > 0) {
+        [IGMusicUtil showMusciByName:@"break2.caf"];
+    }
+    
     // 本次删除个数
     gameState.m_del_count = deleteNo;
     // 本次击碎石头的数量

@@ -9,12 +9,14 @@
 #import "IGMusicUtil.h"
 
 @implementation IGMusicUtil
+
 static SimpleAudioEngine *backGroundMusicManager;
+static BOOL breakFlag;
 
 //加载音乐
 +(void)loadMusic{
     backGroundMusicManager = [SimpleAudioEngine sharedEngine];
-    
+
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"shake1.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"zhizhu7.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"point.caf"];
@@ -45,6 +47,9 @@ static SimpleAudioEngine *backGroundMusicManager;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"buguniao.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"drop.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"xuanzhuan.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"break1.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"break2.caf"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music4.m4a"];
 }
 
 // 根据音效名字播放
@@ -128,6 +133,12 @@ static SimpleAudioEngine *backGroundMusicManager;
         [player play];
 
     }
+}
++(void)setBreakFlag:(BOOL)bgFlag {
+    breakFlag = bgFlag;
+}
++(BOOL)getBreakFlag {
+    return breakFlag;
 }
 
 @end

@@ -76,6 +76,8 @@
 // 根据坐标删除一个箱子，在CL01中调用
 -(void)runMoveBox:(MxPoint)mp
 {
+    // 设置碎石flag，只想一声
+    [IGMusicUtil setBreakFlag:YES];
     // 开启限制时
     if (isGameStoneCountLimit) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];

@@ -139,12 +139,10 @@
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
             
             if(bestScore <= score && !gameState.isBreakBest){
-                
+                gameState.isBreakBest = YES;
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
-                if([newScoreArr count] < scoreReadNum){
-                    gameState.isBreakBest = YES;
-                }
                 if([newScoreArr count] < scoreWriteNum){
+                    
                     [newScoreArr addObject:[NSString stringWithFormat:@"%d",bestScore]]; 
                     //破纪录时 进入前3
                 }else {

@@ -10,6 +10,11 @@
 		181646BB15C972090014D54A /* IGBoxTools04.m in Sources */ = {isa = PBXBuildFile; fileRef = 181646BA15C972090014D54A /* IGBoxTools04.m */; };
 		181646BF15C973930014D54A /* IGBoxTools07.m in Sources */ = {isa = PBXBuildFile; fileRef = 181646BE15C973930014D54A /* IGBoxTools07.m */; };
 		185FC3E415E76AEA00C7A575 /* snow-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 185FC3E315E76AEA00C7A575 /* snow-hd.png */; };
+		185FC3E715E76FFF00C7A575 /* images_default-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185FC3E515E76FFE00C7A575 /* images_default-hd.plist */; };
+		185FC3E815E76FFF00C7A575 /* img_btn_default-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 185FC3E615E76FFE00C7A575 /* img_btn_default-hd.plist */; };
+		185FC3EC15E7762A00C7A575 /* cover-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 185FC3E915E7762800C7A575 /* cover-hd.png */; };
+		185FC3ED15E7762A00C7A575 /* paused-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 185FC3EA15E7762900C7A575 /* paused-hd.png */; };
+		185FC3EE15E7762A00C7A575 /* sl01-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 185FC3EB15E7762A00C7A575 /* sl01-hd.png */; };
 		1878E0E815C11806008342A7 /* IGBoxTools02.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0E715C11806008342A7 /* IGBoxTools02.m */; };
 		1878E0EC15C1242C008342A7 /* IGBoxTools03.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EB15C1242C008342A7 /* IGBoxTools03.m */; };
 		1878E0EF15C125F9008342A7 /* IGBoxTools06.m in Sources */ = {isa = PBXBuildFile; fileRef = 1878E0EE15C125F9008342A7 /* IGBoxTools06.m */; };
@@ -237,6 +242,11 @@
 		181646BD15C973930014D54A /* IGBoxTools07.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools07.h; sourceTree = "<group>"; };
 		181646BE15C973930014D54A /* IGBoxTools07.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools07.m; sourceTree = "<group>"; };
 		185FC3E315E76AEA00C7A575 /* snow-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snow-hd.png"; sourceTree = "<group>"; };
+		185FC3E515E76FFE00C7A575 /* images_default-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "images_default-hd.plist"; path = "images/images_default-hd.plist"; sourceTree = "<group>"; };
+		185FC3E615E76FFE00C7A575 /* img_btn_default-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "img_btn_default-hd.plist"; path = "images/img_btn_default-hd.plist"; sourceTree = "<group>"; };
+		185FC3E915E7762800C7A575 /* cover-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cover-hd.png"; path = "images/cover-hd.png"; sourceTree = "<group>"; };
+		185FC3EA15E7762900C7A575 /* paused-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paused-hd.png"; path = "images/paused-hd.png"; sourceTree = "<group>"; };
+		185FC3EB15E7762A00C7A575 /* sl01-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sl01-hd.png"; path = "images/sl01-hd.png"; sourceTree = "<group>"; };
 		1878E0E615C11806008342A7 /* IGBoxTools02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools02.h; sourceTree = "<group>"; };
 		1878E0E715C11806008342A7 /* IGBoxTools02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGBoxTools02.m; sourceTree = "<group>"; };
 		1878E0EA15C1242C008342A7 /* IGBoxTools03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGBoxTools03.h; sourceTree = "<group>"; };
@@ -1115,6 +1125,11 @@
 		D7030BFA15B6B35A00BA5EF4 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				185FC3E915E7762800C7A575 /* cover-hd.png */,
+				185FC3EA15E7762900C7A575 /* paused-hd.png */,
+				185FC3EB15E7762A00C7A575 /* sl01-hd.png */,
+				185FC3E515E76FFE00C7A575 /* images_default-hd.plist */,
+				185FC3E615E76FFE00C7A575 /* img_btn_default-hd.plist */,
 				185FC3E315E76AEA00C7A575 /* snow-hd.png */,
 				D7A9B57A15E507FC00DC0667 /* pomodoro.png */,
 				D7A9B57B15E507FC00DC0667 /* pomodoro@2x.png */,
@@ -1342,6 +1357,11 @@
 				D7A9B58515E507FC00DC0667 /* tripcheckericon@2x.png in Resources */,
 				DC9BBB9815E6983200D5A705 /* bg_music4.m4a in Resources */,
 				185FC3E415E76AEA00C7A575 /* snow-hd.png in Resources */,
+				185FC3E715E76FFF00C7A575 /* images_default-hd.plist in Resources */,
+				185FC3E815E76FFF00C7A575 /* img_btn_default-hd.plist in Resources */,
+				185FC3EC15E7762A00C7A575 /* cover-hd.png in Resources */,
+				185FC3ED15E7762A00C7A575 /* paused-hd.png in Resources */,
+				185FC3EE15E7762A00C7A575 /* sl01-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

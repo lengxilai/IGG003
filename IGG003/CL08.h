@@ -19,14 +19,8 @@ typedef enum{
 }AppID;
 
 
-@interface CL08 : CCLayer<UIScrollViewDelegate>
+@interface CL08 : CCLayer
 {
-	UIScrollView *scrollView;
-	UIPageControl *pageControl;
-    NSMutableArray *views;
-    
-    // To be used when scrolls originate from the UIPageControl
-    BOOL pageControlUsed;
 }
 // 初始化
 - (id) init;

@@ -50,7 +50,7 @@ static CL02 *staticCL02;
         iceImg.tag = 200050;
         iceImg.position = ccp(timeFontX+5,timeFontY+5);
         iceImg.visible = NO;
-        [self addChild:iceImg];
+        [self addChild:iceImg z:5];
         //暂停按钮
         //CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
         //CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];

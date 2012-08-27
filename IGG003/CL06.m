@@ -31,7 +31,7 @@
         menu.position=ccp(kWindowW/2, 100);
         [self addChild:menu];
             
-        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"Best Scores:" fntFile:@"bitmapFont.fnt"];
+        CCLabelBMFont *yourScoreStr = [CCLabelBMFont labelWithString:@"High Scores:" fntFile:@"bitmapFont.fnt"];
         yourScoreStr.position = ccp(kWindowW/2,350);
         [self addChild:yourScoreStr];
         //取得arcade mode 分数  显示

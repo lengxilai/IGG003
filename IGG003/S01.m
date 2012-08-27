@@ -103,7 +103,7 @@ static S01 *staticS01;
         [cl02 onExit];
         
         // 时间停止音效
-        [self performSelector:@selector(readyForGameOver) withObject:nil afterDelay:1.8];
+        [self performSelector:@selector(readyForGameOver) withObject:nil afterDelay:1.3];
 
         [self performSelector:@selector(loadCL05) withObject:Nil afterDelay:2.8];
         

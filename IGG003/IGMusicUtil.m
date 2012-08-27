@@ -123,7 +123,10 @@ static BOOL breakFlag;
     //在这里判断以下是否能找到这个音乐文件  
     if (path) {  
         //从path路径中 加载播放器  
-        AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:[[NSURL alloc]initFileURLWithPath:path]error:nil];
+        NSURL *url = [[NSURL alloc]initFileURLWithPath:path];
+        AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
+        // 设定代理，释放player
+        player.delegate = m_gameState;
         //设置播放循环次数，如果numberOfLoops为负数 音频文件就会一直循环播放下去
         player.numberOfLoops = numberOfLoops;
         //初始化播放器
@@ -131,6 +134,7 @@ static BOOL breakFlag;
 
         [player play];
 
+        [url release];
     }
 }
 +(void)setBreakFlag:(BOOL)bgFlag {

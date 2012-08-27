@@ -11,6 +11,7 @@
 @implementation IGGameCenterUtil
 -(void)dealloc{
     [gameCenterView release];
+    [super dealloc];
 }
 -(void)openGameCenter{
     

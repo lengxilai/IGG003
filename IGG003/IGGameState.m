@@ -231,5 +231,10 @@ static IGGameState *staticGameState;
 	}	
 }
 
+// 释放player IGMusicUtil showDeleteMusicWithNumberLoops中调用
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    [player release];
+}
 
 @end

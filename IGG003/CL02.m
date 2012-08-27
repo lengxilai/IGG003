@@ -112,7 +112,7 @@ static CL02 *staticCL02;
         if(times <= 0){
             if (gameState.gameMode==1) {
                 //结束音效
-                [self performSelector:@selector(showGameOverMusic) withObject:nil afterDelay:0.5];
+                [self performSelector:@selector(showGameOverMusic) withObject:nil afterDelay:0.1];
             }
             [self unschedule:@selector(updateTimeDisplay)];
             [self overGame];

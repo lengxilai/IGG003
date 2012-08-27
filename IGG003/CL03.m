@@ -135,7 +135,7 @@ static CL03 *staticCL03;
     NSString *pointStr = [NSString stringWithFormat:@"%d",totalPoints];
     pointsSprit = (CCLabelBMFont *)[self getChildByTag:200001];
     [pointsSprit setString:pointStr];    
-    pointsSprit.position = ccp(310 - pointStr.length * 10,463);
+    pointsSprit.position = ccp(305 - pointStr.length * 6,463);
 
 }
 
@@ -223,7 +223,12 @@ static CL03 *staticCL03;
     addPointSprite.tag = 200003;
     addPointSprite.scale = 1.6;
     // 增加分数的起始位置
-    addPointSprite.position = ccp(position_x, position_y);    
+    if (position_x == 30) {
+        position_x = position_x + (float)(addPointStr.length<=2?0:(addPointStr.length*7));
+    } else if (position_x == 296) {
+        position_x = position_x - (float)(addPointStr.length<=2?10:(addPointStr.length*10));
+    }
+    addPointSprite.position = ccp(position_x, position_y);
     // 增加分数的动态效果
     CCMoveTo *moTP = [CCMoveTo actionWithDuration:0.1 position:ccp(position_x,position_y+85)];
 //    CCFadeOut* foLP = [CCFadeOut actionWithDuration:1.7];

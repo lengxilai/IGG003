@@ -23,9 +23,9 @@ static NSUInteger kNumberOfPages = 3;
     [self addChild:bak];
     
     // 标题提示字
-    CCLabelBMFont *title= [CCLabelBMFont labelWithString:@"About" fntFile:@"bitmapFont2.fnt"];
-    title.position = ccp(kWindowW/2, 460);
-    [self addChild:title];
+//    CCLabelBMFont *title= [CCLabelBMFont labelWithString:@"About" fntFile:@"bitmapFont2.fnt"];
+//    title.position = ccp(kWindowW/2, 460);
+//    [self addChild:title];
     
     
     // 现在评价
@@ -72,7 +72,7 @@ static NSUInteger kNumberOfPages = 3;
     CCMenuItemFont *pomodoro = [CCMenuItemFont itemFromString:@"Pomodoro" target:self selector:@selector(go2DownLoadApp:)];
     pomodoro.tag = AppID_Pomodoro;
     
-    CCMenuItemFont *tripChecker = [CCMenuItemFont itemFromString:@"Trip Check" target:self selector:@selector(go2DownLoadApp:)];
+    CCMenuItemFont *tripChecker = [CCMenuItemFont itemFromString:@"Trip Checker" target:self selector:@selector(go2DownLoadApp:)];
     tripChecker.tag = AppID_TripChecker;
     
     CCMenu* apps=[CCMenu menuWithItems:app0,app1,pomodoro,tripChecker,nil];

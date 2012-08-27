@@ -1406,6 +1406,8 @@
 				DCA7079715EB92BE000EFA18 /* comboFont5.fnt in Resources */,
 				DCA707A215EB955D000EFA18 /* pointFont2.png in Resources */,
 				DCA707A315EB955D000EFA18 /* pointFont2.fnt in Resources */,
+				E2C83EAE15EB864400A190D0 /* bing.png in Resources */,
+				E2C83EB015EB86DA00A190D0 /* bing-hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -236,11 +236,12 @@
 		E276CF6B15C9481800D521FE /* CL04.m in Sources */ = {isa = PBXBuildFile; fileRef = E276CF6A15C9481800D521FE /* CL04.m */; };
 		E28220C115C7CD2D00A2AB79 /* bitmapFont2-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E28220BF15C7CD2D00A2AB79 /* bitmapFont2-hd.fnt */; };
 		E28220C215C7CD2D00A2AB79 /* bitmapFont2-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E28220C015C7CD2D00A2AB79 /* bitmapFont2-hd.png */; };
-		E2C83E9B15EB643300A190D0 /* leaderboard.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C83E9A15EB643200A190D0 /* leaderboard.png */; };
+		E2C83E9B15EB643300A190D0 /* leaderboard-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C83E9A15EB643200A190D0 /* leaderboard-hd.png */; };
 		E2C83E9E15EB6A0500A190D0 /* bitmapFont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2C83E9C15EB6A0400A190D0 /* bitmapFont.fnt */; };
 		E2C83E9F15EB6A0500A190D0 /* bitmapFont.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C83E9D15EB6A0400A190D0 /* bitmapFont.png */; };
 		E2C83EA215EB6ADE00A190D0 /* bitmapFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C83EA015EB6ADD00A190D0 /* bitmapFont2.png */; };
 		E2C83EA315EB6ADE00A190D0 /* bitmapFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = E2C83EA115EB6ADE00A190D0 /* bitmapFont2.fnt */; };
+		E2C83EA515EB6C0400A190D0 /* leaderboard.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C83EA415EB6C0300A190D0 /* leaderboard.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -626,11 +627,12 @@
 		E276CF6A15C9481800D521FE /* CL04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL04.m; sourceTree = "<group>"; };
 		E28220BF15C7CD2D00A2AB79 /* bitmapFont2-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bitmapFont2-hd.fnt"; sourceTree = "<group>"; };
 		E28220C015C7CD2D00A2AB79 /* bitmapFont2-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapFont2-hd.png"; sourceTree = "<group>"; };
-		E2C83E9A15EB643200A190D0 /* leaderboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaderboard.png; sourceTree = "<group>"; };
+		E2C83E9A15EB643200A190D0 /* leaderboard-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leaderboard-hd.png"; sourceTree = "<group>"; };
 		E2C83E9C15EB6A0400A190D0 /* bitmapFont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont.fnt; sourceTree = "<group>"; };
 		E2C83E9D15EB6A0400A190D0 /* bitmapFont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont.png; sourceTree = "<group>"; };
 		E2C83EA015EB6ADD00A190D0 /* bitmapFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapFont2.png; sourceTree = "<group>"; };
 		E2C83EA115EB6ADE00A190D0 /* bitmapFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapFont2.fnt; sourceTree = "<group>"; };
+		E2C83EA415EB6C0300A190D0 /* leaderboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leaderboard.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1139,7 +1141,8 @@
 		D7030BFA15B6B35A00BA5EF4 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				E2C83E9A15EB643200A190D0 /* leaderboard.png */,
+				E2C83EA415EB6C0300A190D0 /* leaderboard.png */,
+				E2C83E9A15EB643200A190D0 /* leaderboard-hd.png */,
 				185FC3E915E7762800C7A575 /* cover-hd.png */,
 				185FC3EA15E7762900C7A575 /* paused-hd.png */,
 				185FC3EB15E7762A00C7A575 /* sl01-hd.png */,
@@ -1385,11 +1388,12 @@
 				185FC3ED15E7762A00C7A575 /* paused-hd.png in Resources */,
 				185FC3EE15E7762A00C7A575 /* sl01-hd.png in Resources */,
 				DCE88A4615E7E13F0030991C /* break2.caf in Resources */,
-				E2C83E9B15EB643300A190D0 /* leaderboard.png in Resources */,
+				E2C83E9B15EB643300A190D0 /* leaderboard-hd.png in Resources */,
 				E2C83E9E15EB6A0500A190D0 /* bitmapFont.fnt in Resources */,
 				E2C83E9F15EB6A0500A190D0 /* bitmapFont.png in Resources */,
 				E2C83EA215EB6ADE00A190D0 /* bitmapFont2.png in Resources */,
 				E2C83EA315EB6ADE00A190D0 /* bitmapFont2.fnt in Resources */,
+				E2C83EA515EB6C0400A190D0 /* leaderboard.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

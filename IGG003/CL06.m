@@ -53,15 +53,18 @@
 
 //读取plist
 -(NSArray *)readPlistWithGameMode:(NSString *)gameMode{
-    NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    
+//    NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
+//    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
+//    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:fileName] ]; // 解析数据
     
-    NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
-    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
-    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:fileName] ]; // 解析数据
-    
-    NSString *content = [ dic objectForKey:gameMode ];
+//    NSString *content = [ dic objectForKey:gameMode ];
     //array是将content里的数据按“,”拆分，仅将两个“,”之间的数据保存。
-    NSArray *array = [ content componentsSeparatedByString:@","];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];  //取得
+    
+    NSString *content = [ud objectForKey:gameMode];
+    NSArray *array = [content componentsSeparatedByString:@","];
     return array;
 }
 -(void)showBrokenModeScores{

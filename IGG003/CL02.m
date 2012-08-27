@@ -46,7 +46,7 @@ static CL02 *staticCL02;
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
         // 倒计时音效
         [self schedule:@selector(showDaojishiMusic) interval:1];
-        CCSprite *iceImg = [CCSprite spriteWithFile:@"bing.png"];
+        CCSprite *iceImg = [CCSprite spriteWithSpriteFrameName:@"bing.png"];
         iceImg.tag = 200050;
         iceImg.position = ccp(timeFontX+5,timeFontY+5);
         iceImg.visible = NO;

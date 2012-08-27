@@ -95,8 +95,8 @@
     CCSprite* aboutSecelt=[CCSprite spriteWithSpriteFrameName:@"btn4-2.png"];
     aboutSecelt.scale=0.95f;
     
-    CCSprite* gameCenterNormal=[CCSprite spriteWithFile:@"leaderboard.png"];
-    CCSprite* gameCenterSecelt=[CCSprite spriteWithFile:@"leaderboard.png"];
+    CCSprite* gameCenterNormal=[CCSprite spriteWithSpriteFrameName:@"leaderboard.png"];
+    CCSprite* gameCenterSecelt=[CCSprite spriteWithSpriteFrameName:@"leaderboard.png"];
     aboutSecelt.scale=0.95f;
     
     CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:scene selector:@selector(startGame)];

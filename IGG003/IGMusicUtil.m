@@ -49,7 +49,6 @@ static BOOL breakFlag;
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"xuanzhuan.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"break1.caf"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"break2.caf"];
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"bg_music4.m4a"];
 }
 
 // 根据音效名字播放

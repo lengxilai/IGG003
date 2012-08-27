@@ -211,7 +211,6 @@
 		DCA7079715EB92BE000EFA18 /* comboFont5.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DCA7079515EB92BE000EFA18 /* comboFont5.fnt */; };
 		DCA707A215EB955D000EFA18 /* pointFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA707A015EB955C000EFA18 /* pointFont2.png */; };
 		DCA707A315EB955D000EFA18 /* pointFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DCA707A115EB955C000EFA18 /* pointFont2.fnt */; };
-		DCA707AE15EB987A000EFA18 /* bg_music4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DCA707AD15EB987A000EFA18 /* bg_music4.m4a */; };
 		DCC5BE9015E229BA00534185 /* dilei5.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC5BE8F15E229BA00534185 /* dilei5.caf */; };
 		DCC5BE9415E22DC900534185 /* dilei_end.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC5BE9315E22DC900534185 /* dilei_end.caf */; };
 		DCC6274615E4BAFB000240E7 /* daojishi.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC6274515E4BAFB000240E7 /* daojishi.caf */; };
@@ -603,7 +602,6 @@
 		DCA7079515EB92BE000EFA18 /* comboFont5.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comboFont5.fnt; sourceTree = "<group>"; };
 		DCA707A015EB955C000EFA18 /* pointFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont2.png; sourceTree = "<group>"; };
 		DCA707A115EB955C000EFA18 /* pointFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont2.fnt; sourceTree = "<group>"; };
-		DCA707AD15EB987A000EFA18 /* bg_music4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music4.m4a; sourceTree = "<group>"; };
 		DCC5BE8F15E229BA00534185 /* dilei5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dilei5.caf; sourceTree = "<group>"; };
 		DCC5BE9315E22DC900534185 /* dilei_end.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dilei_end.caf; sourceTree = "<group>"; };
 		DCC6274515E4BAFB000240E7 /* daojishi.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = daojishi.caf; sourceTree = "<group>"; };
@@ -1199,7 +1197,6 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
-				DCA707AD15EB987A000EFA18 /* bg_music4.m4a */,
 				DCE88A4515E7E13F0030991C /* break2.caf */,
 				DCFE32DD15E7730700B7216F /* break1.caf */,
 				DC04E40915E62FBC0029997B /* failed.caf */,
@@ -1425,7 +1422,6 @@
 				DCA707A315EB955D000EFA18 /* pointFont2.fnt in Resources */,
 				E2C83EAE15EB864400A190D0 /* bing.png in Resources */,
 				E2C83EB015EB86DA00A190D0 /* bing-hd.png in Resources */,
-				DCA707AE15EB987A000EFA18 /* bg_music4.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

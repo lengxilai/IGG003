@@ -95,8 +95,8 @@
     CCSprite* aboutSecelt=[CCSprite spriteWithSpriteFrameName:@"btn4-2.png"];
     aboutSecelt.scale=0.95f;
     
-    CCSprite* gameCenterNormal=[CCSprite spriteWithSpriteFrameName:@"btn4-1.png"];
-    CCSprite* gameCenterSecelt=[CCSprite spriteWithSpriteFrameName:@"btn4-2.png"];
+    CCSprite* gameCenterNormal=[CCSprite spriteWithFile:@"leaderboard.png"];
+    CCSprite* gameCenterSecelt=[CCSprite spriteWithFile:@"leaderboard.png"];
     aboutSecelt.scale=0.95f;
     
     CCMenuItemSprite* startSprite=[CCMenuItemSprite itemFromNormalSprite:playNormal selectedSprite:playSecelt target:scene selector:@selector(startGame)];
@@ -113,10 +113,15 @@
     [menu1 alignItemsVerticallyWithPadding:15];
     
     // 下面的其他按钮
-    CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,gameCenterSprite,nil];
+    CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,nil];
     menu2.position=ccp(75, 140);    
     [scene addChild:menu2 z:41];
     [menu2 alignItemsVerticallyWithPadding:15];    
+    
+    CCMenu* menu3 = [CCMenu menuWithItems:gameCenterSprite,nil];
+    menu3.position=ccp(260, 310);    
+    [scene addChild:menu3 z:42];
+    [menu3 alignItemsVerticallyWithPadding:15];  
 	return scene;
 }
 

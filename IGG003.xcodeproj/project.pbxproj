@@ -207,11 +207,11 @@
 		DC93533C15C9384F000AB032 /* IGMusicUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533A15C9384F000AB032 /* IGMusicUtil.m */; };
 		DC93534015C93C2B000AB032 /* IGToolUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = DC93533D15C93C2A000AB032 /* IGToolUtils.m */; };
 		DC93534115C93C2B000AB032 /* bitmapFont2-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DC93533E15C93C2B000AB032 /* bitmapFont2-hd.fnt */; };
-		DC9BBB9815E6983200D5A705 /* bg_music4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DC9BBB9715E6983200D5A705 /* bg_music4.m4a */; };
 		DCA7079615EB92BE000EFA18 /* comboFont5.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA7079415EB92BE000EFA18 /* comboFont5.png */; };
 		DCA7079715EB92BE000EFA18 /* comboFont5.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DCA7079515EB92BE000EFA18 /* comboFont5.fnt */; };
 		DCA707A215EB955D000EFA18 /* pointFont2.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA707A015EB955C000EFA18 /* pointFont2.png */; };
 		DCA707A315EB955D000EFA18 /* pointFont2.fnt in Resources */ = {isa = PBXBuildFile; fileRef = DCA707A115EB955C000EFA18 /* pointFont2.fnt */; };
+		DCA707AE15EB987A000EFA18 /* bg_music4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = DCA707AD15EB987A000EFA18 /* bg_music4.m4a */; };
 		DCC5BE9015E229BA00534185 /* dilei5.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC5BE8F15E229BA00534185 /* dilei5.caf */; };
 		DCC5BE9415E22DC900534185 /* dilei_end.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC5BE9315E22DC900534185 /* dilei_end.caf */; };
 		DCC6274615E4BAFB000240E7 /* daojishi.caf in Resources */ = {isa = PBXBuildFile; fileRef = DCC6274515E4BAFB000240E7 /* daojishi.caf */; };
@@ -599,11 +599,11 @@
 		DC93533D15C93C2A000AB032 /* IGToolUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGToolUtils.m; sourceTree = "<group>"; };
 		DC93533E15C93C2B000AB032 /* bitmapFont2-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bitmapFont2-hd.fnt"; sourceTree = "<group>"; };
 		DC93533F15C93C2B000AB032 /* IGToolUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGToolUtils.h; sourceTree = "<group>"; };
-		DC9BBB9715E6983200D5A705 /* bg_music4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music4.m4a; sourceTree = "<group>"; };
 		DCA7079415EB92BE000EFA18 /* comboFont5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comboFont5.png; sourceTree = "<group>"; };
 		DCA7079515EB92BE000EFA18 /* comboFont5.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = comboFont5.fnt; sourceTree = "<group>"; };
 		DCA707A015EB955C000EFA18 /* pointFont2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointFont2.png; sourceTree = "<group>"; };
 		DCA707A115EB955C000EFA18 /* pointFont2.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pointFont2.fnt; sourceTree = "<group>"; };
+		DCA707AD15EB987A000EFA18 /* bg_music4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_music4.m4a; sourceTree = "<group>"; };
 		DCC5BE8F15E229BA00534185 /* dilei5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dilei5.caf; sourceTree = "<group>"; };
 		DCC5BE9315E22DC900534185 /* dilei_end.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dilei_end.caf; sourceTree = "<group>"; };
 		DCC6274515E4BAFB000240E7 /* daojishi.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = daojishi.caf; sourceTree = "<group>"; };
@@ -1199,9 +1199,9 @@
 		DC93533615C937F4000AB032 /* music */ = {
 			isa = PBXGroup;
 			children = (
+				DCA707AD15EB987A000EFA18 /* bg_music4.m4a */,
 				DCE88A4515E7E13F0030991C /* break2.caf */,
 				DCFE32DD15E7730700B7216F /* break1.caf */,
-				DC9BBB9715E6983200D5A705 /* bg_music4.m4a */,
 				DC04E40915E62FBC0029997B /* failed.caf */,
 				DCC6275315E4FBCD000240E7 /* xuanzhuan.caf */,
 				DCC6275115E4F43A000240E7 /* drop.caf */,
@@ -1403,7 +1403,6 @@
 				D7A9B58315E507FC00DC0667 /* tenyeardiaryicon@2x.png in Resources */,
 				D7A9B58415E507FC00DC0667 /* tripcheckericon.png in Resources */,
 				D7A9B58515E507FC00DC0667 /* tripcheckericon@2x.png in Resources */,
-				DC9BBB9815E6983200D5A705 /* bg_music4.m4a in Resources */,
 				DCFE32DE15E7730700B7216F /* break1.caf in Resources */,
 				185FC3E415E76AEA00C7A575 /* snow-hd.png in Resources */,
 				185FC3E715E76FFF00C7A575 /* images_default-hd.plist in Resources */,
@@ -1418,17 +1417,15 @@
 				E2C83EA215EB6ADE00A190D0 /* bitmapFont2.png in Resources */,
 				E2C83EA315EB6ADE00A190D0 /* bitmapFont2.fnt in Resources */,
 				E2C83EA515EB6C0400A190D0 /* leaderboard.png in Resources */,
-
 				DC4A7DC215EB8D3000C4CAFC /* pointFont.png in Resources */,
 				DC4A7DC315EB8D3000C4CAFC /* pointFont.fnt in Resources */,
 				DCA7079615EB92BE000EFA18 /* comboFont5.png in Resources */,
 				DCA7079715EB92BE000EFA18 /* comboFont5.fnt in Resources */,
 				DCA707A215EB955D000EFA18 /* pointFont2.png in Resources */,
 				DCA707A315EB955D000EFA18 /* pointFont2.fnt in Resources */,
-
 				E2C83EAE15EB864400A190D0 /* bing.png in Resources */,
 				E2C83EB015EB86DA00A190D0 /* bing-hd.png in Resources */,
-
+				DCA707AE15EB987A000EFA18 /* bg_music4.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

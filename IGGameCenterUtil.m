@@ -9,7 +9,9 @@
 #import "IGGameCenterUtil.h"
 
 @implementation IGGameCenterUtil
-
+-(void)dealloc{
+    [gameCenterView release];
+}
 -(void)openGameCenter{
     
     gameCenterView = [[UIViewController alloc] init];
@@ -31,14 +33,9 @@
     }
     
 }
-- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController 
-
-{
-    
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController {
     [gameCenterView dismissModalViewControllerAnimated:YES];
     [gameCenterView removeFromParentViewController];
-    [gameCenterView release];
-    
 }
 //上传到gamecenter
 +(void) reportScore: (int64_t) score forCategory: (NSString*) category { 

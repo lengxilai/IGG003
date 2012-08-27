@@ -12,7 +12,6 @@
 #import "GameConfig.h"
 #import "RootViewController.h"
 #import "IGMusicUtil.h"
-
 @implementation AppDelegate
 
 @synthesize window;
@@ -114,22 +113,22 @@
     
     NSDictionary *defaultValues = [NSDictionary dictionaryWithObjectsAndKeys: kInitGameStoneCount, GameStoneCount,nil];   
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues]; 
-	
     if([self isGameCenterAvailable]){
+        IGGameState *m_dataState = [IGGameState gameState];
+        m_dataState.isGameCenter = YES;
         [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error){ 
             if (error == nil) { 
                 //成功处理 
                 NSLog(@"成功"); 
-                NSLog(@"1--alias--.%@",[GKLocalPlayer localPlayer].alias); 
-                NSLog(@"2--authenticated--.%d",[GKLocalPlayer localPlayer].authenticated); 
-                NSLog(@"3--isFriend--.%d",[GKLocalPlayer localPlayer].isFriend); 
-                NSLog(@"4--playerID--.%@",[GKLocalPlayer localPlayer].playerID); 
-                NSLog(@"5--underage--.%d",[GKLocalPlayer localPlayer].underage); 
+                
             }else { 
                 //错误处理 
                 NSLog(@"失败  %@",error); 
             } 
         }];
+    }else{
+        IGGameState *m_dataState = [IGGameState gameState];
+        m_dataState.isGameCenter = NO;
     }
     
     
@@ -198,6 +197,7 @@
 //判断gamecenter是否可用
 - (BOOL) isGameCenterAvailable 
 { 
+    
     Class gcClass = (NSClassFromString(@"GKLocalPlayer")); 
     NSString *reqSysVer = @"4.1"; 
     NSString *currSysVer = [[UIDevice currentDevice] systemVersion]; 

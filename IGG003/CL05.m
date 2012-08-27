@@ -4,7 +4,7 @@
 //
 //  Created by wang chong on 12-8-7.
 //  Copyright (c) 2012年 ntt. All rights reserved.
-//
+//gameCenterView
 
 #import "CL05.h"
 
@@ -53,7 +53,7 @@
         [self writePlistWithGameMode:[self getGameModeStr] withScore:score];
         
         //得分纪录
-        CCLabelBMFont *bestScoreStr = [CCLabelBMFont labelWithString:@"best scores" fntFile:@"bitmapFont.fnt"];
+        CCLabelBMFont *bestScoreStr = [CCLabelBMFont labelWithString:@"high scores" fntFile:@"bitmapFont.fnt"];
         bestScoreStr.position = ccp(kWindowW/2,260);
         [self addChild:bestScoreStr];
         NSArray *array  = [self readPlistWithGameMode:[self getGameModeStr]];
@@ -139,7 +139,9 @@
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
             
             if(bestScore <= score && !gameState.isBreakBest){
-                gameState.isBreakBest = YES;
+                if(i < 3){
+                    gameState.isBreakBest = YES;
+                }
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
                 if([newScoreArr count] < scoreWriteNum){
                     

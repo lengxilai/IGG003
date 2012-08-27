@@ -139,7 +139,9 @@
             int bestScore =[[scoreArr objectAtIndex:i] intValue];
             
             if(bestScore <= score && !gameState.isBreakBest){
-                gameState.isBreakBest = YES;
+                if(i < 3){
+                    gameState.isBreakBest = YES;
+                }
                 [newScoreArr addObject:[NSString stringWithFormat:@"%d",score]];
                 if([newScoreArr count] < scoreWriteNum){
                     

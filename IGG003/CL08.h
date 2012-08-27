@@ -15,7 +15,7 @@ typedef enum{
     AppID_TenYearsDiary = 508014699,
     AppID_TripChecker = 529403333,
     AppID_Pomodoro = 533655318,
-    AppID_FruitBoBo = 533655318,
+    AppID_FruitBoBo = 555587932,
 }AppID;
 
 

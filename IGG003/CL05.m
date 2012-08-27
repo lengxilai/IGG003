@@ -107,14 +107,17 @@
 
 //读取plist
 -(NSArray *)readPlistWithGameMode:(NSString *)gameMode{
-    NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
-    NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
-    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
-    NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:fileName] ]; // 解析数据
+    //NSString *docPath = [ doc objectAtIndex:0 ]; // 字典集合。  
+   // NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
+   // NSDictionary *dic = [ NSDictionary dictionaryWithContentsOfFile:[docPath stringByAppendingPathComponent:fileName] ]; // 解析数据
     
-    NSString *content = [ dic objectForKey:gameMode ];
+    //NSString *content = [ dic objectForKey:gameMode ];
     //array是将content里的数据按“,”拆分，仅将两个“,”之间的数据保存。
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];  //取得
+
+    NSString *content = [ud objectForKey:gameMode];
     NSArray *array = [content componentsSeparatedByString:@","];
     return array;
 }
@@ -168,16 +171,18 @@
             break;
         }
     }
-    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud setObject:[newScoreArr componentsJoinedByString:@","]  forKey:gameMode];  //保存
+    [ud synchronize];
     //　用来覆盖原始数据的新dic
-    NSMutableDictionary *newDic = [[ [ NSMutableDictionary alloc ] init ] autorelease];
+    //NSMutableDictionary *newDic = [[ [ NSMutableDictionary alloc ] init ] autorelease];
     // 将新的dic里的“Score”项里的数据写为“newScore”
-    [newDic setValue:[newScoreArr componentsJoinedByString:@","] forKey:gameMode ];
+    //[newDic setValue:[newScoreArr componentsJoinedByString:@","] forKey:gameMode ];
     // 将　newDic　保存至 docPath＋“Score.plist”文件里，也就是覆盖原来的文件
-    NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [ doc objectAtIndex:0 ];
-    NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
-    [newDic writeToFile:[docPath stringByAppendingPathComponent:fileName] atomically:YES ];
+   // NSArray *doc = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //NSString *docPath = [ doc objectAtIndex:0 ];
+    //NSString *fileName = [NSString stringWithFormat:@"%@.plist",gameMode];
+    //[newDic writeToFile:[docPath stringByAppendingPathComponent:fileName] atomically:YES ];
 
 }
 -(int)getGameScore{

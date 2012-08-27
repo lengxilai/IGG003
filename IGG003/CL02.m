@@ -36,7 +36,7 @@ static CL02 *staticCL02;
         iceFlg = 0;
         //没有happytime
         happyTimeFlg = 0;
-       
+        
         [self addChild:pointsSprit z:1];
         //计算倒计时长
         self.time = [NSDate dateWithTimeIntervalSinceNow:(delaySeconds)];
@@ -46,7 +46,11 @@ static CL02 *staticCL02;
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
         // 倒计时音效
         [self schedule:@selector(showDaojishiMusic) interval:1];
-
+//        CCSprite *iceImg = [CCSprite spriteWithFile:@"bing.png"];
+//        iceImg.tag = 200050;
+//        iceImg.position = ccp(timeFontX+5,timeFontY+5);
+//        iceImg.visible = NO;
+//        [self addChild:iceImg z:5];
         //暂停按钮
         //CCSprite* playNormal=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
         //CCSprite* playSecelt=[CCSprite spriteWithSpriteFrameName:@"btn10-2.png"];
@@ -173,6 +177,8 @@ static CL02 *staticCL02;
 //使用冰冻道具
 -(void)clickIceTool{
     iceFlg = 1;
+    //CCSprite *iceImg = (CCSprite *)[self getChildByTag:200050];
+    //iceImg.visible = YES;
     self.iceNSDateTime = [NSDate dateWithTimeIntervalSinceNow:(pauseTime)];
     //停止倒计时
     [self unschedule:@selector(updateTimeDisplay)];
@@ -198,6 +204,8 @@ static CL02 *staticCL02;
         //继续计时  
         [self schedule:@selector(updateTimeDisplay) interval:0.1];
         iceFlg = 0;
+        //CCSprite *iceImg = (CCSprite *)[self getChildByTag:200050];
+        //iceImg.visible = NO;
     }
 }
 #pragma mark -

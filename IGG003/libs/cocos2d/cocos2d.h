@@ -43,7 +43,7 @@
 #define COCOS2D_VERSION 0x00010001
 
 #import <Availability.h>
-
+#import<GameKit/GameKit.h>
 //
 // all cocos2d include files
 //

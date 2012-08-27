@@ -88,6 +88,8 @@ MxPointMake(int r, int c)
     
     // 分数列表
     NSMutableArray*	m_scoreListBroken;
+    // 支持gamecenter
+    BOOL isGameCenter;
 }
 @property(nonatomic,retain) NSArray *m;
 @property(nonatomic,assign) int m_score;
@@ -106,6 +108,7 @@ MxPointMake(int r, int c)
 @property(nonatomic,assign) BOOL isSoundOn;
 @property(nonatomic,assign) NSMutableArray *m_scoreListNormal;
 @property(nonatomic,assign) NSMutableArray *m_scoreListBroken;
+@property(nonatomic,assign) BOOL isGameCenter;
 
 +(IGGameState*)gameState;
 -(id)init;

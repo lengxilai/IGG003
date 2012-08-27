@@ -16,7 +16,7 @@
 	IGScene *scene = [S00 node];
 
     // 游戏状态初始化
-    [IGGameState gameState];
+    IGGameState *gameState = [IGGameState gameState];
     // 从分数画面和设定画面不换背景音乐
     
     if (needChangeMusic) {
@@ -116,12 +116,14 @@
     CCMenu* menu2=[CCMenu menuWithItems:scoreSprite,settingSprite,aboutSprite,nil];
     menu2.position=ccp(75, 140);    
     [scene addChild:menu2 z:41];
-    [menu2 alignItemsVerticallyWithPadding:15];    
-    
-    CCMenu* menu3 = [CCMenu menuWithItems:gameCenterSprite,nil];
-    menu3.position=ccp(260, 310);    
-    [scene addChild:menu3 z:42];
-    [menu3 alignItemsVerticallyWithPadding:15];  
+    [menu2 alignItemsVerticallyWithPadding:15];   
+    //game
+    if(gameState.isGameCenter){
+        CCMenu* menu3 = [CCMenu menuWithItems:gameCenterSprite,nil];
+        menu3.position=ccp(260, 310);    
+        [scene addChild:menu3 z:42];
+        [menu3 alignItemsVerticallyWithPadding:15];  
+    }
 	return scene;
 }
 

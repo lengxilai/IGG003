@@ -27,7 +27,7 @@ static IGGameState *staticGameState;
 @synthesize m_scoreListNormal;
 @synthesize m_scoreListBroken;
 @synthesize m_tool_type;
-
+@synthesize isGameCenter;
 +(IGGameState*)gameState
 {
     if (staticGameState == nil) {

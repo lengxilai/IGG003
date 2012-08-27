@@ -169,7 +169,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "197"
          endingLineNumber = "197"
-         landmarkName = "-clickHappyTimeTool"
+         landmarkName = "-pauseScheduleByIce"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -182,7 +182,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "198"
          endingLineNumber = "198"
-         landmarkName = "-clickHappyTimeTool"
+         landmarkName = "-pauseScheduleByIce"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -195,7 +195,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "202"
          endingLineNumber = "202"
-         landmarkName = "-scheduleForHappyTime"
+         landmarkName = "-pauseScheduleByIce"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -208,7 +208,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "186"
          endingLineNumber = "186"
-         landmarkName = "-clickAddTimeTool"
+         landmarkName = "-clickIceTool"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -221,7 +221,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "201"
          endingLineNumber = "201"
-         landmarkName = "-scheduleForHappyTime"
+         landmarkName = "-pauseScheduleByIce"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -260,8 +260,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "71"
          endingLineNumber = "71"
-         landmarkName = "@implementation CL04"
-         landmarkType = "3">
+         landmarkName = "-gobackMenu"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -438,7 +438,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "74"
          endingLineNumber = "74"
-         landmarkName = "-updateTimeDisplay"
+         landmarkName = "+getCL02"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
